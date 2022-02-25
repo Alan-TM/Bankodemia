@@ -1,7 +1,8 @@
-package mx.backoders.bankodemia
+package mx.backoders.bankodemia.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import mx.backoders.bankodemia.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
