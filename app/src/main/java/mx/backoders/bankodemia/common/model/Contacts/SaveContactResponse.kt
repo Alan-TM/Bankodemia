@@ -1,14 +1,13 @@
-package mx.backoders.bankodemia.common.model
+package mx.backoders.bankodemia.common.model.Contacts
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import mx.backoders.bankodemia.common.dto.User
 
-data class SingleIUserResponse(
+data class SaveContactResponse(
     @Expose
     @SerializedName("success")
-    var success: Int,
+    val success: Boolean,
     @Expose
     @SerializedName("data")
-    val data: User
+    val data: SaveContactData
 )

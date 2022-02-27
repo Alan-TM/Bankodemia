@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia.common.dto
+package mx.backoders.bankodemia.common.model.User
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
