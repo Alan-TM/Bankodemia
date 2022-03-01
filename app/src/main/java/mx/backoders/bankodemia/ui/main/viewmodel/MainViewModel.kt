@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia.viewmodel
+package mx.backoders.bankodemia.ui.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
