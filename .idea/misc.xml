@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_send_edit.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_send_list_users.xml" value="0.22" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/card.xml" value="0.25" />
         <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/crearcontrasena.xml" value="0.22" />
         <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/home.xml" value="0.25" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/itemtransactions.xml" value="0.1" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/homedetails.xml" value="0.22" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/item_send_list.xml" value="0.33" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/item_services.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/itemtransactions.xml" value="0.25" />
+        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/services.xml" value="0.17255434782608695" />
       </map>
     </option>
   </component>
