@@ -11,9 +11,10 @@ class RegisterPasswordViewModel : ViewModel() {
     //this function should be call in the register button
     fun isValidPassword(password: String) {
         val consecutiveNumbers = consecutiveNumbersPassword(password)
-        val repeatedCharacters = repeatedCharactersPassword(password)
+        val consecutiveCharacters = consecutiveCharacterPassword(password)
+        //val repeatedCharacters = repeatedCharactersPassword(password)
 
-        isValid.postValue(consecutiveNumbers && repeatedCharacters)
+        isValid.postValue(consecutiveNumbers && consecutiveCharacters)
     }
 
     fun minLengthPassword(password: String) = isValid.postValue(password.length >= 6)
@@ -21,7 +22,6 @@ class RegisterPasswordViewModel : ViewModel() {
     private fun consecutiveNumbersPassword(password: String): Boolean {
         var index = 0
         val length = password.length - 1
-        Log.d("consecutiveNumber", password.indices.toString())
         if(length == -1){
             isValid.postValue(true)
         }else {
@@ -40,6 +40,26 @@ class RegisterPasswordViewModel : ViewModel() {
         return true
     }
 
+    private fun consecutiveCharacterPassword(password: String): Boolean {
+        val length = password.length - 1
+        if(length >= 1){
+            for((index, value) in password.withIndex()){
+                if(index < length){
+                    if(value in 'a'..'z' && password[index+1] in 'a'..'z'){
+                        val valueToDigit = value.code
+                        val nextValueToDigit = password[index+1].code
+
+                        if(valueToDigit+1 == nextValueToDigit){
+                            return false
+                        }
+                    }
+                }
+            }
+        }
+        return true
+    }
+
+    // PROBABLY DISCARD FUNC-----
     private fun repeatedCharactersPassword(password: String): Boolean{
         if(password.length-1 >= 0) {
             var count = 0
@@ -48,7 +68,6 @@ class RegisterPasswordViewModel : ViewModel() {
                 if(password[i] in 'a'..'z') {
                     for (j in i + 1 until password.length) {
                         if (password[i] == password[j] && password[i] != ' ') {
-                            Log.d("REPEATED", "${password[i]} ${password[j]}")
                             count++
                             break@outer
                         }
