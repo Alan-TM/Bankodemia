@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
         <activity
+            android:name=".Crear_Cuenta_Activity"
+            android:exported="false" />
+        <activity
             android:name=".activitylogin"
             android:exported="false" />
         <activity
