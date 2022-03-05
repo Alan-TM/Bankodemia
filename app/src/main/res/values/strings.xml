@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Bankodemia</string>
+    <string name="error_empty">Campo necesario</string>
+    <string name="error_invalid_email">Email no valido</string>
+    <string name="error_length">Error en la longitud</string>
 </resources>

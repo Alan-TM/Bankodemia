@@ -1,12 +1,12 @@
-package mx.backoders.bankodemia.view
+package mx.backoders.bankodemia.ui.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import mx.backoders.bankodemia.R
 
-class MainActivity : AppCompatActivity() {
+class SendListUsers : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_send_list_users)
     }
 }
