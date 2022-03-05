@@ -33,5 +33,11 @@ data class User(
     val identityImage: String,
     @Expose
     @SerializedName("identityImageType")
-    val identityImageType: String // TODO RoHe: This should be a ENUM??
+    val identityImageType: String, // TODO RoHe: This should be a ENUM??
+    @Expose
+    @SerializedName("_id")
+    val id: String,
+    @Expose
+    @SerializedName("__v")
+    val v: Int // ????? From API Response
     )
