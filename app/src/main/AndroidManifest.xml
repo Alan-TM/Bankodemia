@@ -16,7 +16,13 @@
             android:name=".activitylogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.view.SendEdit"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.view.SendListUsers"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
