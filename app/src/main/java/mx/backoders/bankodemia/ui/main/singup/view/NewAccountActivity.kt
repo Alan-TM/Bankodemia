@@ -1,14 +1,12 @@
-package mx.backoders.bankodemia.ui.main.login.view
+package mx.backoders.bankodemia.ui.main.singup.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import mx.backoders.bankodemia.R
 
-class LoginActivity : AppCompatActivity() {
+class NewAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_activity_login)
+        setContentView(R.layout.activity_new_account)
     }
-
-
 }

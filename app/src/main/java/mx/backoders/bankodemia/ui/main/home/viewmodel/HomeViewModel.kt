@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia
+package mx.backoders.bankodemia.ui.main.home.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
