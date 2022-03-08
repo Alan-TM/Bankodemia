@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.backoders.bankodemia">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
+        <activity
+            android:name=".Transaction_Completed"
+            android:exported="false" />
+        <activity
+            android:name=".Processing_Transaction"
+            android:exported="false" />
         <activity
             android:name=".Crear_Cuenta_Activity"
             android:exported="false" />
