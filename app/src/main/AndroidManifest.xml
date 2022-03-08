@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
         <activity
+<<<<<<< HEAD
             android:name=".Transaction_Completed"
             android:exported="false" />
         <activity
@@ -19,18 +20,21 @@
             android:exported="false" />
         <activity
             android:name=".Crear_Cuenta_Activity"
+=======
+            android:name=".ui.main.singup.view.NewAccountActivity"
+>>>>>>> develop
             android:exported="false" />
         <activity
-            android:name=".activitylogin"
+            android:name=".ui.main.login.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.view.SendEdit"
+            android:name="mx.backoders.bankodemia.ui.main.transactions.view.SendEdit"
             android:exported="false" />
         <activity
-            android:name=".ui.main.view.SendListUsers"
+            android:name="mx.backoders.bankodemia.ui.main.transactions.view.SendListUsers"
             android:exported="false" />
         <activity
-            android:name=".ui.main.view.MainActivity"
+            android:name="mx.backoders.bankodemia.ui.main.login.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

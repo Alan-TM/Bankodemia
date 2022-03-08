@@ -25,5 +25,8 @@ data class Transaction(
     val destinationUser: User,
     @Expose
     @SerializedName("isIncome")
-    val isIncome: Boolean
+    val isIncome: Boolean,
+    @Expose
+    @SerializedName("_id")
+    val _id: String
 )
