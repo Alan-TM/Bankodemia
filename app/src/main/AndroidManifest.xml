@@ -18,13 +18,13 @@
             android:name=".ui.login.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="mx.backoders.bankodemia.ui.transactions.view.SendEdit"
+            android:name=".ui.transactions.view.SendEdit"
             android:exported="false" />
         <activity
-            android:name="mx.backoders.bankodemia.ui.main.transactions.view.SendListUsers"
+            android:name=".ui.transactions.view.SendListUsers"
             android:exported="false" />
         <activity
-            android:name="mx.backoders.bankodemia.ui.login.view.MainActivity"
+            android:name=".ui.login.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
