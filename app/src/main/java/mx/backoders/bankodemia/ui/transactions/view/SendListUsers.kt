@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia.ui.main.view
+package mx.backoders.bankodemia.ui.transactions.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
