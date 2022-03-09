@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="24dp"
-    tools:context=".ui.main.view.SendEdit">
+    tools:context=".ui.transactions.view.SendEdit">
 
     <ImageView
         android:id="@+id/imageView18"
