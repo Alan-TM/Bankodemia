@@ -1,9 +1,11 @@
 package mx.backoders.bankodemia.common.api
 
 import mx.backoders.bankodemia.common.dto.LoginDto
+import mx.backoders.bankodemia.common.dto.UserSignUpDto
 import mx.backoders.bankodemia.common.model.User.User
 import mx.backoders.bankodemia.common.model.User.UserData
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
+import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.UserLoginResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -18,8 +20,12 @@ interface ApiClient {
         @Body loginDto: LoginDto //send the body.
     ): Response<UserLoginResponse>
 
-    @POST("endpoint")
-    suspend fun userLogIn(@Body body: LoginDto)
+    @POST("users")
+    @Headers(
+        "Content-Type: application/json",
+        "Accept: application/json"
+    )
+    suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
     @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDY0MjE5MTksImV4cCI6MTY0NjQyNTUxOX0.zVQ9RrQsq849kEPhhaCwSndyeKixQut-Sgiw59rP0oE")
