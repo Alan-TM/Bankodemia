@@ -5,6 +5,13 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="black">#161616</color>
+    <color name="primaryBlue">#00CCCC</color>
+    <color name="primaryViolet">#7B78EA</color>
+    <color name="gray">#7F7F7F</color>
+
+    <!-- Background for odd numbered transactions in the recycler view in home -->
+    <color name="bg_recycler_transaction">#F5F5F5</color>
 </resources>

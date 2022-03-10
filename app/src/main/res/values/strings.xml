@@ -3,4 +3,12 @@
     <string name="error_empty">Campo necesario</string>
     <string name="error_invalid_email">Email no valido</string>
     <string name="error_length">Error en la longitud</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">INICIO</string>
+    <string name="title_card">TARJETA</string>
+    <string name="title_services">SERVICIOS</string>
+
+    <string name="available_money">Dinero disponible</string>
+    <string name="send">Enviar</string>
+    <string name="get">Recibir</string>
 </resources>

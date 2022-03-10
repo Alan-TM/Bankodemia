@@ -17,7 +17,7 @@ import retrofit2.Response
 class ServiceNetwork {
     private val retrofit = RetrofitInstance.getRetrofit().create(ApiClient::class.java)
 
-    suspend fun getLogin(expires_in : Int, dto: LoginDto) : Response<UserLoginResponse> {
+    suspend fun getLogin(expires_in : String, dto: LoginDto) : Response<UserLoginResponse> {
         return withContext(Dispatchers.IO){
             val response = retrofit.getLogin(expires_in, dto)
             response

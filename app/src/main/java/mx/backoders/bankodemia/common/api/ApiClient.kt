@@ -16,7 +16,7 @@ interface ApiClient {
     //and return a UserLoginResponse
     @POST("auth/login")
     suspend fun getLogin(
-        @Query("expires_in") expires_in: Int, //ENUM ?? THIS PARAMETER IS NOT NEEDED
+        @Query("expires_in") expires_in: String, //ENUM ?? THIS PARAMETER IS NOT NEEDED
         @Body loginDto: LoginDto //send the body.
     ): Response<UserLoginResponse>
 
@@ -28,7 +28,7 @@ interface ApiClient {
     suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDY0MjE5MTksImV4cCI6MTY0NjQyNTUxOX0.zVQ9RrQsq849kEPhhaCwSndyeKixQut-Sgiw59rP0oE")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDY5NDQ5NzQsImV4cCI6MTY0NzAzMTM3NH0.SnD7qHgqaVapOfNK-yMGuibfpZEIcGcCyx6HKwNmaAI")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
 }
