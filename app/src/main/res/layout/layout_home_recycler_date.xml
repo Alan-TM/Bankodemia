@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constraint_recycler_date"
-    android:padding="8dp">
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp"
+    >
 
     <TextView
         android:id="@+id/date_recycler"
