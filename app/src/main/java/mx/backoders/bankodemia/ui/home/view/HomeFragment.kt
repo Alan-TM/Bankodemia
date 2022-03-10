@@ -1,18 +1,22 @@
 package mx.backoders.bankodemia.ui.home.view
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
+import java.text.DecimalFormat
 
+@RequiresApi(Build.VERSION_CODES.O)
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -47,6 +51,8 @@ class HomeFragment : Fragment() {
 
     private fun userProfileObserver(){
         homeViewModel.userProfileResponse.observe(viewLifecycleOwner){
+            val formatter = DecimalFormat("###,###,##0.00")
+            binding.availableMoneyTextView.text = "$${formatter.format(it.data.balance)}"
             Toast.makeText(requireContext(), it.data.user.name, Toast.LENGTH_SHORT).show()
         }
     }
