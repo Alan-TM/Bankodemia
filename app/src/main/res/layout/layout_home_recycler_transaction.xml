@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         tools:text="Fondeo Bienvenida"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/transaction_item_price"
+        app:layout_constraintEnd_toStartOf="@+id/transaction_item_is_income"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,10 +27,20 @@
         />
 
     <TextView
+        android:id="@+id/transaction_item_is_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="+"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintEnd_toStartOf="@+id/transaction_item_price"
+        app:layout_constraintTop_toTopOf="@+id/transaction_item_price" />
+
+    <TextView
         android:id="@+id/transaction_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="+ $100.00"
+        tools:text="$100.00"
         android:textColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/transaction_item_concept"
