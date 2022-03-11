@@ -19,4 +19,6 @@ object RetrofitInstance {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    //TODO add an interceptor for authorization
 }

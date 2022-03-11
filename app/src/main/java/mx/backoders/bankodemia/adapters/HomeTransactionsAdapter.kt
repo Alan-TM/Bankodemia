@@ -20,11 +20,14 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
+private const val DATE = 0
+private const val TRANSACTION_INFO = 1
+
+private const val NOT_INCOME = "-"
+private const val IS_INCOME = "+"
+
 @RequiresApi(Build.VERSION_CODES.O)
 class HomeTransactionsAdapter(val context: Context, val items: ArrayList<TransactionListItem>) : RecyclerView.Adapter<HomeTransactionsAdapter.TransactionViewHolder>() {
-
-    private val DATE = 0
-    private val TRANSACTION_INFO = 1
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
@@ -79,7 +82,7 @@ class HomeTransactionsAdapter(val context: Context, val items: ArrayList<Transac
             conceptText.text = transItem.transaction.concept
             hourText.text = timeParser(transItem.transaction.createdAt)
             amountText.text = currencyParser(transItem.transaction.amount)
-            income.text = if(item.transaction.isIncome) "+" else "-"
+            income.text = if(item.transaction.isIncome) IS_INCOME else NOT_INCOME
         }
     }
 
