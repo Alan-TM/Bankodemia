@@ -19,7 +19,7 @@ class HomeViewModel : ViewModel() {
 
     val isLoading = MutableLiveData<Boolean>()
     val userProfileResponse = MutableLiveData<UserFullProfileResponse>()
-    val error = MutableLiveData<String>()
+    val error = MutableLiveData<String>() //should add an enum or sealed class, for better error management
     private val serviceNetwork = ServiceNetwork()
 
     private val transactionItems = ArrayList<Transaction>()
@@ -48,7 +48,7 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun buildItemsForRecycler(){
-        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val formatter = DateTimeFormatter.ofPattern("dd MM yyyy")
 
         if (transactionItems.isNotEmpty()) {
             var date = ZonedDateTime.parse(transactionItems.first().createdAt)
@@ -61,13 +61,6 @@ class HomeViewModel : ViewModel() {
                     date = nextDate
                 }
                 transactionItemsForRecycler.add(TransactionListItem.TransactionItem(it))
-            }
-        }
-
-        transactionItemsForRecycler.forEach {
-            when(it){
-                is TransactionListItem.DateItem -> Log.e("Date", it.date)
-                is TransactionListItem.TransactionItem -> Log.e("Transaction", it.transaction.concept)
             }
         }
     }

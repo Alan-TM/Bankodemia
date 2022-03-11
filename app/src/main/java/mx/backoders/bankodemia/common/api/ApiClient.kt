@@ -28,7 +28,7 @@ interface ApiClient {
     suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDY5NDQ5NzQsImV4cCI6MTY0NzAzMTM3NH0.SnD7qHgqaVapOfNK-yMGuibfpZEIcGcCyx6HKwNmaAI")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDcwMzQ2ODQsImV4cCI6MTY0NzEyMTA4NH0.HGC1YnkynR5Z7gbLVdZnVKGB78xzL1TfQSoytdFrO7w")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
 }

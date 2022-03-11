@@ -11,6 +11,8 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.currencyParser
+import mx.backoders.bankodemia.common.utils.timeParser
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import java.text.NumberFormat
 import java.time.ZonedDateTime
@@ -70,16 +72,13 @@ class HomeTransactionsAdapter(val context: Context, val items: ArrayList<Transac
         val amountText = view.findViewById<TextView>(R.id.transaction_item_price)
         val income = view.findViewById<TextView>(R.id.transaction_item_is_income)
 
-        val timeFormatter = DateTimeFormatter.ofPattern("h:mm a")
-        val currencyFormatter = NumberFormat.getCurrencyInstance()
+
 
         override fun setInfo(item: TransactionListItem) {
             val transItem = (item as TransactionListItem.TransactionItem)
             conceptText.text = transItem.transaction.concept
-            hourText.text = ZonedDateTime.parse(transItem.transaction.createdAt).format(timeFormatter)
-            currencyFormatter.maximumFractionDigits = 2
-            currencyFormatter.currency = Currency.getInstance("USD")
-            amountText.text = currencyFormatter.format(transItem.transaction.amount)
+            hourText.text = timeParser(transItem.transaction.createdAt)
+            amountText.text = currencyParser(transItem.transaction.amount)
             income.text = if(item.transaction.isIncome) "+" else "-"
         }
     }

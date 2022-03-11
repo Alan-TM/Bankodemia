@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
+import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import java.text.DecimalFormat
@@ -24,9 +25,6 @@ import java.text.DecimalFormat
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by activityViewModels()
@@ -54,9 +52,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun userProfileObserver(){
-        homeViewModel.userProfileResponse.observe(viewLifecycleOwner){
-            val formatter = DecimalFormat("###,###,###,##0.00")
-            binding.availableMoneyTextView.text = "$${formatter.format(it.data.balance)}"
+        homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
+            binding.availableMoneyTextView.text = profile.data.balance?.let { it -> currencyParser(it) }
 
             recyclerSetup()
         }
