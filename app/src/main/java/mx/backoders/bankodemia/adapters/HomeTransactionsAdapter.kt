@@ -3,6 +3,7 @@ package mx.backoders.bankodemia.adapters
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.common.utils.timeParser
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import java.text.NumberFormat
+import java.time.Month
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*

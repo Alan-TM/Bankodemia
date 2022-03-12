@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
+import mx.backoders.bankodemia.adapters.TransactionListItem
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
@@ -54,9 +55,10 @@ class HomeFragment : Fragment() {
     private fun userProfileObserver(){
         homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
             binding.availableMoneyTextView.text = profile.data.balance?.let { it -> currencyParser(it) }
-
             recyclerSetup()
         }
+
+
     }
 
     private fun recyclerSetup() {
