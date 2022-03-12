@@ -1,6 +1,9 @@
 package mx.backoders.bankodemia.common.utils
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View

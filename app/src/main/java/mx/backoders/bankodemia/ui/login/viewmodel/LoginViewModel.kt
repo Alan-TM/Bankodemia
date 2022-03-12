@@ -17,7 +17,7 @@ class LoginViewModel: ViewModel() {
     val error = MutableLiveData<String>()
     val isLoading = MutableLiveData<Boolean>()
 
-    fun getLogin(expires_in: Int, dto: LoginDto){
+    fun getLogin(expires_in: String, dto: LoginDto){
         viewModelScope.launch {
             isLoading.postValue(true)
             try {
