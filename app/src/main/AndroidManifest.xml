@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.backoders.bankodemia">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,30 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
+
         <activity
-<<<<<<< HEAD
-            android:name=".Transaction_Completed"
+            android:name=".ui.singup.view.NewAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".Processing_Transaction"
+            android:name=".ui.login.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Crear_Cuenta_Activity"
-=======
-            android:name=".ui.main.singup.view.NewAccountActivity"
->>>>>>> develop
+            android:name=".ui.transactions.view.SendEdit"
             android:exported="false" />
         <activity
-            android:name=".ui.main.login.view.LoginActivity"
+            android:name=".ui.transactions.view.SendListUsers"
             android:exported="false" />
         <activity
-            android:name="mx.backoders.bankodemia.ui.main.transactions.view.SendEdit"
-            android:exported="false" />
-        <activity
-            android:name="mx.backoders.bankodemia.ui.main.transactions.view.SendListUsers"
-            android:exported="false" />
-        <activity
-            android:name="mx.backoders.bankodemia.ui.main.login.view.MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,12 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_processing_transaction.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_send_edit.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_send_list_users.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/activity_transaction_completed.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/card.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/diego/Desktop/Bankodemia/Bankodemia/app/src/main/res/layout/home.xml" value="0.1" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/create_password.xml" value="0.22" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/fragment_credit_card.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/fragment_home.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/fragment_services.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/home.xml" value="0.22" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/home_details.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/item_send_list.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/item_services.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/item_transactions.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/layout_home_recycler_date.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/layout_home_recycler_transaction.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/services.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2828125" />
       </map>
     </option>
   </component>
