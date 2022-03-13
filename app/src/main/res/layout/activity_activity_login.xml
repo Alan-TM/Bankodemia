@@ -28,10 +28,10 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins_thin"
+        android:text="Escribe el correo y telefonmo con el que te registraste, a traves de estos te enviaremos el acceso"
         android:textColor="#161616"
         android:textFontWeight="400"
         android:textSize="16sp"
-        android:text="Escribe el correo y telefonmo con el que te registraste, a traves de estos te enviaremos el acceso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

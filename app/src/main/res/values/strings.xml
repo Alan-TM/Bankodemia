@@ -11,4 +11,5 @@
     <string name="available_money">Dinero disponible</string>
     <string name="send">Enviar</string>
     <string name="get">Recibir</string>
+    <string name="intro">¡Adiós a las complicaciones!</string>
 </resources>
