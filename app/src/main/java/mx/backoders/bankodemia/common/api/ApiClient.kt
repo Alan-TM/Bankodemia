@@ -6,7 +6,7 @@ import mx.backoders.bankodemia.common.model.User.User
 import mx.backoders.bankodemia.common.model.User.UserData
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
-import mx.backoders.bankodemia.common.model.UserLoginResponse
+import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import retrofit2.Response
 import retrofit2.http.*
 

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 
 object SharedPreferencesInstance {
     val sharedPref = SharedPreferencesInstance
@@ -35,5 +36,18 @@ object SharedPreferencesInstance {
             sharedPreferences.getString(key, null)
         else
             null
+    }
+
+    fun saveSession(sesion: UserLoginResponse){
+        editor.putString("token",sesion.token)
+        editor.putString("expiresIn",sesion.expiresIn)
+        editor.apply()
+    }
+
+    fun getSesion():UserLoginResponse{
+        return UserLoginResponse(
+            sharedPreferences.getString("token",""),
+            sharedPreferences.getString("expiresIn","")
+        )
     }
 }

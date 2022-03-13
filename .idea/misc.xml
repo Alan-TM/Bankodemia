@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_activity_login.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_login.xml" value="0.14322916666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_new_account.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_send_edit.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/create_password.xml" value="0.22" />
