@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
-
+        <activity
+            android:name=".ui.Add_Account_Activity"
+            android:exported="false" />
         <activity
             android:name=".ui.singup.view.NewAccountActivity"
             android:exported="false" />

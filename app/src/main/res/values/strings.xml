@@ -11,4 +11,18 @@
     <string name="available_money">Dinero disponible</string>
     <string name="send">Enviar</string>
     <string name="get">Recibir</string>
+    <string name="title_credit_card">TARJETA</string>
+    <string name="cvv_credit_card">CVV</string>
+    <string name="validity_credit_card">Vigencia</string>
+    <string name="CardNumber_credit_card">No de Tarjeta</string>
+    <string name="servicesTitle_frament_service">Servicios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_account_title_activity">AGREGAR CONTACTO</string>
+    <string name="code_interbank_acivity">CLABE</string>
+    <string name="card_number_activityAddAccount">TARJETA</string>
+    <string name="institucion_title_add_account">Institucion</string>
+    <string name="name_add_account">Nombre</string>
+    <string name="email_add_account">Correo</string>
+    <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 </resources>
