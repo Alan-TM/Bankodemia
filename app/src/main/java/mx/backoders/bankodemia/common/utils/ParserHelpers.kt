@@ -21,3 +21,10 @@ fun timeParser(date: String): String{
 
     return ZonedDateTime.parse(date).format(timeFormatter)
 }
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun timeParserForDetailsView(date: String): String{
+    val formatter = DateTimeFormatter.ofPattern("dd 'de' MMMM 'de' yyyy h:mm a").withLocale(Locale("es", "ES"))
+
+    return ZonedDateTime.parse(date).format(formatter)
+}

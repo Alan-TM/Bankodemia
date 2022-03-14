@@ -12,8 +12,12 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.utils.currencyParser
+import mx.backoders.bankodemia.common.utils.timeParserForDetailsView
 import mx.backoders.bankodemia.databinding.TransactionDetailsFragmentBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transaction_details.viewmodel.TransactionDetailsViewModel
@@ -56,6 +60,7 @@ class TransactionDetailsFragment : Fragment() {
         transactionDetailsViewModel.fetchTransactionData(transactionID)
 
         initializeObservers()
+        initializeUI()
     }
 
     override fun onDestroy() {
@@ -65,18 +70,24 @@ class TransactionDetailsFragment : Fragment() {
 
     private fun initializeObservers(){
         transactionDetailsViewModel.transactionDetailsResponse.observe(viewLifecycleOwner){
-            setView(it)
+            setView(it.data.transaction)
         }
     }
 
     private fun setView(transaction: Transaction) {
         with(binding){
-            transactionDetailsAmountTextView.text = transaction.amount.toString()
+            transactionDetailsAmountTextView.text = currencyParser(transaction.amount)
             transactionDetailsConceptSubtitleTextView.text = transaction.concept
             transactionDetailsConceptTextView.text = transaction.concept
-            transactionDetailsDateTextView.text = transaction.createdAt
+            transactionDetailsDateTextView.text = timeParserForDetailsView(transaction.createdAt)
             transactionDetailsIdTextView.text = transaction._id
             transactionDetailsAccountNumberTextView.text = "?????"
+        }
+    }
+
+    private fun initializeUI(){
+        binding.transactionDetailsBackButton.setOnClickListener {
+            findNavController().navigate(R.id.action_transactionDetailsFragment_to_nav_home)
         }
     }
 

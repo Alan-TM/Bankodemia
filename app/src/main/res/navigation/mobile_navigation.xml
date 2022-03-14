@@ -41,6 +41,8 @@
         tools:layout="@layout/transaction_details_fragment" >
         <action
             android:id="@+id/action_transactionDetailsFragment_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.io.IOException
 
@@ -14,8 +16,8 @@ class TransactionDetailsViewModel : ViewModel() {
 
     private val serviceNetwork = ServiceNetwork()
 
-    private val _transactionDetailsResponse = MutableLiveData<Transaction>()
-    val transactionDetailsResponse: LiveData<Transaction> get() = _transactionDetailsResponse
+    private val _transactionDetailsResponse = MutableLiveData<TransactionDetailsResponse>()
+    val transactionDetailsResponse: LiveData<TransactionDetailsResponse> get() = _transactionDetailsResponse
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
@@ -31,11 +33,14 @@ class TransactionDetailsViewModel : ViewModel() {
 
                 if(response.isSuccessful){
                     _transactionDetailsResponse.value = response.body()
-                    Log.e("TransactionDetails", response.body()!!.concept)
+                    Log.e("TransactionDetails", response.body().toString())
                     _isLoading.value = false
                 } else if(response.code() == 401){
                     Log.e("fetchTransactionDetails", "auth required!")
-                } else{
+                } else if(response.code() == 404){
+                    Log.e("fetchTransactionDetails", "id not found")
+                }
+                else{
                     _transactionDetailsError.value = response.errorBody().toString()
                 }
             }catch(e: IOException){
