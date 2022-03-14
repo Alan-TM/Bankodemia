@@ -21,7 +21,7 @@ import kotlin.collections.ArrayList
 class HomeViewModel : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
+    val isLoading: LiveData<Boolean> get() = _isLoading //these are the values that we need to observe
     private val _userProfileResponse = MutableLiveData<UserFullProfileResponse>()
     val userProfileResponse: LiveData<UserFullProfileResponse> get() = _userProfileResponse
     private val _userProfileResponseError = MutableLiveData<String>() //should add an enum or sealed class, for better error management
@@ -59,14 +59,18 @@ class HomeViewModel : ViewModel() {
 
         if (transactionItems.isNotEmpty()) {
             var date = ZonedDateTime.parse(transactionItems.first().createdAt)
-            if(date.monthValue == 3)
-                Log.e("DATE", date.monthValue.toString())
-            transactionItemsForRecycler.add(TransactionListItem.DateItem(date.format(formatter).uppercase()))
+            transactionItemsForRecycler.add(TransactionListItem.DateItem(date
+                .format(formatter)
+                .uppercase()
+            ))
 
             transactionItems.forEach {
                 val nextDate = ZonedDateTime.parse(it.createdAt)
                 if (date.dayOfMonth != nextDate.dayOfMonth || date.month != nextDate.month || date.year != nextDate.year) {
-                    transactionItemsForRecycler.add(TransactionListItem.DateItem(nextDate.format(formatter).uppercase()))
+                    transactionItemsForRecycler.add(TransactionListItem.DateItem(nextDate
+                        .format(formatter)
+                        .uppercase()
+                    ))
                     date = nextDate
                 }
                 transactionItemsForRecycler.add(TransactionListItem.TransactionItem(it))

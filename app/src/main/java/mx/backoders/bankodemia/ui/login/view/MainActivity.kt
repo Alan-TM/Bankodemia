@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnFocusChangeListener {
 
     private fun exampleCheckErrors() {
         addIsEmptyChecker(applicationContext,binding.tietEmpty,binding.tilEmpty)
-        binding.tietLength.setOnFocusChangeListener(this)
+        binding.tietLength.onFocusChangeListener = this
         isEmailCorrect(applicationContext,binding.tietEmail,binding.tilEmail, findViewById(R.id.tiet_empty))
     }
 

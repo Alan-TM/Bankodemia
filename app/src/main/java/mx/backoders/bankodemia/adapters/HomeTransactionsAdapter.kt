@@ -29,14 +29,27 @@ private const val NOT_INCOME = "-"
 private const val IS_INCOME = "+"
 
 @RequiresApi(Build.VERSION_CODES.O)
-class HomeTransactionsAdapter(val context: Context, val items: ArrayList<TransactionListItem>) : RecyclerView.Adapter<HomeTransactionsAdapter.TransactionViewHolder>() {
+class HomeTransactionsAdapter(val context: Context, private val items: ArrayList<TransactionListItem>) :
+    RecyclerView.Adapter<HomeTransactionsAdapter.TransactionViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return when (viewType){
-            DATE -> DateViewHolder(inflater.inflate(R.layout.layout_home_recycler_date, parent, false))
-            else -> TransactionItemViewHolder(inflater.inflate(R.layout.layout_home_recycler_transaction, parent , false))
+        return when (viewType) {
+            DATE -> DateViewHolder(
+                inflater.inflate(
+                    R.layout.layout_home_recycler_date,
+                    parent,
+                    false
+                )
+            )
+            else -> TransactionItemViewHolder(
+                inflater.inflate(
+                    R.layout.layout_home_recycler_transaction,
+                    parent,
+                    false
+                )
+            )
         }
     }
 
@@ -48,7 +61,7 @@ class HomeTransactionsAdapter(val context: Context, val items: ArrayList<Transac
     override fun getItemCount(): Int = items.size
 
     override fun getItemViewType(position: Int): Int {
-        return when(items[position]){
+        return when (items[position]) {
             is TransactionListItem.DateItem -> DATE
             is TransactionListItem.TransactionItem -> TRANSACTION_INFO
         }
@@ -57,12 +70,15 @@ class HomeTransactionsAdapter(val context: Context, val items: ArrayList<Transac
     abstract class TransactionViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         abstract fun setInfo(item: TransactionListItem)
 
-        fun isEven(context: Context, isEven: Boolean){
-            view.background = if(isEven) ColorDrawable(context.getColor(R.color.bg_recycler_transaction)) else ColorDrawable(context.getColor(R.color.white))
+        fun isEven(context: Context, isEven: Boolean) {
+            view.background =
+                if (isEven) ColorDrawable(context.getColor(R.color.bg_recycler_transaction)) else ColorDrawable(
+                    context.getColor(R.color.white)
+                )
         }
     }
 
-    class DateViewHolder(view: View) : TransactionViewHolder(view){
+    class DateViewHolder(view: View) : TransactionViewHolder(view) {
         val dateText = view.findViewById<TextView>(R.id.date_recycler)
 
         override fun setInfo(item: TransactionListItem) {
@@ -78,13 +94,12 @@ class HomeTransactionsAdapter(val context: Context, val items: ArrayList<Transac
         val income = view.findViewById<TextView>(R.id.transaction_item_is_income)
 
 
-
         override fun setInfo(item: TransactionListItem) {
             val transItem = (item as TransactionListItem.TransactionItem)
             conceptText.text = transItem.transaction.concept
             hourText.text = timeParser(transItem.transaction.createdAt)
             amountText.text = currencyParser(transItem.transaction.amount)
-            income.text = if(item.transaction.isIncome) IS_INCOME else NOT_INCOME
+            income.text = if (item.transaction.isIncome) IS_INCOME else NOT_INCOME
         }
     }
 

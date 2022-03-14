@@ -1,7 +1,9 @@
 package mx.backoders.bankodemia
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
