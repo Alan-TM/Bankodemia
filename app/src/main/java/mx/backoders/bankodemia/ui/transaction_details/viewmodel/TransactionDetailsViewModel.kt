@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia.ui.transaction_details
+package mx.backoders.bankodemia.ui.transaction_details.viewmodel
 
 import androidx.lifecycle.ViewModel
 
