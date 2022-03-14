@@ -11,12 +11,16 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiClient {
+    @POST("auth/login")
+    suspend fun login(
+        @Body loginDto: LoginDto
+    ):Response<UserLoginResponse>
 
     //send a body with email and password
     //and return a UserLoginResponse
     @POST("auth/login")
     suspend fun getLogin(
-        @Query("expires_in") expires_in: String, //ENUM ?? THIS PARAMETER IS NOT NEEDED
+        @Query("expires_in") expires_in: String, //TODO Roberto to Alan, Is needed? THIS PARAMETER IS NOT NEEDED
         @Body loginDto: LoginDto //send the body.
     ): Response<UserLoginResponse>
 
@@ -28,7 +32,8 @@ interface ApiClient {
     suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDcwMzQ2ODQsImV4cCI6MTY0NzEyMTA4NH0.HGC1YnkynR5Z7gbLVdZnVKGB78xzL1TfQSoytdFrO7w")
+    @Headers("Authorization: Bearer " +
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjIwMDc3NjhjZTZjNDc4ZDBlMWI5OTciLCJpYXQiOjE2NDcyMTgzNTYsImV4cCI6MTY0NzIyMTk1Nn0.HY0PFzbaM-nk5dPJE77jKK15YW6OuzF2LUxR3Tc569Y")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
 }

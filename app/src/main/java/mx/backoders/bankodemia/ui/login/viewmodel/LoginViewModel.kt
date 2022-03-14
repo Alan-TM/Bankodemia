@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
+import mx.backoders.bankodemia.common.utils.logi
 import java.io.IOException
 
 class LoginViewModel : ViewModel() {
@@ -35,6 +36,17 @@ class LoginViewModel : ViewModel() {
                 error.postValue(err.localizedMessage)
             }
             isLoading.postValue(false)
+        }
+    }
+
+    fun login(dto: LoginDto){
+        viewModelScope.launch {
+            val response = service.login(dto)
+            if(response.isSuccessful){
+                login.postValue(response.body())
+                logi("Chido, si jalo")
+            }else if (response.code() == 401)
+                tokenExpired.postValue(true)
         }
     }
 }

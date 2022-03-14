@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -30,6 +31,9 @@ enum class CountType(val length: Int) {
 //        println("[${day.ordinal}] -> ${day.name} (${day.dayOfWeek}^ day of the week)")
 //}
 
+fun logi(text:String){
+    Log.i("TAG", text)
+}
 
 /* Example with addTextChangedListener*/
 fun addIsEmptyChecker(

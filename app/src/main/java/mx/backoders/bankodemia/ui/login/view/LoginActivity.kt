@@ -3,7 +3,7 @@ package mx.backoders.bankodemia.ui.login.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.databinding.ActivityLoginBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
@@ -47,7 +47,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun startLogIn() {
 //        if (checkEmptyOrErrorFields(applicationContext, til_correo, til_password)) {
-//            loginViewModel.getLogin()
+            val email = binding.textInputTextEmail.text.toString()
+            val pass = binding.textInputEditTextPassword.text.toString()
+            var loginDto = LoginDto(email,pass)
+            loginViewModel.login(loginDto)
 //        } else {
 //            if (tiet_correo.text!!.isEmpty() && tiet_password.text!!.isEmpty())
 //                til_correo.requestFocus()
