@@ -35,9 +35,6 @@ class ServicesFragment : Fragment() {
         _binding = FragmentServicesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //add this line to transaction details fragment
-
-        homeViewModel.bottomNavIsVisible(false)
         val textView: TextView = binding.textDashboard
 
 
