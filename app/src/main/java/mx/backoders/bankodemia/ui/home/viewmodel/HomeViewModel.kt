@@ -27,6 +27,10 @@ class HomeViewModel : ViewModel() {
     private val _userProfileResponseError = MutableLiveData<String>() //should add an enum or sealed class, for better error management
     val userProfileResponseError: LiveData<String> get() = _userProfileResponseError
 
+    //testing bottom navigation visibility when changing fragments
+    private val _bottomNavIsvisible = MutableLiveData<Boolean>()
+    val bottomNavIsVisible: LiveData<Boolean> get() = _bottomNavIsvisible
+
     private val serviceNetwork = ServiceNetwork()
 
     private val transactionItems = ArrayList<Transaction>()
@@ -76,5 +80,9 @@ class HomeViewModel : ViewModel() {
                 transactionItemsForRecycler.add(TransactionListItem.TransactionItem(it))
             }
         }
+    }
+
+    fun bottomNavIsVisible(visibility: Boolean){
+        _bottomNavIsvisible.value = visibility
     }
 }

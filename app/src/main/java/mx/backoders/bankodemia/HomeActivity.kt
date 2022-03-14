@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -25,10 +26,16 @@ class HomeActivity : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel.getUserProfile()
 
         navigationSetup()
+        initializeObservers()
+    }
+
+    private fun initializeObservers(){
+        viewModel.bottomNavIsVisible.observe(this){
+            binding.navView.isVisible = it
+        }
     }
 
     private fun navigationSetup(){
