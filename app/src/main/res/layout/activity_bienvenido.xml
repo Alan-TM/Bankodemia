@@ -11,12 +11,12 @@
         android:id="@+id/imageView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logowelcome"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/logowelcome" />
 
     <TextView
         android:id="@+id/textView46"
@@ -26,9 +26,8 @@
         android:fontFamily="@font/poppinsregular"
         android:textFontWeight="600"
         android:textSize="18sp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/blancokodemia"
         android:text="@string/intro"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView20" />
@@ -39,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Usa el dinero a TU manera"
         android:fontFamily="@font/poppinsregular"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/blancokodemia"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,22 +55,41 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47"
         app:srcCompat="@drawable/imagenprincipal" />
 
-    <Button
-        android:id="@+id/button5"
-        android:textSize="18sp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
+        android:text="Crear Cuenta"
+        android:textAllCaps="false"
         android:textFontWeight="600"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
-        android:backgroundTint="#00CCCC"
-        android:text="Crear Cuenta"
+        android:text="Iniciar Sesión
+"       android:fontFamily="@font/poppinsregular"
+        android:textFontWeight="600"
+        android:backgroundTint="@android:color/transparent"
+        app:strokeColor="@color/turquesa"
+        app:strokeWidth="1dp"
         android:textAllCaps="false"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+        app:layout_constraintTop_toBottomOf="@+id/login_login_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,17 +8,22 @@
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.126" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/drawable/ic_launcher_background.xml" value="0.126" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.126" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/drawable/logokodemia.xml" value="0.1" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/drawable/style_edittext.xml" value="0.184" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/font/poppins_thin.xml" value="0.20572916666666666" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout-v28/activity_welcome.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_activity_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_bienvenido.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_new_account.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_welcome.xml" value="0.4466666666666667" />
-        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_welcomei.xml" value="0.3333333333333333" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/activity_welcomei.xml" value="0.22" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/create_password.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_credit_card.xml" value="0.17552083333333332" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_login_.xml" value="0.3333333333333333" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/home.xml" value="0.17552083333333332" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/toolbar.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>

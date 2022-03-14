@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
         <activity
+            android:name=".bienvenido"
+            android:exported="false" />
+        <activity
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
