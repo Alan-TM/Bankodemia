@@ -33,7 +33,7 @@ interface ApiClient {
 
     //this should not be hardcoded
     @Headers("Authorization: Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjIwMDc3NjhjZTZjNDc4ZDBlMWI5OTciLCJpYXQiOjE2NDcyMTgzNTYsImV4cCI6MTY0NzIyMTk1Nn0.HY0PFzbaM-nk5dPJE77jKK15YW6OuzF2LUxR3Tc569Y")
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjIwMDc3NjhjZTZjNDc4ZDBlMWI5OTciLCJpYXQiOjE2NDcyMjM4OTgsImV4cCI6MTY0NzIyNzQ5OH0.6ngud4kOJD_P8iGYRkvY8WwKFKTY12UI1f1__9epaQ4")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
 }

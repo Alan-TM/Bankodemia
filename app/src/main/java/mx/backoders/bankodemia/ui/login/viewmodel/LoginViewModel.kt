@@ -44,7 +44,7 @@ class LoginViewModel : ViewModel() {
             val response = service.login(dto)
             if(response.isSuccessful){
                 login.postValue(response.body())
-                logi("Chido, si jalo")
+                logi("Robe: Correct Login")
             }else if (response.code() == 401)
                 tokenExpired.postValue(true)
         }

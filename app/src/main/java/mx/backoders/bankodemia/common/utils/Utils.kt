@@ -31,7 +31,7 @@ enum class CountType(val length: Int) {
 //        println("[${day.ordinal}] -> ${day.name} (${day.dayOfWeek}^ day of the week)")
 //}
 
-fun logi(text:String){
+fun logi(text: String) {
     Log.i("TAG", text)
 }
 
@@ -40,9 +40,8 @@ fun addIsEmptyChecker(
     context: Context,
     tiet: TextInputEditText,
     til: TextInputLayout
-): Boolean {
+) {
     // Is there any error
-    var error = true
     tiet.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -52,13 +51,29 @@ fun addIsEmptyChecker(
 
             if (tiet.text.toString().trim().isEmpty()) {
                 til.error = context.getString(R.string.error_empty)
-                error = true
+                til.isErrorEnabled = true
             } else {
                 til.isErrorEnabled = false
-                error = false
             }
         }
     })
+}
+
+/* Example with lostFocusListener*/
+fun isEmpty(
+    context: Context,
+    tiet: TextInputEditText,
+    til: TextInputLayout
+): Boolean {
+    var error: Boolean //TODO Robert, Seems that is not longer needed the value returned
+    if (tiet.text.toString().trim().isEmpty()) {
+        til.error = context.getString(R.string.error_empty)
+        til.isErrorEnabled = true
+        error = true
+    } else {
+        til.isErrorEnabled = false
+        error = false
+    }
     return error
 }
 
@@ -70,7 +85,7 @@ fun addLengthChecker(
     length: Int
 ): Boolean {
     var error: Boolean
-    if (tiet.text.toString().length != length){
+    if (tiet.text.toString().length != length) {
         til.error = context.getString(R.string.error_length)
         error = true
     } else {
@@ -80,15 +95,11 @@ fun addLengthChecker(
     return error
 }
 
-/* Intent of doing some isolate function with lostFocusListener*/
-fun isEmailCorrect(
+fun addIsEmailCorrectListener(
     context: Context,
     tiet: TextInputEditText,
-    til: TextInputLayout,
-    view: View // TODO ROHE Remove
-): Boolean {
-//   tiet.setOnFocusChangeListener { view, b ->  } // TODO ROHE: remove this Does not work !!
-    var error = true
+    til: TextInputLayout
+) {
     tiet.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -98,12 +109,28 @@ fun isEmailCorrect(
 
             if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
                 til.isErrorEnabled = false
-                error = false
             } else {
+                til.isErrorEnabled = true
                 til.error = context.getString(R.string.error_invalid_email)
-                error = true
             }
         }
     })
+}
+
+fun isEmailCorrect(
+    context: Context,
+    tiet: TextInputEditText,
+    til: TextInputLayout
+): Boolean {
+    var error: Boolean //TODO Robert, Seems that is not longer needed the value returned
+    if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
+        til.isErrorEnabled = false
+        error= false
+    } else {
+        til.isErrorEnabled = true
+        til.error = context.getString(R.string.error_invalid_email)
+        error= true
+    }
     return error
 }
+
