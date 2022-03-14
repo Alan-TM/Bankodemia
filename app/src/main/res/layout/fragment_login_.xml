@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/returnphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -41,8 +41,8 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView48"
-        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+        app:layout_constraintStart_toStartOf="@+id/yourphone"
+        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
 
     <EditText
         android:id="@+id/login_password_textview"
@@ -85,10 +85,10 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/returnphone" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/description_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -100,18 +100,18 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/returnphone" />
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/yourphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Escribe tu correo"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/description_phone"
+        app:layout_constraintTop_toBottomOf="@+id/description_phone" />
 
     <TextView
         android:id="@+id/textView49"
