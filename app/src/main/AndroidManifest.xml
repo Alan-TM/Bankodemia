@@ -13,18 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
 
-        <activity
-            android:name=".ui.singup.view.NewAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.view.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.transactions.view.SendEdit"
-            android:exported="false" />
-        <activity
-            android:name=".ui.transactions.view.SendListUsers"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.singup.view.NewAccountActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ui.login.view.LoginActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ui.transactions.view.SendEdit"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ui.transactions.view.SendListUsers"-->
+<!--            android:exported="false" />-->
 <!--        <activity-->
 <!--            android:name=".HomeActivity"-->
 <!--            android:exported="false" />-->

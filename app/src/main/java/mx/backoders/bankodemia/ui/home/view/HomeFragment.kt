@@ -5,22 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
-import mx.backoders.bankodemia.adapters.TransactionListItem
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
-import java.text.DecimalFormat
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HomeFragment : Fragment() {
@@ -34,10 +26,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        // TODO Robert Ask to Alan this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         return root
     }
 

@@ -4,19 +4,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.logi
+import mx.backoders.bankodemia.ui.login.view.LoginFragment
 import java.io.IOException
 
 class LoginViewModel : ViewModel() {
     //llamamos al servicio
     private val service = ServiceNetwork()
-
+    var success = MutableLiveData<Boolean>()
     val login = MutableLiveData<UserLoginResponse>()
-    private val error = MutableLiveData<String>()
-    private val isLoading = MutableLiveData<Boolean>()
+    private var error = MutableLiveData<String>()
+    private var isLoading = MutableLiveData<Boolean>()
     val tokenExpired = MutableLiveData<Boolean>()
 
 
@@ -40,13 +42,18 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(dto: LoginDto){
+//        var success:Boolean = false
         viewModelScope.launch {
             val response = service.login(dto)
             if(response.isSuccessful){
                 login.postValue(response.body())
                 logi("Robe: Correct Login")
-            }else if (response.code() == 401)
-                tokenExpired.postValue(true)
+                success.postValue(true)
+            }else if (response.code() == 401) {
+//                tokenExpired.postValue(true)
+                success.postValue(false)
+            }
         }
+//        return success
     }
 }

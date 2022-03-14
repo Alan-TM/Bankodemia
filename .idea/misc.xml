@@ -4,15 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_activity_login.xml" value="0.25885416666666666" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_new_account.xml" value="0.25885416666666666" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_send_edit.xml" value="0.25885416666666666" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/activity_send_list_users.xml" value="0.26614583333333336" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/card_details.xml" value="0.26614583333333336" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/create_password.xml" value="0.26614583333333336" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/fragment_blank.xml" value="0.20364583333333333" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/fragment_home.xml" value="0.20364583333333333" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/home.xml" value="0.26614583333333336" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/home_details.xml" value="0.20364583333333333" />
+        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Bankodemia/app/src/main/res/layout/services.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/activity_main.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/create_password.xml" value="0.22" />

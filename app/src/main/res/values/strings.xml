@@ -11,4 +11,6 @@
     <string name="available_money">Dinero disponible</string>
     <string name="send">Enviar</string>
     <string name="get">Recibir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
