@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
-        android:id="@+id/login_email_textview"
+        android:id="@+id/personaldetails_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -61,7 +61,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_login_button"
+        android:id="@+id/signup_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -76,22 +76,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/login_password_textview"
-        app:layout_constraintStart_toStartOf="@+id/login_password_textview"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
 
     <ImageView
         android:id="@+id/imageView22"
@@ -138,8 +122,8 @@
         android:textFontWeight="400"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsregular"
-        app:layout_constraintStart_toStartOf="@+id/login_email_textview"
-        app:layout_constraintTop_toBottomOf="@+id/login_email_textview" />
+        app:layout_constraintStart_toStartOf="@+id/personaldetails_name"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetails_name" />
 
     <TextView
         android:id="@+id/textView50"
