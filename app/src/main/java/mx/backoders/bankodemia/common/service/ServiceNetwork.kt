@@ -6,6 +6,11 @@ import mx.backoders.bankodemia.common.api.ApiClient
 import mx.backoders.bankodemia.common.api.RetrofitInstance
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
+import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.User.User
+import mx.backoders.bankodemia.common.model.User.UserData
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
@@ -34,5 +39,9 @@ class ServiceNetwork {
 
     suspend fun userSignUp(body: UserSignUpDto): Response<UserSignUpResponse> = withContext(Dispatchers.IO){
         retrofit.userSignUp(body)
+    }
+
+    suspend fun getTransactionDetails(id: String): Response<TransactionDetailsResponse> = withContext(Dispatchers.IO){
+        retrofit.getTransactionDetails(id)
     }
 }

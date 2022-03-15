@@ -1,7 +1,11 @@
 package mx.backoders.bankodemia.common.api
 
+import android.view.SurfaceControl
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
+import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
 import mx.backoders.bankodemia.common.model.User.User
 import mx.backoders.bankodemia.common.model.User.UserData
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
@@ -32,8 +36,11 @@ interface ApiClient {
     suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjIwMDc3NjhjZTZjNDc4ZDBlMWI5OTciLCJpYXQiOjE2NDcyMjc3MTgsImV4cCI6MTY0NzIzMTMxOH0.ZDUX6aJtuIMEqbFkEeV75J3xsjSZTwKVRaGPL702V_M")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDcyODY1NDksImV4cCI6MTY0NzM3Mjk0OX0.V4sKr5gSbVP7NxBrBQk2VmoV1phPEx65qQdm6tj2yqE")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
+
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDcyODY1NDksImV4cCI6MTY0NzM3Mjk0OX0.V4sKr5gSbVP7NxBrBQk2VmoV1phPEx65qQdm6tj2yqE")
+    @GET("transactions/{id}")
+    suspend fun getTransactionDetails(@Path("id") id: String): Response<TransactionDetailsResponse> //re-using this model (fits with API response attributes)
 }
