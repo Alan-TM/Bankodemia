@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentSendListUsersBinding
 import mx.backoders.bankodemia.databinding.FragmentServicesBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
+import mx.backoders.bankodemia.ui.transactions.viewmodel.ContactListViewModel
 
 class ContactListFragment : Fragment() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +28,7 @@ class ContactListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by activityViewModels()
-
-
+    private val contactsListViewModel: ContactListViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -44,6 +45,8 @@ class ContactListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        contactsListViewModel.saveContact()
 
         initializeUI()
     }
