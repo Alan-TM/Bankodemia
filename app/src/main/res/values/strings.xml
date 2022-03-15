@@ -3,4 +3,39 @@
     <string name="error_empty">Campo necesario</string>
     <string name="error_invalid_email">Email no valido</string>
     <string name="error_length">Error en la longitud</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">INICIO</string>
+    <string name="title_card">TARJETA</string>
+    <string name="title_services">SERVICIOS</string>
+    <string name="available_money">Dinero disponible</string>
+    <string name="send">Enviar</string>
+    <string name="get">Recibir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="intro">¡Adiós a las complicaciones!</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_credit_card">TARJETA</string>
+    <string name="cvv_credit_card">CVV</string>
+    <string name="validity_credit_card">Vigencia</string>
+    <string name="CardNumber_credit_card">No de Tarjeta</string>
+    <string name="servicesTitle_frament_service">Servicios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_account_title_activity">AGREGAR CONTACTO</string>
+    <string name="code_interbank_acivity">CLABE</string>
+    <string name="card_number_activityAddAccount">TARJETA</string>
+    <string name="institucion_title_add_account">Institucion</string>
+    <string name="name_add_account">Nombre</string>
+    <string name="email_add_account">Correo</string>
+    <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 </resources>
