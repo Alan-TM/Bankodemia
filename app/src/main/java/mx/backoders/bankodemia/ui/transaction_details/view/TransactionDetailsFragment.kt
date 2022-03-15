@@ -18,7 +18,7 @@ import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.common.utils.timeParserForDetailsView
-import mx.backoders.bankodemia.databinding.TransactionDetailsFragmentBinding
+import mx.backoders.bankodemia.databinding.FragmentTransactionDetailsBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transaction_details.viewmodel.TransactionDetailsViewModel
 
@@ -34,7 +34,7 @@ class TransactionDetailsFragment : Fragment() {
     private val homeViewModel: HomeViewModel by activityViewModels()
     private val transactionDetailsViewModel: TransactionDetailsViewModel by viewModels()
 
-    private var _binding : TransactionDetailsFragmentBinding? = null
+    private var _binding : FragmentTransactionDetailsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,7 @@ class TransactionDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = TransactionDetailsFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

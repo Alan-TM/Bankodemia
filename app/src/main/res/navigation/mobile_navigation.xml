@@ -38,7 +38,7 @@
         android:id="@+id/transactionDetailsFragment"
         android:name="mx.backoders.bankodemia.ui.transaction_details.view.TransactionDetailsFragment"
         android:label="transaction_details_fragment"
-        tools:layout="@layout/transaction_details_fragment" >
+        tools:layout="@layout/fragment_transaction_details" >
         <action
             android:id="@+id/action_transactionDetailsFragment_to_nav_home"
             app:destination="@id/nav_home"

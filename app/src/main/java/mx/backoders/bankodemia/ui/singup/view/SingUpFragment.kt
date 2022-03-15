@@ -1,10 +1,11 @@
-package mx.backoders.bankodemia
+package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import mx.backoders.bankodemia.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -13,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [sign_up.newInstance] factory method to
+ * Use the [SingUpFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class sign_up : Fragment() {
+class SingUpFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -49,7 +50,7 @@ class sign_up : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            sign_up().apply {
+            SingUpFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

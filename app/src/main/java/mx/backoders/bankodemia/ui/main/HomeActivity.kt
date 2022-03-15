@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia
+package mx.backoders.bankodemia.ui.main
 
 import android.os.Build
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 

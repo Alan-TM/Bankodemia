@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Add_Account_Activity">
+    tools:context=".ui.transactions.view.AddContactFragment">
 
     <LinearLayout
         android:id="@+id/action_bar_add_account"
