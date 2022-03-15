@@ -55,8 +55,6 @@ class TransactionDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel.bottomNavIsVisible(false)
-
         transactionDetailsViewModel.fetchTransactionData(transactionID)
 
         initializeObservers()
@@ -89,6 +87,12 @@ class TransactionDetailsFragment : Fragment() {
         binding.transactionDetailsBackButton.setOnClickListener {
             findNavController().navigate(R.id.action_transactionDetailsFragment_to_nav_home)
         }
+
+        setupVisibilityComponents()
+    }
+
+    private fun setupVisibilityComponents(){
+        homeViewModel.bottomNavIsVisible(false)
     }
 
 }

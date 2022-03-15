@@ -33,9 +33,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initializeObservers(){
-        viewModel.bottomNavIsVisible.observe(this){
-            binding.navView.isVisible = it
-        }
+        viewModel.bottomNavIsVisible.observe(this){ binding.navView.isVisible = it }
+
+        viewModel.topToolbarIsVisible.observe(this){ binding.actionBar.isVisible = it }
     }
 
     private fun navigationSetup(){

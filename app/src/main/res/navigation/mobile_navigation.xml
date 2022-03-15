@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_transactionDetailsFragment"
             app:destination="@id/transactionDetailsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
     </fragment>
 
     <fragment
@@ -41,6 +44,17 @@
         tools:layout="@layout/fragment_transaction_details" >
         <action
             android:id="@+id/action_transactionDetailsFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.ContactListFragment"
+        android:label="fragment_send_list_users"
+        tools:layout="@layout/fragment_send_list_users" >
+        <action
+            android:id="@+id/action_contactListFragment_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />

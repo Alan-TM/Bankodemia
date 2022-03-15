@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
@@ -35,8 +37,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.bottomNavIsVisible(true)
         userProfileObserver()
+
+        initializeUI()
     }
 
     override fun onDestroyView() {
@@ -58,5 +61,24 @@ class HomeFragment : Fragment() {
             adapter = HomeTransactionsAdapter(requireContext(), homeViewModel.transactionItemsForRecycler)
             layoutManager = LinearLayoutManager(requireContext())
         }
+    }
+
+    private fun initializeUI(){
+        with(binding) {
+            sendButton.setOnClickListener {
+                findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+            }
+
+            getButton.setOnClickListener {
+                //TODO add fragment to DEPOSIT
+            }
+        }
+
+        setupVisibilityComponents()
+    }
+
+    private fun setupVisibilityComponents(){
+        homeViewModel.bottomNavIsVisible(true)
+        homeViewModel.topToolbarIsVisible(true)
     }
 }
