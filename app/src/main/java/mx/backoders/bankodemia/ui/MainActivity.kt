@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initComponents()
-        showLoginFragment()
-//        showHomeFragment()
+//        showLoginFragment()
+        showHomeFragment()
         navigationSetup()
     }
 

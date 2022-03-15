@@ -7,12 +7,10 @@
     <string name="title_home">INICIO</string>
     <string name="title_card">TARJETA</string>
     <string name="title_services">SERVICIOS</string>
-
     <string name="available_money">Dinero disponible</string>
     <string name="send">Enviar</string>
     <string name="get">Recibir</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro">¡Adiós a las complicaciones!</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -24,7 +22,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
