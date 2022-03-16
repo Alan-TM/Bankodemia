@@ -1,7 +1,6 @@
 package mx.backoders.bankodemia.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +8,7 @@ import mx.backoders.bankodemia.common.model.Services.Services
 import mx.backoders.bankodemia.databinding.ItemServicesBinding
 
 class ServicesAdapter(private val items: ArrayList<Services>) : RecyclerView.Adapter<ServicesAdapter.ServicesViewHolder>() {
-    class ServicesViewHolder(val binding: ItemServicesBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ServicesViewHolder(private val binding: ItemServicesBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setInfo(item: Services){
             binding.serviceTitleTextView.text = item.title
             binding.serviceDescriptionTextView.text = item.description

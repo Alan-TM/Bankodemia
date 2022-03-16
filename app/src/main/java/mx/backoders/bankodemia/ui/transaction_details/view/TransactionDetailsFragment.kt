@@ -1,23 +1,18 @@
 package mx.backoders.bankodemia.ui.transaction_details.view
 
 import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.FragmentTransaction
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
-import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.common.utils.timeParserForDetailsView
 import mx.backoders.bankodemia.databinding.FragmentTransactionDetailsBinding
@@ -28,10 +23,6 @@ import mx.backoders.bankodemia.ui.transaction_details.viewmodel.TransactionDetai
 class TransactionDetailsFragment : Fragment() {
 
     private lateinit var transactionID: String
-
-    companion object {
-        fun newInstance() = TransactionDetailsFragment()
-    }
 
     private val homeViewModel: HomeViewModel by activityViewModels()
     private val transactionDetailsViewModel: TransactionDetailsViewModel by viewModels()
@@ -49,7 +40,7 @@ class TransactionDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -72,6 +63,13 @@ class TransactionDetailsFragment : Fragment() {
         transactionDetailsViewModel.transactionDetailsResponse.observe(viewLifecycleOwner){
             setView(it.data.transaction)
         }
+
+        transactionDetailsViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+    }
+
+    private fun loadingIndicator(visibility: Boolean) {
+        binding.transactionDetailsLoadingContainer.isVisible = visibility
+        binding.transactionDetailsDetailsContainer.isVisible = !visibility
     }
 
     private fun setView(transaction: Transaction) {

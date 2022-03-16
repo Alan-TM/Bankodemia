@@ -55,6 +55,7 @@ class HomeViewModel : ViewModel() {
                 } else if(response.code() == 401){
                     Log.e("PROFILE", "required!!")
                 }
+                _isLoading.value = false
             } catch(e: Exception){
                 _userProfileResponseError.postValue(e.message)
             }

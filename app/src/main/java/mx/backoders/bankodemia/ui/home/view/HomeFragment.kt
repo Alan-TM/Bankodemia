@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -53,7 +54,12 @@ class HomeFragment : Fragment() {
             recyclerSetup()
         }
 
+        homeViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+    }
 
+    private fun loadingIndicator(visibility: Boolean) {
+        binding.homeLoadingContainer.isVisible = visibility
+        binding.homeContainer.isVisible = !visibility
     }
 
     private fun recyclerSetup() {
