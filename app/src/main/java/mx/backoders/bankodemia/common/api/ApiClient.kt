@@ -41,11 +41,11 @@ interface ApiClient {
     suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer $TOKEN")
+    //@Headers("Authorization: Bearer $TOKEN")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
 
-    @Headers("Authorization: Bearer $TOKEN")
+    //@Headers("Authorization: Bearer $TOKEN")
     @GET("transactions/{id}")
     suspend fun getTransactionDetails(@Path("id") id: String): Response<TransactionDetailsResponse> //re-using this model (fits with API response attributes)
 

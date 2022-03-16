@@ -4,17 +4,26 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 
 object SharedPreferencesInstance {
-    val sharedPref = SharedPreferencesInstance
+    private val sharedPref = SharedPreferencesInstance
     lateinit var sharedPreferences : SharedPreferences
     lateinit var editor : SharedPreferences.Editor
 
-    private val TAG = "SharedPreferences"
+    private const val TAG = "SharedPreferences"
 
     fun getInstance(context: Context): SharedPreferencesInstance {
-        sharedPreferences = context.getSharedPreferences(context.packageName, Activity.MODE_PRIVATE)
+        sharedPreferences = EncryptedSharedPreferences.create(
+            context.packageName,
+            MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+            context,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+
         editor = sharedPreferences.edit()
         return sharedPref
     }
@@ -38,13 +47,13 @@ object SharedPreferencesInstance {
             null
     }
 
-    fun saveSession(sesion: UserLoginResponse){
-        editor.putString("token",sesion.token)
-        editor.putString("expiresIn",sesion.expiresIn)
+    fun saveSession(session: UserLoginResponse){
+        editor.putString("token",session.token)
+        editor.putString("expiresIn",session.expiresIn)
         editor.apply()
     }
 
-    fun getSesion():UserLoginResponse{
+    fun getSession():UserLoginResponse{
         return UserLoginResponse(
             sharedPreferences.getString("token",""),
             sharedPreferences.getString("expiresIn","")

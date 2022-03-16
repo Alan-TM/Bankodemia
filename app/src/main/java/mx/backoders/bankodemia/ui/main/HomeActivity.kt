@@ -1,7 +1,9 @@
 package mx.backoders.bankodemia.ui.main
 
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -11,6 +13,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.model.login.UserLoginResponse
+import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 
@@ -21,11 +25,20 @@ class HomeActivity : AppCompatActivity() {
 
     private val viewModel: HomeViewModel by viewModels()
 
+    private lateinit var sharedPreferences: SharedPreferencesInstance
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //this should be added in the login activity
+        sharedPreferences = SharedPreferencesInstance.getInstance(this)
+        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDc0NTMwNDcsImV4cCI6MTY0NzQ1MzY0N30.Hzlv357Ft_f1cqoyeIuJ6Ra16joeiQElKaXMDa8p09w", "10m"))
+        //sharedPreferences.getPreference("token")?.let{ Log.e("SharedPreferences", it) }
+        //sharedPreferences.getPreference("expiresIn")?.let{ Log.e("SharedPreferences", it) }
+
         viewModel.getUserProfile()
 
         navigationSetup()

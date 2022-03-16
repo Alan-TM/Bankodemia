@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    
+
     viewBinding {
         enabled = true
     }
@@ -67,4 +67,7 @@ dependencies {
 //corrutinas y ciclos de vida
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+
+    //encryption para shared preferences
+    implementation "androidx.security:security-crypto:1.0.0"
 }
