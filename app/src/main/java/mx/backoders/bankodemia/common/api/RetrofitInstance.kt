@@ -28,8 +28,6 @@ object RetrofitInstance {
             .build()
     }
 
-    //TODO add an interceptor for
-
     class AuthInterceptor : Interceptor{
         override fun intercept(chain: Interceptor.Chain): Response {
             val sharedPreferences = SharedPreferencesInstance
@@ -42,4 +40,6 @@ object RetrofitInstance {
             return chain.proceed(requestBuilder.build())
         }
     }
+
+    //TODO add network interceptor for http codes
 }
