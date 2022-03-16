@@ -8,12 +8,12 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 
+private const val TAG = "SharedPreferences"
+
 object SharedPreferencesInstance {
     private val sharedPref = SharedPreferencesInstance
     lateinit var sharedPreferences : SharedPreferences
     lateinit var editor : SharedPreferences.Editor
-
-    private const val TAG = "SharedPreferences"
 
     fun getInstance(context: Context): SharedPreferencesInstance {
         sharedPreferences = EncryptedSharedPreferences.create(
