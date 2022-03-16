@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <TextView
-        android:id="@+id/returnphone"
+        android:id="@+id/returnpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
-        android:id="@+id/personaldetails_name"
+        android:id="@+id/password_edittext_createpassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/yourphone" />
 
     <EditText
-        android:id="@+id/login_password_textview"
+        android:id="@+id/confirmpassword_edittext_createpassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -85,10 +85,10 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnphone" />
+        app:layout_constraintTop_toTopOf="@+id/returnpassword" />
 
     <TextView
-        android:id="@+id/description_phone"
+        android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -100,7 +100,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnphone" />
+        app:layout_constraintTop_toBottomOf="@+id/returnpassword" />
 
     <TextView
         android:id="@+id/yourphone"
@@ -110,8 +110,8 @@
         android:text="Escribe tu correo"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/description_phone"
-        app:layout_constraintTop_toBottomOf="@+id/description_phone" />
+        app:layout_constraintStart_toStartOf="@+id/textt_view_password"
+        app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
 
     <TextView
         android:id="@+id/textView49"
@@ -122,8 +122,8 @@
         android:textFontWeight="400"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsregular"
-        app:layout_constraintStart_toStartOf="@+id/personaldetails_name"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetails_name" />
+        app:layout_constraintStart_toStartOf="@+id/password_edittext_createpassword"
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext_createpassword" />
 
     <TextView
         android:id="@+id/textView50"
@@ -137,5 +137,5 @@
         android:text="¿Necesitas ayuda? Escríbenos a  bankodemia@com.mx"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmpassword_edittext_createpassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
