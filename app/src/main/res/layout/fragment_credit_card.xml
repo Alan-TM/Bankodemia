@@ -91,8 +91,10 @@
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="206dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView_Card_credit_Card"
@@ -110,7 +112,7 @@
         android:layout_width="170dp"
         android:layout_height="260dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/gray"
+        android:backgroundTint="@color/bg_recycler_transaction"
         app:cardCornerRadius="@dimen/cardview_tarjet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,32 +123,33 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageView_backgroundCard_fragmentCreditCard"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@drawable/image2"
-                android:src="@drawable/image2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/logo"
+                android:background="@drawable/background_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/logoLandscape_fragmentCreditCard_imagview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/logolandscape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_backgroundCard_fragmentCreditCard" />
+
+            <ImageView
+                android:id="@+id/mastercard_fragmentCreditCard_imageview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/mastercard"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
