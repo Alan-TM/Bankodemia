@@ -38,4 +38,7 @@
     <string name="name_add_account">Nombre</string>
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
+    <string name="CardNumberString_fraagmentCreditCard_textview">1234 1234 1234 1234</string>
+    <string name="VigencyString_fragmentCardNumber_textview">11/25</string>
+    <string name="cvvString_fragmentCreditCard_textview">123</string>
 </resources>
