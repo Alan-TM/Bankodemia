@@ -23,11 +23,6 @@ import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.ContactListViewModel
 
 class ContactListFragment : Fragment() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_send_list_users)
-//    }
-
     private var _binding: FragmentSendListUsersBinding? = null
 
     private val binding get() = _binding!!

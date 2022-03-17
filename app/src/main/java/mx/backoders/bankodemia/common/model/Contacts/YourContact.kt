@@ -17,4 +17,4 @@ data class YourContact(
     @Expose
     @SerializedName("shortName")
     val shortName: String
-    )
+)

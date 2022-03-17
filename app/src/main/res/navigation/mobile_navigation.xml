@@ -58,5 +58,13 @@
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_contactListFragment_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/makeTransactionFragment"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.MakeTransactionFragment"
+        android:label="fragment_make_transaction"
+        tools:layout="@layout/fragment_make_transaction" />
 </navigation>

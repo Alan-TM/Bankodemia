@@ -35,12 +35,10 @@ class ContactListViewModel : ViewModel() {
         }
     }
 
-    //move this fun to the save contact fragment
+    //add this to save contact fragment
     /*
     fun saveContact(){
         //Delete this after
-        val contact = SaveContactDto("El mero desde android 2", "622007768ce6c478d0e1b997")
-
         viewModelScope.launch {
             try{
                 val response = serviceNetwork.saveContact(contact)
@@ -55,5 +53,6 @@ class ContactListViewModel : ViewModel() {
                 Log.e("CONTACTS_ERROR", e.localizedMessage)
             }
         }
-    }*/
+    }
+     */
 }
