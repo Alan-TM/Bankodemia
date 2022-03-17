@@ -8,32 +8,34 @@
     tools:context=".ui.transaction_details.view.TransactionDetailsFragment">
 
     <TextView
-        android:id="@+id/transaction_details_date_text_view"
+        android:id="@+id/tv_Date_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="25 de enero de 2022 9:00 p.m"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_DateTittle_fragmentTranactionsDetails" />
 
     <TextView
-        android:id="@+id/transaction_details_id_text_view"
+        android:id="@+id/tv_ID_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="1234123412341234"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_IDTransaction_fragmentTransactionDetails" />
 
     <TextView
         android:id="@+id/transaction_details_concept_text_view"
@@ -42,26 +44,28 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="Renta Isabel"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_ConceptTittle_fragmentTransactionDetails" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tv_AccountNumber_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="Numero de Cuenta"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_accountTittle_fragmentTransactionsDetails" />
 
     <TextView
         android:id="@+id/transaction_details_account_number_text_view"
@@ -70,54 +74,58 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="0000 123456"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccountNumber_fragmentTransactionDetails" />
 
     <TextView
         android:id="@+id/transaction_details_amount_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="$110.00"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textColor="@color/negrokodemia"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_TransactionDetailsTittle_fragmentTransactionDetails" />
 
     <ImageButton
         android:id="@+id/transaction_details_back_button"
         android:layout_width="50dp"
-        android:layout_height="20dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView13"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+        app:layout_constraintTop_toTopOf="@+id/tv_TransactionDetailsTittle_fragmentTransactionDetails"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_TransactionDetailsTittle_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="DETALLE DE TRANSACCION"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/transaction_details_back_button"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/transaction_details_concept_subtitle_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="Renta Isabel"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,12 +133,13 @@
         app:layout_constraintTop_toBottomOf="@+id/transaction_details_amount_text_view" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tv_DateTittle_fragmentTranactionsDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="FECHA Y HORA"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,40 +147,43 @@
         app:layout_constraintTop_toBottomOf="@+id/transaction_details_concept_subtitle_text_view" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tv_IDTransaction_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="ID DE TRANSACCION"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transaction_details_date_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Date_fragmentTransactionDetails" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tv_ConceptTittle_fragmentTransactionDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="CONCEPTO"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transaction_details_id_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_ID_fragmentTransactionDetails" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tv_accountTittle_fragmentTransactionsDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="CUENTA EMISORA"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="24dp"
+    android:layout_marginHorizontal="16dp"
     tools:context=".ui.transactions.view.MakeTransactionFragment">
 
     <ImageView
@@ -19,51 +19,55 @@
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/tv_transactionTitle_fragmentMakeTransaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="TRANSFERENCIA"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView19"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/tv_SendTittle_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="ENVIAR A "
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_transactionTitle_fragmentMakeTransaction" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/tv_Quantity_fragmentMakeTransactions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="CANTIDAD"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_InterbankCode_fragmentMakeTransaction" />
 
     <TextView
-        android:id="@+id/textView45"
+        android:id="@+id/tv_ConceptPay_fragmentMakeTransactions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="CONCEPTO DE PAGO"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,41 +76,44 @@
         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/tv_Name_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="Cruz Eduardo Reveles Caldera"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_SendTittle_fragmentMakeTransaction" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/tv_InterbankCode_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="1234 1234 1234 1234 /"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Name_fragmentMakeTransaction" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/tv_IntitutionBank_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="BANORTE"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintStart_toEndOf="@+id/tv_InterbankCode_fragmentMakeTransaction"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Name_fragmentMakeTransaction" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_Qunatity_Send"
@@ -115,7 +122,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView43">
+        app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -128,6 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="SPEI sin costo"
         android:textColor="#00838F"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +151,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView45">
+        app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -153,10 +161,15 @@
 
     <Button
         android:id="@+id/button_Make_Transfer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/primaryBlue"
+        android:fontFamily="@font/poppinsregular"
         android:text="Hacer transferencia"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput_Concept_Send" />
