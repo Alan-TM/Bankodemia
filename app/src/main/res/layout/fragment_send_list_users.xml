@@ -59,12 +59,13 @@
         app:srcCompat="@drawable/user" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contact_list_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_send_list"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView17"
+        tools:listitem="@layout/item_send_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

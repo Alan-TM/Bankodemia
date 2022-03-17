@@ -4,6 +4,7 @@ import android.view.SurfaceControl
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
+import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
 import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
@@ -47,9 +48,15 @@ interface ApiClient {
 
     //@Headers("Authorization: Bearer $TOKEN")
     @GET("transactions/{id}")
-    suspend fun getTransactionDetails(@Path("id") id: String): Response<TransactionDetailsResponse> //re-using this model (fits with API response attributes)
+    suspend fun getTransactionDetails(@Path("id") id: String): Response<TransactionDetailsResponse>
 
-    @Headers("Authorization: Bearer $TOKEN")
+    @GET("contacts")
+    suspend fun getContactList(): Response<ListMyContactsResponse>
+
+    @Headers(
+        "Content-Type: application/json",
+        "Accept: application/json"
+    )
     @POST("contacts")
     suspend fun saveContact(@Body body: SaveContactDto): Response<SaveContactResponse>
 }

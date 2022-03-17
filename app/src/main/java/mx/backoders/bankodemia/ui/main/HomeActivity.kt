@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
@@ -18,7 +19,6 @@ import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-
     private val viewModel: HomeViewModel by viewModels()
 
     private lateinit var sharedPreferences: SharedPreferencesInstance
@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
 
         //this should be added in the login activity
         sharedPreferences = SharedPreferencesInstance.getInstance(this)
-        //sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDc0NTc3NTksImV4cCI6MTY0NzQ2MTM1OX0.-dH7TonTzNfVee6gupxf9R3-IahK5mJtHhdZcQZIxhk", "1h"))
+        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDc1NDU2MjMsImV4cCI6MTY0NzYzMjAyM30.MWmVzVX4bJUFKfgm-RycO_v5ADLIk9RnndJ2EoJh7-A", "241h"))
         //sharedPreferences.getPreference("token")?.let{ Log.e("SharedPreferences", it) }
         //sharedPreferences.getPreference("expiresIn")?.let{ Log.e("SharedPreferences", it) }
 
@@ -43,7 +43,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initializeObservers(){
         viewModel.bottomNavIsVisible.observe(this){ binding.navView.isVisible = it }
-
         viewModel.topToolbarIsVisible.observe(this){ binding.actionBar.isVisible = it }
     }
 
