@@ -59,7 +59,7 @@ class MakeTransactionFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        binding.makeTransactionBackButton.setOnClickListener {
+        binding.buttonMakeTransfer.setOnClickListener {
             makeTransactionViewModel.makeTransactionBody(contactID,
                 binding.textInputConceptSend.editText?.text.toString(),
                 binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
