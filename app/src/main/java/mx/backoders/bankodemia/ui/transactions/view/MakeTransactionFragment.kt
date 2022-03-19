@@ -21,10 +21,12 @@ class MakeTransactionFragment : Fragment() {
 
     private val makeTransactionViewModel: TransactionsViewModel by viewModels()
     private lateinit var contactID: String
+    private lateinit var contactName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         arguments?.let{
             contactID = it.getString("contactID").toString()
+            contactName = it.getString("contactFullName").toString()
         }
         super.onCreate(savedInstanceState)
     }
@@ -44,13 +46,19 @@ class MakeTransactionFragment : Fragment() {
         //remove this after
         Log.e("CONTACT_ID", contactID)
 
+        binding.makeTransactionFullNameTextView.text = contactName
+
         initializeUI()
         initializeObservers()
     }
 
     private fun initializeObservers() {
         makeTransactionViewModel.transactionResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), it.data.transaction.concept, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Transacción: ${it.data.transaction.concept} realizado!", Toast.LENGTH_LONG).show()
+        }
+
+        makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
     }
 

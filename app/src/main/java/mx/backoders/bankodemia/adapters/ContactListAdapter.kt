@@ -23,6 +23,7 @@ class ContactListAdapter(private val items: ArrayList<YourContact>) :
                 contactListInfo.setOnClickListener {
                     val bundle = Bundle()
                     bundle.putString("contactID", item.user.id)
+                    bundle.putString("contactFullName", "${item.user.name} ${item.user.lastName}")
                     binding.root.findNavController()
                         .navigate(R.id.action_contactListFragment_to_makeTransactionFragment, bundle)
                 }
