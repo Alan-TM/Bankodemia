@@ -5,6 +5,7 @@ import kotlinx.coroutines.withContext
 import mx.backoders.bankodemia.common.api.ApiClient
 import mx.backoders.bankodemia.common.api.RetrofitInstance
 import mx.backoders.bankodemia.common.dto.LoginDto
+import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
 import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
@@ -54,5 +55,9 @@ class ServiceNetwork {
 
     suspend fun saveContact(body: SaveContactDto): Response<SaveContactResponse> = withContext(Dispatchers.IO){
         retrofit.saveContact(body)
+    }
+
+    suspend fun makeTransactionPayment(body: MakeTransactionDto): Response<MakeTransactionResponse> = withContext(Dispatchers.IO){
+        retrofit.makeTransactionPayment(body)
     }
 }

@@ -2,6 +2,7 @@ package mx.backoders.bankodemia.common.api
 
 import android.view.SurfaceControl
 import mx.backoders.bankodemia.common.dto.LoginDto
+import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
 import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
@@ -59,4 +60,7 @@ interface ApiClient {
     )
     @POST("contacts")
     suspend fun saveContact(@Body body: SaveContactDto): Response<SaveContactResponse>
+
+    @POST("transactions")
+    suspend fun makeTransactionPayment(@Body body: MakeTransactionDto): Response<MakeTransactionResponse>
 }

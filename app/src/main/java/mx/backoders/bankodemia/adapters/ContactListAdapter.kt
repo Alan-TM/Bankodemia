@@ -15,7 +15,7 @@ class ContactListAdapter(private val items: ArrayList<YourContact>) :
         RecyclerView.ViewHolder(binding.root) {
         fun setInfo(item: YourContact) {
             with(binding) {
-                contactListName.text = item.shortName
+                contactListName.text = "${item.user.name} ${item.user.lastName}"
                 contactListId.text = item.id
                 //TODO check this with mentor
                 contactListBank.text = "PLACEHOLDER"

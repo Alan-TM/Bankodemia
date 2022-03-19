@@ -30,7 +30,7 @@ class ContactListViewModel : ViewModel() {
                     Log.e("CONTACT_LIST", response.errorBody().toString())
                 }
             } catch(e: IOException){
-                Log.e("CONTACT_LIST", e.localizedMessage)
+                Log.e("CONTACT_LIST", e.localizedMessage!!)
             }
         }
     }
