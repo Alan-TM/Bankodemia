@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 
 class MakeTransactionFragment : Fragment() {
@@ -37,5 +38,13 @@ class MakeTransactionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Toast.makeText(requireContext(), contactID, Toast.LENGTH_LONG).show()
+
+        initializeUI()
+    }
+
+    private fun initializeUI(){
+        binding.makeTransactionBackButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 }

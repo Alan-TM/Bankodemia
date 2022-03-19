@@ -85,7 +85,7 @@ class TransactionDetailsFragment : Fragment() {
 
     private fun initializeUI(){
         binding.transactionDetailsBackButton.setOnClickListener {
-            findNavController().navigate(R.id.action_transactionDetailsFragment_to_nav_home)
+            findNavController().navigateUp()
         }
 
         setupVisibilityComponents()

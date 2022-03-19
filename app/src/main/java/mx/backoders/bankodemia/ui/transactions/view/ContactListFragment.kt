@@ -72,7 +72,7 @@ class ContactListFragment : Fragment() {
 
     private fun initializeUI(){
         binding.contactsBackButton.setOnClickListener {
-            findNavController().navigate(R.id.action_contactListFragment_to_nav_home)
+            findNavController().navigateUp()
         }
 
         setupVisibilityComponents()
