@@ -9,59 +9,64 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    tools:context=".ui.login.view.LoginFragment"
+    android:background="@color/white">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="375dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/returnphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:text="Iniciar Sesión"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        app:layout_constraintBottom_toTopOf="@+id/description_phone"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <EditText
-        android:id="@+id/personaldetails_name"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/style_edittext"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/yourphone"
-        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
+        app:layout_constraintEnd_toEndOf="@+id/description_phone"
+        app:layout_constraintStart_toStartOf="@+id/description_phone"
+        app:layout_constraintTop_toBottomOf="@+id/yourphone">
 
-    <EditText
-        android:id="@+id/login_password_textview"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/style_edittext"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/til_login_email"
         app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        app:layout_constraintTop_toBottomOf="@+id/textView49">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/btn_frg_login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -72,20 +77,10 @@
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
-
-
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_resource_return"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnphone" />
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/description_phone"
@@ -117,25 +112,12 @@
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="Escribe tu contraseña"
         android:textFontWeight="400"
         android:textSize="16sp"
-        android:fontFamily="@font/poppinsregular"
-        app:layout_constraintStart_toStartOf="@+id/personaldetails_name"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetails_name" />
+        app:layout_constraintStart_toStartOf="@+id/til_login_email"
+        app:layout_constraintTop_toBottomOf="@+id/til_login_email" />
 
-    <TextView
-        android:id="@+id/textView50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:textFontWeight="600"
-        android:fontFamily="@font/poppinsregular"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:text="¿Necesitas ayuda? Escríbenos a  bankodemia@com.mx"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password_textview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

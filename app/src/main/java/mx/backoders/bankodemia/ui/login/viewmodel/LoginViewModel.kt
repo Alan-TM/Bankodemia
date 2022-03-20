@@ -1,25 +1,37 @@
 package mx.backoders.bankodemia.ui.login.viewmodel
 
+import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.logi
-import mx.backoders.bankodemia.ui.login.view.LoginFragment
+import mx.backoders.bankodemia.ui.main.HomeActivity
 import java.io.IOException
+
+import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.os.Bundle
+
+const val EXTRA_MESSAGE = "mx.backoders.bankodemia.ui.main.HomeActivity.MESSAGE"
 
 class LoginViewModel : ViewModel() {
     //llamamos al servicio
     private val service = ServiceNetwork()
-    var success = MutableLiveData<Boolean>()
     val login = MutableLiveData<UserLoginResponse>()
     private var error = MutableLiveData<String>()
     private var isLoading = MutableLiveData<Boolean>()
     val tokenExpired = MutableLiveData<Boolean>()
+
+    private val _success = MutableLiveData<Boolean>()
+    val success: LiveData<Boolean> get() = _success
+
+    private val _welcomeContainer = MutableLiveData<Boolean>()
+    val liveDataWelcomeContainer: LiveData<Boolean> get() = _welcomeContainer
 
 
     fun getLogin(expires_in: String, dto: LoginDto) {
@@ -48,12 +60,20 @@ class LoginViewModel : ViewModel() {
             if(response.isSuccessful){
                 login.postValue(response.body())
                 logi("Robe: Correct Login")
-                success.postValue(true)
+                _success.value = true // TODO ROberto NO funciona
             }else if (response.code() == 401) {
+                logi("Robe: Error Login 1........")
 //                tokenExpired.postValue(true)
-                success.postValue(false)
+                _success.value = false  // TODO ROberto NO funciona
+            }else{
+                logi("Robe: Error Login 2........")
             }
         }
 //        return success
     }
+
+    fun welcomeContainerIsVisible(visibility: Boolean){
+        _welcomeContainer.value = visibility
+    }
+
 }

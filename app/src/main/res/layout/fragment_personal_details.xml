@@ -60,7 +60,7 @@
         android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento."
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/signup_continue_button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_frg_login_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -171,7 +171,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/btn_frg_login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

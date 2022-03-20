@@ -26,7 +26,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // TODO Robert Ask to Alan this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -49,8 +48,6 @@ class HomeFragment : Fragment() {
             binding.availableMoneyTextView.text = profile.data.balance?.let { it -> currencyParser(it) }
             recyclerSetup()
         }
-
-
     }
 
     private fun recyclerSetup() {
