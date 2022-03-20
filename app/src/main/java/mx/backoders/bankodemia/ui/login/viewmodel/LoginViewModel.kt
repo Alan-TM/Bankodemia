@@ -1,6 +1,6 @@
 package mx.backoders.bankodemia.ui.login.viewmodel
 
-import androidx.core.content.ContextCompat.startActivity
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,12 +10,8 @@ import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.logi
-import mx.backoders.bankodemia.ui.main.HomeActivity
 import java.io.IOException
-
-import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
-import android.os.Bundle
+import android.widget.Toast
 
 const val EXTRA_MESSAGE = "mx.backoders.bankodemia.ui.main.HomeActivity.MESSAGE"
 
@@ -32,7 +28,6 @@ class LoginViewModel : ViewModel() {
 
     private val _welcomeContainer = MutableLiveData<Boolean>()
     val liveDataWelcomeContainer: LiveData<Boolean> get() = _welcomeContainer
-
 
     fun getLogin(expires_in: String, dto: LoginDto) {
         viewModelScope.launch {
@@ -54,22 +49,20 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(dto: LoginDto){
-//        var success:Boolean = false
         viewModelScope.launch {
             val response = service.login(dto)
             if(response.isSuccessful){
                 login.postValue(response.body())
                 logi("Robe: Correct Login")
-                _success.value = true // TODO ROberto NO funciona
+                _success.value = true
             }else if (response.code() == 401) {
                 logi("Robe: Error Login 1........")
 //                tokenExpired.postValue(true)
-                _success.value = false  // TODO ROberto NO funciona
+                _success.value = false
             }else{
                 logi("Robe: Error Login 2........")
             }
         }
-//        return success
     }
 
     fun welcomeContainerIsVisible(visibility: Boolean){

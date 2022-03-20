@@ -35,7 +35,6 @@ class WelcomeActivity : AppCompatActivity() {
         }
         bindingWelcomeActivity.btnActLoginBack.setOnClickListener {
             loginViewModel.welcomeContainerIsVisible(false)
-
         }
 
         bindingWelcomeActivity.btnActLoginSignup.setOnClickListener {
@@ -51,38 +50,11 @@ class WelcomeActivity : AppCompatActivity() {
 
 
     private fun loginObservers() {
-        logi("Robe: Entro MAIN loginObservers")
-//        loginViewModel.success.observe(this) {
-//            if (loginViewModel.success.value == true) {
-//                logi("Robe: Entro al chidoo")
-//            } else {
-//                logi("Robe: Entro al chafaaa")
-//            }
-//        }
         loginViewModel.liveDataWelcomeContainer.observe(this) { wecomeContainerIsVisible ->
             if (wecomeContainerIsVisible) {
                 showLoginFragment()
             } else {
                 hideLoginFragment()
-            }
-        }
-
-        loginViewModel.login.observe(this) { login ->
-            shared.saveSession(login)
-        }
-
-        // DOES NOT WORK
-        loginViewModel.success.observe(this) { success ->
-            if(success){
-                logi("Robe send Actividiti:" )
-            }else{
-                logi("Robe dont sent activitu ERROR" )
-            }
-        }
-
-        loginViewModel.tokenExpired.observe(this) { tokenExpirado ->
-            if (tokenExpirado) {
-                // regresarlo al login
             }
         }
     }

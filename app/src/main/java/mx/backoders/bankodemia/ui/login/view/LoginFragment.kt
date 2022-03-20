@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -22,7 +23,7 @@ import mx.backoders.bankodemia.ui.main.HomeActivity
 class LoginFragment : Fragment() {
 
     lateinit var shared: SharedPreferencesInstance
-    private var _bindingWelcomeActivity: ActivityWelcomeBinding ? = null
+    private var _bindingWelcomeActivity: ActivityWelcomeBinding? = null
     private val bindingWelcomeActivity get() = _bindingWelcomeActivity!!
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -61,6 +62,15 @@ class LoginFragment : Fragment() {
                 // regresarlo al login
             }
         }
+        loginViewModel.success.observe(viewLifecycleOwner) { success ->
+            if(success){
+                logi("Robe send Actividiti:" )
+                openHomeActivity()
+            }else{
+                logi("Robe dont sent activitu ERROR" )
+                showErrorMessage()
+            }
+        }
     }
 
     private fun initComponents() {
@@ -88,18 +98,19 @@ class LoginFragment : Fragment() {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
             loginViewModel.login(LoginDto(email, pass))
-            openHomeActivity()
         } else {
-            if (tietEmail.text!!.isEmpty() && tietEmail.text!!.isEmpty())
-                tilEmail.requestFocus()
-            else if (tietPassword.text!!.isEmpty())
-                tilPassword.requestFocus()
-            else
-                tilEmail.requestFocus()
+            when {
+                tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
+                tietPassword.text!!.isEmpty() -> tilPassword.requestFocus()
+            }
         }
     }
 
-    fun openHomeActivity(){
+    private fun showErrorMessage() {
+        Toast.makeText(appContext, "ERROR CREDENTIALS", Toast.LENGTH_LONG).show()
+    }
+
+    fun openHomeActivity() {
         val intent = Intent(activity, HomeActivity::class.java)
         startActivity(intent)
     }
