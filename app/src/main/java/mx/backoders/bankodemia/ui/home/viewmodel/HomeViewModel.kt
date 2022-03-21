@@ -31,6 +31,9 @@ class HomeViewModel : ViewModel() {
     private val _bottomNavIsvisible = MutableLiveData<Boolean>()
     val bottomNavIsVisible: LiveData<Boolean> get() = _bottomNavIsvisible
 
+    private val _topToolbarIsVisible = MutableLiveData<Boolean>()
+    val topToolbarIsVisible: LiveData<Boolean> get() = _topToolbarIsVisible
+
     private val serviceNetwork = ServiceNetwork()
 
     private val transactionItems = ArrayList<Transaction>()
@@ -52,6 +55,7 @@ class HomeViewModel : ViewModel() {
                 } else if(response.code() == 401){
                     Log.e("PROFILE", "required!!")
                 }
+                _isLoading.value = false
             } catch(e: Exception){
                 _userProfileResponseError.postValue(e.message)
             }
@@ -59,7 +63,10 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun buildItemsForRecycler(){
-        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale("es", "ES"))
+        val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+            .withLocale(
+                Locale("es", "ES")
+            )
 
         if (transactionItems.isNotEmpty()) {
             var date = ZonedDateTime.parse(transactionItems.first().createdAt)
@@ -84,5 +91,9 @@ class HomeViewModel : ViewModel() {
 
     fun bottomNavIsVisible(visibility: Boolean){
         _bottomNavIsvisible.value = visibility
+    }
+
+    fun topToolbarIsVisible(visibility: Boolean){
+        _topToolbarIsVisible.value = visibility
     }
 }
