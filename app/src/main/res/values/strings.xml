@@ -38,5 +38,10 @@
     <string name="name_add_account">Nombre</string>
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
-    <string name="btn_back">Back Button Login</string>
+    <string name="CardNumberString_fraagmentCreditCard_textview">1234 1234 1234 1234</string>
+    <string name="VigencyString_fragmentCardNumber_textview">11/25</string>
+    <string name="cvvString_fragmentCreditCard_textview">123</string>
+    <string name="transactionConfirmTittle_alertdialod">CONFIRMACION DE TRANFERENCIA</string>
+    <string name="textString_AlertDialogLayout">¿Estas segura(o) que quieres realizar esta transaction?</string>
+    <string name="aceeptSting_button_alertdialogLayout">Aceptar</string>
 </resources>
