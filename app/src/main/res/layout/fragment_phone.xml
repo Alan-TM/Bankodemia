@@ -22,7 +22,7 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/returnphone"
+        android:id="@+id/returnpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/description_phone"
+        android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -47,7 +47,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnphone" />
+        app:layout_constraintTop_toBottomOf="@+id/returnpassword" />
 
 
     <TextView
@@ -60,7 +60,7 @@
         android:text="Para proteger tu cuenta, te enviaremos un código vía SMS."
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/signup_continue_button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_frg_login_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -74,8 +74,8 @@
         android:text="Tu número de celular"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/description_phone"
-        app:layout_constraintTop_toBottomOf="@+id/description_phone" />
+        app:layout_constraintStart_toStartOf="@+id/textt_view_password"
+        app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
 
 
     <!--EditText-->
@@ -91,7 +91,7 @@
         android:background="@drawable/style_edittext"
         android:ems="10"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/description_phone"
+        app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
         app:layout_constraintStart_toStartOf="@+id/yourphone"
         app:layout_constraintTop_toBottomOf="@+id/yourphone" />
 
@@ -101,7 +101,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/btn_frg_login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -129,7 +129,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnphone" />
+        app:layout_constraintTop_toTopOf="@+id/returnpassword" />
 
 
 

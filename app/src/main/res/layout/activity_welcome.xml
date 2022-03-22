@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcomeActvity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#101010"
-    tools:context=".WelcomeActivity">
+    tools:context=".ui.main.WelcomeActivity">
 
     <ImageView
         android:id="@+id/imageView20"
@@ -24,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsregular"
+        android:text="@string/intro"
+        android:textColor="@color/blancokodemia"
         android:textFontWeight="600"
         android:textSize="18sp"
-        android:textColor="@color/blancokodemia"
-        android:text="@string/intro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView20" />
@@ -36,8 +37,8 @@
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usa el dinero a TU manera"
         android:fontFamily="@font/poppinsregular"
+        android:text="Usa el dinero a TU manera"
         android:textColor="@color/blancokodemia"
         android:textFontWeight="600"
         android:textSize="18sp"
@@ -56,11 +57,11 @@
         app:srcCompat="@drawable/imagenprincipal" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/btn_act_login_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="64dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
@@ -69,27 +70,60 @@
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView21" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button6"
+        android:id="@+id/btn_act_login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
-        android:text="Iniciar Sesión
-"       android:fontFamily="@font/poppinsregular"
-        android:textFontWeight="600"
         android:backgroundTint="@android:color/transparent"
-        app:strokeColor="@color/turquesa"
-        app:strokeWidth="1dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Iniciar Sesión
+"
         android:textAllCaps="false"
+        android:textFontWeight="600"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_act_login_signup"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/turquesa"
+        app:strokeWidth="1dp" />
+
+    <ImageButton
+        android:id="@+id/btn_act_login_back"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="90dp"
+        android:background="#0000"
+        android:contentDescription="@string/action_sign_in"
+        android:elevation="20dp"
+        android:src="@drawable/ic_resource_return"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <FrameLayout
+        android:id="@+id/welcomeContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_continue_button" />
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
