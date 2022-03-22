@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <TextView
-        android:id="@+id/returnpassword"
+        android:id="@+id/returnidentity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -62,7 +62,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        app:layout_constraintTop_toBottomOf="@+id/tvprotectdocuments" />
 
 
     <ImageView
@@ -73,7 +73,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnpassword" />
+        app:layout_constraintTop_toTopOf="@+id/returnidentity" />
 
     <TextView
         android:id="@+id/textt_view_password"
@@ -88,7 +88,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/returnidentity" />
 
     <TextView
         android:id="@+id/yourphone"
@@ -103,7 +103,7 @@
 
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/tvprotectdocuments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
