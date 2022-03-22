@@ -68,8 +68,8 @@ class TransactionDetailsFragment : Fragment() {
     }
 
     private fun loadingIndicator(visibility: Boolean) {
-        binding.transactionDetailsLoadingContainer.isVisible = visibility
-        binding.transactionDetailsDetailsContainer.isVisible = !visibility
+//        binding.transactionDetailsLoadingContainer.isVisible = visibility
+//        binding.transactionDetailsDetailsContainer.isVisible = !visibility
     }
 
     private fun setView(transaction: Transaction) {
