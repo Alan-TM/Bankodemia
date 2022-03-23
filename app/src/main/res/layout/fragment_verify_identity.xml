@@ -22,7 +22,7 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/returnine"
+        android:id="@+id/returnimmigfrationdocument"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -47,7 +47,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnine" />
+        app:layout_constraintTop_toBottomOf="@+id/returnimmigfrationdocument" />
 
 
     <TextView
@@ -81,7 +81,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnine" />
+        app:layout_constraintTop_toTopOf="@+id/returnimmigfrationdocument" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/ine_ine_card"

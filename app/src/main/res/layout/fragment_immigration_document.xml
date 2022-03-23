@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    tools:context=".immigration_document">
 
 
     <!--Toolbar-->
@@ -28,7 +28,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Escribe tu Teléfono"
+        android:text="Documento Migratorio"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView22"
@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Lo usarás para iniciar sesión"
+        android:text="Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente."
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,72 +50,10 @@
         app:layout_constraintTop_toBottomOf="@+id/returnimmigfrationdocument" />
 
 
-    <TextView
-        android:id="@+id/tvprotectdocuments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/poppinsregular"
-        android:gravity="center"
-        android:text="Para proteger tu cuenta, te enviaremos un código vía SMS."
-        android:textFontWeight="600"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/documentimmigration_uploadinformation_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/yourphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Tu número de celular"
-        android:textFontWeight="400"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textt_view_password"
-        app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
-
-
     <!--EditText-->
 
 
-
-
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/style_edittext"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
-        app:layout_constraintStart_toStartOf="@+id/yourphone"
-        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
-
-
-
     <!--Buttons-->
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/documentimmigration_uploadinformation_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/turquesa"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Continuar"
-        android:textAllCaps="false"
-        android:textFontWeight="600"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!--Imagenes-->
@@ -131,6 +69,60 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/returnimmigfrationdocument" />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ine_ine_card"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="32dp"
+        android:clickable="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="#E5E5E5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textt_view_password"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvine"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppinsregular"
+                android:gravity="center"
+                android:text="Arrastra tu archivo aquí o subelo desde tu ORDENADOR "
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/documentimmigration_uploadinformation_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/turquesa"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Subir Información"
+        android:textAllCaps="false"
+        android:textFontWeight="600"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

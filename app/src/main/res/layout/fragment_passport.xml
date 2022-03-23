@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ine">
+    tools:context=".passport">
 
 
     <!--Toolbar-->
@@ -22,13 +22,13 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/returnimmigfrationdocument"
+        android:id="@+id/returnpassport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="INE"
+        android:text="Pasaporte"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView22"
@@ -47,7 +47,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnimmigfrationdocument" />
+        app:layout_constraintTop_toBottomOf="@+id/returnpassport" />
 
 
     <!--EditText-->
@@ -67,7 +67,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnimmigfrationdocument" />
+        app:layout_constraintTop_toTopOf="@+id/returnpassport" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ine_ine_card"
@@ -108,7 +108,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/documentimmigration_uploadinformation_button"
+        android:id="@+id/passport_uploadinformation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
