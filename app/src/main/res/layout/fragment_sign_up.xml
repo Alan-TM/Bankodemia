@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <TextView
-        android:id="@+id/returnidentity"
+        android:id="@+id/returnine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -49,7 +49,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/ine_uploadinformation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -73,7 +73,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnidentity" />
+        app:layout_constraintTop_toTopOf="@+id/returnine" />
 
     <TextView
         android:id="@+id/textt_view_password"
@@ -88,7 +88,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnidentity" />
+        app:layout_constraintTop_toBottomOf="@+id/returnine" />
 
     <TextView
         android:id="@+id/yourphone"

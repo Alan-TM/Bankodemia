@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/imagenprincipal" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_continue_button"
+        android:id="@+id/ine_uploadinformation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -89,7 +89,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_continue_button" />
+        app:layout_constraintTop_toBottomOf="@+id/ine_uploadinformation_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
