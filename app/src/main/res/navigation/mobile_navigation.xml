@@ -57,7 +57,33 @@
         android:label="fragment_make_transaction"
         tools:layout="@layout/fragment_make_transaction" >
         <action
-            android:id="@+id/action_makeTransactionFragment_to_contactListFragment"
-            app:destination="@id/contactListFragment" />
+            android:id="@+id/action_makeTransactionFragment_to_dialogTransactionConfirmation"
+            app:destination="@id/dialogTransactionConfirmation" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogTransactionConfirmation"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.DialogTransactionConfirmation"
+        android:label="DialogTransactionConfirmation" >
+        <action
+            android:id="@+id/action_dialogTransactionConfirmation_to_fragmentProcessingTransaction"
+            app:destination="@id/fragmentProcessingTransaction" />
+    </dialog>
+    <fragment
+        android:id="@+id/fragmentProcessingTransaction"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.FragmentProcessingTransaction"
+        android:label="FragmentProcessingTransaction" >
+        <action
+            android:id="@+id/action_fragmentProcessingTransaction_to_fragmentTransactionComplete"
+            app:destination="@id/fragmentTransactionComplete" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentTransactionComplete"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.FragmentTransactionComplete"
+        android:label="FragmentTransactionComplete" >
+        <action
+            android:id="@+id/action_fragmentTransactionComplete_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
