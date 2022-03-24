@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
 
         //this should be added in the login activity
         sharedPreferences = SharedPreferencesInstance.getInstance(this)
-        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDgwNjI1NTEsImV4cCI6MTY0ODE0ODk1MX0.75RnG43I0b3pnk78Pgkz6V6583IGMtBG2aBfUTgpvOA", "24h"))
+        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDgxNTQ4MDksImV4cCI6MTY0ODI0MTIwOX0.nsxQLmqQVMoPqXe8KRSMyh6G7DJ-77Zvn0HRbyFQfvU", "24h"))
         //sharedPreferences.getPreference("token")?.let{ Log.e("SharedPreferences", it) }
         //sharedPreferences.getPreference("expiresIn")?.let{ Log.e("SharedPreferences", it) }
 

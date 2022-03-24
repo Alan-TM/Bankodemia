@@ -28,6 +28,7 @@ class FragmentProcessingTransaction : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         //initializeTransaction()
         initializeObservers()
     }

@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Bankodemia</string>
-    <string name="error_empty">Campo necesario</string>
-    <string name="error_invalid_email">Email no valido</string>
-    <string name="error_length">Error en la longitud</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">INICIO</string>
     <string name="title_card">TARJETA</string>
@@ -44,4 +41,14 @@
     <string name="transactionConfirmTittle_alertdialod">CONFIRMACION DE TRANFERENCIA</string>
     <string name="textString_AlertDialogLayout">¿Estas segura(o) que quieres realizar esta transaction?</string>
     <string name="aceeptSting_button_alertdialogLayout">Aceptar</string>
+
+    <!--Detailed Error Messages-->
+    <string name="error_no_internet">Verifica tu conexión a internet e intentalo de nuevo</string>
+    <string name="error_empty">Campo necesario</string>
+    <string name="error_invalid_email">Email no válido</string>
+    <string name="error_length">Error en la longitud</string>
+    <string name="error_bad_request">No es posible realizar la petición al servicio. Por favor, verifique los datos e intentelo de nuevo</string>
+    <string name="error_no_authorized">Su sesión a expirado, por favor inicie sesión nuevamente</string>
+    <string name="error_no_money">No cuentas con el balance suficiente para realizar esta transacción</string>
+
 </resources>

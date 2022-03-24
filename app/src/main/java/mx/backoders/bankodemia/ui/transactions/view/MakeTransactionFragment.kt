@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
@@ -48,14 +47,10 @@ class MakeTransactionFragment : Fragment() {
         Log.e("CONTACT_ID", contactID)
 
         initializeUI()
-        //initializeObservers()
+        initializeObservers()
     }
 
     private fun initializeObservers() {
-        makeTransactionViewModel.transactionResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "Transacción: ${it.data.transaction.concept} realizado!", Toast.LENGTH_LONG).show()
-        }
-
         makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner){
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
@@ -68,17 +63,22 @@ class MakeTransactionFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-
         binding.buttonMakeTransfer.setOnClickListener {
+            val amount = binding.textInputLayoutQunatitySend.editText!!.text.toString()
+            val concept = binding.textInputConceptSend.editText!!.text.toString()
 
-            //TODO add validations of text fields...
-            /*makeTransactionViewModel.makeTransactionBody(contactID,
+            if (makeTransactionViewModel.validateTextField(amount) &&
+                makeTransactionViewModel.validateTextField(concept)) {
+
+                makeTransactionViewModel.makeTransactionBody(contactID,
                 binding.textInputConceptSend.editText?.text.toString(),
                 binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
-            )*/
+            )
 
-            findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
+                makeTransactionViewModel.makeTransaction()
 
+                //findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
+            }
         }
     }
 }
