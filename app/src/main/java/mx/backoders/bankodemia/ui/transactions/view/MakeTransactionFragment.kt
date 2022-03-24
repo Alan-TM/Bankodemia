@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.errorMessageSelectorByCode
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
@@ -24,7 +25,7 @@ class MakeTransactionFragment : Fragment() {
     private lateinit var contactName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        arguments?.let{
+        arguments?.let {
             contactID = it.getString("contactID").toString()
             contactName = it.getString("contactFullName").toString()
         }
@@ -43,20 +44,18 @@ class MakeTransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //remove this after
-        Log.e("CONTACT_ID", contactID)
-
         initializeUI()
         initializeObservers()
     }
 
     private fun initializeObservers() {
-        makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+        makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner) { code ->
+            val errorMessage = errorMessageSelectorByCode(requireContext(), code)
+            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun initializeUI(){
+    private fun initializeUI() {
         binding.makeTransactionFullNameTextView.text = contactName
 
         binding.makeTransactionBackButton.setOnClickListener {
@@ -68,16 +67,16 @@ class MakeTransactionFragment : Fragment() {
             val concept = binding.textInputConceptSend.editText!!.text.toString()
 
             if (makeTransactionViewModel.validateTextField(amount) &&
-                makeTransactionViewModel.validateTextField(concept)) {
+                makeTransactionViewModel.validateTextField(concept)
+            ) {
 
-                makeTransactionViewModel.makeTransactionBody(contactID,
-                binding.textInputConceptSend.editText?.text.toString(),
-                binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
-            )
+                makeTransactionViewModel.makeTransactionBody(
+                    contactID,
+                    binding.textInputConceptSend.editText?.text.toString(),
+                    binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
+                )
 
-                makeTransactionViewModel.makeTransaction()
-
-                //findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
+                findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
             }
         }
     }

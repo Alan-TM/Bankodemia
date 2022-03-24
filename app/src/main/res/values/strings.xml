@@ -50,5 +50,5 @@
     <string name="error_bad_request">No es posible realizar la petición al servicio. Por favor, verifique los datos e intentelo de nuevo</string>
     <string name="error_no_authorized">Su sesión a expirado, por favor inicie sesión nuevamente</string>
     <string name="error_no_money">No cuentas con el balance suficiente para realizar esta transacción</string>
-
+    <string name="error_something_happened">Algo ocurrió, intentalo de nuevo mas tarde</string>
 </resources>
