@@ -16,7 +16,8 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:contentDescription="@string/imagebackfragment_fragmentmaketransaction" />
 
     <TextView
         android:id="@+id/tv_transactionTitle_fragmentMakeTransaction"
@@ -25,7 +26,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="TRANSFERENCIA"
+        android:text="@string/tittleTranfer_String_fragmentMAkeTransactions"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/makeTransactionBackButton"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
@@ -38,7 +39,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="ENVIAR A "
+        android:text="@string/sendTitle_String_fragmentMakeTransaction"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +54,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="CANTIDAD"
+        android:text="@string/cantidadString_fragmentMakeTransaction"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +70,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="CONCEPTO DE PAGO"
+        android:text="@string/conceptPay_String_fragmentMakeTransactions"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_SpeiTitle_fragmentMakeTransactions" />
 
     <TextView
         android:id="@+id/makeTransactionFullNameTextView"
@@ -84,7 +85,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:text="Cruz Eduardo Reveles Caldera"
+        android:text="@string/nameAccount_String_fragmentMakeTransactions"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +100,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="1234 1234 1234 1234 /"
+        android:text="@string/interbankCode_String_fragmentMakeTransactions"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/makeTransactionFullNameTextView" />
@@ -111,9 +112,9 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="BANORTE"
+        android:text="@string/institutionBank_String_fragmentMakeTransactions"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintStart_toEndOf="@+id/tv_InterbankCode_fragmentMakeTransaction"
         app:layout_constraintTop_toBottomOf="@+id/makeTransactionFullNameTextView" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -128,16 +129,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="$150.00" />
+            android:hint="@string/quantity_String_fragmentMakeTransactions"
+            android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView44"
+        android:id="@+id/textView_SpeiTitle_fragmentMakeTransactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="SPEI sin costo"
+        android:text="@string/speiTittle_String_fragmentMakeTransactions"
         android:textColor="#00838F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +159,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Croquetas" />
+            android:hint="@string/concept_String_fragmentMakeTransactions"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -169,11 +172,12 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/primaryBlue"
         android:fontFamily="@font/poppinsregular"
-        android:text="Hacer transferencia"
+        android:text="@string/sendTransactionButton_String_fragmentMakeTransaction"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput_Concept_Send" />
+        app:layout_constraintTop_toBottomOf="@+id/textInput_Concept_Send"
+        tools:ignore="TextContrastCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -187,10 +191,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageView_logo_fragmentMakeTransactions"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            android:contentDescription="@string/imagelogodescription_fragementmaketransaction" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

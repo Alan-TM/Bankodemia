@@ -50,4 +50,17 @@
     <string name="backbutton_String_fragmentTransactionComplete">Volver al inicio</string>
     <string name="transactionProcessing_String_fragmentTransactionProcessing">Espera un momento, estamos procesando tu transaccion</string>
     <string name="imagelogodescription_fragmenttransactionprocessing">imageLogoDescription_fragmentTransactionProcessing</string>
+    <string name="cantidadString_fragmentMakeTransaction">CANTIDAD</string>
+    <string name="conceptPay_String_fragmentMakeTransactions">CONCEPTO DE PAGO</string>
+    <string name="tittleTranfer_String_fragmentMAkeTransactions">TRANSFERENCIA</string>
+    <string name="sendTitle_String_fragmentMakeTransaction">ENVIAR A</string>
+    <string name="nameAccount_String_fragmentMakeTransactions">Cruz Eduardo Reveles Caldera</string>
+    <string name="interbankCode_String_fragmentMakeTransactions">1234 1234 1234 1234 /</string>
+    <string name="institutionBank_String_fragmentMakeTransactions">BANORTE</string>
+    <string name="quantity_String_fragmentMakeTransactions">$150.00</string>
+    <string name="speiTittle_String_fragmentMakeTransactions">SPEI sin costo</string>
+    <string name="sendTransactionButton_String_fragmentMakeTransaction">Hacer transferencia</string>
+    <string name="concept_String_fragmentMakeTransactions">Croquetas</string>
+    <string name="imagelogodescription_fragementmaketransaction">imagelogoDescription_fragementMakeTransaction</string>
+    <string name="imagebackfragment_fragmentmaketransaction">imageBackFragment_fragmentMakeTransaction</string>
 </resources>
