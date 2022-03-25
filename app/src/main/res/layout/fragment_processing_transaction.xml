@@ -5,28 +5,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="24dp"
     tools:context=".Processing_Transaction">
 
     <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:id="@+id/imageView_logo_fragmentTransactionProcessing"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
         android:layout_marginTop="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@drawable/transaction_processing_logo"
+        android:contentDescription="@string/imagelogodescription_fragmenttransactionprocessing" />
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="8dp"
-        android:text="Espera un momento, estamos procesando tu transaccion"
+        android:layout_marginEnd="42dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/transactionProcessing_String_fragmentTransactionProcessing"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo_fragmentTransactionProcessing" />
 </androidx.constraintlayout.widget.ConstraintLayout>

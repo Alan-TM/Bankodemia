@@ -44,4 +44,10 @@
     <string name="transactionConfirmTittle_alertdialod">CONFIRMACION DE TRANFERENCIA</string>
     <string name="textString_AlertDialogLayout">¿Estas segura(o) que quieres realizar esta transaction?</string>
     <string name="aceeptSting_button_alertdialogLayout">Aceptar</string>
+    <string name="logostringdescription_fragmenttransactioncomplete">logoStringDescription_fragmentTransactionComplete</string>
+    <string name="transacioncomplete_imageviewstringdescription">transacionComplete_imageViewStringDescription</string>
+    <string name="transactionCompleteString_textView_fragmentTransactionComplete">Tu transaccion ha sido finalizado</string>
+    <string name="backbutton_String_fragmentTransactionComplete">Volver al inicio</string>
+    <string name="transactionProcessing_String_fragmentTransactionProcessing">Espera un momento, estamos procesando tu transaccion</string>
+    <string name="imagelogodescription_fragmenttransactionprocessing">imageLogoDescription_fragmentTransactionProcessing</string>
 </resources>

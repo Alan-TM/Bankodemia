@@ -5,37 +5,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="24dp"
     tools:context=".Transaction_Completed">
 
 
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_logo_transactionComplete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logostringdescription_fragmenttransactioncomplete" />
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="140dp"
+        android:id="@+id/imageView_background_fragmentTransactionComplete"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="130dp"
+        android:contentDescription="@string/transacioncomplete_imageviewstringdescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView21"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:src="@drawable/transaction_end" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/transactionnsComplete_textview_fragmentTransactionComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Tu transaccion ha sido finalizado"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/transactionCompleteString_textView_fragmentTransactionComplete"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_background_fragmentTransactionComplete" />
+
+    <Button
+        android:id="@+id/buttonBack_fragmentTransactionComplete"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/primaryBlue"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/backbutton_String_fragmentTransactionComplete"
+        android:textColor="@color/blancokodemia"
+        android:textSize="18sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionnsComplete_textview_fragmentTransactionComplete"
+        tools:ignore="TextContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
