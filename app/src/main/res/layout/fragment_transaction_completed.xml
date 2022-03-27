@@ -20,7 +20,7 @@
         tools:src="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/return_login"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="140dp"
@@ -37,5 +37,5 @@
         android:text="Tu transaccion ha sido finalizado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+        app:layout_constraintTop_toBottomOf="@+id/return_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

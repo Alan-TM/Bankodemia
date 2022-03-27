@@ -38,4 +38,50 @@
     <string name="name_add_account">Nombre</string>
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
+    <!-- Strings Aletsis-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="login">INICIAR SESION</string>
+    <string name="description_login">Escribe el correo y contraseña con el que te registraste, a través de estos te enviaremos el acceso</string>
+    <string name="write_your_email">Escribe tu correo</string>
+    <string name="write_your_password">Escribe tu contraseña</string>
+    <string name="help_login">¿Necesitas ayuda? Escríbenos a bankodemia@com.mx</string>
+    <string name="login_up">Iniciar Sesión</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Password</string>
+    <string name="back">Return</string>
+    <string name="escribe_tu_correo_uppercase">ESCRIBE TU CORREO</string>
+    <string name="description_email">Aquí recibirás comprobantes de tus movimientos e inormación sobre tu cuenta</string>
+    <string name="warning_privacity">Aviso de privacidad</string>
+    <string name="terms">Al tocar continuar aceptas nuestro</string>
+    <string name="continuar">Continuar</string>
 </resources>

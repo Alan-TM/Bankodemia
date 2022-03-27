@@ -22,7 +22,7 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/returnimmigfrationdocument"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         android:text="Identidad"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnimmigfrationdocument" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
 
     <TextView
@@ -74,14 +74,14 @@
 
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnimmigfrationdocument" />
+        app:layout_constraintTop_toTopOf="@+id/login" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/ine_ine_card"
