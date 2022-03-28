@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentTransactionCompletedBinding
 
 class FragmentTransactionComplete : Fragment() {
@@ -28,6 +30,8 @@ class FragmentTransactionComplete : Fragment() {
     }
 
     private fun initializeUI() {
-        //TODO Add button click listener
+        binding.buttonBackFragmentTransactionComplete.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentTransactionComplete_to_nav_home)
+        }
     }
 }

@@ -2,6 +2,7 @@ package mx.backoders.bankodemia.ui.main
 
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -34,24 +35,33 @@ class HomeActivity : AppCompatActivity() {
 
         //this should be added in the login activity
         sharedPreferences = SharedPreferencesInstance.getInstance(this)
-        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDgxNTQ4MDksImV4cCI6MTY0ODI0MTIwOX0.nsxQLmqQVMoPqXe8KRSMyh6G7DJ-77Zvn0HRbyFQfvU", "24h"))
+        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDg0ODgxMTUsImV4cCI6MTY0ODU3NDUxNX0.69ZgcnR781dtTPEFl-9yXn5go5bAaRz9oV8ff7j3t-I", "24h"))
         //sharedPreferences.getPreference("token")?.let{ Log.e("SharedPreferences", it) }
         //sharedPreferences.getPreference("expiresIn")?.let{ Log.e("SharedPreferences", it) }
-
-        viewModel.getUserProfile()
 
         navigationSetup()
         initializeObservers()
     }
 
     private fun initializeObservers(){
-        viewModel.bottomNavIsVisible.observe(this){ binding.navView.isVisible = it }
-        viewModel.topToolbarIsVisible.observe(this){ binding.actionBar.isVisible = it }
+        with(viewModel) {
+            bottomNavIsVisible.observe(this@HomeActivity) { binding.navView.isVisible = it }
+            topToolbarIsVisible.observe(this@HomeActivity) { binding.actionBar.isVisible = it }
+            androidNavigationBarIsVisible.observe(this@HomeActivity) { hideAndroidNavigationBar(it) }
+        }
     }
 
     private fun navigationSetup(){
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_home)
         navView.setupWithNavController(navController)
+    }
+
+    private fun hideAndroidNavigationBar(hide: Boolean){
+        if(hide){
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        } else{
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+        }
     }
 }

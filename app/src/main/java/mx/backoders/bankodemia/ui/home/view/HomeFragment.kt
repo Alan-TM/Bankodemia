@@ -29,16 +29,16 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        homeViewModel.hideAndroidNavigationBar(false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        homeViewModel.getUserProfile()
         userProfileObserver()
-
         initializeUI()
     }
 
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
 
     private fun userProfileObserver(){
         homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
-            binding.availableMoneyTextView.text = profile.data.balance?.let { it -> currencyParser(it) }
+            binding.availableMoneyTextView.text = profile.data.balance?.let { balance -> currencyParser(balance) }
             recyclerSetup()
         }
 

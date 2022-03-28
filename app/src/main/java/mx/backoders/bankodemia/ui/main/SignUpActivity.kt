@@ -16,5 +16,4 @@ class SignUpActivity: AppCompatActivity() {
         bindingNewAccount = ActivityNewAccountBinding.inflate(layoutInflater)
         setContentView(bindingNewAccount.root)
     }
-
 }

@@ -2,7 +2,6 @@ package mx.backoders.bankodemia.ui.transactions.view
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,13 +20,13 @@ class MakeTransactionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val makeTransactionViewModel: TransactionsViewModel by activityViewModels()
-    private lateinit var contactID: String
-    private lateinit var contactName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         arguments?.let {
-            contactID = it.getString("contactID").toString()
-            contactName = it.getString("contactFullName").toString()
+            makeTransactionViewModel.setContactInformation(
+                it.getString("contactID").toString(),
+                it.getString("contactFullName").toString()
+            )
         }
         super.onCreate(savedInstanceState)
     }
@@ -49,35 +48,44 @@ class MakeTransactionFragment : Fragment() {
     }
 
     private fun initializeObservers() {
-        makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner) { code ->
-            val errorMessage = errorMessageSelectorByCode(requireContext(), code)
-            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+        with(makeTransactionViewModel) {
+            contactFullName.observe(viewLifecycleOwner){ name ->
+                binding.makeTransactionFullNameTextView.text = name
+            }
         }
     }
 
     private fun initializeUI() {
-        binding.makeTransactionFullNameTextView.text = contactName
+        with(binding) {
+            makeTransactionBackButton.setOnClickListener {
+                findNavController().navigateUp()
+            }
 
-        binding.makeTransactionBackButton.setOnClickListener {
-            findNavController().navigateUp()
-        }
+            buttonMakeTransfer.setOnClickListener {
+                val amount = textInputLayoutQunatitySend.editText!!.text.toString()
+                val concept = textInputConceptSend.editText!!.text.toString()
 
-        binding.buttonMakeTransfer.setOnClickListener {
-            val amount = binding.textInputLayoutQunatitySend.editText!!.text.toString()
-            val concept = binding.textInputConceptSend.editText!!.text.toString()
-
-            if (makeTransactionViewModel.validateTextField(amount) &&
-                makeTransactionViewModel.validateTextField(concept)
-            ) {
-
-                makeTransactionViewModel.makeTransactionBody(
-                    contactID,
-                    binding.textInputConceptSend.editText?.text.toString(),
-                    binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
-                )
-
-                findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
+                if (makeTransactionViewModel.validateTextField(amount)) {
+                    textInputLayoutQunatitySend.isErrorEnabled = false
+                    if(makeTransactionViewModel.validateTextField(concept)){
+                        textInputConceptSend.isErrorEnabled = false
+                        sendDataToMakeTransaction(amount, concept)
+                    } else{
+                        textInputConceptSend.error = getString(R.string.error_empty)
+                    }
+                } else{
+                    textInputLayoutQunatitySend.error = getString(R.string.error_empty)
+                }
             }
         }
+    }
+
+    private fun sendDataToMakeTransaction(amount: String, concept: String){
+        makeTransactionViewModel.makeTransactionBody(
+            concept,
+            amount.toDouble()
+        )
+
+        findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
     }
 }
