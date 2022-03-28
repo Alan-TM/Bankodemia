@@ -9,7 +9,8 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.singup.view.login">
+
+    tools:context=".prueba">
     <!-- Toolbar -->
     <include
         android:id="@+id/toolbar"
@@ -65,8 +66,8 @@
         android:textFontWeight="400"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsregular"
-        app:layout_constraintStart_toStartOf="@+id/login_edittext_email_til"
-        app:layout_constraintTop_toBottomOf="@+id/login_edittext_email_til" />
+        app:layout_constraintStart_toStartOf="@+id/password_edittext_createpassword"
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext_createpassword" />
 
     <TextView
         android:id="@+id/tvprotectdocuments"
@@ -122,7 +123,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_edittext_email_til"
+        android:id="@+id/password_edittext_createpassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -135,11 +136,10 @@
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_edittext_email_tiet"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:layout_weight="600"
-            android:inputType="textEmailAddress"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
             android:textSize="14sp"
@@ -149,21 +149,19 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_edittext_password_til"
+        android:id="@+id/confirmpassword_edittext_createpassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-
+        android:hint="@string/password"
         app:circularflow_defaultRadius="6dp"
-        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView49">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_edittext_password_tiet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="600"

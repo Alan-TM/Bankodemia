@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/instructions"
@@ -68,9 +68,9 @@
         android:id="@+id/descriptionemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/names"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
+        android:text="@string/names"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textt_view_password"
@@ -115,6 +115,8 @@
 
 
     <!--EditText-->
+
+    <!--
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/personaldetail_name_textedit_til"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -126,20 +128,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personaldetail_name_textedit_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_weight="600"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:hint="@string/nombre"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_name_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
 
 
+<!--
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/personaldetail_lastname_textedit_til"
@@ -152,21 +163,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personaldetail_lastname_textedit_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_weight="600"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:hint="@string/apellido"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+          </com.google.android.material.textfield.TextInputLayout>
+        -->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_lastname_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView51"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
 
 
 
+<!--
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/personaldetail_ocupation_textedit"
         android:layout_width="match_parent"
@@ -177,19 +196,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ocupacion">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personaldetail_ocupation_textedit_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_weight="600"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:hint="@string/ocupacion"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+        -->
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_ocupation_textedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ocupacion"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+
+
+
+    <!--
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/personaldetail_birthday_textedit_til"
         android:layout_width="match_parent"
@@ -200,21 +230,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birthday">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personaldetail_birthday_textedit_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_weight="600"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:hint="@string/born"
-            android:inputType="date"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+        -->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_birthday_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+
+        android:background="@drawable/style_edittext"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
 
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+
 
 
     <!-- Errores
@@ -279,7 +316,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/Continue"

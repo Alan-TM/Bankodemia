@@ -41,35 +41,6 @@
     <!-- Strings Aletsis-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <string name="login">INICIAR SESION</string>
     <string name="description_login">Escribe el correo y contraseña con el que te registraste, a través de estos te enviaremos el acceso</string>
     <string name="write_your_email">Escribe tu correo</string>
@@ -98,4 +69,11 @@
     <string name="description_phone">Lo usarás para iniciar sesión</string>
     <string name="terms_phone">Para proteger tu cuenta, te enviaremos un código vía SMS.</string>
     <string name="your_phone">Tu número de celular</string>
+    <string name="identidad">IDENTIDAD</string>
+    <string name="introduction_identity">Ahora, vamos a verificar tu identidad para proteger tu cuenta.</string>
+    <string name="context_identity">Deberás subir una fotografía de tu INE o pasaporte vigente y tomarte una selfie. Si eres extranjero necesitarás una fotografía de tu documento migratorio (FM3)</string>
+    <string name="accept">Entendido</string>
+    <string name="type_document">Seleccionado el tipo de documento que deseas fotografiar</string>
+    <string name="protect_identity">Conoce cómo protegemos tus documentos</string>
+    <string name="passport">Pasaporte</string>
 </resources>

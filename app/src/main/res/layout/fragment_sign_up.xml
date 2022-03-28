@@ -138,12 +138,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_writeemail_edittext_tiet"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="wrap_content"
             android:layout_weight="600"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
-            android:hint="@string/email"
-            android:inputType="textPassword"
+
+            android:inputType="textEmailSubject"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 

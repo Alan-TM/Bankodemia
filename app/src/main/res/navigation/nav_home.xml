@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/verify_identity">
+
+    <fragment
+        android:id="@+id/wlcome"
+        android:name="mx.backoders.bankodemia.wlcome"
+        android:label="fragment_wlcome"
+        tools:layout="@layout/fragment_wlcome" >
+        <action
+            android:id="@+id/action_wlcome_to_login3"
+            app:destination="@id/login3" />
+        <action
+            android:id="@+id/action_wlcome_to_singUpFragment2"
+            app:destination="@id/singUpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/prueba"
+        android:name="mx.backoders.bankodemia.prueba"
+        android:label="fragment_prueba"
+        tools:layout="@layout/fragment_prueba" />
+    <fragment
+        android:id="@+id/login3"
+        android:name="mx.backoders.bankodemia.ui.singup.view.login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/singUpFragment2"
+        android:name="mx.backoders.bankodemia.ui.singup.view.SingUpFragment"
+        android:label="SingUpFragment" >
+        <action
+            android:id="@+id/action_singUpFragment2_to_personalDetailsFragment"
+            app:destination="@id/personalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalDetailsFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.PersonalDetailsFragment"
+        android:label="PersonalDetailsFragment" >
+        <action
+            android:id="@+id/action_personalDetailsFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.PhoneFragment"
+        android:label="PhoneFragment" >
+        <action
+            android:id="@+id/action_phoneFragment_to_introduction_Identity"
+            app:destination="@id/introduction_Identity" />
+    </fragment>
+    <fragment
+        android:id="@+id/introduction_Identity"
+        android:name="mx.backoders.bankodemia.ui.singup.view.introduction_Identity"
+        android:label="introduction_Identity" >
+        <action
+            android:id="@+id/action_introduction_Identity_to_verify_identity"
+            app:destination="@id/verify_identity" />
+    </fragment>
+    <fragment
+        android:id="@+id/verify_identity"
+        android:name="mx.backoders.bankodemia.verify_identity"
+        android:label="verify_identity" >
+        <action
+            android:id="@+id/action_verify_identity_to_ine"
+            app:destination="@id/ine" />
+        <action
+            android:id="@+id/action_verify_identity_to_immigration_document"
+            app:destination="@id/immigration_document" />
+        <action
+            android:id="@+id/action_verify_identity_to_passport"
+            app:destination="@id/passport" />
+    </fragment>
+    <fragment
+        android:id="@+id/ine"
+        android:name="mx.backoders.bankodemia.ine"
+        android:label="fragment_ine"
+        tools:layout="@layout/fragment_ine" />
+    <fragment
+        android:id="@+id/immigration_document"
+        android:name="mx.backoders.bankodemia.immigration_document"
+        android:label="fragment_immigration_document"
+        tools:layout="@layout/fragment_immigration_document" />
+    <fragment
+        android:id="@+id/passport"
+        android:name="mx.backoders.bankodemia.passport"
+        android:label="fragment_passport"
+        tools:layout="@layout/fragment_passport" />
+</navigation>
