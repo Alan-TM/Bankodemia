@@ -31,7 +31,7 @@
         android:text="Escribe tu Teléfono"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        app:layout_constraintStart_toEndOf="@+id/imageView_background_fragmentTransactionComplete"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
@@ -122,7 +122,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/imageView_background_fragmentTransactionComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

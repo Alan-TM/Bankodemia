@@ -7,4 +7,5 @@
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="cardview_tarjet">16dp</dimen>
     <dimen name="cardview_alertdialog">24dp</dimen>
+    <dimen name="corner_radius_button">6dp</dimen>
 </resources>

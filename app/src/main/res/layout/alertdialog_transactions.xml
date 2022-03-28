@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_alertDialogLayou"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="16dp"
@@ -55,15 +56,18 @@
                 android:id="@+id/button_alertDialogLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
+                android:backgroundTint="@color/primaryBlue"
                 android:fontFamily="@font/poppinsregular"
                 android:text="@string/aceeptSting_button_alertdialogLayout"
                 android:textSize="18sp"
+                app:cornerRadius="@dimen/corner_radius_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
