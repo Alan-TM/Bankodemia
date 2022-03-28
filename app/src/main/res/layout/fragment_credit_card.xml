@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/CardNumber_credit_card"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -27,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/validity_credit_card"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -41,6 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/cvv_credit_card"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -55,6 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/CardNumberString_fraagmentCreditCard_textview"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +72,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/VigencyString_fragmentCardNumber_textview"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -81,6 +86,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/cvvString_fragmentCreditCard_textview"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,8 +108,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/title_credit_card"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,9 +134,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_card"
+                android:contentDescription="@string/background_credit_card_Descriptions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/avatars" />
 
             <ImageView
@@ -137,6 +146,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:contentDescription="@string/logolandscape_description_framentcreditcard"
                 android:src="@drawable/logolandscape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.29"
@@ -151,7 +161,8 @@
                 android:layout_marginBottom="16dp"
                 android:src="@drawable/mastercard"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/logomastercard_description" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -161,6 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

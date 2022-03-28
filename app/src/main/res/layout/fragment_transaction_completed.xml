@@ -62,7 +62,7 @@
         android:text="@string/backbutton_String_fragmentTransactionComplete"
         android:textColor="@color/blancokodemia"
         android:textSize="18sp"
-        app:cornerRadius="6dp"
+        app:cornerRadius="@dimen/corner_radius_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transactionnsComplete_textview_fragmentTransactionComplete"

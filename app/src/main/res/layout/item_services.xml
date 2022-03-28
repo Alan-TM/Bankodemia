@@ -24,23 +24,25 @@
             android:id="@+id/service_title_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Recarga de celular"
+            android:fontFamily="@font/poppinsregular"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Recarga de celular" />
 
         <TextView
             android:id="@+id/service_description_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            tools:text="Telcel, Movistar"
+            android:fontFamily="@font/poppinsregular"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/service_title_text_view" />
+            app:layout_constraintTop_toBottomOf="@+id/service_title_text_view"
+            tools:text="Telcel, Movistar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

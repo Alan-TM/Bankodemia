@@ -5,19 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="16dp"
     tools:context=".ui.transactions.view.MakeTransactionFragment">
 
     <ImageView
         android:id="@+id/makeTransactionBackButton"
         android:layout_width="35dp"
         android:layout_height="25dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:contentDescription="@string/imagebackfragment_fragmentmaketransaction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        android:contentDescription="@string/imagebackfragment_fragmentmaketransaction" />
+        app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
         android:id="@+id/tv_transactionTitle_fragmentMakeTransaction"
@@ -35,9 +34,9 @@
         android:id="@+id/tv_SendTittle_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/sendTitle_String_fragmentMakeTransaction"
         android:textColor="@color/black"
@@ -50,7 +49,7 @@
         android:id="@+id/tv_Quantity_fragmentMakeTransactions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
@@ -66,7 +65,7 @@
         android:id="@+id/tv_ConceptPay_fragmentMakeTransactions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
@@ -82,12 +81,13 @@
         android:id="@+id/makeTransactionFullNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/nameAccount_String_fragmentMakeTransactions"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +97,7 @@
         android:id="@+id/tv_InterbankCode_fragmentMakeTransaction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/interbankCode_String_fragmentMakeTransactions"
@@ -130,7 +130,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_String_fragmentMakeTransactions"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -141,6 +142,7 @@
         android:fontFamily="@font/poppinsregular"
         android:text="@string/speiTittle_String_fragmentMakeTransactions"
         android:textColor="#00838F"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Qunatity_Send" />
@@ -149,9 +151,9 @@
         android:id="@+id/textInput_Concept_Send"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">
@@ -160,6 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/concept_String_fragmentMakeTransactions"
+            android:textSize="16sp"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -167,16 +170,17 @@
         android:id="@+id/button_Make_Transfer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/primaryBlue"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/sendTransactionButton_String_fragmentMakeTransaction"
         android:textSize="18sp"
+        app:cornerRadius="@dimen/corner_radius_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput_Concept_Send"
         tools:ignore="TextContrastCheck" />
 
     <LinearLayout
