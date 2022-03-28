@@ -47,7 +47,7 @@ class HomeActivity : AppCompatActivity() {
         with(viewModel) {
             bottomNavIsVisible.observe(this@HomeActivity) { binding.navView.isVisible = it }
             topToolbarIsVisible.observe(this@HomeActivity) { binding.actionBar.isVisible = it }
-            androidNavigationBarIsVisible.observe(this@HomeActivity) { hideAndroidNavigationBar(it) }
+            androidNavigationBarIsVisible.observe(this@HomeActivity) { setHideAndroidNavigationBar(it) }
         }
     }
 
@@ -57,7 +57,7 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    private fun hideAndroidNavigationBar(hide: Boolean){
+    private fun setHideAndroidNavigationBar(hide: Boolean){
         if(hide){
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         } else{

@@ -82,8 +82,11 @@ class HomeFragment : Fragment() {
         setupVisibilityComponents()
     }
 
-    private fun setupVisibilityComponents(){
-        homeViewModel.bottomNavIsVisible(true)
-        homeViewModel.topToolbarIsVisible(true)
+    private fun setupVisibilityComponents() {
+        with(homeViewModel) {
+            bottomNavIsVisible(true)
+            topToolbarIsVisible(true)
+            hideAndroidNavigationBar(false)
+        }
     }
 }
