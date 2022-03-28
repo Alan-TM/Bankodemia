@@ -84,4 +84,18 @@
     <string name="warning_privacity">Aviso de privacidad</string>
     <string name="terms">Al tocar continuar aceptas nuestro</string>
     <string name="continuar">Continuar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="names">Nombre(s)</string>
+    <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
+    <string name="instructions">Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas</string>
+    <string name="description_dates">Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento.</string>
+    <string name="last_name">Apellido(s)</string>
+    <string name="ocupacion">Ocupación</string>
+    <string name="born">Fecha de nacimiento</string>
+    <string name="Continue">Continuar</string>
+    <string name="writephone">ESCRIBE TU TELÉFONO</string>
+    <string name="description_phone">Lo usarás para iniciar sesión</string>
+    <string name="terms_phone">Para proteger tu cuenta, te enviaremos un código vía SMS.</string>
+    <string name="your_phone">Tu número de celular</string>
 </resources>

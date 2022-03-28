@@ -8,8 +8,7 @@
     android:paddingLeft="@dimen/fragment_horizontal_margin"
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    android:paddingBottom="@dimen/fragment_vertical_margin">
 
 
     <!--Toolbar-->
@@ -22,15 +21,15 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/dates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Ingresa tus Datos"
+        android:text="@string/ingresa_tus_datos"
         android:textFontWeight="400"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -38,16 +37,16 @@
         android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas"
+        android:text="@string/instructions"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/dates" />
 
 
     <TextView
@@ -57,10 +56,10 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
-        android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento."
+        android:text="@string/description_dates"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/documentimmigration_uploadinformation_button"
+        app:layout_constraintBottom_toTopOf="@+id/personaldetails_continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -70,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Nombre(s)"
+        android:text="@string/names"
         android:fontFamily="@font/poppinsregular"
         android:textFontWeight="400"
         android:textSize="16sp"
@@ -83,11 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Apellido(s)"
+        android:text="@string/last_name"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/personaldetail_name_textedit"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetail_name_textedit" />
+        app:layout_constraintStart_toStartOf="@+id/personaldetail_name_textedit_til"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_name_textedit_til" />
 
 
     <TextView
@@ -96,11 +95,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Ocupación"
+        android:text="@string/ocupacion"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/personaldetail_lastname_textedit"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetail_lastname_textedit" />
+        app:layout_constraintStart_toStartOf="@+id/personaldetail_lastname_textedit_til"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_lastname_textedit_til" />
 
     <TextView
         android:id="@+id/birthday"
@@ -108,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Fecha de nacimiento"
+        android:text="@string/born"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/personaldetail_ocupation_textedit"
@@ -116,8 +115,109 @@
 
 
     <!--EditText-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_name_textedit_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_name_textedit_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/nombre"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_lastname_textedit_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView51">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_lastname_textedit_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/apellido"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_ocupation_textedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ocupacion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_ocupation_textedit_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/ocupacion"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_birthday_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_birthday_textedit_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/born"
+            android:inputType="date"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Errores
 
     <EditText
         android:id="@+id/personaldetail_name_textedit"
@@ -163,43 +263,43 @@
         app:layout_constraintTop_toBottomOf="@+id/birthday" />
 
 
-
+    -->
 
 
 
     <!--Buttons-->
 
 
+    <!--Imagenes-->
+
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/documentimmigration_uploadinformation_button"
+        android:id="@+id/personaldetails_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Continuar"
+        android:text="@string/Continue"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <!--Imagenes-->
-
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/login" />
+        app:layout_constraintTop_toTopOf="@+id/dates" />
 
 
 

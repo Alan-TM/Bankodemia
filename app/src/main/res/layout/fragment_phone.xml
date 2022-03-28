@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    >
 
 
     <!--Toolbar-->
@@ -25,12 +25,12 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Escribe tu Teléfono"
+        android:text="@string/writephone"
         android:textFontWeight="400"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -38,11 +38,11 @@
         android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Lo usarás para iniciar sesión"
+        android:text="@string/description_phone"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,13 +54,15 @@
         android:id="@+id/tvprotectdocuments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
-        android:text="Para proteger tu cuenta, te enviaremos un código vía SMS."
+        android:text="@string/terms_phone"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/documentimmigration_uploadinformation_button"
+        app:layout_constraintBottom_toTopOf="@+id/phone_continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -71,8 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Tu número de celular"
-        android:textFontWeight="400"
+        android:text="@string/your_phone"
+        android:textFontWeight="600"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
@@ -80,9 +82,34 @@
 
     <!--EditText-->
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_phone_edittext_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_phone_edittext_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/your_phone"
+            android:textSize="14sp"
+            android:inputType="phone"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
+    <!--
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -95,27 +122,29 @@
         app:layout_constraintStart_toStartOf="@+id/descriptionemail"
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail" />
 
+    -->
 
 
     <!--Buttons-->
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/documentimmigration_uploadinformation_button"
+        android:id="@+id/phone_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Continuar"
+        android:text="@string/continuar"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
 
     <!--Imagenes-->
@@ -125,10 +154,10 @@
         android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
+        android:contentDescription="@string/back"
         app:layout_constraintTop_toTopOf="@+id/login" />
 
 
