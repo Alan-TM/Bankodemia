@@ -76,4 +76,12 @@
     <string name="type_document">Seleccionado el tipo de documento que deseas fotografiar</string>
     <string name="protect_identity">Conoce cómo protegemos tus documentos</string>
     <string name="passport">Pasaporte</string>
+    <string name="transactionConfirmTittle_alertdialod">CONFIRMACIÓN DE TRANSFERENCIA</string>
+    <string name="textString_AlertDialogLayout">¿Estás segura(o) que queires realizar esta transacción?</string>
+    <string name="aceeptSting_button_alertdialogLayout">Aceptar</string>
+    <string name="logodescriptions_fragmentaddcontact">Bankodemia</string>
+    <string name="imageback_description_fragmentaddcontact">back</string>
+    <string name="tiet_cardNumber_String">Número de tarjeta</string>
+    <string name="tiet_Name_String_framentCardNumber">Nombre</string>
+    <string name="tiet_email_String_fragmentCarNumber">Correo</string>
 </resources>
