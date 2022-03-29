@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/fragment_horizontal_margin"
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin">
+    android:paddingBottom="@dimen/fragment_vertical_margin"
+    tools:context=".ui.singup.view.verify_Identity">
 
 
     <!--Toolbar-->
@@ -78,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/login" />
@@ -105,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsregular"
-                android:text="INE"
+                android:text="@string/ine"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -116,6 +118,7 @@
                 android:id="@+id/arrowcontinueine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/next"
                 android:layout_gravity="end"
                 android:src="@drawable/ic_flecha_derecha"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -145,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsregular"
-                android:text="Documento Migratorio"
+                android:text="@string/documento_migratorio"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -157,6 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
+                android:contentDescription="@string/next"
                 android:src="@drawable/ic_flecha_derecha"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -201,7 +205,8 @@
                 android:src="@drawable/ic_flecha_derecha"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/next" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

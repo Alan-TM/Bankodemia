@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/fragment_horizontal_margin"
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin">
+    android:paddingBottom="@dimen/fragment_vertical_margin"
+    tools:context=".ui.singup.view.personakl_Details">
 
 
     <!--Toolbar-->
@@ -150,21 +151,21 @@
 
 
 
-<!--
+    <!--
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personaldetail_lastname_textedit_til"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView51">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personaldetail_lastname_textedit_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView51">
 
-          </com.google.android.material.textfield.TextInputLayout>
-        -->
+              </com.google.android.material.textfield.TextInputLayout>
+            -->
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/personaldetail_lastname_textedit_til"
@@ -185,20 +186,20 @@
 
 
 
-<!--
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/personaldetail_ocupation_textedit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ocupacion">
+    <!--
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personaldetail_ocupation_textedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ocupacion">
 
 
-        </com.google.android.material.textfield.TextInputLayout>
-        -->
+            </com.google.android.material.textfield.TextInputLayout>
+            -->
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/personaldetail_ocupation_textedit"

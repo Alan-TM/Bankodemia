@@ -38,6 +38,68 @@
     <string name="name_add_account">Nombre</string>
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Strings Aletsis-->
 
 
@@ -76,4 +138,80 @@
     <string name="type_document">Seleccionado el tipo de documento que deseas fotografiar</string>
     <string name="protect_identity">Conoce cómo protegemos tus documentos</string>
     <string name="passport">Pasaporte</string>
+    <string name="ine">INE</string>
+    <string name="documento_migratorio">Documento Migratorio</string>
+    <string name="next">TODO</string>
+    <string name="text_documents">Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente.</string>
+    <string name="upload_documents">Arrastra tu archivo aquí o subelo desde tu ORDENADOR</string>
+    <string name="upload_information">Subir Información</string>
+    <string name="documento_migratorio_up">DOCUMENTO MIGRATORIO</string>
+    <string name="pasaporte">PASAPORTE</string>
+    <string name="password_upper">CONTRASEÑA</string>
+    <string name="create_password_secure">Crea una contraseña segura</string>
+    <string name="passwoird_2">La usarás para entrar a la app y confirmar tus transacciones.</string>
+    <string name="password_3">Usa al menos 6 caracteres alfanuméricos, no consecutivos ni repetidos.</string>
+    <string name="contra">Contraseña</string>
+    <string name="confirma_contra">Confirma tu contraseña</string>
+    <string name="create_password">Crear Contraseña</string>
+    <string name="senda_dates">Espera un momento, estamos enviando tus datos</string>
+    <string name="logo">Logo</string>
+    <string name="final_text">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
+    <string name="thanks">¡GRACIAS POR USAR BANKODEMIA!</string>
+    <string name="finish">Finish</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

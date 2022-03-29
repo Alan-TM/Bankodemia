@@ -22,13 +22,13 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/documento_migratorio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Documento Migratorio"
+        android:text="@string/documento_migratorio"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/return_login"
@@ -38,16 +38,16 @@
         android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente."
+        android:text="@string/text_documents"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/documento_migratorio" />
 
 
     <!--EditText-->
@@ -63,11 +63,12 @@
         android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/login" />
+        app:layout_constraintTop_toTopOf="@+id/documento_migratorio" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ine_ine_card"
@@ -95,7 +96,7 @@
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="center"
-                android:text="Arrastra tu archivo aquí o subelo desde tu ORDENADOR "
+                android:text="@string/upload_documents"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -113,16 +114,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Subir Información"
+        android:text="@string/upload_information"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

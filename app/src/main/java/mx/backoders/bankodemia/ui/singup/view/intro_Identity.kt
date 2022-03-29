@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia
+package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [verify_identity.newInstance] factory method to
+ * Use the [intro_Identity.newInstance] factory method to
  * create an instance of this fragment.
  */
-class verify_identity : Fragment() {
+class intro_Identity : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,7 +34,7 @@ class verify_identity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_verify_identity, container, false)
+        return inflater.inflate(R.layout.fragment_intro__identity, container, false)
     }
 
     companion object {
@@ -44,12 +44,12 @@ class verify_identity : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment verify_identity.
+         * @return A new instance of fragment intro_Identity.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            verify_identity().apply {
+            intro_Identity().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

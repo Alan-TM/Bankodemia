@@ -9,7 +9,9 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.singup.view.login">
+    tools:context=".ui.singup.view.sing_Up"
+    >
+
     <!-- Toolbar -->
     <include
         android:id="@+id/toolbar"
@@ -17,16 +19,18 @@
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="375dp" />
 
-    <!--textview-->
+    <!-- TextView-->
+
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/writeemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="@string/login"
-        android:textSize="16sp"
+        android:text="@string/escribe_tu_correo_uppercase"
+        android:textFontWeight="400"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -38,12 +42,12 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="@string/description_login"
+        android:text="@string/description_email"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/writeemail" />
 
     <TextView
         android:id="@+id/descriptionemail"
@@ -56,38 +60,24 @@
         app:layout_constraintStart_toStartOf="@+id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/write_your_password"
-        android:textFontWeight="400"
-        android:textSize="16sp"
-        android:fontFamily="@font/poppinsregular"
-        app:layout_constraintStart_toStartOf="@+id/login_edittext_email_til"
-        app:layout_constraintTop_toBottomOf="@+id/login_edittext_email_til" />
+
+    <!-- Boton-->
 
     <TextView
         android:id="@+id/tvprotectdocuments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
-        android:text="@string/help_login"
+        android:text="@string/terms"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_login_button"
+        app:layout_constraintBottom_toTopOf="@+id/warningpriivacity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <!-- Botones -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_login_button"
+        android:id="@+id/signup_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -95,7 +85,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="@string/login_up"
+        android:text="@string/continuar"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
@@ -104,7 +94,22 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
-    <!-- Imagenes -->
+    <TextView
+        android:id="@+id/warningpriivacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
+        android:textFontWeight="600"
+        android:text="@string/warning_privacity"
+        app:layout_constraintBottom_toTopOf="@+id/signup_continue_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <!-- Imagen -->
 
     <ImageView
         android:id="@+id/return_login"
@@ -115,69 +120,41 @@
         android:contentDescription="@string/back"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/login" />
+        app:layout_constraintTop_toTopOf="@+id/writeemail" />
 
 
-    <!-- Edite Text-->
-
+    <!--Edittext-->
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_edittext_email_til"
+        android:id="@+id/signup_writeemail_edittext_til"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-
-        app:circularflow_defaultRadius="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_edittext_email_tiet"
+            android:id="@+id/signup_writeemail_edittext_tiet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="600"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
-            android:inputType="textEmailAddress"
+
+            android:inputType="textEmailSubject"
             android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_edittext_password_til"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-
-        app:circularflow_defaultRadius="6dp"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_edittext_password_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="600"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:inputType="textPassword"
-            android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    <!-- Viendo botones
+
+    <!-- cambios
+
     <EditText
         android:id="@+id/password_edittext_createpassword"
         android:layout_width="0dp"
@@ -186,43 +163,20 @@
         android:background="@drawable/style_edittext"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/yourphone"
-        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
+        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail" />
 
-    <EditText
-        android:id="@+id/confirmpassword_edittext_createpassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/style_edittext"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+        -->
 
 
 
 
 
-
-<com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_edittext_createpassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionemail"
-        android:background="@drawable/style_edittext">
-    -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
