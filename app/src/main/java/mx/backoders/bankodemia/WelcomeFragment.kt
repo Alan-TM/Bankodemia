@@ -1,4 +1,4 @@
-package mx.backoders.bankodemia.ui.singup.view
+package mx.backoders.bankodemia
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.databinding.FragmentSignUpBinding
 import mx.backoders.bankodemia.databinding.FragmentWelcomeBinding
 
-class SingUpFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
-    private var _binding : FragmentSignUpBinding? = null
+    private var _binding : FragmentWelcomeBinding? = null
     private val binding get() = _binding!!
 
 
@@ -26,7 +24,7 @@ class SingUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,11 +36,11 @@ class SingUpFragment : Fragment() {
     }
 
     private fun initializeUI() {
-        binding.returnLogin.setOnClickListener {
-            findNavController().navigateUp()
+        binding.btnNewAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_welcome_to_singUpFragment2)
         }
-        binding.signupContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.action_singUpFragment2_to_personalDetailsFragment)
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_welcome_to_login)
         }
 //        setupVisibilityComponents()
     }

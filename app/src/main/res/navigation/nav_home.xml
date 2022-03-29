@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/verify_identity">
+    app:startDestination="@id/welcome">
 
     <fragment
-        android:id="@+id/wlcome"
-        android:name="mx.backoders.bankodemia.wlcome"
-        android:label="fragment_wlcome"
-        tools:layout="@layout/fragment_wlcome" >
+        android:id="@+id/welcome"
+        android:name="mx.backoders.bankodemia.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/action_wlcome_to_login3"
+            android:id="@+id/action_welcome_to_login"
             app:destination="@id/login3" />
         <action
-            android:id="@+id/action_wlcome_to_singUpFragment2"
+            android:id="@+id/action_welcome_to_singUpFragment2"
             app:destination="@id/singUpFragment2" />
     </fragment>
     <fragment
@@ -24,9 +24,8 @@
         tools:layout="@layout/fragment_prueba" />
     <fragment
         android:id="@+id/login3"
-        android:name="mx.backoders.bankodemia.ui.singup.view.login"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:name="mx.backoders.bankodemia.ui.login.view.LoginFragment"
+        android:label="fragment_login" />
     <fragment
         android:id="@+id/singUpFragment2"
         android:name="mx.backoders.bankodemia.ui.singup.view.SingUpFragment"

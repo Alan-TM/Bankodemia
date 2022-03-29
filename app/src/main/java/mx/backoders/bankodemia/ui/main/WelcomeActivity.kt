@@ -23,53 +23,53 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingWelcomeActivity = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(bindingWelcomeActivity.root)
-        initComponents()
+//        initComponents()
     }
 
     private fun initComponents() {
 
-        loginObservers()
-        bindingWelcomeActivity.btnActLoginLogin.setOnClickListener {
-            loginViewModel.welcomeContainerIsVisible(true)
+//        loginObservers()
+//        bindingWelcomeActivity.btnActLoginLogin.setOnClickListener {
+//            loginViewModel.welcomeContainerIsVisible(true)
+//
+//        }
+//        bindingWelcomeActivity.btnActLoginBack.setOnClickListener {
+//            loginViewModel.welcomeContainerIsVisible(false)
+//        }
+//
+//        bindingWelcomeActivity.btnActLoginSignup.setOnClickListener {
+//            val intent = Intent(this, SignUpActivity::class.java)
+//            startActivity(intent)
+//        }
 
-        }
-        bindingWelcomeActivity.btnActLoginBack.setOnClickListener {
-            loginViewModel.welcomeContainerIsVisible(false)
-        }
-
-        bindingWelcomeActivity.btnActLoginSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.welcomeContainer, LoginFragment())
-            commit()
-        }
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.welcomeContainer, LoginFragment())
+//            commit()
+//        }
     }
 
 
-    private fun loginObservers() {
-        loginViewModel.liveDataWelcomeContainer.observe(this) { wecomeContainerIsVisible ->
-            if (wecomeContainerIsVisible) {
-                showLoginFragment()
-            } else {
-                hideLoginFragment()
-            }
-        }
-    }
-
-    private fun showLoginFragment() {
-        bindingWelcomeActivity.btnActLoginBack.visibility = View.VISIBLE
-        bindingWelcomeActivity.btnActLoginLogin.visibility = View.GONE
-        bindingWelcomeActivity.btnActLoginSignup.visibility = View.GONE
-        bindingWelcomeActivity.welcomeContainer.visibility = View.VISIBLE
-    }
-
-    private fun hideLoginFragment() {
-        bindingWelcomeActivity.btnActLoginBack.visibility = View.GONE
-        bindingWelcomeActivity.btnActLoginLogin.visibility = View.VISIBLE
-        bindingWelcomeActivity.btnActLoginSignup.visibility = View.VISIBLE
-        bindingWelcomeActivity.welcomeContainer.visibility = View.GONE
-    }
+//    private fun loginObservers() {
+//        loginViewModel.liveDataWelcomeContainer.observe(this) { wecomeContainerIsVisible ->
+//            if (wecomeContainerIsVisible) {
+//                showLoginFragment()
+//            } else {
+//                hideLoginFragment()
+//            }
+//        }
+//    }
+//
+//    private fun showLoginFragment() {
+//        bindingWelcomeActivity.btnActLoginBack.visibility = View.VISIBLE
+//        bindingWelcomeActivity.btnActLoginLogin.visibility = View.GONE
+//        bindingWelcomeActivity.btnActLoginSignup.visibility = View.GONE
+//        bindingWelcomeActivity.welcomeContainer.visibility = View.VISIBLE
+//    }
+//
+//    private fun hideLoginFragment() {
+//        bindingWelcomeActivity.btnActLoginBack.visibility = View.GONE
+//        bindingWelcomeActivity.btnActLoginLogin.visibility = View.VISIBLE
+//        bindingWelcomeActivity.btnActLoginSignup.visibility = View.VISIBLE
+//        bindingWelcomeActivity.welcomeContainer.visibility = View.GONE
+//    }
 }

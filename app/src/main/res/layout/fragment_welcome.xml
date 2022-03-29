@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".wlcome">
+    tools:context=".WelcomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,7 +61,7 @@
             app:srcCompat="@drawable/imagenprincipal" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/documentimmigration_uploadinformation_button"
+            android:id="@+id/btn_new_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView21" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button6"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -93,7 +93,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/documentimmigration_uploadinformation_button"
+            app:layout_constraintTop_toBottomOf="@+id/btn_new_account"
             app:strokeColor="@color/turquesa"
             app:strokeWidth="1dp" />
 
