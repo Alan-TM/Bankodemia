@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 data class ListMyContactsData(
     @Expose
     @SerializedName("contacts")
-    val contacts: ArrayList<Contact>
+    val contacts: ArrayList<YourContact>
 )

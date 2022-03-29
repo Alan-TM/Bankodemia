@@ -2,6 +2,7 @@ package mx.backoders.bankodemia.common.model.User
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class User(
     @Expose
@@ -40,4 +41,4 @@ data class User(
     @Expose
     @SerializedName("__v")
     val v: Int // ????? From API Response
-    )
+)

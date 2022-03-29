@@ -1,180 +1,119 @@
 package mx.backoders.bankodemia.ui.login.view
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.*
-import mx.backoders.bankodemia.databinding.FragmentHomeBinding
+import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
 import mx.backoders.bankodemia.databinding.FragmentLoginBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
+import mx.backoders.bankodemia.ui.main.HomeActivity
 
 class LoginFragment : Fragment() {
-//
-//    lateinit var shared: SharedPreferencesInstance
-//    private var _binding: FragmentLoginBinding? = null
-//    private val binding get() = _binding!!
-//    private lateinit var tietEmail: TextInputEditText
-//    private lateinit var tilEmail: TextInputLayout
-//    private lateinit var tietPassword: TextInputEditText
-//    private lateinit var tilPassword: TextInputLayout
-//    val loginViewModel: LoginViewModel by viewModels()
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View {
-//        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-//        val root: View = binding.root
-//        logi("Robe: Oncreate fragmen login")
-//        return root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        logi("Robe: Entro onViewCreated")
-//        initComponents()
-//        loginObservers()
-//    }
-//
-//    private fun loginObservers() {
-//            logi("Robe: Entro fragment loginObserver")
-//        loginViewModel.login.observe(viewLifecycleOwner) { login ->
-//            shared.saveSession(login)
-//        }
-//        loginViewModel.tokenExpired.observe(viewLifecycleOwner) { tokenExpirado ->
-//            if (tokenExpirado) {
-//                // regresarlo al login
-//            }
-//        }
-//    }
-//
-//    private fun initComponents() {
-//        shared = SharedPreferencesInstance.getInstance(requireActivity().getApplicationContext())
-//        binding.buttonIniciarSesion.setOnClickListener {
-//            startLogIn()
-//        }
-//
-//        // Adding Listeners
-//        tietEmail = binding.textInputTextEmail
-//        tilEmail = binding.textInputLayoutEmail
-//        addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
-//
-//        tietPassword = binding.textInputEditTextPassword
-//        tilPassword = binding.textInputLayoutContrasena
-//        addIsEmptyChecker(requireActivity().getApplicationContext(), tietPassword, tilPassword)
-//    }
-//
-//    private fun startLogIn() {
-//        isEmailCorrect(requireActivity().getApplicationContext(), tietEmail, tilEmail)
-//        isEmpty(requireActivity().getApplicationContext(), tietPassword, tilPassword)
-//
-//        if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
-//            val email = tietEmail.text.toString()
-//            val pass = tietPassword.text.toString()
-//            loginViewModel.login(LoginDto(email, pass))
-//        } else {
-//            if (tietEmail.text!!.isEmpty() && tietEmail.text!!.isEmpty())
-//                tilEmail.requestFocus()
-//            else if (tietPassword.text!!.isEmpty())
-//                tilPassword.requestFocus()
-//            else
-//                tilEmail.requestFocus()
-//        }
-//    }
 
-}
-
-
-/*
-    private lateinit var binding: ActivityMainBinding
     lateinit var shared: SharedPreferencesInstance
-    private val loginViewModel: LoginViewModel by viewModels()
-    private val homeViewModel: HomeViewModel by viewModels()
+    private var _bindingWelcomeActivity: ActivityWelcomeBinding? = null
+    private val bindingWelcomeActivity get() = _bindingWelcomeActivity!!
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var tietEmail: TextInputEditText
+    private lateinit var tilEmail: TextInputLayout
+    private lateinit var tietPassword: TextInputEditText
+    private lateinit var tilPassword: TextInputLayout
+    private lateinit var appContext: Context
+    val loginViewModel: LoginViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _bindingWelcomeActivity = ActivityWelcomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        //Obtiene contexto.
+        appContext = requireContext().applicationContext
+        return root
+    }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initComponents()
-//        showLoginFragment()
-        showHomeFragment()
-        navigationSetup()
+        loginObservers()
+    }
+
+    private fun loginObservers() {
+        loginViewModel.login.observe(viewLifecycleOwner) { login ->
+            shared.saveSession(login)
+        }
+        loginViewModel.tokenExpired.observe(viewLifecycleOwner) { tokenExpirado ->
+            if (tokenExpirado) {
+                // regresarlo al login
+            }
+        }
+        loginViewModel.success.observe(viewLifecycleOwner) { success ->
+            if(success){
+                logi("Robe send Actividiti:" )
+                openHomeActivity()
+            }else{
+                logi("Robe dont sent activitu ERROR" )
+                showErrorMessage()
+            }
+        }
     }
 
     private fun initComponents() {
-        // TODO Robert Do something here?
-        loginObservers()
-    }
-    private fun loginObservers() {
 
-        logi("Robe: Entro MAIN loginObservers")
-        loginViewModel.success.observe(this){ success ->
-            if (loginViewModel.success.value == true){
-                logi("Robe: Entro al chidoo")
-            }else{
-                logi("Robe: Entro al chafaaa")
+        shared = SharedPreferencesInstance.getInstance(requireActivity().getApplicationContext())
+        binding.btnFrgLoginLogin.setOnClickListener {
+            startLogIn()
+        }
+
+//         Adding Listeners
+        tietEmail = binding.tietLoginEmail
+        tilEmail = binding.tilLoginEmail
+        addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+
+        tietPassword = binding.tietLoginPassword
+        tilPassword = binding.tilLoginPassword
+        addIsEmptyChecker(requireActivity().getApplicationContext(), tietPassword, tilPassword)
+    }
+
+    private fun startLogIn() {
+        isEmailCorrect(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+        isEmpty(requireActivity().getApplicationContext(), tietPassword, tilPassword)
+
+        if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
+            val email = tietEmail.text.toString()
+            val pass = tietPassword.text.toString()
+            loginViewModel.login(LoginDto(email, pass))
+        } else {
+            when {
+                tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
+                tietPassword.text!!.isEmpty() -> tilPassword.requestFocus()
             }
         }
-
-//        loginViewModel.login.observe(this) { login ->
-//            shared.saveSession(login)
-//        }
-//
-//        loginViewModel.tokenExpired.observe(this) { tokenExpirado ->
-//            if (tokenExpirado) {
-//                // regresarlo al login
-//            }
-//        }
     }
 
-    private fun showLoginFragment() {
-        try {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.mainFragmentContainer, LoginFragment())
-                .commit()
-//            if(loginViewModel.success){
-//                showHomeFragment()
-//            }
-        } catch (e: Exception) {
-//            showErrorFragment()
-        }
+    private fun showErrorMessage() {
+        Toast.makeText(appContext, "ERROR CREDENTIALS", Toast.LENGTH_LONG).show()
     }
 
-
-    private fun showHomeFragment() {
-        try {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.mainFragmentContainer, HomeFragment())
-                .commit()
-            homeViewModel.getUserProfile()
-        } catch (e: Exception) {
-//            showErrorFragment()
-        }
+    fun openHomeActivity() {
+        val intent = Intent(activity, HomeActivity::class.java)
+        startActivity(intent)
     }
 
-    private fun navigationSetup() {
-        val navView: BottomNavigationView = binding.navView
-//        val navController = binding.nav_view
-        val navController = findNavController(R.id.mainFragmentContainer)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.nav_home, R.id.nav_card, R.id.nav_services
-//            )
-//        )
-//        //setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
-    }
- */
+}
+

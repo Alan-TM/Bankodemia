@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
@@ -26,17 +29,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // TODO Robert Ask to Alan this fragment
+        homeViewModel.hideAndroidNavigationBar(false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.bottomNavIsVisible(true)
+        homeViewModel.getUserProfile()
         userProfileObserver()
+        initializeUI()
     }
 
     override fun onDestroyView() {
@@ -46,17 +49,44 @@ class HomeFragment : Fragment() {
 
     private fun userProfileObserver(){
         homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
-            binding.availableMoneyTextView.text = profile.data.balance?.let { it -> currencyParser(it) }
+            binding.availableMoneyTextView.text = profile.data.balance?.let { balance -> currencyParser(balance) }
             recyclerSetup()
         }
 
+        homeViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+    }
 
+    private fun loadingIndicator(visibility: Boolean) {
+        binding.homeLoadingContainer.isVisible = visibility
+        binding.homeContainer.isVisible = !visibility
     }
 
     private fun recyclerSetup() {
         with(binding.transactionsRecyclerView){
             adapter = HomeTransactionsAdapter(requireContext(), homeViewModel.transactionItemsForRecycler)
             layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+    private fun initializeUI(){
+        with(binding) {
+            sendButton.setOnClickListener {
+                findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+            }
+
+            getButton.setOnClickListener {
+                //TODO add fragment to DEPOSIT
+            }
+        }
+
+        setupVisibilityComponents()
+    }
+
+    private fun setupVisibilityComponents() {
+        with(homeViewModel) {
+            bottomNavIsVisible(true)
+            topToolbarIsVisible(true)
+            hideAndroidNavigationBar(false)
         }
     }
 }

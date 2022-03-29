@@ -9,5 +9,5 @@ data class SaveContactResponse(
     val success: Boolean,
     @Expose
     @SerializedName("data")
-    val data: SaveContactData
+    val data: SaveContactResponseData
 )

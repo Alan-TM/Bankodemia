@@ -17,6 +17,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppinsregular"
             android:text="@string/CardNumberTitle_fragmentCardNumber"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -31,6 +32,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppinsregular"
             android:text="@string/name_add_account"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -46,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppinsregular"
             android:text="@string/email_add_account"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -61,6 +64,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppinsregular"
             android:text="@string/institucion_title_add_account"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -74,7 +78,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +87,11 @@
                 android:id="@+id/tiet_CardNumber_fragmentCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No. de tarjeta" />
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/tiet_cardNumber_String"
+                android:textColorHint="#616161"
+                android:textSize="16sp"
+                tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -92,7 +99,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +108,10 @@
                 android:id="@+id/tiet_InstitutionBank_fragmentCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/institucion_title_add_account" />
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/institucion_title_add_account"
+                android:textSize="16sp"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -110,7 +119,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +128,10 @@
                 android:id="@+id/tiet_Name_fragmentCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre" />
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/tiet_Name_String_framentCardNumber"
+                android:textSize="16sp"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -128,7 +139,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +148,10 @@
                 android:id="@+id/tiet_Email_fragmentCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo" />
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/tiet_email_String_fragmentCarNumber"
+                android:textSize="16sp"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

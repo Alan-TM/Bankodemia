@@ -20,50 +20,54 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageView_logo_fragmentSendList"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            android:contentDescription="@string/logofragmentsenlist_descriptions" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView16"
+    <ImageButton
+        android:id="@+id/contacts_back_button"
         android:layout_width="35dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/textView_Title_FragmentSendList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="ENVIAR DINERO"
+        android:text="@string/Title_Description_FragmentSenList"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16" />
+        app:layout_constraintStart_toEndOf="@+id/contacts_back_button"
+        app:layout_constraintTop_toTopOf="@+id/contacts_back_button" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imageView_add_users"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/user" />
+        app:srcCompat="@drawable/user"
+        android:contentDescription="@string/imageaddusers_descriptions_fragmentsendlist" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contact_list_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_send_list"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_add_users"
+        tools:listitem="@layout/item_send_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
