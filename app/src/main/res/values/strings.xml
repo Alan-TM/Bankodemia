@@ -92,4 +92,7 @@
     <string name="tiet_cardNumber_String">No. de tarjeta</string>
     <string name="tiet_email_String_fragmentCarNumber">Correo</string>
     <string name="tiet_Name_String_framentCardNumber">Nombre</string>
+    <string name="addAccount_String">Tu contacto fue agragado con exito</string>
+    <string name="backgrounddecription_string">backgroundDecription_string</string>
+    <string name="imageback_description">imageBack_description</string>
 </resources>
