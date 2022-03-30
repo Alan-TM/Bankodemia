@@ -40,66 +40,6 @@
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Strings Aletsis-->
 
 
@@ -158,60 +98,6 @@
     <string name="final_text">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
     <string name="thanks">¡GRACIAS POR USAR BANKODEMIA!</string>
     <string name="finish">Finish</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </resources>

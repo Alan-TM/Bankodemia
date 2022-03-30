@@ -3,20 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/personakl_Details">
+    app:startDestination="@id/signupFragment">
 
-    <fragment
-        android:id="@+id/wlcome"
-        android:name="mx.backoders.bankodemia.wlcome"
-        android:label="fragment_wlcome"
-        tools:layout="@layout/fragment_wlcome" >
-        <action
-            android:id="@+id/action_wlcome_to_login3"
-            app:destination="@id/login3" />
-        <action
-            android:id="@+id/action_wlcome_to_sing_Up"
-            app:destination="@id/sing_Up" />
-    </fragment>
     <fragment
         android:id="@+id/login3"
         android:name="mx.backoders.bankodemia.ui.singup.view.login"
@@ -73,33 +61,6 @@
         android:label="fragment_confirmation"
         tools:layout="@layout/fragment_confirmation" />
     <fragment
-        android:id="@+id/sing_Up"
-        android:name="mx.backoders.bankodemia.ui.singup.view.sing_Up"
-        android:label="fragment_sing__up"
-        tools:layout="@layout/fragment_sing__up" >
-        <action
-            android:id="@+id/action_sing_Up_to_personakl_Details"
-            app:destination="@id/personakl_Details" />
-    </fragment>
-    <fragment
-        android:id="@+id/personakl_Details"
-        android:name="mx.backoders.bankodemia.ui.singup.view.personakl_Details"
-        android:label="fragment_personakl__details"
-        tools:layout="@layout/fragment_personakl__details" >
-        <action
-            android:id="@+id/action_personakl_Details_to_cellphone"
-            app:destination="@id/cellphone" />
-    </fragment>
-    <fragment
-        android:id="@+id/cellphone"
-        android:name="mx.backoders.bankodemia.ui.singup.view.cellphone"
-        android:label="fragment_cellphone"
-        tools:layout="@layout/fragment_cellphone" >
-        <action
-            android:id="@+id/action_cellphone_to_intro_Identity"
-            app:destination="@id/intro_Identity" />
-    </fragment>
-    <fragment
         android:id="@+id/intro_Identity"
         android:name="mx.backoders.bankodemia.ui.singup.view.intro_Identity"
         android:label="fragment_intro__identity"
@@ -122,5 +83,44 @@
         <action
             android:id="@+id/action_verify_Identity_to_passport"
             app:destination="@id/passport" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_personalDetailsFragment"
+            app:destination="@id/personalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="mx.backoders.bankodemia.welcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_login3"
+            app:destination="@id/login3" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalDetailsFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.personalDetailsFragment"
+        android:label="fragment_personal_details"
+        tools:layout="@layout/fragment_personal_details" >
+        <action
+            android:id="@+id/action_personalDetailsFragment_to_cellphoneFragment"
+            app:destination="@id/cellphoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cellphoneFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.cellphoneFragment"
+        android:label="fragment_cellphone"
+        tools:layout="@layout/fragment_cellphone" >
+        <action
+            android:id="@+id/action_cellphoneFragment_to_intro_Identity"
+            app:destination="@id/intro_Identity" />
     </fragment>
 </navigation>
