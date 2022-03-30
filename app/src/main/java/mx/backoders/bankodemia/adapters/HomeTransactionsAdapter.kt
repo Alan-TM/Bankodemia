@@ -52,7 +52,7 @@ class HomeTransactionsAdapter(
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
             is TransactionListItem.DateItem -> DATE
-            is TransactionListItem.TransactionItem -> TRANSACTION_INFO
+            else -> TRANSACTION_INFO
         }
     }
 

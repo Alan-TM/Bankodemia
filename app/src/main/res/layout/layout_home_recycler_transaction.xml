@@ -11,39 +11,45 @@
         android:id="@+id/transaction_item_concept"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Fondeo Bienvenida"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/transaction_item_is_income"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Fondeo Bienvenida" />
 
     <TextView
         android:id="@+id/transaction_item_hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="7:18 pm"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/transaction_item_concept"
         app:layout_constraintTop_toBottomOf="@id/transaction_item_concept"
-        />
+        tools:text="7:18 pm" />
 
     <TextView
         android:id="@+id/transaction_item_is_income"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="+"
         android:layout_marginEnd="4dp"
-        android:textColor="@color/teal_200"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/primaryBlue"
         app:layout_constraintEnd_toStartOf="@+id/transaction_item_price"
-        app:layout_constraintTop_toTopOf="@+id/transaction_item_price" />
+        app:layout_constraintTop_toTopOf="@+id/transaction_item_price"
+        tools:ignore="TextContrastCheck"
+        tools:text="+" />
 
     <TextView
         android:id="@+id/transaction_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="$100.00"
         android:textColor="@color/teal_200"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/transaction_item_concept"
-        />
+        tools:ignore="TextContrastCheck"
+        tools:text="$100.00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

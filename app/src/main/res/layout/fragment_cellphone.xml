@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    tools:context=".ui.singup.view.cellphoneFragment">
 
 
     <!--Toolbar-->
@@ -22,57 +22,59 @@
     <!--Textview-->
 
     <TextView
-        android:id="@+id/returnpassword"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Escribe tu Teléfono"
+        android:text="@string/writephone"
         android:textFontWeight="400"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Lo usarás para iniciar sesión"
+        android:text="@string/description_phone"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/tvprotectdocuments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
-        android:text="Para proteger tu cuenta, te enviaremos un código vía SMS."
+        android:text="@string/terms_phone"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_frg_login_login"
+        app:layout_constraintBottom_toTopOf="@+id/phone_continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
-        android:id="@+id/yourphone"
+        android:id="@+id/descriptionemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Tu número de celular"
-        android:textFontWeight="400"
+        android:text="@string/your_phone"
+        android:textFontWeight="600"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
@@ -80,9 +82,45 @@
 
     <!--EditText-->
 
+    <!--
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_phone_edittext_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+        -->
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:id="@+id/phone_phone_edittext_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:hint="@string/your_phone"
+        android:inputType="phone"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
 
 
 
+
+
+
+    <!--
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -92,44 +130,46 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
-        app:layout_constraintStart_toStartOf="@+id/yourphone"
-        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
+        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail" />
 
+    -->
 
 
     <!--Buttons-->
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_frg_login_login"
+        android:id="@+id/phone_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Continuar"
+        android:text="@string/continuar"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
 
     <!--Imagenes-->
 
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnpassword" />
+        android:contentDescription="@string/back"
+        app:layout_constraintTop_toTopOf="@+id/login" />
 
 
 

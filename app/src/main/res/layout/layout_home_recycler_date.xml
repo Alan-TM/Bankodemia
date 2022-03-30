@@ -13,9 +13,11 @@
         android:id="@+id/date_recycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="25 ENERO 2022"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="25 ENERO 2022" />
 </androidx.constraintlayout.widget.ConstraintLayout>

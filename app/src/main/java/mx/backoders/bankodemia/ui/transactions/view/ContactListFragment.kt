@@ -71,7 +71,7 @@ class ContactListFragment : Fragment() {
     }
 
     private fun initializeUI(){
-        binding.contactsBackButton.setOnClickListener {
+        binding.imageViewBackButtonFragmentSendList.setOnClickListener {
             findNavController().navigateUp()
         }
 

@@ -19,12 +19,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        tools:text="Cruz Eduardo Reveles Caldera"
+        android:fontFamily="@font/poppinsregular"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cruz Eduardo Reveles Caldera" />
 
     <TextView
         android:id="@+id/contact_list_id"
@@ -33,11 +34,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
-        tools:text="1234 1234 1234 1234 /"
+        android:fontFamily="@font/poppinsregular"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_list_name" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_list_name"
+        tools:text="1234 1234 1234 1234 /" />
 
     <TextView
         android:id="@+id/contact_list_bank"
@@ -45,8 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        tools:text="BANORTE"
+        android:fontFamily="@font/poppinsregular"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/contact_list_id"
-        app:layout_constraintTop_toBottomOf="@+id/contact_list_name" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_list_name"
+        tools:text="BANORTE" />
 </androidx.constraintlayout.widget.ConstraintLayout>

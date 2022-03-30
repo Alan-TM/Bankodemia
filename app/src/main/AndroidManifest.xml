@@ -14,9 +14,6 @@
         android:theme="@style/Theme.Bankodemia">
 
         <activity
-            android:name=".ui.main.SignUpActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.main.HomeActivity"
             android:exported="false" />
 
