@@ -18,31 +18,34 @@
 
         <ImageView
             android:id="@+id/imageView_logo_add_account_end"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/logo"/>
+            app:srcCompat="@drawable/logo"
+            android:contentDescription="@string/logodescriptions_fragmentaddcontact" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/imageView_background_FragmenAddAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/action_bar_add_account_end"
-        app:srcCompat="@drawable/image2" />
+        app:srcCompat="@drawable/image2"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/backgrounddecription_string" />
 
     <TextView
         android:id="@+id/textView_Title_AddAccountEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Tu contacto fue agragado con exito"
+        android:text="@string/addAccount_String"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_background_FragmenAddAccount" />
 </androidx.constraintlayout.widget.ConstraintLayout>
