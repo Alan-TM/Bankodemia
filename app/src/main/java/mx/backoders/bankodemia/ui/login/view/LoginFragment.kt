@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
         binding.returnLogin.setOnClickListener {
             findNavController().navigateUp()
         }
-        binding.loginLogin.setOnClickListener {
+        binding.loginLoginButton.setOnClickListener {
             startLogIn()
         }
     }

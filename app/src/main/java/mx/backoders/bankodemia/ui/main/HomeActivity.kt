@@ -3,6 +3,7 @@ package mx.backoders.bankodemia.ui.main
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Toast.makeText(applicationContext,"",Toast.LENGTH_SHORT).show()
 //
 //
 //        //this should be added in the login activity

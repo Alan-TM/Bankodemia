@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/signupFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/login3"
-        android:name="mx.backoders.bankodemia.ui.singup.view.login"
+        android:name="mx.backoders.bankodemia.ui.login.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/create_Password"
-        android:name="mx.backoders.bankodemia.ui.singup.view.create_Password"
+        android:name="mx.backoders.bankodemia.ui.singup.view.CreatePassword"
         android:label="fragment_create__password"
         tools:layout="@layout/fragment_create__password" >
         <action
@@ -62,7 +62,7 @@
         tools:layout="@layout/fragment_confirmation" />
     <fragment
         android:id="@+id/intro_Identity"
-        android:name="mx.backoders.bankodemia.ui.singup.view.intro_Identity"
+        android:name="mx.backoders.bankodemia.ui.singup.view.IntroIdentity"
         android:label="fragment_intro__identity"
         tools:layout="@layout/fragment_intro__identity" >
         <action

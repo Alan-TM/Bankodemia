@@ -35,7 +35,7 @@ class introduction_Identity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_introduction__identity, container, false)
+        return inflater.inflate(R.layout.fragment_intro__identity, container, false)
     }
 
     companion object {

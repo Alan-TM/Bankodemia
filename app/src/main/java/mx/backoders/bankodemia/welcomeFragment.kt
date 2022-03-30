@@ -26,12 +26,12 @@ class welcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.welcomeLoginButton.setOnClickListener{
-            it.findNavController().navigate(R.id.action_welcomeFragment_to_login3)
+        binding.btnNewAccount.setOnClickListener{
+            it.findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
             }
 
-        binding.welcomeSignupButton.setOnClickListener{
-            it.findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
+        binding.btnLogin.setOnClickListener{
+            it.findNavController().navigate(R.id.action_welcomeFragment_to_login3)
         }
     }
 

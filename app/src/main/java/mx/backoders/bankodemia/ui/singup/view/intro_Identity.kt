@@ -5,14 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.databinding.FragmentSignUpBinding
-import mx.backoders.bankodemia.databinding.FragmentWelcomeBinding
+import mx.backoders.bankodemia.databinding.FragmentIntroIdentityBinding
 
-class SingUpFragment : Fragment() {
+class IntroIdentity : Fragment() {
 
-    private var _binding : FragmentSignUpBinding? = null
+    private var _binding: FragmentIntroIdentityBinding? = null
     private val binding get() = _binding!!
 
 
@@ -26,25 +23,11 @@ class SingUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentIntroIdentityBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initializeUI()
-//        initComponents()
-//        loginObservers()
     }
-
-    private fun initializeUI() {
-        binding.returnLogin.setOnClickListener {
-            findNavController().navigateUp()
-        }
-        binding.signupContinueButton.setOnClickListener {
-            findNavController().navigate(R.id.action_singUpFragment2_to_personalDetailsFragment)
-        }
-//        setupVisibilityComponents()
-    }
-
 }

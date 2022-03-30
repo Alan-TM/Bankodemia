@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Bankodemia</string>
-    <string name="error_empty">Campo necesario</string>
-    <string name="error_invalid_email">Email no valido</string>
-    <string name="error_length">Error en la longitud</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">INICIO</string>
     <string name="title_card">TARJETA</string>
@@ -39,10 +36,18 @@
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 
+     <!--    AlanString-->
+    <string name="error_no_internet">Verifica tu conexión a internet e intentalo de nuevo</string>
+    <string name="error_empty">Campo necesario</string>
+    <string name="error_invalid_email">Email no válido</string>
+    <string name="error_length">Error en la longitud</string>
+    <string name="error_bad_request">No es posible realizar la petición al servicio. Por favor, verifique los datos e intentelo de nuevo</string>
+    <string name="error_no_authorized">Su sesión a expirado, por favor inicie sesión nuevamente</string>
+    <string name="error_no_money">No cuentas con el balance suficiente para realizar esta transacción</string>
+    <string name="error_something_happened">Algo ocurrió, intentalo de nuevo mas tarde</string>
+
 
     <!-- Strings Aletsis-->
-
-
     <string name="login">INICIAR SESION</string>
     <string name="description_login">Escribe el correo y contraseña con el que te registraste, a través de estos te enviaremos el acceso</string>
     <string name="write_your_email">Escribe tu correo</string>
@@ -100,7 +105,7 @@
     <string name="finish">Finish</string>
 
 
-    <!-- NEw Strings-->
+    <!-- Diego Strings-->
     <string name="CardNumberString_fraagmentCreditCard_textview">1234 1234 1234 1234</string>
     <string name="VigencyString_fragmentCardNumber_textview">11/25</string>
     <string name="cvvString_fragmentCreditCard_textview">123</string>
@@ -136,29 +141,6 @@
     <string name="concept_Titile_String_FragTransaDetails">CONCEPTO</string>
     <string name="tv_Concept_String_FragTransacDetails">Renta Isabel</string>
     <string name="account_Title_String_FragTransactionDetails">CUENTA EMISORA</string>
-    <string name="numberAccount_Title_String_FragmentTransactionDetails">Numero de Cuenta</string>
-    <string name="tv_accounNumber_fragmentTransactionsDetails">0000 123456</string>
-    <string name="tv_Quantity_String_FragmentTransactionDetails">$110.00</string>
-    <string name="tv_concept_String_fragmentTransactionsDetails">Renta Isabel</string>
-    <string name="Title_String_FragmentTransactionsDetails">DETALLE DE TRANSACCION</string>
-    <string name="imageback_description_fragmenttransactiondetails">imageback_Description_FragmentTransactionDetails</string>
-    <string name="logofragmentsenlist_descriptions">logoFragmentSenList_Descriptions</string>
-    <string name="Title_Description_FragmentSenList">ENVIAR DINERO</string>
-    <string name="imageaddusers_descriptions_fragmentsendlist">imageAddUsers_Descriptions_fragmentSendList</string>
-    <string name="logodescriptions_fragmentaddcontact">logoDescriptions_FragmentAddContact</string>
-    <string name="imageback_description_fragmentaddcontact">imageBack_description_fragmentAddContact</string>
-    <string name="eighteen_Digits_title_String">18 digitos</string>
-    <string name="interbanckCode_String_tiet">Clabe Interbancaria</string>
-    <string name="institution_String_tiet">Institucion</string>
-    <string name="email_String_tiet">Correo</string>
-    <string name="tiet_String_name">Nombre</string>
-    <string name="tiet_cardNumber_String">No. de tarjeta</string>
-    <string name="tiet_email_String_fragmentCarNumber">Correo</string>
-    <string name="tiet_Name_String_framentCardNumber">Nombre</string>
-
-
-
-
     <string name="numberAccount_Title_String_FragmentTransactionDetails">Numero de Cuenta</string>
     <string name="tv_accounNumber_fragmentTransactionsDetails">0000 123456</string>
     <string name="tv_Quantity_String_FragmentTransactionDetails">$110.00</string>
