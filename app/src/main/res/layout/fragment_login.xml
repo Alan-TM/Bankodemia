@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.singup.view.login">
+    tools:context=".ui.singup.view.loginFragment">
     <!-- Toolbar -->
     <include
         android:id="@+id/toolbar"
@@ -60,11 +60,11 @@
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:text="@string/write_your_password"
         android:textFontWeight="400"
         android:textSize="16sp"
-        android:fontFamily="@font/poppinsregular"
         app:layout_constraintStart_toStartOf="@+id/login_edittext_email_til"
         app:layout_constraintTop_toBottomOf="@+id/login_edittext_email_til" />
 
@@ -80,14 +80,14 @@
         android:text="@string/help_login"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_login"
+        app:layout_constraintBottom_toTopOf="@+id/login_login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <!-- Botones -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_login"
+        android:id="@+id/login_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -97,12 +97,12 @@
         android:fontFamily="@font/poppinsregular"
         android:text="@string/login_up"
         android:textAllCaps="false"
-        android:textColor="#616161"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <!-- Imagenes -->
 
@@ -139,11 +139,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="600"
-            android:inputType="textEmailAddress"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
+            android:inputType="textEmailAddress"
             android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,7 +171,7 @@
             android:fontFamily="@font/poppinsregular"
             android:inputType="textPassword"
             android:textSize="14sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

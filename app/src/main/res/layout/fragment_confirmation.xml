@@ -19,7 +19,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/documentimmigration_uploadinformation_button"
+        android:id="@+id/confirmation_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -27,18 +27,20 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Iniciar Sesión"
+        android:text="@string/login_up"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/finish"
         android:layout_marginTop="100dp"
         android:src="@drawable/avion_fenvio"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,11 +51,11 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo."
+        android:text="@string/final_text"
         android:textFontWeight="600"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="¡GRACIAS POR USAR BANKODEMIA!"
+        android:text="@string/thanks"
         android:textFontWeight="600"
         android:textSize="16sp"
         android:fontFamily="@font/poppinsregular"

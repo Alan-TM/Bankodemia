@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mx.backoders.bankodemia.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [PhoneFragment.newInstance] factory method to
+ * Use the [verify_Identity.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PhoneFragment : Fragment() {
+class verify_Identity : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +34,7 @@ class PhoneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_phone, container, false)
+        return inflater.inflate(R.layout.fragment_verify__identity, container, false)
     }
 
     companion object {
@@ -45,12 +44,12 @@ class PhoneFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment phone.
+         * @return A new instance of fragment verify_Identity.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            PhoneFragment().apply {
+            verify_Identity().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

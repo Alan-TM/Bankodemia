@@ -38,6 +38,69 @@
     <string name="name_add_account">Nombre</string>
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
+
+
+    <!-- Strings Aletsis-->
+
+
+    <string name="login">INICIAR SESION</string>
+    <string name="description_login">Escribe el correo y contraseña con el que te registraste, a través de estos te enviaremos el acceso</string>
+    <string name="write_your_email">Escribe tu correo</string>
+    <string name="write_your_password">Escribe tu contraseña</string>
+    <string name="help_login">¿Necesitas ayuda? Escríbenos a bankodemia@com.mx</string>
+    <string name="login_up">Iniciar Sesión</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Password</string>
+    <string name="back">Return</string>
+    <string name="escribe_tu_correo_uppercase">ESCRIBE TU CORREO</string>
+    <string name="description_email">Aquí recibirás comprobantes de tus movimientos e inormación sobre tu cuenta</string>
+    <string name="warning_privacity">Aviso de privacidad</string>
+    <string name="terms">Al tocar continuar aceptas nuestro</string>
+    <string name="continuar">Continuar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="names">Nombre(s)</string>
+    <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
+    <string name="instructions">Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas</string>
+    <string name="description_dates">Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento.</string>
+    <string name="last_name">Apellido(s)</string>
+    <string name="ocupacion">Ocupación</string>
+    <string name="born">Fecha de nacimiento</string>
+    <string name="Continue">Continuar</string>
+    <string name="writephone">ESCRIBE TU TELÉFONO</string>
+    <string name="description_phone">Lo usarás para iniciar sesión</string>
+    <string name="terms_phone">Para proteger tu cuenta, te enviaremos un código vía SMS.</string>
+    <string name="your_phone">Tu número de celular</string>
+    <string name="identidad">IDENTIDAD</string>
+    <string name="introduction_identity">Ahora, vamos a verificar tu identidad para proteger tu cuenta.</string>
+    <string name="context_identity">Deberás subir una fotografía de tu INE o pasaporte vigente y tomarte una selfie. Si eres extranjero necesitarás una fotografía de tu documento migratorio (FM3)</string>
+    <string name="accept">Entendido</string>
+    <string name="type_document">Seleccionado el tipo de documento que deseas fotografiar</string>
+    <string name="protect_identity">Conoce cómo protegemos tus documentos</string>
+    <string name="passport">Pasaporte</string>
+    <string name="ine">INE</string>
+    <string name="documento_migratorio">Documento Migratorio</string>
+    <string name="next">TODO</string>
+    <string name="text_documents">Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente.</string>
+    <string name="upload_documents">Arrastra tu archivo aquí o subelo desde tu ORDENADOR</string>
+    <string name="upload_information">Subir Información</string>
+    <string name="documento_migratorio_up">DOCUMENTO MIGRATORIO</string>
+    <string name="pasaporte">PASAPORTE</string>
+    <string name="password_upper">CONTRASEÑA</string>
+    <string name="create_password_secure">Crea una contraseña segura</string>
+    <string name="passwoird_2">La usarás para entrar a la app y confirmar tus transacciones.</string>
+    <string name="password_3">Usa al menos 6 caracteres alfanuméricos, no consecutivos ni repetidos.</string>
+    <string name="contra">Contraseña</string>
+    <string name="confirma_contra">Confirma tu contraseña</string>
+    <string name="create_password">Crear Contraseña</string>
+    <string name="senda_dates">Espera un momento, estamos enviando tus datos</string>
+    <string name="logo">Logo</string>
+    <string name="final_text">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
+    <string name="thanks">¡GRACIAS POR USAR BANKODEMIA!</string>
+    <string name="finish">Finish</string>
+
+
+    <!-- NEw Strings-->
     <string name="CardNumberString_fraagmentCreditCard_textview">1234 1234 1234 1234</string>
     <string name="VigencyString_fragmentCardNumber_textview">11/25</string>
     <string name="cvvString_fragmentCreditCard_textview">123</string>
@@ -118,8 +181,6 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
-
-
 
 
 </resources>
