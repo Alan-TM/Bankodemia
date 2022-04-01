@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -44,8 +43,6 @@ class ImmigrationDocument : Fragment() {
     private val startForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val image = BitmapFactory.decodeFile(currentPhotoPath)
-                //binding.ineIneCard.setImageBitmap(image)
                 photoFile?.let { signUpViewModel.decodeImageForAPI(it) }
             }
         }
