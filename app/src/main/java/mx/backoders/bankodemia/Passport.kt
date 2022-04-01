@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.databinding.FragmentPassportBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 import java.io.File
@@ -65,14 +66,17 @@ class Passport : Fragment() {
     private fun initializeUI() {
         with(binding){
             ineIneCard.setOnClickListener { permissionSetup() }
+
+            returnLogin.setOnClickListener { findNavController().navigateUp() }
+
+            passportUploadinformationButton.setOnClickListener { findNavController().navigate(R.id.action_passport_to_create_Password) }
         }
     }
 
     private fun initializeObservers(){
         with(signUpViewModel){
             decodeImage.observe(viewLifecycleOwner){
-                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                //TODO enable button
+                binding.passportUploadinformationButton.isEnabled = !it.isNullOrBlank()
             }
         }
     }
