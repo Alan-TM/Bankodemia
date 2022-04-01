@@ -5,19 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentIntroIdentityBinding
 
 class IntroIdentity : Fragment() {
 
     private var _binding: FragmentIntroIdentityBinding? = null
     private val binding get() = _binding!!
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,5 +24,8 @@ class IntroIdentity : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.introductionidentityAcceptButton.setOnClickListener {
+            findNavController().navigate(R.id.action_intro_Identity_to_verify_Identity)
+        }
     }
 }

@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/ine"
-        android:name="mx.backoders.bankodemia.ine"
+        android:name="mx.backoders.bankodemia.Ine"
         android:label="fragment_ine"
         tools:layout="@layout/fragment_ine" >
         <action
@@ -20,17 +20,17 @@
             app:destination="@id/create_Password" />
     </fragment>
     <fragment
-        android:id="@+id/immigration_document"
-        android:name="mx.backoders.bankodemia.immigration_document"
+        android:id="@+id/immigrationdocument"
+        android:name="mx.backoders.bankodemia.ImmigrationDocument"
         android:label="fragment_immigration_document"
-        tools:layout="@layout/fragment_immigration_document" >
+        tools:layout="@layout/fragment_immigration_document">
         <action
             android:id="@+id/action_immigration_document_to_create_Password"
             app:destination="@id/create_Password" />
     </fragment>
     <fragment
         android:id="@+id/passport"
-        android:name="mx.backoders.bankodemia.passport"
+        android:name="mx.backoders.bankodemia.Passport"
         android:label="fragment_passport"
         tools:layout="@layout/fragment_passport" >
         <action
@@ -79,7 +79,7 @@
             app:destination="@id/ine" />
         <action
             android:id="@+id/action_verify_Identity_to_immigration_document"
-            app:destination="@id/immigration_document" />
+            app:destination="@id/immigrationdocument" />
         <action
             android:id="@+id/action_verify_Identity_to_passport"
             app:destination="@id/passport" />
