@@ -29,9 +29,6 @@ class MakeTransactionFragment : Fragment() {
         arguments?.let {
             payment = it.getSerializable("paymentType") as PaymentType
 
-            if (payment == DEPOSIT)
-                setupVisibilityComponents()
-
             makeTransactionViewModel.setContactInformation(
                 it.getString("contactID").toString(),
                 it.getString("contactFullName").toString(),
@@ -68,9 +65,10 @@ class MakeTransactionFragment : Fragment() {
             }
 
             transactionBody.observe(viewLifecycleOwner) { transactionBody ->
-                if (transactionBody.amount > 0)
+                if (transactionBody.amount > 0) {
                     binding.textInputEditTextQuantitySend.setText(transactionBody.amount.toString())
-                binding.textInputEditTextConceptSend.setText(transactionBody.concept)
+                    binding.textInputEditTextConceptSend.setText(transactionBody.concept)
+                }
             }
         }
     }
@@ -99,7 +97,7 @@ class MakeTransactionFragment : Fragment() {
                 }
             }
 
-            homeViewModel.setOnBackPressedEnable(true)
+            setupVisibilityComponents()
         }
     }
 
@@ -107,6 +105,7 @@ class MakeTransactionFragment : Fragment() {
         with(homeViewModel){
             bottomNavIsVisible(false)
             topToolbarIsVisible(false)
+            setOnBackPressedEnable(true)
         }
     }
 

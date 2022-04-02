@@ -40,9 +40,13 @@ class HomeActivity : AppCompatActivity() {
 //        sharedPreferences.saveSession(UserLoginResponse("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDg0ODgxMTUsImV4cCI6MTY0ODU3NDUxNX0.69ZgcnR781dtTPEFl-9yXn5go5bAaRz9oV8ff7j3t-I", "24h"))
         //sharedPreferences.getPreference("token")?.let{ Log.e("SharedPreferences", it) }
         //sharedPreferences.getPreference("expiresIn")?.let{ Log.e("SharedPreferences", it) }
-
         navigationSetup()
         initializeObservers()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        SharedPreferencesInstance.getInstance(applicationContext)
     }
 
     private fun initializeObservers(){

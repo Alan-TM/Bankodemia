@@ -40,9 +40,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.getUserProfile()
+
         userProfileObserver()
         initializeUI()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.getUserProfile()
     }
 
     override fun onDestroyView() {

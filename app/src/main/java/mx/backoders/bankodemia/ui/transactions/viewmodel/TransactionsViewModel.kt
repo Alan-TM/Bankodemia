@@ -18,14 +18,13 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _contactID = MutableLiveData<String>()
+    private val _contactID = stateHandle.getLiveData("contactID", "")
     val contactID: LiveData<String> get() = _contactID
 
-    private val _contactFullName = MutableLiveData<String>()
+    private val _contactFullName = stateHandle.getLiveData("contactFullName", "")
     val contactFullName: LiveData<String> get() = _contactFullName
 
-    private val _paymentType = stateHandle.getLiveData("paymentType", PaymentType.PAYMENT)
-    val paymentType: LiveData<PaymentType> = _paymentType
+    private val _paymentType = stateHandle.getLiveData("paymentType", PAYMENT)
 
     private val _transactionBody =
         stateHandle.getLiveData("transactionBody", MakeTransactionDto(0.0, "", "", ""))
