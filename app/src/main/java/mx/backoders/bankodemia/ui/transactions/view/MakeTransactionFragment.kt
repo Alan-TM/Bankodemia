@@ -51,8 +51,14 @@ class MakeTransactionFragment : Fragment() {
                 binding.makeTransactionFullNameTextView.text = name
             }
 
-            contactID.observe(viewLifecycleOwner){id ->
+            contactID.observe(viewLifecycleOwner){ id ->
                 binding.tvInterbankCodeFragmentMakeTransaction.text = id.substring(0..15)
+            }
+
+            transactionBody.observe(viewLifecycleOwner){ transactionBody ->
+                if(transactionBody.amount > 0)
+                    binding.textInputEditTextQuantitySend.setText(transactionBody.amount.toString())
+                binding.textInputEditTextConceptSend.setText(transactionBody.concept)
             }
         }
     }

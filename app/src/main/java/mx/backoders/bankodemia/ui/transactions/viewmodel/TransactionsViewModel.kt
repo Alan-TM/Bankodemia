@@ -1,9 +1,6 @@
 package mx.backoders.bankodemia.ui.transactions.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
@@ -11,9 +8,8 @@ import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.PaymentType.PAYMENT
 import java.io.IOException
 
-class TransactionsViewModel : ViewModel() {
+class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
     private val _transactionResponse = MutableLiveData<MakeTransactionResponse>()
-    val transactionResponse: LiveData<MakeTransactionResponse> get() = _transactionResponse
 
     private val _errorResponse = MutableLiveData<Int>(0)
     val errorResponse: LiveData<Int> get() = _errorResponse
@@ -27,7 +23,8 @@ class TransactionsViewModel : ViewModel() {
     private val _contactFullName = MutableLiveData<String>()
     val contactFullName: LiveData<String> get() = _contactFullName
 
-    private val transactionBody = MutableLiveData<MakeTransactionDto>()
+    private val _transactionBody = stateHandle.getLiveData("transactionBody", MakeTransactionDto(0.0, "", "", ""))
+    val transactionBody: LiveData<MakeTransactionDto> = _transactionBody
 
     private val serviceNetwork = ServiceNetwork()
 
@@ -35,7 +32,7 @@ class TransactionsViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                transactionBody.value?.let { transaction ->
+                _transactionBody.value?.let { transaction ->
                     val response = serviceNetwork.makeTransactionPayment(transaction)
 
                     if (response.isSuccessful) {
@@ -55,7 +52,7 @@ class TransactionsViewModel : ViewModel() {
     }
 
     fun makeTransactionBody(concept: String, amount: Double) {
-        transactionBody.value = MakeTransactionDto(
+        _transactionBody.value = MakeTransactionDto(
             amount,
             concept,
             _contactID.value,

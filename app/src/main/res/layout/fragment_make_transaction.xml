@@ -127,6 +127,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_Quantity_Send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_String_fragmentMakeTransactions"
@@ -159,6 +160,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText_Concept_Send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/concept_String_fragmentMakeTransactions"
