@@ -66,6 +66,7 @@ class MakeTransactionFragment : Fragment() {
     private fun initializeUI() {
         with(binding) {
             makeTransactionBackButton.setOnClickListener {
+                makeTransactionViewModel.clearStateHandle()
                 findNavController().navigateUp()
             }
 

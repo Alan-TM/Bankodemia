@@ -36,6 +36,9 @@ class HomeViewModel : ViewModel() {
     private val _androidNavigationBarIsVisible = MutableLiveData<Boolean>()
     val androidNavigationBarIsVisible: LiveData<Boolean> get() = _androidNavigationBarIsVisible
 
+    private val _onBackPressedEnable = MutableLiveData<Boolean>()
+    val onBackPressedEnable: LiveData<Boolean> = _onBackPressedEnable
+
     private val serviceNetwork = ServiceNetwork()
 
     private var transactionItems = ArrayList<Transaction>()
@@ -90,6 +93,10 @@ class HomeViewModel : ViewModel() {
                 transactionItemsForRecycler.add(TransactionListItem.TransactionItem(it))
             }
         }
+    }
+
+    fun setOnBackPressedEnable(isEnable: Boolean){
+        _onBackPressedEnable.value = isEnable
     }
 
     fun bottomNavIsVisible(visibility: Boolean){

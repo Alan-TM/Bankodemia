@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
+import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
@@ -29,7 +30,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel.hideAndroidNavigationBar(false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -75,7 +75,9 @@ class HomeFragment : Fragment() {
             }
 
             getButton.setOnClickListener {
-                //TODO add fragment to DEPOSIT
+                val bundle = Bundle()
+                bundle.putSerializable("paymentType", PaymentType.DEPOSIT)
+                findNavController().navigate(R.id.action_nav_home_to_makeTransactionFragment, bundle)
             }
         }
 
@@ -86,7 +88,6 @@ class HomeFragment : Fragment() {
         with(homeViewModel) {
             bottomNavIsVisible(true)
             topToolbarIsVisible(true)
-            hideAndroidNavigationBar(false)
         }
     }
 }

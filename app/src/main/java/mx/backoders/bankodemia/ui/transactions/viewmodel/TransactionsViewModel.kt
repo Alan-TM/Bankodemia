@@ -8,10 +8,10 @@ import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.PaymentType.PAYMENT
 import java.io.IOException
 
-class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
+class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _transactionResponse = MutableLiveData<MakeTransactionResponse>()
 
-    private val _errorResponse = MutableLiveData<Int>(0)
+    private val _errorResponse = MutableLiveData(0)
     val errorResponse: LiveData<Int> get() = _errorResponse
 
     private val _isLoading = MutableLiveData<Boolean>()
@@ -23,7 +23,8 @@ class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
     private val _contactFullName = MutableLiveData<String>()
     val contactFullName: LiveData<String> get() = _contactFullName
 
-    private val _transactionBody = stateHandle.getLiveData("transactionBody", MakeTransactionDto(0.0, "", "", ""))
+    private val _transactionBody =
+        stateHandle.getLiveData("transactionBody", MakeTransactionDto(0.0, "", "", ""))
     val transactionBody: LiveData<MakeTransactionDto> = _transactionBody
 
     private val serviceNetwork = ServiceNetwork()
@@ -38,8 +39,7 @@ class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
                     if (response.isSuccessful) {
                         _transactionResponse.value = response.body()
                         _isLoading.value = false
-                    }
-                    else _errorResponse.value = response.code()
+                    } else _errorResponse.value = response.code()
                 }
             } catch (e: IOException) {
                 //TODO add a code for the error response
@@ -47,7 +47,7 @@ class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    fun setErrorCode(code: Int){
+    fun setErrorCode(code: Int) {
         _errorResponse.value = code
     }
 
@@ -60,9 +60,13 @@ class TransactionsViewModel(val stateHandle: SavedStateHandle) : ViewModel() {
         )
     }
 
-    fun setContactInformation(userID: String, userFullName: String){
+    fun setContactInformation(userID: String, userFullName: String) {
         _contactID.value = userID
         _contactFullName.value = userFullName
+    }
+
+    fun clearStateHandle(){
+        _transactionBody.value = MakeTransactionDto(0.0, "", "", "")
     }
 
     fun validateTextField(text: String): Boolean = text.isNotEmpty()

@@ -28,7 +28,7 @@ class FragmentProcessingTransaction : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel.hideAndroidNavigationBar(true)
+        homeViewModel.setOnBackPressedEnable(false)
         _binding = FragmentProcessingTransactionBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -57,6 +57,7 @@ class FragmentProcessingTransaction : Fragment() {
 
     private fun transactionCompleted(isLoading: Boolean){
         if(!isLoading){
+            transactionViewModel.clearStateHandle()
             findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_fragmentTransactionComplete)
         }
     }

@@ -25,6 +25,8 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel: HomeViewModel by viewModels()
     private val makeTransactionViewModel: TransactionsViewModel by viewModels()
 
+    private var backPressedFlag = false
+
 //    private lateinit var sharedPreferences: SharedPreferencesInstance
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
         with(viewModel) {
             bottomNavIsVisible.observe(this@HomeActivity) { binding.navView.isVisible = it }
             topToolbarIsVisible.observe(this@HomeActivity) { binding.actionBar.isVisible = it }
-            androidNavigationBarIsVisible.observe(this@HomeActivity) { setHideAndroidNavigationBar(it) }
+            onBackPressedEnable.observe(this@HomeActivity){ backPressedFlag = it }
         }
     }
 
@@ -57,11 +59,10 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    private fun setHideAndroidNavigationBar(hide: Boolean){
-        if(hide){
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        } else{
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+    override fun onBackPressed() {
+        if(backPressedFlag) {
+            super.onBackPressed()
+            makeTransactionViewModel.clearStateHandle()
         }
     }
 }
