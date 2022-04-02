@@ -64,6 +64,7 @@ class CreatePassword : Fragment() {
                     registerPasswordViewModel.isSamePassword(password, passwordConfirm)
 
                 if(textFieldsValidator(createpasswordEdittextPasswordTil, createpasswordEdittextConfirmpasswordTil))
+                    signUpViewModel.setUserPassword(password)
                     findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
 
             }

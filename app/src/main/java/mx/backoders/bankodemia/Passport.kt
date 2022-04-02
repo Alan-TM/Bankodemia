@@ -21,6 +21,8 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.common.utils.IdentityImageType
+import mx.backoders.bankodemia.common.utils.IdentityImageType.*
 import mx.backoders.bankodemia.databinding.FragmentPassportBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 import java.io.File
@@ -44,7 +46,10 @@ class Passport : Fragment() {
     private val startForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                photoFile?.let { signUpViewModel.decodeImageForAPI(it) }
+                photoFile?.let {
+                    signUpViewModel.decodeImageForAPI(it)
+                    signUpViewModel.setIdentityImageType(PASSPORT)
+                }
             }
         }
 
