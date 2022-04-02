@@ -34,6 +34,7 @@ class CreatePassword : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        initializeObservers()
         _binding = FragmentCreatePasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,7 +43,7 @@ class CreatePassword : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         registerPasswordViewModel.setupMediator()
         initializeUI()
-        initializeObservers()
+        //initializeObservers()
     }
 
     private fun initializeUI() {
@@ -130,5 +131,10 @@ class CreatePassword : Fragment() {
         } else {
             til.error = getString(string)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        registerPasswordViewModel.clearMediators()
     }
 }

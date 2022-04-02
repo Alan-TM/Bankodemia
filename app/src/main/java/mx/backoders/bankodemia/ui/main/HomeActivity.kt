@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel: HomeViewModel by viewModels()
     private val makeTransactionViewModel: TransactionsViewModel by viewModels()
 
-    private var backPressedFlag = false
+    private var backPressedFlag = true
 
 //    private lateinit var sharedPreferences: SharedPreferencesInstance
 

@@ -41,6 +41,15 @@ class RegisterPasswordViewModel : ViewModel() {
         }
     }
 
+    fun clearMediators(){
+        mediatorPasswordErrorLiveData.removeSource(_isValidConsecutiveCharacters)
+        mediatorPasswordErrorLiveData.removeSource(_isValidMinLength)
+        mediatorPasswordErrorLiveData.removeSource(_isEmptyPassword)
+        mediatorPasswordErrorLiveData.removeSource(_isValidRepeatedCharacters)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isEmptyPasswordConfirmation)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isSamePassword)
+    }
+
     fun isValidConsecutivePassword(password: String) {
         _isValidConsecutiveCharacters.value =
             consecutiveCharacterPassword(password) && consecutiveNumbersPassword(password)

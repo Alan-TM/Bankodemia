@@ -27,8 +27,8 @@ class HomeViewModel : ViewModel() {
     private val _userProfileResponseError = MutableLiveData<String>() //should add an enum or sealed class, for better error management
     val userProfileResponseError: LiveData<String> get() = _userProfileResponseError
 
-    private val _bottomNavIsvisible = MutableLiveData<Boolean>()
-    val bottomNavIsVisible: LiveData<Boolean> get() = _bottomNavIsvisible
+    private val _bottomNavIsVisible = MutableLiveData<Boolean>()
+    val bottomNavIsVisible: LiveData<Boolean> get() = _bottomNavIsVisible
 
     private val _topToolbarIsVisible = MutableLiveData<Boolean>()
     val topToolbarIsVisible: LiveData<Boolean> get() = _topToolbarIsVisible
@@ -97,7 +97,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun bottomNavIsVisible(visibility: Boolean){
-        _bottomNavIsvisible.value = visibility
+        _bottomNavIsVisible.value = visibility
     }
 
     fun topToolbarIsVisible(visibility: Boolean){

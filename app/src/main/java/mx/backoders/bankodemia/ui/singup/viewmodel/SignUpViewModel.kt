@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import mx.backoders.bankodemia.common.utils.IdentityImageType
 import mx.backoders.bankodemia.common.utils.timeStampForImage
@@ -11,12 +12,12 @@ import java.io.File
 import java.util.*
 
 @RequiresApi(Build.VERSION_CODES.O)
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
 
     private val _identityImageType = MutableLiveData<IdentityImageType>()
     private val _decodeImage = MutableLiveData<String>()
     val decodeImage: LiveData<String> = _decodeImage
-    private val _password = MutableLiveData<String>()
+    private val _password = stateHandle.getLiveData("password", "")
 
     fun decodeImageForAPI(image: File){
         val imageString: String = Base64.getEncoder().encodeToString(image.absolutePath.toByteArray())
