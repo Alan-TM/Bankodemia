@@ -63,13 +63,12 @@ class TransactionDetailsFragment : Fragment() {
         transactionDetailsViewModel.transactionDetailsResponse.observe(viewLifecycleOwner){
             setView(it.data.transaction)
         }
-
         transactionDetailsViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
     }
 
     private fun loadingIndicator(visibility: Boolean) {
-//        binding.transactionDetailsLoadingContainer.isVisible = visibility
-//        binding.transactionDetailsDetailsContainer.isVisible = !visibility
+        binding.transactionDetailsLoadingContainer.isVisible = visibility
+        binding.transactionDetailsInformationContainer.isVisible = !visibility
     }
 
     private fun setView(transaction: Transaction) {
