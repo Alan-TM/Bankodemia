@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.PhoneLenght
+import mx.backoders.bankodemia.common.utils.addLengthChecker
+import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.common.utils.isEmptyTiet
 import mx.backoders.bankodemia.databinding.FragmentCellphoneBinding
 
@@ -16,6 +20,7 @@ class cellphoneFragment : Fragment() {
     private var _binding: FragmentCellphoneBinding? = null
     private val binding get() = _binding!!
     private lateinit var tietPhone: TextInputEditText
+    private lateinit var tilPhone: TextInputLayout
 
 
       override fun onCreateView(
@@ -33,9 +38,12 @@ class cellphoneFragment : Fragment() {
     }
 
     private fun initUI() {
-        tietPhone = binding.phonePhoneEdittextTil
+        tietPhone = binding.phonePhoneEdittextTiet
+        tilPhone = binding.phonePhoneEdittextTil
         binding.phoneContinueButton.setOnClickListener{
-            if (!isEmptyTiet(requireActivity().getApplicationContext(),tietPhone)){
+            if (!isEmpty(requireActivity().getApplicationContext(),tietPhone, tilPhone) &&
+            !addLengthChecker(requireActivity().getApplicationContext(),tietPhone, tilPhone,
+                PhoneLenght.UniversalLength.length)){
                 it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
                 }
         }

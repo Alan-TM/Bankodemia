@@ -20,12 +20,16 @@ class personalDetailsFragment : Fragment() {
 
     // Name
     private lateinit var tietName: TextInputEditText
+    private lateinit var tilName: TextInputLayout
     // LastName
     private lateinit var tietLastName: TextInputEditText
+    private lateinit var tilLastName: TextInputLayout
     // Occupation
-    private lateinit var tietOcuupation: TextInputEditText
+    private lateinit var tietOccupation: TextInputEditText
+    private lateinit var tilOccupation: TextInputLayout
     // Birthday
     private lateinit var tietBirthday: TextInputEditText
+    private lateinit var tilBirthday: TextInputLayout
 
 
 
@@ -43,16 +47,20 @@ class personalDetailsFragment : Fragment() {
     }
 
     private fun initUI() {
-        tietName= binding.personaldetailNameTexteditTil
-        tietLastName = binding.personaldetailLastnameTexteditTil
-        tietOcuupation = binding.personaldetailOcupationTextedit
-        tietBirthday = binding.personaldetailBirthdayTexteditTil
+        tietName= binding.personaldetailNameTiet
+        tilName= binding.personaldetailNameTil
+        tietLastName = binding.personaldetailLastnameTiet
+        tilLastName = binding.personaldetailLastnameTil
+        tietOccupation = binding.personaldetailOccupationTiet
+        tilOccupation = binding.personaldetailOccupationTil
+        tietBirthday = binding.personaldetailBirthdayTiet
+        tilBirthday = binding.personaldetailBirthdayTil
 
         binding.personaldetailsContinueButton.setOnClickListener{
-            if (!isEmptyTiet(requireActivity().getApplicationContext(),tietName) &&
-                !isEmptyTiet(requireActivity().getApplicationContext(),tietLastName) &&
-                !isEmptyTiet(requireActivity().getApplicationContext(),tietOcuupation) &&
-                !isEmptyTiet(requireActivity().getApplicationContext(),tietBirthday) ) {
+            if (!isEmpty(requireActivity().getApplicationContext(),tietName, tilName) &&
+                !isEmpty(requireActivity().getApplicationContext(),tietLastName, tilLastName) &&
+                !isEmpty(requireActivity().getApplicationContext(),tietOccupation, tilOccupation) &&
+                !isEmpty(requireActivity().getApplicationContext(),tietBirthday, tilBirthday) ) {
                 it.findNavController().navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
             }
         }
