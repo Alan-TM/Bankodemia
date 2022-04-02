@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.model.Contacts.YourContact
+import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.databinding.ItemSendListBinding
 
 class ContactListAdapter(private val items: ArrayList<YourContact>) :
@@ -20,6 +21,7 @@ class ContactListAdapter(private val items: ArrayList<YourContact>) :
 
                 contactListInfo.setOnClickListener {
                     val bundle = Bundle()
+                    bundle.putSerializable("paymentType", PaymentType.PAYMENT)
                     bundle.putString("contactID", item.user.id)
                     bundle.putString("contactFullName", "${item.user.name} ${item.user.lastName}")
                     binding.root.findNavController()

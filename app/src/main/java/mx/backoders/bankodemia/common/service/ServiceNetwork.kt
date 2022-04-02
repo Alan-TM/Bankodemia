@@ -11,17 +11,10 @@ import mx.backoders.bankodemia.common.dto.UserSignUpDto
 import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
 import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
 import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
-import mx.backoders.bankodemia.common.model.User.User
-import mx.backoders.bankodemia.common.model.User.UserData
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.ResponseBody
-import retrofit2.HttpException
 import retrofit2.Response
 
 class ServiceNetwork {

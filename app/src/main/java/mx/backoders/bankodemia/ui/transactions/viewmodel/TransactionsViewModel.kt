@@ -5,6 +5,7 @@ import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
+import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.common.utils.PaymentType.PAYMENT
 import java.io.IOException
 
@@ -51,13 +52,19 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         _errorResponse.value = code
     }
 
-    fun makeTransactionBody(concept: String, amount: Double) {
-        _transactionBody.value = MakeTransactionDto(
+    fun makeTransactionBody(concept: String, amount: Double, paymentType: PaymentType) {
+        _transactionBody.value = if(paymentType == PAYMENT) MakeTransactionDto(
             amount,
             concept,
             _contactID.value,
-            PAYMENT.type
-        )
+            paymentType.type
+        ) else
+            MakeTransactionDto(
+                amount,
+                concept,
+                null,
+                paymentType.type
+            )
     }
 
     fun setContactInformation(userID: String, userFullName: String) {

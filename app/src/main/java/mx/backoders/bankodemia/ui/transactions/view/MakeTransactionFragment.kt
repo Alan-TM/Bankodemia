@@ -10,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.PaymentType
+import mx.backoders.bankodemia.common.utils.PaymentType.*
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
+import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
 class MakeTransactionFragment : Fragment() {
@@ -18,9 +21,17 @@ class MakeTransactionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val makeTransactionViewModel: TransactionsViewModel by activityViewModels()
+    private val homeViewModel: HomeViewModel by activityViewModels()
+
+    private lateinit var payment: PaymentType
 
     override fun onCreate(savedInstanceState: Bundle?) {
         arguments?.let {
+            payment = it.getSerializable("paymentType") as PaymentType
+
+            if (payment == DEPOSIT)
+                setupVisibilityComponents()
+
             makeTransactionViewModel.setContactInformation(
                 it.getString("contactID").toString(),
                 it.getString("contactFullName").toString()
@@ -47,16 +58,16 @@ class MakeTransactionFragment : Fragment() {
 
     private fun initializeObservers() {
         with(makeTransactionViewModel) {
-            contactFullName.observe(viewLifecycleOwner){ name ->
+            contactFullName.observe(viewLifecycleOwner) { name ->
                 binding.makeTransactionFullNameTextView.text = name
             }
 
-            contactID.observe(viewLifecycleOwner){ id ->
+            contactID.observe(viewLifecycleOwner) { id ->
                 binding.tvInterbankCodeFragmentMakeTransaction.text = id.substring(0..15)
             }
 
-            transactionBody.observe(viewLifecycleOwner){ transactionBody ->
-                if(transactionBody.amount > 0)
+            transactionBody.observe(viewLifecycleOwner) { transactionBody ->
+                if (transactionBody.amount > 0)
                     binding.textInputEditTextQuantitySend.setText(transactionBody.amount.toString())
                 binding.textInputEditTextConceptSend.setText(transactionBody.concept)
             }
@@ -76,23 +87,31 @@ class MakeTransactionFragment : Fragment() {
 
                 if (makeTransactionViewModel.validateTextField(amount)) {
                     textInputLayoutQunatitySend.isErrorEnabled = false
-                    if(makeTransactionViewModel.validateTextField(concept)){
+                    if (makeTransactionViewModel.validateTextField(concept)) {
                         textInputConceptSend.isErrorEnabled = false
                         sendDataToMakeTransaction(amount, concept)
-                    } else{
+                    } else {
                         textInputConceptSend.error = getString(R.string.error_empty)
                     }
-                } else{
+                } else {
                     textInputLayoutQunatitySend.error = getString(R.string.error_empty)
                 }
             }
         }
     }
 
-    private fun sendDataToMakeTransaction(amount: String, concept: String){
+    private fun setupVisibilityComponents(){
+        with(homeViewModel){
+            bottomNavIsVisible(false)
+            topToolbarIsVisible(false)
+        }
+    }
+
+    private fun sendDataToMakeTransaction(amount: String, concept: String) {
         makeTransactionViewModel.makeTransactionBody(
             concept,
-            amount.toDouble()
+            amount.toDouble(),
+            payment
         )
 
         findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)

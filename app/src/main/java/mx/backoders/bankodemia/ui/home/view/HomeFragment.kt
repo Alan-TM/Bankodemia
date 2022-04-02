@@ -24,6 +24,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private var myFullName = ""
+    private var myID = ""
+
     private val homeViewModel: HomeViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +53,8 @@ class HomeFragment : Fragment() {
     private fun userProfileObserver(){
         homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
             binding.availableMoneyTextView.text = profile.data.balance?.let { balance -> currencyParser(balance) }
+            myFullName = "${profile.data.user.name} ${profile.data.user.lastName}"
+            myID = profile.data.user.id
             recyclerSetup()
         }
 
@@ -77,6 +82,8 @@ class HomeFragment : Fragment() {
             getButton.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putSerializable("paymentType", PaymentType.DEPOSIT)
+                bundle.putString("contactID", myID)
+                bundle.putString("contactFullName",  myFullName)
                 findNavController().navigate(R.id.action_nav_home_to_makeTransactionFragment, bundle)
             }
         }
