@@ -79,7 +79,7 @@ class TransactionDetailsFragment : Fragment() {
             transactionDetailsConceptTextView.text = transaction.concept
             transactionDetailsDateTextView.text = timeParserForDetailsView(transaction.createdAt)
             transactionDetailsIdTextView.text = transaction._id
-            transactionDetailsAccountNumberTextView.text = "?????"
+            transactionDetailsAccountNumberTextView.text = transaction.issuer.id
         }
     }
 

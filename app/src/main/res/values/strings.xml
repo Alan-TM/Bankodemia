@@ -126,7 +126,7 @@
     <string name="sendTitle_String_fragmentMakeTransaction">ENVIAR A</string>
     <string name="nameAccount_String_fragmentMakeTransactions">Cruz Eduardo Reveles Caldera</string>
     <string name="interbankCode_String_fragmentMakeTransactions">1234 1234 1234 1234 /</string>
-    <string name="institutionBank_String_fragmentMakeTransactions">BANORTE</string>
+    <string name="institutionBank_String_fragmentMakeTransactions">/ KODEMIA</string>
     <string name="quantity_String_fragmentMakeTransactions">$150.00</string>
     <string name="speiTittle_String_fragmentMakeTransactions">SPEI sin costo</string>
     <string name="sendTransactionButton_String_fragmentMakeTransaction">Hacer transferencia</string>
@@ -165,5 +165,7 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
+    <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
+    <string name="error_repeated_characters">No utilice caracteres repetidos</string>
 
 </resources>

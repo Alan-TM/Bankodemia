@@ -51,5 +51,5 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/contact_list_id"
         app:layout_constraintTop_toBottomOf="@+id/contact_list_name"
-        tools:text="BANORTE" />
+        android:text="@string/institutionBank_String_fragmentMakeTransactions" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.utils.errorMessageSelectorByCode
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
@@ -51,6 +49,10 @@ class MakeTransactionFragment : Fragment() {
         with(makeTransactionViewModel) {
             contactFullName.observe(viewLifecycleOwner){ name ->
                 binding.makeTransactionFullNameTextView.text = name
+            }
+
+            contactID.observe(viewLifecycleOwner){id ->
+                binding.tvInterbankCodeFragmentMakeTransaction.text = id.substring(0..15)
             }
         }
     }
