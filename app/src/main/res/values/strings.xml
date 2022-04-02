@@ -48,6 +48,8 @@
     <string name="error_consecutive_numbers">No utilices números consecutivos</string>
     <string name="error_consecutive_characters">No utilices caracteres consecutivos</string>
     <string name="error_matching_password">Las contraseñas no coinciden</string>
+    <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
+    <string name="error_repeated_characters">No utilice caracteres repetidos</string>
 
     <!-- Strings Aletsis-->
     <string name="login">INICIAR SESION</string>
@@ -165,7 +167,5 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
-    <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
-    <string name="error_repeated_characters">No utilice caracteres repetidos</string>
 
 </resources>
