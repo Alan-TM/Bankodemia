@@ -24,6 +24,9 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _contactFullName = MutableLiveData<String>()
     val contactFullName: LiveData<String> get() = _contactFullName
 
+    private val _paymentType = stateHandle.getLiveData("paymentType", PaymentType.PAYMENT)
+    val paymentType: LiveData<PaymentType> = _paymentType
+
     private val _transactionBody =
         stateHandle.getLiveData("transactionBody", MakeTransactionDto(0.0, "", "", ""))
     val transactionBody: LiveData<MakeTransactionDto> = _transactionBody
@@ -52,24 +55,25 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         _errorResponse.value = code
     }
 
-    fun makeTransactionBody(concept: String, amount: Double, paymentType: PaymentType) {
-        _transactionBody.value = if(paymentType == PAYMENT) MakeTransactionDto(
+    fun makeTransactionBody(concept: String, amount: Double) {
+        _transactionBody.value = if(_paymentType.value == PAYMENT) MakeTransactionDto(
             amount,
             concept,
             _contactID.value,
-            paymentType.type
+            _paymentType.value!!.type
         ) else
             MakeTransactionDto(
                 amount,
                 concept,
                 null,
-                paymentType.type
+                _paymentType.value!!.type
             )
     }
 
-    fun setContactInformation(userID: String, userFullName: String) {
+    fun setContactInformation(userID: String, userFullName: String, paymentType: PaymentType) {
         _contactID.value = userID
         _contactFullName.value = userFullName
+        _paymentType.value = paymentType
     }
 
     fun clearStateHandle(){

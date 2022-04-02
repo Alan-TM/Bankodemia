@@ -34,7 +34,8 @@ class MakeTransactionFragment : Fragment() {
 
             makeTransactionViewModel.setContactInformation(
                 it.getString("contactID").toString(),
-                it.getString("contactFullName").toString()
+                it.getString("contactFullName").toString(),
+                payment
             )
         }
         super.onCreate(savedInstanceState)
@@ -113,7 +114,6 @@ class MakeTransactionFragment : Fragment() {
         makeTransactionViewModel.makeTransactionBody(
             concept,
             amount.toDouble(),
-            payment
         )
 
         findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)

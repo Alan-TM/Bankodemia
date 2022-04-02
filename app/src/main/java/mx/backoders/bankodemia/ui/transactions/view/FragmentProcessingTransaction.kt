@@ -66,6 +66,6 @@ class FragmentProcessingTransaction : Fragment() {
         val errorMessage = errorMessageSelectorByCode(requireContext(), code)
         Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
 
-        findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment)
+        findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment, null)
     }
 }
