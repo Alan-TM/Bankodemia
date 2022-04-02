@@ -45,7 +45,9 @@
     <string name="error_no_authorized">Su sesión a expirado, por favor inicie sesión nuevamente</string>
     <string name="error_no_money">No cuentas con el balance suficiente para realizar esta transacción</string>
     <string name="error_something_happened">Algo ocurrió, intentalo de nuevo mas tarde</string>
-
+    <string name="error_consecutive_numbers">No utilices números consecutivos</string>
+    <string name="error_consecutive_characters">No utilices caracteres consecutivos</string>
+    <string name="error_matching_password">Las contraseñas no coinciden</string>
 
     <!-- Strings Aletsis-->
     <string name="login">INICIAR SESION</string>
@@ -163,9 +165,5 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
-    <string name="error_consecutive_numbers">No utilices números consecutivos</string>
-    <string name="error_consecutive_characters">No utilices caracteres consecutivos</string>
-    <string name="error_matching_password">Las contraseñas no coinciden</string>
-
 
 </resources>
