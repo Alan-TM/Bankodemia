@@ -67,6 +67,5 @@ class FragmentProcessingTransaction : Fragment() {
         Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
 
         findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment)
-        homeViewModel.hideAndroidNavigationBar(false)
     }
 }

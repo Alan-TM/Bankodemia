@@ -97,6 +97,8 @@ class MakeTransactionFragment : Fragment() {
                     textInputLayoutQunatitySend.error = getString(R.string.error_empty)
                 }
             }
+
+            homeViewModel.setOnBackPressedEnable(true)
         }
     }
 

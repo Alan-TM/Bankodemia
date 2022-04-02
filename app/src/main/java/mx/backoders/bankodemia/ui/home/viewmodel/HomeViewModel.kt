@@ -33,9 +33,6 @@ class HomeViewModel : ViewModel() {
     private val _topToolbarIsVisible = MutableLiveData<Boolean>()
     val topToolbarIsVisible: LiveData<Boolean> get() = _topToolbarIsVisible
 
-    private val _androidNavigationBarIsVisible = MutableLiveData<Boolean>()
-    val androidNavigationBarIsVisible: LiveData<Boolean> get() = _androidNavigationBarIsVisible
-
     private val _onBackPressedEnable = MutableLiveData<Boolean>()
     val onBackPressedEnable: LiveData<Boolean> = _onBackPressedEnable
 
@@ -105,9 +102,5 @@ class HomeViewModel : ViewModel() {
 
     fun topToolbarIsVisible(visibility: Boolean){
         _topToolbarIsVisible.value = visibility
-    }
-
-    fun hideAndroidNavigationBar(isVisible: Boolean){
-        _androidNavigationBarIsVisible.value = isVisible
     }
 }
