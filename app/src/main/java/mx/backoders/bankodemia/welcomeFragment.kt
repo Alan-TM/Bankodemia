@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.databinding.FragmentWelcomeBinding
 
 class welcomeFragment : Fragment() {
@@ -36,6 +38,15 @@ class welcomeFragment : Fragment() {
     }
 
     private fun initializeUI() {
+        if(!checkForInternet(requireActivity().getApplicationContext())){
+            binding.txtInternetError.isVisible = true
+            binding.btnNewAccount.isEnabled = false
+            binding.btnLogin.isEnabled = false
+        }else{
+            binding.txtInternetError.isVisible = false
+            binding.btnLogin.isEnabled = true
+            binding.btnNewAccount.isEnabled = true
+        }
         binding.btnNewAccount.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
         }

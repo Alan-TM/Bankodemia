@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.logi
 import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
 import mx.backoders.bankodemia.ui.login.view.LoginFragment
@@ -29,6 +31,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-//        sharedPreferences = SharedPreferencesInstance.getInstance(applicationContext)
+        // hasInternet
+
     }
 }

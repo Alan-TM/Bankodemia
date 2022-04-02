@@ -1,6 +1,7 @@
 package mx.backoders.bankodemia.common.utils
 
 import android.content.Context
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -59,13 +60,12 @@ fun addIsEmptyChecker(
     })
 }
 
-/* Example with lostFocusListener*/
 fun isEmpty(
     context: Context,
     tiet: TextInputEditText,
     til: TextInputLayout
 ): Boolean {
-    var error: Boolean //TODO Robert, Seems that is not longer needed the value returned
+    var error: Boolean
     if (tiet.text.toString().trim().isEmpty()) {
         til.error = context.getString(R.string.error_empty)
         til.isErrorEnabled = true
@@ -77,7 +77,20 @@ fun isEmpty(
     return error
 }
 
-/* Example with lostFocusListener*/
+fun isEmptyTiet(
+    context: Context,
+    tiet: TextInputEditText
+): Boolean {
+    var error: Boolean = if (tiet.text.toString().trim().isEmpty()) {
+        tiet.setText(context.getString(R.string.error_empty))
+        tiet.setTextColor(Color.RED)
+        true
+    } else {
+        false
+    }
+    return error
+}
+
 fun addLengthChecker(
     context: Context,
     tiet: TextInputEditText,
@@ -122,7 +135,7 @@ fun isEmailCorrect(
     tiet: TextInputEditText,
     til: TextInputLayout
 ): Boolean {
-    var error: Boolean //TODO Robert, Seems that is not longer needed the value returned
+    var error: Boolean
     if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
         til.isErrorEnabled = false
         error= false

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentVerifyIdentityBinding
@@ -46,6 +47,9 @@ class verify_Identity : Fragment() {
             ineIneCard.setOnClickListener {
                 findNavController().navigate(R.id.action_verify_Identity_to_ine)
                 signUpViewModel.clearDecodeImage()
+            }
+            returnLogin.setOnClickListener{
+                it.findNavController().navigateUp()
             }
         }
     }

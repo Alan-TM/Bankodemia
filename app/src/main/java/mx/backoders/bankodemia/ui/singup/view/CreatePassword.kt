@@ -10,6 +10,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.isEmpty
@@ -62,6 +63,9 @@ class CreatePassword : Fragment() {
                     createpasswordEdittextConfirmpasswordTil.error =
                         getString(R.string.error_matching_password)
                 }
+            }
+            returnLogin.setOnClickListener{
+                it.findNavController().navigateUp()
             }
         }
     }

@@ -7,14 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.addIsEmailCorrectListener
+import mx.backoders.bankodemia.common.utils.addIsEmptyChecker
+import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.databinding.FragmentSignupBinding
 
 
 class SignupFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentSignupBinding? = null
-    private val binding get () = _binding!!
+    private val binding get() = _binding!!
+    private lateinit var tietEmail: TextInputEditText
+    private lateinit var tilEmail: TextInputLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,13 +33,29 @@ class SignupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.signupContinueButton.setOnClickListener{
-            it.findNavController().navigate(R.id.action_signupFragment_to_personalDetailsFragment)
+
+        initializeUI()
+
+    }
+
+    private fun initializeUI() {
+        //Adding Listeners
+        tietEmail = binding.signupWriteemailEdittextTiet
+        tilEmail = binding.signupWriteemailEdittextTil
+        addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+        addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+
+        binding.signupContinueButton.setOnClickListener {
+            if (!isEmpty(requireActivity().getApplicationContext(), tietEmail, tilEmail)) {
+                it.findNavController()
+                    .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
+            }
+        }
+        binding.returnLogin.setOnClickListener {
+            it.findNavController().navigateUp()
         }
     }
-
-
-    }
+}
 
 //class SingUpFragment : Fragment() {
 //

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.databinding.FragmentIntroIdentityBinding
@@ -26,6 +27,9 @@ class IntroIdentity : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.introductionidentityAcceptButton.setOnClickListener {
             findNavController().navigate(R.id.action_intro_Identity_to_verify_Identity)
+        }
+        binding.returnLogin.setOnClickListener{
+            it.findNavController().navigateUp()
         }
     }
 }
