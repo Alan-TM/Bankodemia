@@ -134,3 +134,12 @@ fun isEmailCorrect(
     return error
 }
 
+fun textFieldsValidator(vararg tils: TextInputLayout): Boolean{
+    var count = 0
+    for(item in tils){
+        if(item.isErrorEnabled)
+            count++
+    }
+    return count == 0
+}
+

@@ -20,11 +20,11 @@ class RegisterPasswordViewModel : ViewModel() {
 
     fun minLengthPassword(password: String) = _isValid.postValue(password.length >= 6)
 
-    private fun consecutiveNumbersPassword(password: String): Boolean {
+    fun consecutiveNumbersPassword(password: String): Boolean {
         var index = 0
         val length = password.length - 1
         if (length == -1) {
-            _isValid.postValue(true)
+            return true
         } else {
             if (length >= 1) {
                 while (index < length) {
@@ -41,7 +41,7 @@ class RegisterPasswordViewModel : ViewModel() {
         return true
     }
 
-    private fun consecutiveCharacterPassword(password: String): Boolean {
+    fun consecutiveCharacterPassword(password: String): Boolean {
         val length = password.length - 1
         if (length >= 1) {
             for ((index, value) in password.withIndex()) {
@@ -59,6 +59,8 @@ class RegisterPasswordViewModel : ViewModel() {
         }
         return true
     }
+
+    fun isSamePassword(password: String, password_confirmation: String): Boolean = password_confirmation == password
 
     // PROBABLY DISCARD FUNC-----
     private fun repeatedCharactersPassword(password: String): Boolean {
