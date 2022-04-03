@@ -80,13 +80,13 @@ class MakeTransactionFragment : Fragment() {
             }
 
             buttonMakeTransfer.setOnClickListener {
-                val amount = textInputLayoutQunatitySend.toString()
+                val amount = textInputLayoutQunatitySend.text.toString()
                 val concept = textInputConceptSend.text.toString()
 
                 if (makeTransactionViewModel.validateTextField(amount)) {
-                    textInputLayoutQunatitySend.error = ""
+                    textInputLayoutQunatitySend.error = null
                     if (makeTransactionViewModel.validateTextField(concept)) {
-                        textInputConceptSend.error = ""
+                        textInputConceptSend.error = null
                         sendDataToMakeTransaction(amount, concept)
                     } else {
                         textInputConceptSend.error = getString(R.string.error_empty)

@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -81,6 +82,10 @@ class Ine : Fragment() {
         with(signUpViewModel){
             decodeImage.observe(viewLifecycleOwner){
                 binding.ineUploadinformationButton.isEnabled = !it.isNullOrBlank()
+            }
+            //TODO delete this after
+            _identityImageType.observe(viewLifecycleOwner){
+                Toast.makeText(requireContext(), it.type, Toast.LENGTH_LONG).show()
             }
         }
     }

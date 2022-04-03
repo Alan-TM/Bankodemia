@@ -64,8 +64,8 @@ class CreatePassword : Fragment() {
                     registerPasswordViewModel.isSamePassword(password, passwordConfirm)
 
                 if(textFieldsValidator(createpasswordEdittextPasswordTil, createpasswordEdittextConfirmpasswordTil)) {
-                    signUpViewModel.setUserPassword(password)
                     findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
+                    signUpViewModel.setUserPassword(password)
                 }
 
             }
@@ -82,15 +82,13 @@ class CreatePassword : Fragment() {
             }
 
             returnLogin.setOnClickListener {
-                signUpViewModel.setUserPassword(createpasswordEdittextPasswordTiet.text.toString())
-                findNavController().navigateUp()
+                onBackPressedCallbackHandler()
             }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().navigateUp()
-                signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
+                onBackPressedCallbackHandler()
             }
         })
     }
@@ -147,6 +145,11 @@ class CreatePassword : Fragment() {
         } else {
             til.error = getString(string)
         }
+    }
+
+    private fun onBackPressedCallbackHandler(){
+        findNavController().navigateUp()
+        signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
     }
 
     override fun onStop() {

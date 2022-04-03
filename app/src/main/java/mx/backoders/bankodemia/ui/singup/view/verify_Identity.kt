@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.IdentityImageType
+import mx.backoders.bankodemia.common.utils.IdentityImageType.*
 import mx.backoders.bankodemia.databinding.FragmentVerifyIdentityBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
@@ -35,17 +37,17 @@ class verify_Identity : Fragment() {
         with(binding) {
             verifyIdentityPassportCar.setOnClickListener {
                 findNavController().navigate(R.id.action_verify_Identity_to_passport)
-                signUpViewModel.clearDecodeImage()
+                signUpViewModel.setIdentityImageType(PASSPORT)
             }
 
             verifyIdentityDocumentmigratoryCard.setOnClickListener {
                 findNavController().navigate(R.id.action_verify_Identity_to_immigration_document)
-                signUpViewModel.clearDecodeImage()
+                signUpViewModel.setIdentityImageType(MIGRATION_FORM)
             }
 
             ineIneCard.setOnClickListener {
                 findNavController().navigate(R.id.action_verify_Identity_to_ine)
-                signUpViewModel.clearDecodeImage()
+                signUpViewModel.setIdentityImageType(INE)
             }
         }
     }
