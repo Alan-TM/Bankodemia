@@ -20,14 +20,11 @@ class LoginViewModel : ViewModel() {
     private val service = ServiceNetwork()
     val login = MutableLiveData<UserLoginResponse>()
     private var error = MutableLiveData<String>()
-    private var isLoading = MutableLiveData<Boolean>()
+    var isLoading = MutableLiveData<Boolean>()
     val tokenExpired = MutableLiveData<Boolean>()
 
     private val _success = MutableLiveData<Boolean>()
     val success: LiveData<Boolean> get() = _success
-
-    private val _welcomeContainer = MutableLiveData<Boolean>()
-    val liveDataWelcomeContainer: LiveData<Boolean> get() = _welcomeContainer
 
     fun getLogin(expires_in: String, dto: LoginDto) {
         viewModelScope.launch {
@@ -36,8 +33,11 @@ class LoginViewModel : ViewModel() {
                 val responseLogin = service.getLogin(expires_in, dto)
                 if (responseLogin.isSuccessful) {
                     login.postValue(responseLogin.body())
+                    tokenExpired.postValue(false)
+                    _success.value = true
                 } else if (responseLogin.code() == 401) {
                     tokenExpired.postValue(true)
+                    _success.value = false
                 } else {
                     error.postValue(responseLogin.errorBody().toString())
                 }
@@ -48,25 +48,16 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    fun login(dto: LoginDto){
+    fun isStillValidToken() {
         viewModelScope.launch {
-            val response = service.login(dto)
-            if(response.isSuccessful){
-                login.postValue(response.body())
-                logi("Robe: Correct Login")
-                _success.value = true
-            }else if (response.code() == 401) {
-                logi("Robe: Error Login 1........")
-//                tokenExpired.postValue(true)
-                _success.value = false
-            }else{
-                logi("Robe: Error Login 2........")
+            try {
+            } catch (err: IOException) {
+                error.postValue(err.localizedMessage)
             }
+
         }
+
     }
 
-    fun welcomeContainerIsVisible(visibility: Boolean){
-        _welcomeContainer.value = visibility
-    }
 
 }

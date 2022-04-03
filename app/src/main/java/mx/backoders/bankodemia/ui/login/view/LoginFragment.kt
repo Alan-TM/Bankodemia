@@ -2,15 +2,18 @@ package mx.backoders.bankodemia.ui.login.view
 
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
@@ -47,10 +50,16 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
         loginObservers()
+        isStillValidToken()
+    }
+
+    private fun isStillValidToken() {
+        loginViewModel
     }
 
     private fun initializeUI() {
         shared = SharedPreferencesInstance.getInstance(requireActivity().applicationContext)
+        binding.progressBarLogin.isVisible = false
 
         //Adding Listeners
         tietEmail = binding.loginEdittextEmailTiet
@@ -65,7 +74,18 @@ class LoginFragment : Fragment() {
             findNavController().navigateUp()
         }
         binding.loginLoginButton.setOnClickListener {
-            startLogIn()
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
+            } else {
+                if (!isEmpty(
+                        requireActivity().getApplicationContext(),
+                        tietPassword,
+                        tilPassword
+                    )
+                ) {
+                    startLogIn()
+                }
+            }
         }
     }
 
@@ -76,7 +96,8 @@ class LoginFragment : Fragment() {
         if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
-            loginViewModel.login(LoginDto(email, pass))
+//            binding.progressBarLogin.isVisible = true
+            loginViewModel.getLogin("1m",LoginDto(email, pass))
         } else {
             when {
                 tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
@@ -95,88 +116,26 @@ class LoginFragment : Fragment() {
             }
         }
         loginViewModel.success.observe(viewLifecycleOwner) { success ->
-            if(success){
-                logi("Robe send Actividiti:" )
+            if (success) {
                 openHomeActivity()
-            }else{
-                logi("Robe dont sent activitu ERROR" )
+            } else {
                 showErrorMessage()
             }
+        }
+        loginViewModel.isLoading.observe(viewLifecycleOwner){isLoading ->
+            binding.progressBarLogin.isVisible = isLoading
         }
     }
 
     private fun showErrorMessage() {
-        Toast.makeText(context, "ERROR CREDENTIALS", Toast.LENGTH_LONG).show()
+        binding.loginEdittextEmailTiet.error = getString(R.string.error_login)
+        binding.loginEdittextPasswordTil.error = getString(R.string.error_login)
+        showSnack(binding.root, getString(R.string.error_login), Snackbar.LENGTH_LONG)
     }
 
     fun openHomeActivity() {
         val intent = Intent(activity, HomeActivity::class.java)
         startActivity(intent)
     }
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        transactionDetailsViewModel.fetchTransactionData(transactionID)
-//
-//        initializeObservers()
-//        initializeUI()
-//    }
-
-//    private fun loginObservers() {
-//        loginViewModel.login.observe(viewLifecycleOwner) { login ->
-//            shared.saveSession(login)
-//        }
-//        loginViewModel.tokenExpired.observe(viewLifecycleOwner) { tokenExpirado ->
-//            if (tokenExpirado) {
-//                // regresarlo al login
-//            }
-//        }
-//        loginViewModel.success.observe(viewLifecycleOwner) { success ->
-//            if(success){
-//                logi("Robe send Actividiti:" )
-//                openHomeActivity()
-//            }else{
-//                logi("Robe dont sent activitu ERROR" )
-//                showErrorMessage()
-//            }
-//        }
-//    }
-//
-//    private fun initComponents() {
-//
-//        shared = SharedPreferencesInstance.getInstance(requireActivity().getApplicationContext())
-//        binding.btnFrgLoginLogin.setOnClickListener {
-//            startLogIn()
-//        }
-//
-////         Adding Listeners
-//        tietEmail = binding.tietLoginEmail
-//        tilEmail = binding.tilLoginEmail
-//        addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
-//
-//        tietPassword = binding.tietLoginPassword
-//        tilPassword = binding.tilLoginPassword
-//        addIsEmptyChecker(requireActivity().getApplicationContext(), tietPassword, tilPassword)
-//    }
-//
-//    private fun startLogIn() {
-//        isEmailCorrect(requireActivity().getApplicationContext(), tietEmail, tilEmail)
-//        isEmpty(requireActivity().getApplicationContext(), tietPassword, tilPassword)
-//
-//        if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
-//            val email = tietEmail.text.toString()
-//            val pass = tietPassword.text.toString()
-//            loginViewModel.login(LoginDto(email, pass))
-//        } else {
-//            when {
-//                tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
-//                tietPassword.text!!.isEmpty() -> tilPassword.requestFocus()
-//            }
-//        }
-//    }
-//
-//    private fun showErrorMessage() {
-//        Toast.makeText(appContext, "ERROR CREDENTIALS", Toast.LENGTH_LONG).show()
-//    }
-//
 }
 

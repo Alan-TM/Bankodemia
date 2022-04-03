@@ -1,17 +1,12 @@
 package mx.backoders.bankodemia.ui.main
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
-import mx.backoders.bankodemia.common.utils.logi
 import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
-import mx.backoders.bankodemia.ui.login.view.LoginFragment
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
+import org.json.JSONObject
 
 
 class WelcomeActivity : AppCompatActivity() {
@@ -25,10 +20,10 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingWelcomeActivity = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(bindingWelcomeActivity.root)
-//        initUI()
     }
 
-    private fun initUI() {
-//        sharedPreferences = SharedPreferencesInstance.getInstance(applicationContext)
-    }
+//    override fun onResume() {
+//        super.onResume()
+//    }
+
 }

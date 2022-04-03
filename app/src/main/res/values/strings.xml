@@ -167,5 +167,11 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
+    <string name="team">Equipo BACKODERS:\n\nAlan Torres\nAlexis Orozco\nDiego Catañeda\nRoberto Herrera</string>
+    <string name="_5233132654">+5233132654</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="close_sesion">¿Desea cerrar la sesión?</string>
+    <string name="error_login">Por favor verifique sus credenciales</string>
 
 </resources>

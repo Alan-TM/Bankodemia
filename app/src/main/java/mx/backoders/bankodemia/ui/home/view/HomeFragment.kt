@@ -33,6 +33,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        homeViewModel.hideAndroidNavigationBar(false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -40,13 +41,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        homeViewModel.getUserProfile()
         userProfileObserver()
         initializeUI()
     }
 
     override fun onResume() {
         super.onResume()
+        //TODO add internet checker
         homeViewModel.getUserProfile()
     }
 
@@ -81,7 +83,11 @@ class HomeFragment : Fragment() {
     private fun initializeUI(){
         with(binding) {
             sendButton.setOnClickListener {
-                findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
+                } else {
+                    findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+                }
             }
 
             getButton.setOnClickListener {
