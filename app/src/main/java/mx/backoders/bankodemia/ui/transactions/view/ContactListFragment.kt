@@ -86,8 +86,14 @@ class ContactListFragment : Fragment() {
     }
 
     private fun initializeUI(){
-        binding.imageViewBackButtonFragmentSendList.setOnClickListener {
-            findNavController().navigateUp()
+        with(binding) {
+            imageViewBackButtonFragmentSendList.setOnClickListener {
+                findNavController().navigateUp()
+            }
+
+            imageViewAddUsers.setOnClickListener {
+                findNavController().navigate(R.id.action_contactListFragment_to_addAccountFragment2)
+            }
         }
 
         setupVisibilityComponents()
