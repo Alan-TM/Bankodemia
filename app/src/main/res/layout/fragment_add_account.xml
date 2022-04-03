@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".AddAccountFragment">
+    tools:context=".ui.transactions.view.AddAccountFragment">
 
 
     <!--Toolbar-->
@@ -86,8 +86,7 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-
-        android:id="@+id/phone_phone_edittext_til"
+        android:id="@+id/addcontact_alias_tiet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -95,7 +94,7 @@
         android:layout_weight="600"
         android:background="@drawable/style_edittext"
         android:fontFamily="@font/poppinsregular"
-        android:inputType="phone"
+        android:inputType="text"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -163,7 +162,7 @@
 
 
         <AutoCompleteTextView
-
+            android:id="@+id/dropdown_user_names"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"

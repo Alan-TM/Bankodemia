@@ -178,5 +178,6 @@
     <string name="agregar_contacto">Agregar Contacto</string>
     <string name="agregar_contacto_UPPERCASE">AGREGAR CONTACTO</string>
     <string name="volver_a_inicio">Volver a Inicio</string>
+    <string name="error_select_user">Por favor, seleccione un usuario</string>
 
 </resources>

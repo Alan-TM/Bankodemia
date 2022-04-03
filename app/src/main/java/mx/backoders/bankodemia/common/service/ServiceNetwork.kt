@@ -12,6 +12,7 @@ import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
 import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.User.AllUsers
 import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
 import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
@@ -56,6 +57,12 @@ class ServiceNetwork {
         withContext(Dispatchers.IO) {
             retrofit.saveContact(body)
         }
+
+    suspend fun getAllUsers(): Response<AllUsers> =
+        withContext(Dispatchers.IO){
+            retrofit.getAllUsers()
+        }
+
 
     suspend fun makeTransactionPayment(body: MakeTransactionDto): Response<MakeTransactionResponse> =
         withContext(Dispatchers.IO) {

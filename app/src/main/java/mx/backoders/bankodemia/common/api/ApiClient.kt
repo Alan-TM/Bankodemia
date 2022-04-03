@@ -10,10 +10,7 @@ import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.model.Transactions.Transaction
 import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
-import mx.backoders.bankodemia.common.model.User.User
-import mx.backoders.bankodemia.common.model.User.UserData
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
-import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
+import mx.backoders.bankodemia.common.model.User.*
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -46,6 +43,9 @@ interface ApiClient {
     //@Headers("Authorization: Bearer $TOKEN")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
+
+    @GET("users")
+    suspend fun getAllUsers(): Response<AllUsers>
 
     //@Headers("Authorization: Bearer $TOKEN")
     @GET("transactions/{id}")

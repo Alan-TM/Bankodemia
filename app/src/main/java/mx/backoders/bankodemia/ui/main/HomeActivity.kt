@@ -17,6 +17,7 @@ import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.view.DialogHelp
 import mx.backoders.bankodemia.ui.home.view.SignOut
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
+import mx.backoders.bankodemia.ui.transactions.viewmodel.AddContactViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -25,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val viewModel: HomeViewModel by viewModels()
     private val makeTransactionViewModel: TransactionsViewModel by viewModels()
+    private val addContactViewModel: AddContactViewModel by viewModels()
 
     private var backPressedFlag = true
 
