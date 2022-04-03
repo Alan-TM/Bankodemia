@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,8 +49,8 @@ class Ine : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
                 photoFile?.let {
-                    signUpViewModel.decodeImageForAPI(it)
                     signUpViewModel.setIdentityImageType(INE)
+                    signUpViewModel.setIdentityImage(signUpViewModel.decodeImageForAPI(it))
                 }
             }
         }
@@ -80,12 +81,9 @@ class Ine : Fragment() {
 
     private fun initializeObservers(){
         with(signUpViewModel){
-            decodeImage.observe(viewLifecycleOwner){
+            identityImageIne.observe(viewLifecycleOwner){
+                Log.e("INE", it)
                 binding.ineUploadinformationButton.isEnabled = !it.isNullOrBlank()
-            }
-            //TODO delete this after
-            _identityImageType.observe(viewLifecycleOwner){
-                Toast.makeText(requireContext(), it.type, Toast.LENGTH_LONG).show()
             }
         }
     }

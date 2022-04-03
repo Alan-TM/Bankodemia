@@ -1,6 +1,7 @@
 package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,15 @@ class CreatePassword : Fragment() {
     private var flagPasswordError: PasswordError = NONE
     private var flagPasswordConfirmError: PasswordError = NONE
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onBackPressedCallbackHandler()
+            }
+        })
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,16 +64,20 @@ class CreatePassword : Fragment() {
                     registerPasswordViewModel.isEmptyPassword(password)
                     registerPasswordViewModel.isEmptyPasswordConfirmation(passwordConfirm)
                 }
-                if(flagPasswordError == NONE)
+                if (flagPasswordError == NONE)
                     registerPasswordViewModel.minLengthPassword(password)
-                if(flagPasswordError == NONE)
+                if (flagPasswordError == NONE)
                     registerPasswordViewModel.isValidConsecutivePassword(password)
-                if(flagPasswordError == NONE)
+                if (flagPasswordError == NONE)
                     registerPasswordViewModel.isValidRepeatedCharacters(password)
-                if(flagPasswordError == NONE && flagPasswordConfirmError == NONE)
+                if (flagPasswordError == NONE && flagPasswordConfirmError == NONE)
                     registerPasswordViewModel.isSamePassword(password, passwordConfirm)
 
-                if(textFieldsValidator(createpasswordEdittextPasswordTil, createpasswordEdittextConfirmpasswordTil)) {
+                if (textFieldsValidator(
+                        createpasswordEdittextPasswordTil,
+                        createpasswordEdittextConfirmpasswordTil
+                    )
+                ) {
                     findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
                     signUpViewModel.setUserPassword(password)
                 }
@@ -85,12 +99,6 @@ class CreatePassword : Fragment() {
                 onBackPressedCallbackHandler()
             }
         }
-
-        requireActivity().onBackPressedDispatcher.addCallback(object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                onBackPressedCallbackHandler()
-            }
-        })
     }
 
     private fun initializeObservers() {
@@ -105,8 +113,16 @@ class CreatePassword : Fragment() {
                         false,
                         R.string.error_consecutive_characters
                     )
-                    MIN_LENGTH -> errorEnableHelper(passwordTIL, false, R.string.error_min_length_password)
-                    REPEATED_CHARACTERS -> errorEnableHelper(passwordTIL, false, R.string.error_repeated_characters)
+                    MIN_LENGTH -> errorEnableHelper(
+                        passwordTIL,
+                        false,
+                        R.string.error_min_length_password
+                    )
+                    REPEATED_CHARACTERS -> errorEnableHelper(
+                        passwordTIL,
+                        false,
+                        R.string.error_repeated_characters
+                    )
                     else -> errorEnableHelper(passwordTIL, false, R.string.error_empty)
                 }
             }
@@ -133,9 +149,8 @@ class CreatePassword : Fragment() {
             }
         }
 
-        signUpViewModel.password.observe(viewLifecycleOwner){ password ->
+        signUpViewModel.password.observe(viewLifecycleOwner) { password ->
             binding.createpasswordEdittextPasswordTiet.setText(password)
-            binding.createpasswordEdittextConfirmpasswordTiet.setText(password)
         }
     }
 
@@ -147,9 +162,11 @@ class CreatePassword : Fragment() {
         }
     }
 
-    private fun onBackPressedCallbackHandler(){
+    private fun onBackPressedCallbackHandler() {
+        val password = binding.createpasswordEdittextPasswordTiet.text.toString()
         findNavController().navigateUp()
-        signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
+        if (password.isNotEmpty() && password.isNotBlank())
+            signUpViewModel.setUserPassword(password)
     }
 
     override fun onStop() {

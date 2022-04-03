@@ -47,8 +47,8 @@ class Passport : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
                 photoFile?.let {
-                    signUpViewModel.decodeImageForAPI(it)
                     signUpViewModel.setIdentityImageType(PASSPORT)
+                    signUpViewModel.setIdentityImage(signUpViewModel.decodeImageForAPI(it))
                 }
             }
         }
@@ -79,7 +79,7 @@ class Passport : Fragment() {
 
     private fun initializeObservers(){
         with(signUpViewModel){
-            decodeImage.observe(viewLifecycleOwner){
+            identityImagePassport.observe(viewLifecycleOwner){
                 binding.passportUploadinformationButton.isEnabled = !it.isNullOrBlank()
             }
         }
