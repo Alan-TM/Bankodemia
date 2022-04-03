@@ -2,17 +2,14 @@ package mx.backoders.bankodemia.ui.main
 
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
@@ -66,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(backPressedFlag) {
             super.onBackPressed()
-            makeTransactionViewModel.clearStateHandle()
+            makeTransactionViewModel.clearTransactionBodyStateHandle()
         }
     }
 }

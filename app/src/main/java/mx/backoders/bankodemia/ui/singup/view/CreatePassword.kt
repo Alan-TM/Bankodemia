@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,7 +14,6 @@ import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.PasswordError
 import mx.backoders.bankodemia.common.utils.PasswordError.*
-import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.common.utils.textFieldsValidator
 import mx.backoders.bankodemia.databinding.FragmentCreatePasswordBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.RegisterPasswordViewModel
@@ -80,7 +80,19 @@ class CreatePassword : Fragment() {
                     password_confirm.toString()
                 )
             }
+
+            returnLogin.setOnClickListener {
+                signUpViewModel.setUserPassword(createpasswordEdittextPasswordTiet.text.toString())
+                findNavController().navigateUp()
+            }
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
+                findNavController().navigateUp()
+            }
+        })
     }
 
     private fun initializeObservers() {
@@ -121,6 +133,11 @@ class CreatePassword : Fragment() {
                     )
                 }
             }
+        }
+
+        signUpViewModel.password.observe(viewLifecycleOwner){ password ->
+            binding.createpasswordEdittextPasswordTiet.setText(password)
+            binding.createpasswordEdittextConfirmpasswordTiet.setText(password)
         }
     }
 

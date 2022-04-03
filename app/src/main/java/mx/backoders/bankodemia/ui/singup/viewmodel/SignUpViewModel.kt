@@ -17,7 +17,9 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _identityImageType = MutableLiveData<IdentityImageType>()
     private val _decodeImage = MutableLiveData<String>()
     val decodeImage: LiveData<String> = _decodeImage
+
     private val _password = stateHandle.getLiveData("password", "")
+    val password: LiveData<String> = _password
 
     fun decodeImageForAPI(image: File){
         val imageString: String = Base64.getEncoder().encodeToString(image.absolutePath.toByteArray())

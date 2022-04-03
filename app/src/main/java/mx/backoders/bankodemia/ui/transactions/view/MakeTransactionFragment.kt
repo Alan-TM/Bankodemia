@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.PaymentType
-import mx.backoders.bankodemia.common.utils.PaymentType.*
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
@@ -76,7 +75,7 @@ class MakeTransactionFragment : Fragment() {
     private fun initializeUI() {
         with(binding) {
             makeTransactionBackButton.setOnClickListener {
-                makeTransactionViewModel.clearStateHandle()
+                makeTransactionViewModel.clearTransactionBodyStateHandle()
                 findNavController().navigateUp()
             }
 

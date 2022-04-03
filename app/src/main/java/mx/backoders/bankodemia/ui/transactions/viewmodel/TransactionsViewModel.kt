@@ -55,7 +55,7 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun makeTransactionBody(concept: String, amount: Double) {
-        _transactionBody.value = if(_paymentType.value == PAYMENT) MakeTransactionDto(
+        _transactionBody.value = if (_paymentType.value == PAYMENT) MakeTransactionDto(
             amount,
             concept,
             _contactID.value,
@@ -75,11 +75,10 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         _paymentType.value = paymentType
     }
 
-    fun clearStateHandle(){
+    fun clearTransactionBodyStateHandle() {
         _transactionBody.value = MakeTransactionDto(0.0, "", "", "")
     }
 
     fun validateTextField(text: String): Boolean = text.isNotEmpty()
-
 
 }
