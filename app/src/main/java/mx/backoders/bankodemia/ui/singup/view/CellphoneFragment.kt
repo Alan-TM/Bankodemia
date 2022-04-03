@@ -5,21 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.*
 import mx.backoders.bankodemia.databinding.FragmentCellphoneBinding
+import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
-class cellphoneFragment : Fragment() {
+class CellphoneFragment : Fragment() {
 
     private var _binding: FragmentCellphoneBinding? = null
     private val binding get() = _binding!!
     private lateinit var tietPhone: TextInputEditText
     private lateinit var tilPhone: TextInputLayout
 
+    private val signUpViewModel: SignUpViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onBackPressedCallbackHandler()
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +47,15 @@ class cellphoneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
+        initializeObservers()
+    }
+
+    private fun initializeObservers() {
+        with(signUpViewModel){
+            phone.observe(viewLifecycleOwner){
+                tietPhone.setText(it)
+            }
+        }
     }
 
     private fun initUI() {
@@ -46,10 +69,17 @@ class cellphoneFragment : Fragment() {
                 )
             ) {
                 it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
+                signUpViewModel.setUserPhone(tietPhone.text.toString())
             }
         }
         binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
+    }
+
+    private fun onBackPressedCallbackHandler() {
+        findNavController().navigateUp()
+        if (tietPhone.text.toString().isNotEmpty() && tietPhone.text.toString().isNotBlank())
+            signUpViewModel.setUserPhone(tietPhone.text.toString())
     }
 }

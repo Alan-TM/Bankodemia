@@ -18,6 +18,9 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _email = stateHandle.getLiveData("email", "")
     val email: LiveData<String> = _email
 
+    private val _phone = stateHandle.getLiveData("phone", "")
+    val phone: LiveData<String> = _phone
+
     private val _identityImageType = stateHandle.getLiveData("identityImageType", INE)
     private val _identityImageIne = stateHandle.getLiveData("INE", "")
     val identityImageIne: LiveData<String> = _identityImageIne
@@ -40,6 +43,10 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     fun setUserEmail(email: String){
         _email.value = email
         Log.e("EMAIL", _email.value!!)
+    }
+
+    fun setUserPhone(phone: String){
+        _phone.value = phone
     }
 
     fun setUserPassword(password: String){

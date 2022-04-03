@@ -116,7 +116,7 @@
     </fragment>
     <fragment
         android:id="@+id/cellphoneFragment"
-        android:name="mx.backoders.bankodemia.ui.singup.view.cellphoneFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.CellphoneFragment"
         android:label="fragment_cellphone"
         tools:layout="@layout/fragment_cellphone" >
         <action
