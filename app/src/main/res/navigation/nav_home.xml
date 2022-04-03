@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/login3"
+        android:name="mx.backoders.bankodemia.ui.login.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/ine"
+        android:name="mx.backoders.bankodemia.Ine"
+        android:label="fragment_ine"
+        tools:layout="@layout/fragment_ine" >
+        <action
+            android:id="@+id/action_ine_to_create_Password"
+            app:destination="@id/create_Password" />
+    </fragment>
+    <fragment
+        android:id="@+id/immigrationdocument"
+        android:name="mx.backoders.bankodemia.ImmigrationDocument"
+        android:label="fragment_immigration_document"
+        tools:layout="@layout/fragment_immigration_document">
+        <action
+            android:id="@+id/action_immigration_document_to_create_Password"
+            app:destination="@id/create_Password" />
+    </fragment>
+    <fragment
+        android:id="@+id/passport"
+        android:name="mx.backoders.bankodemia.Passport"
+        android:label="fragment_passport"
+        tools:layout="@layout/fragment_passport" >
+        <action
+            android:id="@+id/action_passport_to_create_Password"
+            app:destination="@id/create_Password" />
+    </fragment>
+    <fragment
+        android:id="@+id/create_Password"
+        android:name="mx.backoders.bankodemia.ui.singup.view.CreatePassword"
+        android:label="fragment_create__password"
+        tools:layout="@layout/fragment_create__password" >
+        <action
+            android:id="@+id/action_create_Password_to_sendYourDates"
+            app:destination="@id/sendYourDates" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendYourDates"
+        android:name="mx.backoders.bankodemia.sendYourDates"
+        android:label="fragment_send_your_dates"
+        tools:layout="@layout/fragment_send_your_dates" >
+        <action
+            android:id="@+id/action_sendYourDates_to_confirmation"
+            app:destination="@id/confirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="mx.backoders.bankodemia.confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" />
+    <fragment
+        android:id="@+id/intro_Identity"
+        android:name="mx.backoders.bankodemia.ui.singup.view.IntroIdentity"
+        android:label="fragment_intro__identity"
+        tools:layout="@layout/fragment_intro__identity" >
+        <action
+            android:id="@+id/action_intro_Identity_to_verify_Identity"
+            app:destination="@id/verify_Identity" />
+    </fragment>
+    <fragment
+        android:id="@+id/verify_Identity"
+        android:name="mx.backoders.bankodemia.ui.singup.view.verify_Identity"
+        android:label="fragment_verify__identity"
+        tools:layout="@layout/fragment_verify__identity" >
+        <action
+            android:id="@+id/action_verify_Identity_to_ine"
+            app:destination="@id/ine" />
+        <action
+            android:id="@+id/action_verify_Identity_to_immigration_document"
+            app:destination="@id/immigrationdocument" />
+        <action
+            android:id="@+id/action_verify_Identity_to_passport"
+            app:destination="@id/passport" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_personalDetailsFragment"
+            app:destination="@id/personalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="mx.backoders.bankodemia.welcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_login3"
+            app:destination="@id/login3" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalDetailsFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.personalDetailsFragment"
+        android:label="fragment_personal_details"
+        tools:layout="@layout/fragment_personal_details" >
+        <action
+            android:id="@+id/action_personalDetailsFragment_to_cellphoneFragment"
+            app:destination="@id/cellphoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cellphoneFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.cellphoneFragment"
+        android:label="fragment_cellphone"
+        tools:layout="@layout/fragment_cellphone" >
+        <action
+            android:id="@+id/action_cellphoneFragment_to_intro_Identity"
+            app:destination="@id/intro_Identity" />
+    </fragment>
+</navigation>

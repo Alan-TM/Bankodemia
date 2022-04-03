@@ -2,31 +2,31 @@ package mx.backoders.bankodemia.ui.transactions.view
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.errorMessageSelectorByCode
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
 class MakeTransactionFragment : Fragment() {
     private var _binding: FragmentMakeTransactionBinding? = null
-
     private val binding get() = _binding!!
 
-    private val makeTransactionViewModel: TransactionsViewModel by viewModels()
-    private lateinit var contactID: String
-    private lateinit var contactName: String
+    private val makeTransactionViewModel: TransactionsViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        arguments?.let{
-            contactID = it.getString("contactID").toString()
-            contactName = it.getString("contactFullName").toString()
+        arguments?.let {
+            makeTransactionViewModel.setContactInformation(
+                it.getString("contactID").toString(),
+                it.getString("contactFullName").toString()
+            )
         }
         super.onCreate(savedInstanceState)
     }
@@ -43,37 +43,49 @@ class MakeTransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //remove this after
-        Log.e("CONTACT_ID", contactID)
-
-        binding.makeTransactionFullNameTextView.text = contactName
-
         initializeUI()
         initializeObservers()
     }
 
     private fun initializeObservers() {
-        makeTransactionViewModel.transactionResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "Transacción: ${it.data.transaction.concept} realizado!", Toast.LENGTH_LONG).show()
-        }
-
-        makeTransactionViewModel.errorResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+        with(makeTransactionViewModel) {
+            contactFullName.observe(viewLifecycleOwner){ name ->
+                binding.makeTransactionFullNameTextView.text = name
+            }
         }
     }
 
-    private fun initializeUI(){
-        binding.makeTransactionBackButton.setOnClickListener {
-            findNavController().navigateUp()
-        }
+    private fun initializeUI() {
+        with(binding) {
+            makeTransactionBackButton.setOnClickListener {
+                findNavController().navigateUp()
+            }
 
-        binding.buttonMakeTransfer.setOnClickListener {
-            makeTransactionViewModel.makeTransactionBody(contactID,
-                binding.textInputConceptSend.editText?.text.toString(),
-                binding.textInputLayoutQunatitySend.editText?.text.toString().toDouble()
-            )
+            buttonMakeTransfer.setOnClickListener {
+                val amount = textInputLayoutQunatitySend.editText!!.toString()
+                val concept = textInputConceptSend.editText!!.text.toString()
 
-            makeTransactionViewModel.makeTransaction()
+                if (makeTransactionViewModel.validateTextField(amount)) {
+                    textInputLayoutQunatitySend.isErrorEnabled = false
+                    if(makeTransactionViewModel.validateTextField(concept)){
+                        textInputConceptSend.isErrorEnabled = false
+                        sendDataToMakeTransaction(amount, concept)
+                    } else{
+                        textInputConceptSend.error = getString(R.string.error_empty)
+                    }
+                } else{
+                    textInputLayoutQunatitySend.error = getString(R.string.error_empty)
+                }
+            }
         }
+    }
+
+    private fun sendDataToMakeTransaction(amount: String, concept: String){
+        makeTransactionViewModel.makeTransactionBody(
+            concept,
+            amount.toDouble()
+        )
+
+        findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
     }
 }

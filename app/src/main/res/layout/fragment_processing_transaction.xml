@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/transaction_processing_logo"
+        android:src="@drawable/transaction_processing_logo"
         android:contentDescription="@string/imagelogodescription_fragmenttransactionprocessing" />
 
     <TextView

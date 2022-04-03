@@ -11,65 +11,24 @@ import mx.backoders.bankodemia.common.utils.logi
 import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
 import mx.backoders.bankodemia.ui.login.view.LoginFragment
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
+import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
 
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var bindingWelcomeActivity: ActivityWelcomeBinding
-    lateinit var shared: SharedPreferencesInstance
     private val loginViewModel: LoginViewModel by viewModels()
+    private val signUpViewModel: SignUpViewModel by viewModels()
+//    private lateinit var sharedPreferences: SharedPreferencesInstance
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingWelcomeActivity = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(bindingWelcomeActivity.root)
-        initComponents()
+//        initUI()
     }
 
-    private fun initComponents() {
-
-        loginObservers()
-        bindingWelcomeActivity.btnActLoginLogin.setOnClickListener {
-            loginViewModel.welcomeContainerIsVisible(true)
-
-        }
-        bindingWelcomeActivity.btnActLoginBack.setOnClickListener {
-            loginViewModel.welcomeContainerIsVisible(false)
-        }
-
-        bindingWelcomeActivity.btnActLoginSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.welcomeContainer, LoginFragment())
-            commit()
-        }
-    }
-
-
-    private fun loginObservers() {
-        loginViewModel.liveDataWelcomeContainer.observe(this) { wecomeContainerIsVisible ->
-            if (wecomeContainerIsVisible) {
-                showLoginFragment()
-            } else {
-                hideLoginFragment()
-            }
-        }
-    }
-
-    private fun showLoginFragment() {
-        bindingWelcomeActivity.btnActLoginBack.visibility = View.VISIBLE
-        bindingWelcomeActivity.btnActLoginLogin.visibility = View.GONE
-        bindingWelcomeActivity.btnActLoginSignup.visibility = View.GONE
-        bindingWelcomeActivity.welcomeContainer.visibility = View.VISIBLE
-    }
-
-    private fun hideLoginFragment() {
-        bindingWelcomeActivity.btnActLoginBack.visibility = View.GONE
-        bindingWelcomeActivity.btnActLoginLogin.visibility = View.VISIBLE
-        bindingWelcomeActivity.btnActLoginSignup.visibility = View.VISIBLE
-        bindingWelcomeActivity.welcomeContainer.visibility = View.GONE
+    private fun initUI() {
+//        sharedPreferences = SharedPreferencesInstance.getInstance(applicationContext)
     }
 }

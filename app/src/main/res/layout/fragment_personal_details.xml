@@ -9,69 +9,70 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.Login_Fragment">
+    tools:context=".ui.singup.view.personalDetailsFragment">
 
 
-    <!--Toolbar-->
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="375dp" />
+            <!--Toolbar-->
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="375dp" />
 
-    <!--Textview-->
+            <!--Textview-->
+
 
     <TextView
-        android:id="@+id/returnpassword"
+        android:id="@+id/dates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Ingresa tus Datos"
+        android:text="@string/ingresa_tus_datos"
         android:textFontWeight="400"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView_background_fragmentTransactionComplete"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textt_view_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas"
+        android:text="@string/instructions"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/dates" />
 
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/tvprotectdocuments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
-        android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento."
+        android:text="@string/description_dates"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_frg_login_login"
+        app:layout_constraintBottom_toTopOf="@+id/personaldetails_continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
-        android:id="@+id/yourphone"
+        android:id="@+id/descriptionemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Nombre(s)"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
+        android:text="@string/names"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textt_view_password"
@@ -83,11 +84,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Apellido(s)"
+        android:text="@string/last_name"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/personaldetail_name_textedit"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetail_name_textedit" />
+        app:layout_constraintStart_toStartOf="@+id/personaldetail_name_textedit_til"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_name_textedit_til" />
 
 
     <TextView
@@ -96,11 +97,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Ocupación"
+        android:text="@string/ocupacion"
         android:textFontWeight="400"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/personaldetail_lastname_textedit"
-        app:layout_constraintTop_toBottomOf="@+id/personaldetail_lastname_textedit" />
+        app:layout_constraintStart_toStartOf="@+id/personaldetail_lastname_textedit_til"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_lastname_textedit_til" />
 
     <TextView
         android:id="@+id/birthday"
@@ -108,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsregular"
-        android:text="Fecha de nacimiento"
+        android:text="@string/born"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/personaldetail_ocupation_textedit"
@@ -117,7 +118,145 @@
 
     <!--EditText-->
 
+    <!--
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_name_textedit_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_name_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+
+    <!--
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personaldetail_lastname_textedit_til"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView51">
+
+              </com.google.android.material.textfield.TextInputLayout>
+            -->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_lastname_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView51"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+
+
+    <!--
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personaldetail_ocupation_textedit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ocupacion">
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+            -->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_ocupation_textedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ocupacion"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+
+
+
+    <!--
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_birthday_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday">
+
+        -->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_birthday_textedit_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="600"
+
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+
+
+
+
+
+    <!-- Errores
 
     <EditText
         android:id="@+id/personaldetail_name_textedit"
@@ -127,8 +266,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
-        app:layout_constraintStart_toStartOf="@+id/yourphone"
-        app:layout_constraintTop_toBottomOf="@+id/yourphone" />
+        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail" />
 
     <EditText
         android:id="@+id/personaldetail_lastname_textedit"
@@ -163,44 +302,43 @@
         app:layout_constraintTop_toBottomOf="@+id/birthday" />
 
 
-
+    -->
 
 
 
     <!--Buttons-->
 
 
+    <!--Imagenes-->
+
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_frg_login_login"
+        android:id="@+id/personaldetails_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/turquesa"
         android:fontFamily="@font/poppinsregular"
-        android:text="Continuar"
+        android:text="@string/Continue"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <!--Imagenes-->
-
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView_background_fragmentTransactionComplete"
+        android:id="@+id/return_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/returnpassword" />
-
+        app:layout_constraintTop_toTopOf="@+id/dates" />
 
 
 

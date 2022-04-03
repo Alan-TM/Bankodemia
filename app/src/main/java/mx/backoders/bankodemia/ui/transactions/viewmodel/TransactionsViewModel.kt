@@ -1,6 +1,5 @@
 package mx.backoders.bankodemia.ui.transactions.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,48 +8,67 @@ import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
-import mx.backoders.bankodemia.common.utils.PaymentType
+import mx.backoders.bankodemia.common.utils.PaymentType.PAYMENT
 import java.io.IOException
 
 class TransactionsViewModel : ViewModel() {
-
     private val _transactionResponse = MutableLiveData<MakeTransactionResponse>()
     val transactionResponse: LiveData<MakeTransactionResponse> get() = _transactionResponse
 
-    private val _errorResponse = MutableLiveData<String>()
-    val errorResponse: LiveData<String> get() = _errorResponse
+    private val _errorResponse = MutableLiveData<Int>(0)
+    val errorResponse: LiveData<Int> get() = _errorResponse
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
+    private val _contactID = MutableLiveData<String>()
+    val contactID: LiveData<String> get() = _contactID
+
+    private val _contactFullName = MutableLiveData<String>()
+    val contactFullName: LiveData<String> get() = _contactFullName
 
     private val transactionBody = MutableLiveData<MakeTransactionDto>()
 
     private val serviceNetwork = ServiceNetwork()
 
-    fun makeTransaction(){
+    fun makeTransaction() {
         viewModelScope.launch {
-            try{
+            try {
+                _isLoading.value = true
                 transactionBody.value?.let { transaction ->
                     val response = serviceNetwork.makeTransactionPayment(transaction)
 
-                    if(response.isSuccessful){
+                    if (response.isSuccessful) {
                         _transactionResponse.value = response.body()
-                    } else if(response.code() == 412){
-                        //should not be hardcoded
-                        _errorResponse.value = "No cuentas con el balance suficiente para realizar esta transacción"
+                        _isLoading.value = false
                     }
-                    else{
-                        Log.e("MAKE_TRANSACTION_PAYMENT", response.errorBody().toString())
-                    }
-                } ?: Log.e("MAKE_TRANSACTION_PAYMENT", "no tiene nada")
-            } catch(e: IOException){
-                Log.e("MAKE_TRANSACTION_PAYMENT", e.localizedMessage!!)
+                    else _errorResponse.value = response.code()
+                }
+            } catch (e: IOException) {
+                //TODO add a code for the error response
             }
         }
     }
 
-    fun makeTransactionBody(destinationUserID: String, concept: String, amount: Double){
-        transactionBody.value = MakeTransactionDto(amount,
+    fun setErrorCode(code: Int){
+        _errorResponse.value = code
+    }
+
+    fun makeTransactionBody(concept: String, amount: Double) {
+        transactionBody.value = MakeTransactionDto(
+            amount,
             concept,
-            destinationUserID,
-            PaymentType.PAYMENT.type
+            _contactID.value,
+            PAYMENT.type
         )
     }
+
+    fun setContactInformation(userID: String, userFullName: String){
+        _contactID.value = userID
+        _contactFullName.value = userFullName
+    }
+
+    fun validateTextField(text: String): Boolean = text.isNotEmpty()
+
+
 }
