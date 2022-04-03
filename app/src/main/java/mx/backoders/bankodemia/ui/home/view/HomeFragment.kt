@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.utils.PaymentType
@@ -35,7 +36,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel.hideAndroidNavigationBar(false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -43,15 +43,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.getUserProfile()
+        if (!checkForInternet(requireActivity().getApplicationContext())) {
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE
+            )
+        } else {
+            homeViewModel.getUserProfile()
+        }
         userProfileObserver()
         initializeUI()
     }
 
     override fun onResume() {
         super.onResume()
-        //TODO add internet checker
-        homeViewModel.getUserProfile()
+        if (!checkForInternet(requireActivity().getApplicationContext())) {
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE
+            )
+        } else {
+            homeViewModel.getUserProfile()
+        }
     }
 
     override fun onDestroyView() {
@@ -59,9 +74,10 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun userProfileObserver(){
-        homeViewModel.userProfileResponse.observe(viewLifecycleOwner){ profile ->
-            binding.availableMoneyTextView.text = profile.data.balance?.let { balance -> currencyParser(balance) }
+    private fun userProfileObserver() {
+        homeViewModel.userProfileResponse.observe(viewLifecycleOwner) { profile ->
+            binding.availableMoneyTextView.text =
+                profile.data.balance?.let { balance -> currencyParser(balance) }
             myFullName = "${profile.data.user.name} ${profile.data.user.lastName}"
             myID = profile.data.user.id
             recyclerSetup()
@@ -76,28 +92,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun recyclerSetup() {
-        with(binding.transactionsRecyclerView){
-            adapter = HomeTransactionsAdapter(requireContext(), homeViewModel.transactionItemsForRecycler)
+        with(binding.transactionsRecyclerView) {
+            adapter =
+                HomeTransactionsAdapter(requireContext(), homeViewModel.transactionItemsForRecycler)
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
-    private fun initializeUI(){
+    private fun initializeUI() {
         with(binding) {
             sendButton.setOnClickListener {
-                if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-                } else {
-                    findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
-                }
+                findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
             }
 
             getButton.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putSerializable("paymentType", PaymentType.DEPOSIT)
                 bundle.putString("contactID", myID)
-                bundle.putString("contactFullName",  myFullName)
-                findNavController().navigate(R.id.action_nav_home_to_makeTransactionFragment, bundle)
+                bundle.putString("contactFullName", myFullName)
+                findNavController().navigate(
+                    R.id.action_nav_home_to_makeTransactionFragment,
+                    bundle
+                )
             }
         }
 

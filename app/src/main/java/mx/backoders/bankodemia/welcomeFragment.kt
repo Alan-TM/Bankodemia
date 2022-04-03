@@ -42,18 +42,10 @@ class welcomeFragment : Fragment() {
     private fun initializeUI() {
 
         binding.btnNewAccount.setOnClickListener {
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
-            }
+            findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
         }
         binding.btnLogin.setOnClickListener {
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                findNavController().navigate(R.id.action_welcomeFragment_to_login3)
-            }
+            findNavController().navigate(R.id.action_welcomeFragment_to_login3)
         }
     }
 
