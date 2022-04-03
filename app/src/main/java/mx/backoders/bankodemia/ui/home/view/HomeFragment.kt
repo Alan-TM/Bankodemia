@@ -106,6 +106,7 @@ class HomeFragment : Fragment() {
                 bundle.putSerializable("paymentType", PaymentType.DEPOSIT)
                 bundle.putString("contactID", myID)
                 bundle.putString("contactFullName", myFullName)
+                setupVisibilityComponents(false)
                 findNavController().navigate(
                     R.id.action_nav_home_to_makeTransactionFragment,
                     bundle
@@ -113,13 +114,13 @@ class HomeFragment : Fragment() {
             }
         }
 
-        setupVisibilityComponents()
+        setupVisibilityComponents(true)
     }
 
-    private fun setupVisibilityComponents() {
+    private fun setupVisibilityComponents(visible: Boolean) {
         with(homeViewModel) {
-            bottomNavIsVisible(true)
-            topToolbarIsVisible(true)
+            bottomNavIsVisible(visible)
+            topToolbarIsVisible(visible)
         }
     }
 }

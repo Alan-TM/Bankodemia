@@ -50,7 +50,6 @@ class FragmentProcessingTransaction : Fragment() {
                     transactionError(code)
                     setErrorCode(0)
                 }
-                Log.e("error", code.toString())
             }
         }
     }
