@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.utils.PaymentType
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.currencyParser
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 
