@@ -30,7 +30,7 @@ class CreatePassword : Fragment() {
     private var _binding: FragmentCreatePasswordBinding? = null
     private val binding get() = _binding!!
 
-    private val registerPasswordBinding: RegisterPasswordViewModel by viewModels()
+    private val registerPasswordViewModel: RegisterPasswordViewModel by viewModels()
     private val signUpViewModel: SignUpViewModel by activityViewModels()
 
     private var flagPasswordError: PasswordError = NONE
@@ -89,40 +89,42 @@ class CreatePassword : Fragment() {
                 }
 
             }
+        }
 
-            createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
-                passwordTextField = password.toString()
-                registerPasswordViewModel.isValidConsecutivePassword(password.toString())
-            }
+        createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
+            passwordTextField = password.toString()
+            registerPasswordViewModel.isValidConsecutivePassword(password.toString())
+        }
 
-            createpasswordEdittextConfirmpasswordTil.editText?.addTextChangedListener { password_confirm ->
-                registerPasswordViewModel.isSamePassword(
-                    createpasswordEdittextPasswordTiet.text.toString(),
-                    password_confirm.toString()
-                )
-            }
+        createpasswordEdittextConfirmpasswordTil.editText?.addTextChangedListener { password_confirm ->
+            registerPasswordViewModel.isSamePassword(
+                createpasswordEdittextPasswordTiet.text.toString(),
+                password_confirm.toString()
+            )
+        }
 
-            returnLogin.setOnClickListener {
-                onBackPressedCallbackHandler()
-            }
+        returnLogin.setOnClickListener {
+            onBackPressedCallbackHandler()
         }
     }
+}
 
-    private fun initializeObservers() {
-        with(registerPasswordViewModel) {
-            mediatorPasswordErrorLiveData.observe(viewLifecycleOwner) {
-                flagPasswordError = it
-                val passwordTIL = binding.createpasswordEdittextPasswordTil
-                when (it) {
-                    NONE -> errorEnableHelper(passwordTIL, true)
-                    CONSECUTIVE_CHARACTERS -> errorEnableHelper(
-                        passwordTIL,
-                        false,
-                        R.string.error_consecutive_characters
-                    )
-                ) {
+private fun initializeObservers() {
+    with(registerPasswordViewModel) {
+        mediatorPasswordErrorLiveData.observe(viewLifecycleOwner) {
+            flagPasswordError = it
+            val passwordTIL = binding.createpasswordEdittextPasswordTil
+            when (it) {
+                NONE -> errorEnableHelper(passwordTIL, true)
+                CONSECUTIVE_CHARACTERS -> errorEnableHelper(
+                    passwordTIL,
+                    false,
+                    R.string.error_consecutive_characters
+                )
+                    ) {
                     createpasswordEdittextConfirmpasswordTil.isErrorEnabled = false
-                } else {
+                }
+                else {
                     createpasswordEdittextConfirmpasswordTil.error =
                         getString(R.string.error_matching_password)
                 }
