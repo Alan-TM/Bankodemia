@@ -1,6 +1,5 @@
 package mx.backoders.bankodemia.ui.transactions.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +9,6 @@ import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
 import mx.backoders.bankodemia.common.model.User.AllUsers
 import mx.backoders.bankodemia.common.model.User.User
-import mx.backoders.bankodemia.common.model.User.Users
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.io.IOException
 
@@ -20,7 +18,6 @@ class AddContactViewModel : ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _allUsers = MutableLiveData<AllUsers>()
-    val allUsers: LiveData<AllUsers> = _allUsers
 
     private val _listForView = MutableLiveData<ArrayList<String>>()
     val listForView: LiveData<ArrayList<String>> = _listForView
@@ -31,7 +28,6 @@ class AddContactViewModel : ViewModel() {
     private lateinit var contactBody: SaveContactDto
 
     private val _saveContactResponse = MutableLiveData<SaveContactResponse>()
-    val saveContactResponse: LiveData<SaveContactResponse> = _saveContactResponse
 
     private val serviceNetwork = ServiceNetwork()
 
