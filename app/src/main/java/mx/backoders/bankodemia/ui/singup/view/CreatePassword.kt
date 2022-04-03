@@ -13,7 +13,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.isEmpty
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.common.utils.textFieldsValidator
 import mx.backoders.bankodemia.databinding.FragmentCreatePasswordBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.RegisterPasswordViewModel
@@ -44,8 +46,14 @@ class CreatePassword : Fragment() {
         with(binding) {
             createpasswordCreatepasswordButton.setOnClickListener {
                 startEmptyPasswordChecker()
-                if(textFieldsValidator(createpasswordEdittextPasswordTil, createpasswordEdittextConfirmpasswordTil))
-                    findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet))
+                } else {
+                    if (textFieldsValidator(
+                            createpasswordEdittextPasswordTil,
+                            createpasswordEdittextConfirmpasswordTil))
+                        findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
+                }
             }
 
             createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
@@ -64,13 +72,13 @@ class CreatePassword : Fragment() {
                         getString(R.string.error_matching_password)
                 }
             }
-            returnLogin.setOnClickListener{
+            returnLogin.setOnClickListener {
                 it.findNavController().navigateUp()
             }
         }
     }
 
-    private fun consecutiveCharactersValidatorHelper(password: String){
+    private fun consecutiveCharactersValidatorHelper(password: String) {
         if (!registerPasswordBinding.consecutiveNumbersPassword(password))
             binding.createpasswordEdittextPasswordTil.error =
                 getString(R.string.error_consecutive_numbers)

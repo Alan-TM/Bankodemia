@@ -13,7 +13,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.currencyParser
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentHomeBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 
@@ -71,11 +73,20 @@ class HomeFragment : Fragment() {
     private fun initializeUI(){
         with(binding) {
             sendButton.setOnClickListener {
-                findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet))
+                } else {
+                    findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
+                }
             }
 
             getButton.setOnClickListener {
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet))
+                } else {
                 //TODO add fragment to DEPOSIT
+                }
+
             }
         }
 

@@ -9,8 +9,10 @@ import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.common.utils.isEmptyTiet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentPersonalDetailsBinding
 
 class personalDetailsFragment : Fragment() {
@@ -21,16 +23,18 @@ class personalDetailsFragment : Fragment() {
     // Name
     private lateinit var tietName: TextInputEditText
     private lateinit var tilName: TextInputLayout
+
     // LastName
     private lateinit var tietLastName: TextInputEditText
     private lateinit var tilLastName: TextInputLayout
+
     // Occupation
     private lateinit var tietOccupation: TextInputEditText
     private lateinit var tilOccupation: TextInputLayout
+
     // Birthday
     private lateinit var tietBirthday: TextInputEditText
     private lateinit var tilBirthday: TextInputLayout
-
 
 
     override fun onCreateView(
@@ -43,12 +47,12 @@ class personalDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       initUI()
+        initUI()
     }
 
     private fun initUI() {
-        tietName= binding.personaldetailNameTiet
-        tilName= binding.personaldetailNameTil
+        tietName = binding.personaldetailNameTiet
+        tilName = binding.personaldetailNameTil
         tietLastName = binding.personaldetailLastnameTiet
         tilLastName = binding.personaldetailLastnameTil
         tietOccupation = binding.personaldetailOccupationTiet
@@ -56,15 +60,29 @@ class personalDetailsFragment : Fragment() {
         tietBirthday = binding.personaldetailBirthdayTiet
         tilBirthday = binding.personaldetailBirthdayTil
 
-        binding.personaldetailsContinueButton.setOnClickListener{
-            if (!isEmpty(requireActivity().getApplicationContext(),tietName, tilName) &&
-                !isEmpty(requireActivity().getApplicationContext(),tietLastName, tilLastName) &&
-                !isEmpty(requireActivity().getApplicationContext(),tietOccupation, tilOccupation) &&
-                !isEmpty(requireActivity().getApplicationContext(),tietBirthday, tilBirthday) ) {
-                it.findNavController().navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
+        binding.personaldetailsContinueButton.setOnClickListener {
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet))
+            } else {
+                if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&
+                    !isEmpty(
+                        requireActivity().getApplicationContext(),
+                        tietLastName,
+                        tilLastName
+                    ) &&
+                    !isEmpty(
+                        requireActivity().getApplicationContext(),
+                        tietOccupation,
+                        tilOccupation
+                    ) &&
+                    !isEmpty(requireActivity().getApplicationContext(), tietBirthday, tilBirthday)
+                ) {
+                    it.findNavController()
+                        .navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
+                }
             }
         }
-        binding.returnLogin.setOnClickListener{
+        binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
     }

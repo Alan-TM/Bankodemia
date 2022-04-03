@@ -9,10 +9,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.utils.PhoneLenght
-import mx.backoders.bankodemia.common.utils.addLengthChecker
-import mx.backoders.bankodemia.common.utils.isEmpty
-import mx.backoders.bankodemia.common.utils.isEmptyTiet
+import mx.backoders.bankodemia.common.utils.*
 import mx.backoders.bankodemia.databinding.FragmentCellphoneBinding
 
 class cellphoneFragment : Fragment() {
@@ -41,11 +38,18 @@ class cellphoneFragment : Fragment() {
         tietPhone = binding.phonePhoneEdittextTiet
         tilPhone = binding.phonePhoneEdittextTil
         binding.phoneContinueButton.setOnClickListener{
-            if (!isEmpty(requireActivity().getApplicationContext(),tietPhone, tilPhone) &&
-            !addLengthChecker(requireActivity().getApplicationContext(),tietPhone, tilPhone,
-                PhoneLenght.UniversalLength.length)){
-                it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet))
+            } else {
+                if (!isEmpty(requireActivity().getApplicationContext(), tietPhone, tilPhone) &&
+                    !addLengthChecker(
+                        requireActivity().getApplicationContext(), tietPhone, tilPhone,
+                        PhoneLenght.UniversalLength.length
+                    )
+                ) {
+                    it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
                 }
+            }
         }
         binding.returnLogin.setOnClickListener{
             it.findNavController().navigateUp()

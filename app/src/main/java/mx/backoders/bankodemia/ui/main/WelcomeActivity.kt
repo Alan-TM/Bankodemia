@@ -2,10 +2,12 @@ package mx.backoders.bankodemia.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.checkForInternet
@@ -14,6 +16,7 @@ import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
 import mx.backoders.bankodemia.ui.login.view.LoginFragment
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
+import org.json.JSONObject
 
 
 class WelcomeActivity : AppCompatActivity() {
@@ -28,4 +31,9 @@ class WelcomeActivity : AppCompatActivity() {
         bindingWelcomeActivity = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(bindingWelcomeActivity.root)
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//    }
+
 }

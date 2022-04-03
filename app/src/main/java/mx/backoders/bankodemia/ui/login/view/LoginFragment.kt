@@ -68,8 +68,17 @@ class LoginFragment : Fragment() {
             findNavController().navigateUp()
         }
         binding.loginLoginButton.setOnClickListener {
-            if (!isEmpty(requireActivity().getApplicationContext(), tietPassword, tilPassword)) {
-                startLogIn()
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet))
+            } else {
+                if (!isEmpty(
+                        requireActivity().getApplicationContext(),
+                        tietPassword,
+                        tilPassword
+                    )
+                ) {
+                    startLogIn()
+                }
             }
         }
     }

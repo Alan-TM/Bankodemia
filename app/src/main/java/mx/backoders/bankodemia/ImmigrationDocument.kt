@@ -21,6 +21,8 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import mx.backoders.bankodemia.common.utils.checkForInternet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentImmigrationDocumentBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 import java.io.File
@@ -62,18 +64,24 @@ class ImmigrationDocument : Fragment() {
     }
 
     private fun initializeUI() {
-        with(binding){
+        with(binding) {
             ineIneCard.setOnClickListener { permissionSetup() }
 
             returnLogin.setOnClickListener { findNavController().navigateUp() }
 
-            documentimmigrationUploadinformationButton.setOnClickListener { findNavController().navigate(R.id.action_immigration_document_to_create_Password) }
+            documentimmigrationUploadinformationButton.setOnClickListener {
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet))
+                } else {
+                    findNavController().navigate(R.id.action_immigration_document_to_create_Password)
+                }
+            }
         }
     }
 
-    private fun initializeObservers(){
-        with(signUpViewModel){
-            decodeImage.observe(viewLifecycleOwner){
+    private fun initializeObservers() {
+        with(signUpViewModel) {
+            decodeImage.observe(viewLifecycleOwner) {
                 binding.documentimmigrationUploadinformationButton.isEnabled = !it.isNullOrBlank()
             }
         }

@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.errorMessageSelectorByCode
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
@@ -62,19 +64,23 @@ class MakeTransactionFragment : Fragment() {
             }
 
             buttonMakeTransfer.setOnClickListener {
-                val amount = textInputLayoutQunatitySend.editText!!.text.toString()
-                val concept = textInputConceptSend.editText!!.text.toString()
+                if (!checkForInternet(requireActivity().getApplicationContext())) {
+                    showSnack(binding.root, getString(R.string.error_no_internet))
+                } else {
+                    val amount = textInputLayoutQunatitySend.editText!!.text.toString()
+                    val concept = textInputConceptSend.editText!!.text.toString()
 
-                if (makeTransactionViewModel.validateTextField(amount)) {
-                    textInputLayoutQunatitySend.isErrorEnabled = false
-                    if(makeTransactionViewModel.validateTextField(concept)){
-                        textInputConceptSend.isErrorEnabled = false
-                        sendDataToMakeTransaction(amount, concept)
-                    } else{
-                        textInputConceptSend.error = getString(R.string.error_empty)
+                    if (makeTransactionViewModel.validateTextField(amount)) {
+                        textInputLayoutQunatitySend.isErrorEnabled = false
+                        if (makeTransactionViewModel.validateTextField(concept)) {
+                            textInputConceptSend.isErrorEnabled = false
+                            sendDataToMakeTransaction(amount, concept)
+                        } else {
+                            textInputConceptSend.error = getString(R.string.error_empty)
+                        }
+                    } else {
+                        textInputLayoutQunatitySend.error = getString(R.string.error_empty)
                     }
-                } else{
-                    textInputLayoutQunatitySend.error = getString(R.string.error_empty)
                 }
             }
         }
