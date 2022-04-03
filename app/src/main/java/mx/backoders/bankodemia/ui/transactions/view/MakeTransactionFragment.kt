@@ -9,8 +9,11 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.PaymentType
+import mx.backoders.bankodemia.common.utils.checkForInternet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentMakeTransactionBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
@@ -80,23 +83,31 @@ class MakeTransactionFragment : Fragment() {
             }
 
             buttonMakeTransfer.setOnClickListener {
-                val amount = textInputLayoutQunatitySend.text.toString()
-                val concept = textInputConceptSend.text.toString()
-
-                if (makeTransactionViewModel.validateTextField(amount)) {
-                    textInputLayoutQunatitySend.error = null
-                    if (makeTransactionViewModel.validateTextField(concept)) {
-                        textInputConceptSend.error = null
-                        sendDataToMakeTransaction(amount, concept)
-                    } else {
-                        textInputConceptSend.error = getString(R.string.error_empty)
-                    }
+                if (!checkForInternet(requireActivity().applicationContext)) {
+                    showSnack(
+                        binding.root,
+                        getString(R.string.error_no_internet),
+                        Snackbar.LENGTH_INDEFINITE
+                    )
                 } else {
-                    textInputLayoutQunatitySend.error = getString(R.string.error_empty)
-                }
-            }
+                    val amount = textInputLayoutQunatitySend.text.toString()
+                    val concept = textInputConceptSend.text.toString()
 
-            setupVisibilityComponents()
+                    if (makeTransactionViewModel.validateTextField(amount)) {
+                        textInputLayoutQunatitySend.error = null
+                        if (makeTransactionViewModel.validateTextField(concept)) {
+                            textInputConceptSend.error = null
+                            sendDataToMakeTransaction(amount, concept)
+                        } else {
+                            textInputConceptSend.error = getString(R.string.error_empty)
+                        }
+                    } else {
+                        textInputLayoutQunatitySend.error = getString(R.string.error_empty)
+                    }
+                }
+
+                setupVisibilityComponents()
+            }
         }
     }
 

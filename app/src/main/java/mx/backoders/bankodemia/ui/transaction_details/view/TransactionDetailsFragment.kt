@@ -52,7 +52,7 @@ class TransactionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (!checkForInternet(requireActivity().getApplicationContext())) {
+        if (!checkForInternet(requireActivity().applicationContext)) {
             loadingIndicator(true)
             showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
         } else {

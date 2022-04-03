@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (!checkForInternet(requireActivity().getApplicationContext())) {
+        if (!checkForInternet(requireActivity().applicationContext)) {
             showSnack(
                 binding.root,
                 getString(R.string.error_no_internet),
@@ -58,12 +58,8 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (!checkForInternet(requireActivity().getApplicationContext())) {
-            showSnack(
-                binding.root,
-                getString(R.string.error_no_internet),
-                Snackbar.LENGTH_INDEFINITE
-            )
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
         } else {
             homeViewModel.getUserProfile()
         }
