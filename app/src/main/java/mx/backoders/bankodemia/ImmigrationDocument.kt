@@ -81,7 +81,6 @@ class ImmigrationDocument : Fragment() {
     private fun initializeObservers(){
         with(signUpViewModel){
             identityImageMigrationForm.observe(viewLifecycleOwner){
-                Log.e("MIGRATION_FORM", it)
                 binding.documentimmigrationUploadinformationButton.isEnabled = !it.isNullOrBlank()
             }
         }

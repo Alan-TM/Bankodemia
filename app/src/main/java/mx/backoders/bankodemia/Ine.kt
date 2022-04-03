@@ -82,7 +82,6 @@ class Ine : Fragment() {
     private fun initializeObservers(){
         with(signUpViewModel){
             identityImageIne.observe(viewLifecycleOwner){
-                Log.e("INE", it)
                 binding.ineUploadinformationButton.isEnabled = !it.isNullOrBlank()
             }
         }

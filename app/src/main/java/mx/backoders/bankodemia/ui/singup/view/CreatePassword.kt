@@ -1,7 +1,6 @@
 package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +29,7 @@ class CreatePassword : Fragment() {
 
     private var flagPasswordError: PasswordError = NONE
     private var flagPasswordConfirmError: PasswordError = NONE
+    private lateinit var passwordTextField: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,20 +58,20 @@ class CreatePassword : Fragment() {
     private fun initializeUI() {
         with(binding) {
             createpasswordCreatepasswordButton.setOnClickListener {
-                val password = createpasswordEdittextPasswordTiet.text.toString()
+                passwordTextField = createpasswordEdittextPasswordTiet.text.toString()
                 val passwordConfirm = createpasswordEdittextConfirmpasswordTiet.text.toString()
                 if (flagPasswordError == NONE || flagPasswordConfirmError == NONE) {
-                    registerPasswordViewModel.isEmptyPassword(password)
+                    registerPasswordViewModel.isEmptyPassword(passwordTextField)
                     registerPasswordViewModel.isEmptyPasswordConfirmation(passwordConfirm)
                 }
                 if (flagPasswordError == NONE)
-                    registerPasswordViewModel.minLengthPassword(password)
+                    registerPasswordViewModel.minLengthPassword(passwordTextField)
                 if (flagPasswordError == NONE)
-                    registerPasswordViewModel.isValidConsecutivePassword(password)
+                    registerPasswordViewModel.isValidConsecutivePassword(passwordTextField)
                 if (flagPasswordError == NONE)
-                    registerPasswordViewModel.isValidRepeatedCharacters(password)
+                    registerPasswordViewModel.isValidRepeatedCharacters(passwordTextField)
                 if (flagPasswordError == NONE && flagPasswordConfirmError == NONE)
-                    registerPasswordViewModel.isSamePassword(password, passwordConfirm)
+                    registerPasswordViewModel.isSamePassword(passwordTextField, passwordConfirm)
 
                 if (textFieldsValidator(
                         createpasswordEdittextPasswordTil,
@@ -79,12 +79,13 @@ class CreatePassword : Fragment() {
                     )
                 ) {
                     findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
-                    signUpViewModel.setUserPassword(password)
+                    signUpViewModel.setUserPassword(passwordTextField)
                 }
 
             }
 
             createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
+                passwordTextField = password.toString()
                 registerPasswordViewModel.isValidConsecutivePassword(password.toString())
             }
 
@@ -163,14 +164,14 @@ class CreatePassword : Fragment() {
     }
 
     private fun onBackPressedCallbackHandler() {
-        val password = binding.createpasswordEdittextPasswordTiet.text.toString()
         findNavController().navigateUp()
-        if (password.isNotEmpty() && password.isNotBlank())
-            signUpViewModel.setUserPassword(password)
+        if (passwordTextField.isNotEmpty() && passwordTextField.isNotBlank())
+            signUpViewModel.setUserPassword(passwordTextField)
     }
 
     override fun onStop() {
         super.onStop()
         registerPasswordViewModel.clearMediators()
+        signUpViewModel.setUserPassword(passwordTextField)
     }
 }
