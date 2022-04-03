@@ -12,14 +12,15 @@
     tools:context=".ui.singup.view.personalDetailsFragment">
 
 
-    <!--Toolbar-->
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="375dp" />
+            <!--Toolbar-->
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="375dp" />
 
-    <!--Textview-->
+            <!--Textview-->
+
 
     <TextView
         android:id="@+id/dates"
@@ -338,7 +339,6 @@
         android:src="@drawable/ic_resource_return"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/dates" />
-
 
 
 
