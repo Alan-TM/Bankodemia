@@ -21,6 +21,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentPassportBinding
@@ -72,7 +73,7 @@ class Passport : Fragment() {
 
             passportUploadinformationButton.setOnClickListener {
                 if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet))
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
                 } else {
                     findNavController().navigate(R.id.action_passport_to_create_Password)
                 }

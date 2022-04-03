@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
@@ -29,7 +30,7 @@ class IntroIdentity : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.introductionidentityAcceptButton.setOnClickListener {
             if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet))
+                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
             } else {
                 findNavController().navigate(R.id.action_intro_Identity_to_verify_Identity)
             }

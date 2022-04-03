@@ -163,8 +163,8 @@ fun textFieldsValidator(vararg tils: TextInputLayout): Boolean{
     return count == 0
 }
 
-fun showSnack(view: View, message: String, actionMessage:String? = null, onAction: (()-> Unit)? = null) {
-    val snack = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE)
+fun showSnack(view: View, message: String, duration:Int, actionMessage:String? = null, onAction: (()-> Unit)? = null) {
+    val snack = Snackbar.make(view, message, duration)
 
     if(actionMessage != null && onAction != null){
         snack.setAction(actionMessage){

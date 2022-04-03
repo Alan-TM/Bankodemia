@@ -17,6 +17,7 @@ import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.databinding.ActivityHomeBinding
 import mx.backoders.bankodemia.ui.home.view.DialogHelp
+import mx.backoders.bankodemia.ui.home.view.SignOut
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.TransactionsViewModel
 
@@ -46,32 +47,47 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-     binding.infoHomeButton.setOnClickListener {
-         showHelpDialog()
-     }
+        binding.infoHomeButton.setOnClickListener {
+            showHelpDialog()
+        }
+        binding.userHomeButton.setOnClickListener {
+            showSignOutDialog()
+        }
+
     }
+
+    private fun showSignOutDialog() {
+        val newFragment = SignOut()
+        newFragment.show(supportFragmentManager, "signout")
+    }
+
     fun showHelpDialog() {
         val newFragment = DialogHelp()
         newFragment.show(supportFragmentManager, "help")
     }
-    private fun initializeObservers(){
+
+    private fun initializeObservers() {
         with(viewModel) {
             bottomNavIsVisible.observe(this@HomeActivity) { binding.navView.isVisible = it }
             topToolbarIsVisible.observe(this@HomeActivity) { binding.actionBar.isVisible = it }
-            androidNavigationBarIsVisible.observe(this@HomeActivity) { setHideAndroidNavigationBar(it) }
+            androidNavigationBarIsVisible.observe(this@HomeActivity) {
+                setHideAndroidNavigationBar(
+                    it
+                )
+            }
         }
     }
 
-    private fun navigationSetup(){
+    private fun navigationSetup() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_home)
         navView.setupWithNavController(navController)
     }
 
-    private fun setHideAndroidNavigationBar(hide: Boolean){
-        if(hide){
+    private fun setHideAndroidNavigationBar(hide: Boolean) {
+        if (hide) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        } else{
+        } else {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
         }
     }

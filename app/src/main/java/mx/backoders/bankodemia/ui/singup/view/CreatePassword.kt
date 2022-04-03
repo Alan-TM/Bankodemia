@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.isEmpty
@@ -47,7 +48,7 @@ class CreatePassword : Fragment() {
             createpasswordCreatepasswordButton.setOnClickListener {
                 startEmptyPasswordChecker()
                 if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet))
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
                 } else {
                     if (textFieldsValidator(
                             createpasswordEdittextPasswordTil,

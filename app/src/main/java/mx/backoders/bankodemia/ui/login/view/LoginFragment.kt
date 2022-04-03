@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
@@ -49,6 +50,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
         loginObservers()
+        isStillValidToken()
+    }
+
+    private fun isStillValidToken() {
+        loginViewModel
     }
 
     private fun initializeUI() {
@@ -69,7 +75,7 @@ class LoginFragment : Fragment() {
         }
         binding.loginLoginButton.setOnClickListener {
             if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet))
+                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
             } else {
                 if (!isEmpty(
                         requireActivity().getApplicationContext(),
@@ -90,8 +96,8 @@ class LoginFragment : Fragment() {
         if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
-            binding.progressBarLogin.isVisible = true
-            loginViewModel.login(LoginDto(email, pass))
+//            binding.progressBarLogin.isVisible = true
+            loginViewModel.getLogin("1m",LoginDto(email, pass))
         } else {
             when {
                 tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
@@ -112,15 +118,19 @@ class LoginFragment : Fragment() {
         loginViewModel.success.observe(viewLifecycleOwner) { success ->
             if (success) {
                 openHomeActivity()
-                binding.progressBarLogin.isVisible = false
             } else {
                 showErrorMessage()
             }
         }
+        loginViewModel.isLoading.observe(viewLifecycleOwner){isLoading ->
+            binding.progressBarLogin.isVisible = isLoading
+        }
     }
 
     private fun showErrorMessage() {
-        Toast.makeText(context, "ERROR CREDENTIALS", Toast.LENGTH_LONG).show()
+        binding.loginEdittextEmailTiet.error = getString(R.string.error_login)
+        binding.loginEdittextPasswordTil.error = getString(R.string.error_login)
+        showSnack(binding.root, getString(R.string.error_login), Snackbar.LENGTH_LONG)
     }
 
     fun openHomeActivity() {

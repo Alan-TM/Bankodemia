@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.errorMessageSelectorByCode
@@ -65,7 +66,7 @@ class MakeTransactionFragment : Fragment() {
 
             buttonMakeTransfer.setOnClickListener {
                 if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet))
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
                 } else {
                     val amount = textInputLayoutQunatitySend.editText!!.text.toString()
                     val concept = textInputConceptSend.editText!!.text.toString()

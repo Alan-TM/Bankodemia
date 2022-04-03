@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
@@ -62,7 +63,7 @@ class personalDetailsFragment : Fragment() {
 
         binding.personaldetailsContinueButton.setOnClickListener {
             if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet))
+                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
             } else {
                 if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&
                     !isEmpty(

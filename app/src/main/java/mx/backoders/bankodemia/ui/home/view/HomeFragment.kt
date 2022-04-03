@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.HomeTransactionsAdapter
 import mx.backoders.bankodemia.common.utils.checkForInternet
@@ -74,7 +75,7 @@ class HomeFragment : Fragment() {
         with(binding) {
             sendButton.setOnClickListener {
                 if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet))
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
                 } else {
                     findNavController().navigate(R.id.action_nav_home_to_contactListFragment)
                 }
@@ -82,7 +83,7 @@ class HomeFragment : Fragment() {
 
             getButton.setOnClickListener {
                 if (!checkForInternet(requireActivity().getApplicationContext())) {
-                    showSnack(binding.root, getString(R.string.error_no_internet))
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
                 } else {
                 //TODO add fragment to DEPOSIT
                 }
