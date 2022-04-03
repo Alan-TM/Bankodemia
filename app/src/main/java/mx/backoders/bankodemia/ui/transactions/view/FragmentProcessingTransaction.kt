@@ -65,7 +65,7 @@ class FragmentProcessingTransaction : Fragment() {
     private fun transactionError(code: Int){
         val errorMessage = errorMessageSelectorByCode(requireContext(), code)
         Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
-
         findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment, null)
+        homeViewModel.setOnBackPressedEnable(true)
     }
 }
