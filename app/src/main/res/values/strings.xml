@@ -66,7 +66,7 @@
     <string name="warning_privacity">Aviso de privacidad</string>
     <string name="terms">Al tocar continuar aceptas nuestro</string>
     <string name="continuar">Continuar</string>
-    <string name="nombre">Nombre</string>
+
     <string name="apellido">Apellido</string>
     <string name="names">Nombre(s)</string>
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
@@ -173,5 +173,9 @@
     <string name="cancel">Cancelar</string>
     <string name="close_sesion">¿Desea cerrar la sesión?</string>
     <string name="error_login">Por favor verifique sus credenciales</string>
+    <string name="nombre">Nombre</string>
+    <string name="alias">Alias</string>
+    <string name="agregar_contacto">Agregar Contacto</string>
+    <string name="agregar_contacto_UPPERCASE">AGREGAR CONTACTO</string>
 
 </resources>
