@@ -65,8 +65,8 @@ class MakeTransactionFragment : Fragment() {
 
             transactionBody.observe(viewLifecycleOwner) { transactionBody ->
                 if (transactionBody.amount > 0) {
-                    binding.textInputEditTextQuantitySend.setText(transactionBody.amount.toString())
-                    binding.textInputEditTextConceptSend.setText(transactionBody.concept)
+                    binding.textInputLayoutQunatitySend.setText(transactionBody.amount.toString())
+                    binding.textInputConceptSend.setText(transactionBody.concept)
                 }
             }
         }
@@ -80,13 +80,13 @@ class MakeTransactionFragment : Fragment() {
             }
 
             buttonMakeTransfer.setOnClickListener {
-                val amount = textInputLayoutQunatitySend.editText!!.toString()
-                val concept = textInputConceptSend.editText!!.text.toString()
+                val amount = textInputLayoutQunatitySend.toString()
+                val concept = textInputConceptSend.text.toString()
 
                 if (makeTransactionViewModel.validateTextField(amount)) {
-                    textInputLayoutQunatitySend.isErrorEnabled = false
+                    textInputLayoutQunatitySend.error = ""
                     if (makeTransactionViewModel.validateTextField(concept)) {
-                        textInputConceptSend.isErrorEnabled = false
+                        textInputConceptSend.error = ""
                         sendDataToMakeTransaction(amount, concept)
                     } else {
                         textInputConceptSend.error = getString(R.string.error_empty)
