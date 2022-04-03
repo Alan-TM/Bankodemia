@@ -9,10 +9,11 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.databinding.FragmentWelcomeBinding
+import mx.backoders.bankodemia.common.utils.showSnack
 
 class welcomeFragment : Fragment() {
 
-    private var _binding : FragmentWelcomeBinding? = null
+    private var _binding: FragmentWelcomeBinding? = null
     private val binding get() = _binding!!
 
 
@@ -38,22 +39,21 @@ class welcomeFragment : Fragment() {
     }
 
     private fun initializeUI() {
-        if(!checkForInternet(requireActivity().getApplicationContext())){
-            binding.txtInternetError.isVisible = true
-            binding.btnNewAccount.isEnabled = false
-            binding.btnLogin.isEnabled = false
-        }else{
-            binding.txtInternetError.isVisible = false
-            binding.btnLogin.isEnabled = true
-            binding.btnNewAccount.isEnabled = true
-        }
+
         binding.btnNewAccount.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet))
+            } else {
+                findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
+            }
         }
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_login3)
+            if (!checkForInternet(requireActivity().getApplicationContext())) {
+                showSnack(binding.root, getString(R.string.error_no_internet))
+            } else {
+                findNavController().navigate(R.id.action_welcomeFragment_to_login3)
+            }
         }
-//        setupVisibilityComponents()
     }
 
 }

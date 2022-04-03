@@ -27,11 +27,5 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingWelcomeActivity = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(bindingWelcomeActivity.root)
-//        initUI()
-    }
-
-    private fun initUI() {
-        // hasInternet
-
     }
 }

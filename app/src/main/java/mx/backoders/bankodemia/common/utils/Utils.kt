@@ -9,6 +9,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
@@ -162,3 +163,18 @@ fun textFieldsValidator(vararg tils: TextInputLayout): Boolean{
     return count == 0
 }
 
+fun showSnack(view: View, message: String, actionMessage:String? = null, onAction: (()-> Unit)? = null) {
+    val snack = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE)
+
+    if(actionMessage != null && onAction != null){
+        snack.setAction(actionMessage){
+            onAction()
+            snack.dismiss()
+        }
+    } else {
+        snack.setAction(view.context.getString(R.string.ok)){
+            snack.dismiss()
+        }
+    }
+    snack.show()
+}
