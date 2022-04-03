@@ -177,5 +177,6 @@
     <string name="alias">Alias</string>
     <string name="agregar_contacto">Agregar Contacto</string>
     <string name="agregar_contacto_UPPERCASE">AGREGAR CONTACTO</string>
+    <string name="volver_a_inicio">Volver a Inicio</string>
 
 </resources>

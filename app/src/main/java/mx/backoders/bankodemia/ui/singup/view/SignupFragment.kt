@@ -18,7 +18,6 @@ import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
 
 class SignupFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
