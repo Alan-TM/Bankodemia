@@ -1,6 +1,7 @@
 package mx.backoders.bankodemia.ui.singup.viewmodel
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
@@ -13,6 +14,9 @@ import java.util.*
 
 @RequiresApi(Build.VERSION_CODES.O)
 class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
+
+    private val _email = stateHandle.getLiveData("email", "")
+    val email: LiveData<String> = _email
 
     private val _identityImageType = stateHandle.getLiveData("identityImageType", INE)
     private val _identityImageIne = stateHandle.getLiveData("INE", "")
@@ -31,6 +35,11 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
 
     fun setIdentityImageType(identityType: IdentityImageType){
         _identityImageType.value = identityType
+    }
+
+    fun setUserEmail(email: String){
+        _email.value = email
+        Log.e("EMAIL", _email.value!!)
     }
 
     fun setUserPassword(password: String){
