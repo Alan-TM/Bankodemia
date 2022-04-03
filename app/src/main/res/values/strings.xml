@@ -36,7 +36,7 @@
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 
-     <!--    AlanString-->
+    <!--    AlanString-->
     <string name="error_no_internet">Verifica tu conexión a internet e intentalo de nuevo</string>
     <string name="error_empty">Campo necesario</string>
     <string name="error_invalid_email">Email no válido</string>
@@ -66,7 +66,7 @@
     <string name="warning_privacity">Aviso de privacidad</string>
     <string name="terms">Al tocar continuar aceptas nuestro</string>
     <string name="continuar">Continuar</string>
-    <string name="nombre">Nombre</string>
+
     <string name="apellido">Apellido</string>
     <string name="names">Nombre(s)</string>
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
@@ -167,5 +167,9 @@
     <string name="addAccount_String">Tu contacto fue agragado con exito</string>
     <string name="backgrounddecription_string">backgroundDecription_string</string>
     <string name="imageback_description">imageBack_description</string>
+    <string name="nombre">Nombre</string>
+    <string name="alias">Alias</string>
+    <string name="agregar_contacto">Agregar Contacto</string>
+    <string name="agregar_contacto_UPPERCASE">AGREGAR CONTACTO</string>
 
 </resources>
