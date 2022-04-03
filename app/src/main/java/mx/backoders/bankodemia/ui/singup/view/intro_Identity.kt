@@ -29,13 +29,9 @@ class IntroIdentity : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.introductionidentityAcceptButton.setOnClickListener {
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                findNavController().navigate(R.id.action_intro_Identity_to_verify_Identity)
-            }
+            findNavController().navigate(R.id.action_intro_Identity_to_verify_Identity)
         }
-        binding.returnLogin.setOnClickListener{
+        binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
     }

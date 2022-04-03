@@ -21,12 +21,12 @@ class cellphoneFragment : Fragment() {
     private lateinit var tilPhone: TextInputLayout
 
 
-      override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCellphoneBinding.inflate(inflater, container, false)
-          return binding.root
+        return binding.root
     }
 
 
@@ -38,21 +38,17 @@ class cellphoneFragment : Fragment() {
     private fun initUI() {
         tietPhone = binding.phonePhoneEdittextTiet
         tilPhone = binding.phonePhoneEdittextTil
-        binding.phoneContinueButton.setOnClickListener{
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                if (!isEmpty(requireActivity().getApplicationContext(), tietPhone, tilPhone) &&
-                    !addLengthChecker(
-                        requireActivity().getApplicationContext(), tietPhone, tilPhone,
-                        PhoneLenght.UniversalLength.length
-                    )
-                ) {
-                    it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
-                }
+        binding.phoneContinueButton.setOnClickListener {
+            if (!isEmpty(requireActivity().getApplicationContext(), tietPhone, tilPhone) &&
+                !addLengthChecker(
+                    requireActivity().getApplicationContext(), tietPhone, tilPhone,
+                    PhoneLenght.UniversalLength.length
+                )
+            ) {
+                it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
             }
         }
-        binding.returnLogin.setOnClickListener{
+        binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
     }

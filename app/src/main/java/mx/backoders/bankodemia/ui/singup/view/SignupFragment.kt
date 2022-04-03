@@ -45,13 +45,9 @@ class SignupFragment : Fragment() {
         addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
 
         binding.signupContinueButton.setOnClickListener {
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                if (!isEmpty(requireActivity().getApplicationContext(), tietEmail, tilEmail)) {
-                    it.findNavController()
-                        .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
-                }
+            if (!isEmpty(requireActivity().getApplicationContext(), tietEmail, tilEmail)) {
+                it.findNavController()
+                    .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
             }
         }
         binding.returnLogin.setOnClickListener {

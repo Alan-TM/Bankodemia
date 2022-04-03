@@ -62,25 +62,21 @@ class personalDetailsFragment : Fragment() {
         tilBirthday = binding.personaldetailBirthdayTil
 
         binding.personaldetailsContinueButton.setOnClickListener {
-            if (!checkForInternet(requireActivity().getApplicationContext())) {
-                showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-            } else {
-                if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&
-                    !isEmpty(
-                        requireActivity().getApplicationContext(),
-                        tietLastName,
-                        tilLastName
-                    ) &&
-                    !isEmpty(
-                        requireActivity().getApplicationContext(),
-                        tietOccupation,
-                        tilOccupation
-                    ) &&
-                    !isEmpty(requireActivity().getApplicationContext(), tietBirthday, tilBirthday)
-                ) {
-                    it.findNavController()
-                        .navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
-                }
+            if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&
+                !isEmpty(
+                    requireActivity().getApplicationContext(),
+                    tietLastName,
+                    tilLastName
+                ) &&
+                !isEmpty(
+                    requireActivity().getApplicationContext(),
+                    tietOccupation,
+                    tilOccupation
+                ) &&
+                !isEmpty(requireActivity().getApplicationContext(), tietBirthday, tilBirthday)
+            ) {
+                it.findNavController()
+                    .navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
             }
         }
         binding.returnLogin.setOnClickListener {
