@@ -59,6 +59,15 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView_add_users"
         tools:listitem="@layout/item_send_list" />
 
+    <ProgressBar
+        android:id="@+id/loading_indicator_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <ImageView
         android:id="@+id/imageView_BackButton_fragmentSendList"
         android:layout_width="25dp"

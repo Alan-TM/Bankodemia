@@ -16,16 +16,21 @@ class ContactListViewModel : ViewModel() {
     private val _contactListResponse = MutableLiveData<ListMyContactsResponse>()
     val contactListResponse: LiveData<ListMyContactsResponse> get() = _contactListResponse
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     private val serviceNetwork = ServiceNetwork()
 
 
     fun getContactList(){
         viewModelScope.launch {
+            _isLoading.value = true
             try{
                 val response = serviceNetwork.getContactList()
 
                 if(response.isSuccessful){
                     _contactListResponse.value = response.body()
+                    _isLoading.value = false
                 } else{
                     Log.e("CONTACT_LIST", response.errorBody().toString())
                 }
