@@ -101,7 +101,7 @@
     </fragment>
     <fragment
         android:id="@+id/addAccountFragment2"
-        android:name="mx.backoders.bankodemia.addAccountFragment"
+        android:name="mx.backoders.bankodemia.AddAccountFragment"
         android:label="fragment_add_account"
         tools:layout="@layout/fragment_add_account" >
         <action
