@@ -89,8 +89,8 @@ class CreatePassword : Fragment() {
 
         requireActivity().onBackPressedDispatcher.addCallback(object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
                 findNavController().navigateUp()
+                signUpViewModel.setUserPassword(binding.createpasswordEdittextPasswordTiet.text.toString())
             }
         })
     }

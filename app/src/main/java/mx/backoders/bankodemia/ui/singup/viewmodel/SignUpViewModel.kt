@@ -14,8 +14,8 @@ import java.util.*
 @RequiresApi(Build.VERSION_CODES.O)
 class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
 
-    private val _identityImageType = MutableLiveData<IdentityImageType>()
-    private val _decodeImage = MutableLiveData<String>()
+    private val _identityImageType = stateHandle.getLiveData("identityImageType", IdentityImageType.INE)
+    private val _decodeImage = stateHandle.getLiveData("decodeImage", "")
     val decodeImage: LiveData<String> = _decodeImage
 
     private val _password = stateHandle.getLiveData("password", "")
