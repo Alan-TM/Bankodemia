@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_nav_home_to_contactListFragment"
             app:destination="@id/contactListFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment" />
     </fragment>
 
     <fragment
@@ -50,6 +53,9 @@
         <action
             android:id="@+id/action_contactListFragment_to_makeTransactionFragment"
             app:destination="@id/makeTransactionFragment" />
+        <action
+            android:id="@+id/action_contactListFragment_to_addAccountFragment2"
+            app:destination="@id/addAccountFragment2" />
     </fragment>
     <fragment
         android:id="@+id/makeTransactionFragment"
@@ -74,7 +80,9 @@
         android:label="FragmentProcessingTransaction" >
         <action
             android:id="@+id/action_fragmentProcessingTransaction_to_fragmentTransactionComplete"
-            app:destination="@id/fragmentTransactionComplete" />
+            app:destination="@id/fragmentTransactionComplete"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragmentProcessingTransaction_to_makeTransactionFragment"
             app:destination="@id/makeTransactionFragment"
@@ -89,6 +97,25 @@
             android:id="@+id/action_fragmentTransactionComplete_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAccountFragment2"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.AddAccountFragment"
+        android:label="fragment_add_account"
+        tools:layout="@layout/fragment_add_account" >
+        <action
+            android:id="@+id/action_addAccountFragment2_to_addContactComplete"
+            app:destination="@id/addContactComplete" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactComplete"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.AddContactComplete"
+        android:label="AddContactComplete" >
+        <action
+            android:id="@+id/action_addContactComplete_to_contactListFragment"
+            app:destination="@id/contactListFragment"
+            app:popUpTo="@id/contactListFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

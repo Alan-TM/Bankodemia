@@ -1,8 +1,10 @@
 package mx.backoders.bankodemia.common.utils
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -28,3 +30,6 @@ fun timeParserForDetailsView(date: String): String{
 
     return ZonedDateTime.parse(date).format(formatter)
 }
+
+@SuppressLint("SimpleDateFormat")
+fun timeStampForImage(): String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())

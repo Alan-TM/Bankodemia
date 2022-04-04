@@ -117,22 +117,28 @@
         app:layout_constraintStart_toEndOf="@+id/tv_InterbankCode_fragmentMakeTransaction"
         app:layout_constraintTop_toBottomOf="@+id/makeTransactionFullNameTextView" />
 
-    <com.google.android.material.textfield.TextInputLayout
+  <!--  <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_Qunatity_Send"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions">
+        app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions">-->
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+            android:id="@+id/textInputLayout_Qunatity_Send"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:hint="@string/quantity_String_fragmentMakeTransactions"
+            android:fontFamily="@font/poppinsregular"
+            android:background="@drawable/style_edittext"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions"
             android:inputType="number|numberDecimal"
             android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+  <!--  </com.google.android.material.textfield.TextInputLayout>-->
 
     <TextView
         android:id="@+id/textView_SpeiTitle_fragmentMakeTransactions"
@@ -147,7 +153,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Qunatity_Send" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <!--<com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInput_Concept_Send"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -156,15 +162,24 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">
+        app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">-->
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInput_Concept_Send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/concept_String_fragmentMakeTransactions"
             android:textSize="16sp"
-            tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_weight="600"
+            android:fontFamily="@font/poppinsregular"
+            android:background="@drawable/style_edittext"
+            tools:ignore="TextContrastCheck"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions"/>
+  <!--  </com.google.android.material.textfield.TextInputLayout>-->
 
     <Button
         android:id="@+id/button_Make_Transfer"

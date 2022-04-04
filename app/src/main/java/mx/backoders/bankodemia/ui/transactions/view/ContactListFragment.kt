@@ -1,24 +1,24 @@
 package mx.backoders.bankodemia.ui.transactions.view
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.ContactListAdapter
-import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.utils.checkForInternet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentSendListUsersBinding
-import mx.backoders.bankodemia.databinding.FragmentServicesBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.ContactListViewModel
 
@@ -36,11 +36,8 @@ class ContactListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentSendListUsersBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,11 +48,24 @@ class ContactListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        contactsListViewModel.getContactList()
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            loadingIndicator(true)
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE
+            )
+        } else {
+            contactsListViewModel.getContactList()
+        }
     }
 
     private fun initializeObservers() {
-        contactsListViewModel.contactListResponse.observe(viewLifecycleOwner, ::setupRecycler)
+        with(contactsListViewModel) {
+            contactListResponse.observe(viewLifecycleOwner, ::setupRecycler)
+
+            isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+        }
     }
 
     private fun setupRecycler(listMyContactsResponse: ListMyContactsResponse) {
@@ -65,14 +75,25 @@ class ContactListFragment : Fragment() {
         }
     }
 
+    private fun loadingIndicator(visible: Boolean){
+        binding.loadingIndicatorProgressBar.isVisible = visible
+        binding.contactListRecycler.isVisible = !visible
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     private fun initializeUI(){
-        binding.imageViewBackButtonFragmentSendList.setOnClickListener {
-            findNavController().navigateUp()
+        with(binding) {
+            imageViewBackButtonFragmentSendList.setOnClickListener {
+                findNavController().navigateUp()
+            }
+
+            imageViewAddUsers.setOnClickListener {
+                findNavController().navigate(R.id.action_contactListFragment_to_addAccountFragment2)
+            }
         }
 
         setupVisibilityComponents()

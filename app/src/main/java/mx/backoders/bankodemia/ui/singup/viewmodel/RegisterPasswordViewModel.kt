@@ -1,30 +1,86 @@
 package mx.backoders.bankodemia.ui.singup.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import mx.backoders.bankodemia.common.utils.PasswordError
+import mx.backoders.bankodemia.common.utils.PasswordError.*
 
 class RegisterPasswordViewModel : ViewModel() {
-    //should do ENUM class to send error data more accurately
-    private val _isValid = MutableLiveData<Boolean>()
-    val isValid: LiveData<Boolean> get() = _isValid
+    private val _isValidConsecutiveCharacters = MutableLiveData<Boolean>()
+    private val _isValidMinLength = MutableLiveData<Boolean>()
+    private val _isValidRepeatedCharacters = MutableLiveData<Boolean>()
+    private val _isSamePassword = MutableLiveData<Boolean>()
+    private val _isEmptyPassword = MutableLiveData<Boolean>()
+    private val _isEmptyPasswordConfirmation = MutableLiveData<Boolean>()
 
-    //this function should be call in the register button
-    fun isValidPassword(password: String) {
-        val consecutiveNumbers = consecutiveNumbersPassword(password)
-        val consecutiveCharacters = consecutiveCharacterPassword(password)
-        //val repeatedCharacters = repeatedCharactersPassword(password)
+    val mediatorPasswordErrorLiveData = MediatorLiveData<PasswordError>()
+    val mediatorPasswordConfirmErrorLiveData = MediatorLiveData<PasswordError>()
 
-        _isValid.postValue(consecutiveNumbers && consecutiveCharacters)
+    fun setupMediator(){
+        mediatorPasswordErrorLiveData.addSource(_isValidConsecutiveCharacters) {
+            mediatorPasswordErrorLiveData.value = if (it) NONE else CONSECUTIVE_CHARACTERS
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isValidMinLength){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else MIN_LENGTH
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isEmptyPassword){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else EMPTY
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isValidRepeatedCharacters){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else REPEATED_CHARACTERS
+        }
+
+        mediatorPasswordConfirmErrorLiveData.addSource(_isEmptyPasswordConfirmation){
+            mediatorPasswordConfirmErrorLiveData.value = if(it) NONE else EMPTY
+        }
+
+        mediatorPasswordConfirmErrorLiveData.addSource(_isSamePassword){
+            mediatorPasswordConfirmErrorLiveData.value = if(it) NONE else NOT_MATCHING
+        }
     }
 
-    fun minLengthPassword(password: String) = _isValid.postValue(password.length >= 6)
+    fun clearMediators(){
+        mediatorPasswordErrorLiveData.removeSource(_isValidConsecutiveCharacters)
+        mediatorPasswordErrorLiveData.removeSource(_isValidMinLength)
+        mediatorPasswordErrorLiveData.removeSource(_isEmptyPassword)
+        mediatorPasswordErrorLiveData.removeSource(_isValidRepeatedCharacters)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isEmptyPasswordConfirmation)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isSamePassword)
+    }
+
+    fun isValidConsecutivePassword(password: String) {
+        _isValidConsecutiveCharacters.value =
+            consecutiveCharacterPassword(password) && consecutiveNumbersPassword(password)
+    }
+
+    fun isValidRepeatedCharacters(password: String){
+        _isValidRepeatedCharacters.value = repeatedCharactersPassword(password)
+    }
+
+    fun minLengthPassword(password: String) {
+        _isValidMinLength.value = password.length >= 6
+    }
+
+    fun isEmptyPassword(password: String){
+        _isEmptyPassword.value = password.isNotEmpty()
+    }
+
+    fun isEmptyPasswordConfirmation(password_confirm: String){
+        _isEmptyPasswordConfirmation.value = password_confirm.isNotEmpty()
+    }
+
+    fun isSamePassword(password: String, password_confirmation: String) {
+        if (password.isNotEmpty() && password.isNotBlank())
+            _isSamePassword.value = password_confirmation == password
+    }
 
     private fun consecutiveNumbersPassword(password: String): Boolean {
         var index = 0
         val length = password.length - 1
         if (length == -1) {
-            _isValid.postValue(true)
+            return true
         } else {
             if (length >= 1) {
                 while (index < length) {
@@ -50,7 +106,7 @@ class RegisterPasswordViewModel : ViewModel() {
                         val valueToDigit = value.code
                         val nextValueToDigit = password[index + 1].code
 
-                        if (valueToDigit + 1 == nextValueToDigit) {
+                        if (valueToDigit + 1 == nextValueToDigit || valueToDigit - 1 == nextValueToDigit) {
                             return false
                         }
                     }
@@ -60,7 +116,6 @@ class RegisterPasswordViewModel : ViewModel() {
         return true
     }
 
-    // PROBABLY DISCARD FUNC-----
     private fun repeatedCharactersPassword(password: String): Boolean {
         if (password.length - 1 >= 0) {
             var count = 0

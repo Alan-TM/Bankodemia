@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.model.transactions.Transaction
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.currencyParser
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.common.utils.timeParserForDetailsView
 import mx.backoders.bankodemia.databinding.FragmentTransactionDetailsBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
@@ -48,8 +51,13 @@ class TransactionDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        transactionDetailsViewModel.fetchTransactionData(transactionID)
 
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            loadingIndicator(true)
+            showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
+        } else {
+            transactionDetailsViewModel.fetchTransactionData(transactionID)
+        }
         initializeObservers()
         initializeUI()
     }
@@ -63,13 +71,12 @@ class TransactionDetailsFragment : Fragment() {
         transactionDetailsViewModel.transactionDetailsResponse.observe(viewLifecycleOwner){
             setView(it.data.transaction)
         }
-
         transactionDetailsViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
     }
 
     private fun loadingIndicator(visibility: Boolean) {
-//        binding.transactionDetailsLoadingContainer.isVisible = visibility
-//        binding.transactionDetailsDetailsContainer.isVisible = !visibility
+        binding.transactionDetailsLoadingContainer.isVisible = visibility
+        binding.transactionDetailsInformationContainer.isVisible = !visibility
     }
 
     private fun setView(transaction: Transaction) {
@@ -79,7 +86,7 @@ class TransactionDetailsFragment : Fragment() {
             transactionDetailsConceptTextView.text = transaction.concept
             transactionDetailsDateTextView.text = timeParserForDetailsView(transaction.createdAt)
             transactionDetailsIdTextView.text = transaction._id
-            transactionDetailsAccountNumberTextView.text = "?????"
+            transactionDetailsAccountNumberTextView.text = transaction.issuer.id
         }
     }
 

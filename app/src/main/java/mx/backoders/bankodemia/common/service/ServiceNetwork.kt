@@ -8,20 +8,14 @@ import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
-import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
-import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
-import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
-import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
-import mx.backoders.bankodemia.common.model.User.User
-import mx.backoders.bankodemia.common.model.User.UserData
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
-import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.model.contacts.SaveContactResponse
+import mx.backoders.bankodemia.common.model.transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.user.AllUsers
+import mx.backoders.bankodemia.common.model.user.UserFullProfileResponse
+import mx.backoders.bankodemia.common.model.user.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.ResponseBody
-import retrofit2.HttpException
 import retrofit2.Response
 
 class ServiceNetwork {
@@ -63,6 +57,12 @@ class ServiceNetwork {
         withContext(Dispatchers.IO) {
             retrofit.saveContact(body)
         }
+
+    suspend fun getAllUsers(): Response<AllUsers> =
+        withContext(Dispatchers.IO){
+            retrofit.getAllUsers()
+        }
+
 
     suspend fun makeTransactionPayment(body: MakeTransactionDto): Response<MakeTransactionResponse> =
         withContext(Dispatchers.IO) {

@@ -1,7 +1,6 @@
 package mx.backoders.bankodemia.ui.transactions.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +27,7 @@ class FragmentProcessingTransaction : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel.hideAndroidNavigationBar(true)
+        homeViewModel.setOnBackPressedEnable(false)
         _binding = FragmentProcessingTransactionBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,22 +49,21 @@ class FragmentProcessingTransaction : Fragment() {
                     transactionError(code)
                     setErrorCode(0)
                 }
-                Log.e("error", code.toString())
             }
         }
     }
 
     private fun transactionCompleted(isLoading: Boolean){
         if(!isLoading){
+            transactionViewModel.clearTransactionBodyStateHandle()
             findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_fragmentTransactionComplete)
         }
     }
 
     private fun transactionError(code: Int){
         val errorMessage = errorMessageSelectorByCode(requireContext(), code)
-        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
-
-        findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment)
-        homeViewModel.hideAndroidNavigationBar(false)
+        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
+        findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment, null)
+        homeViewModel.setOnBackPressedEnable(true)
     }
 }
