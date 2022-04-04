@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
+import mx.backoders.bankodemia.common.model.transactions.Transaction
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.currencyParser
 import mx.backoders.bankodemia.common.utils.showSnack

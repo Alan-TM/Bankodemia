@@ -3,7 +3,7 @@ package mx.backoders.bankodemia.ui.transactions.viewmodel
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
-import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.transactions.MakeTransactionResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.common.utils.PaymentType.PAYMENT

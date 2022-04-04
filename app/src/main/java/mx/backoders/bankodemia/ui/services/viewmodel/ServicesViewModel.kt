@@ -3,7 +3,7 @@ package mx.backoders.bankodemia.ui.services.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import mx.backoders.bankodemia.common.model.Services.Services
+import mx.backoders.bankodemia.common.model.services.Services
 
 class ServicesViewModel : ViewModel() {
     private val _servicesList = MutableLiveData<ArrayList<Services>>()

@@ -1,14 +1,10 @@
 package mx.backoders.bankodemia.ui.login.view
 
-import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,7 +16,6 @@ import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.*
-import mx.backoders.bankodemia.databinding.ActivityWelcomeBinding
 import mx.backoders.bankodemia.databinding.FragmentLoginBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
 import mx.backoders.bankodemia.ui.main.HomeActivity

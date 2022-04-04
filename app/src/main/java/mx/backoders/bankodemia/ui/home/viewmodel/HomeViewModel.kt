@@ -6,8 +6,8 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.adapters.TransactionListItem
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
+import mx.backoders.bankodemia.common.model.transactions.Transaction
+import mx.backoders.bankodemia.common.model.user.UserFullProfileResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter

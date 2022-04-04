@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import mx.backoders.bankodemia.common.model.Services.Services
+import mx.backoders.bankodemia.common.model.services.Services
 import mx.backoders.bankodemia.databinding.ItemServicesBinding
 
 class ServicesAdapter(private val items: ArrayList<Services>) : RecyclerView.Adapter<ServicesAdapter.ServicesViewHolder>() {

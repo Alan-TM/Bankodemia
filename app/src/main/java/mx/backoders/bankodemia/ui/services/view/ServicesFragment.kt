@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.backoders.bankodemia.adapters.ServicesAdapter
-import mx.backoders.bankodemia.common.model.Services.Services
+import mx.backoders.bankodemia.common.model.services.Services
 import mx.backoders.bankodemia.databinding.FragmentServicesBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.services.viewmodel.ServicesViewModel

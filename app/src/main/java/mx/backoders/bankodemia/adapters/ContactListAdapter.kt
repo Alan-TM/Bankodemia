@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import mx.backoders.bankodemia.R
-import mx.backoders.bankodemia.common.model.Contacts.YourContact
+import mx.backoders.bankodemia.common.model.contacts.YourContact
 import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.databinding.ItemSendListBinding
 

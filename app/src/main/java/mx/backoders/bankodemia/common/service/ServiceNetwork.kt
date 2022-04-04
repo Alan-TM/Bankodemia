@@ -8,13 +8,13 @@ import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.dto.MakeTransactionDto
 import mx.backoders.bankodemia.common.dto.SaveContactDto
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
-import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
-import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
-import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
-import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
-import mx.backoders.bankodemia.common.model.User.AllUsers
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
-import mx.backoders.bankodemia.common.model.User.UserSignUpResponse
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.model.contacts.SaveContactResponse
+import mx.backoders.bankodemia.common.model.transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.user.AllUsers
+import mx.backoders.bankodemia.common.model.user.UserFullProfileResponse
+import mx.backoders.bankodemia.common.model.user.UserSignUpResponse
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import retrofit2.Response
 

@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.ContactListAdapter
-import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentSendListUsersBinding

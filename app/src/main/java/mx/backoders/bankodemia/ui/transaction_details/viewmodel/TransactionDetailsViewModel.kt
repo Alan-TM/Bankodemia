@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import mx.backoders.bankodemia.common.model.Transactions.MakeTransactionResponse
-import mx.backoders.bankodemia.common.model.Transactions.Transaction
-import mx.backoders.bankodemia.common.model.Transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.transactions.TransactionDetailsResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.io.IOException
 

@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
@@ -71,43 +69,3 @@ class SignupFragment : Fragment() {
     }
 }
 
-//class SingUpFragment : Fragment() {
-//
-//    private var _binding: FragmentSignupBinding? = null
-//    private val binding get() = _binding!!
-//
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//        }
-//    }
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        _binding = FragmentSignupBinding.inflate(inflater, container, false)
-//        return binding.root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        initializeUI()
-////        initComponents()
-////        loginObservers()
-//    }
-//
-//    private fun initializeUI() {
-//        binding.returnLogin.setOnClickListener {
-//            findNavController().navigateUp()
-//        }
-//        binding.signupContinueButton.setOnClickListener {
-//            findNavController().navigate(
-//                R.id.action_signupFragment_to_personalDetailsFragment
-//            )
-//        }
-////        setupVisibilityComponents()
-//    }
-//
-//}

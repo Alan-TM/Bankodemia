@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/ine"
-        android:name="mx.backoders.bankodemia.Ine"
+        android:name="mx.backoders.bankodemia.ui.singup.view.Ine"
         android:label="fragment_ine"
         tools:layout="@layout/fragment_ine" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/immigrationdocument"
-        android:name="mx.backoders.bankodemia.ImmigrationDocument"
+        android:name="mx.backoders.bankodemia.ui.singup.view.ImmigrationDocument"
         android:label="fragment_immigration_document"
         tools:layout="@layout/fragment_immigration_document">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/passport"
-        android:name="mx.backoders.bankodemia.Passport"
+        android:name="mx.backoders.bankodemia.ui.singup.view.Passport"
         android:label="fragment_passport"
         tools:layout="@layout/fragment_passport" >
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/sendYourDates"
-        android:name="mx.backoders.bankodemia.sendYourDates"
+        android:name="mx.backoders.bankodemia.ui.singup.view.sendYourDates"
         android:label="fragment_send_your_dates"
         tools:layout="@layout/fragment_send_your_dates" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmation"
-        android:name="mx.backoders.bankodemia.confirmation"
+        android:name="mx.backoders.bankodemia.ui.singup.view.Confirmation"
         android:label="fragment_confirmation"
         tools:layout="@layout/fragment_confirmation" />
     <fragment
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/verify_Identity"
-        android:name="mx.backoders.bankodemia.ui.singup.view.verify_Identity"
+        android:name="mx.backoders.bankodemia.ui.singup.view.VerifyIdentity"
         android:label="fragment_verify__identity"
         tools:layout="@layout/fragment_verify__identity" >
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="mx.backoders.bankodemia.welcomeFragment"
+        android:name="mx.backoders.bankodemia.ui.login.view.welcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
@@ -107,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalDetailsFragment"
-        android:name="mx.backoders.bankodemia.ui.singup.view.personalDetailsFragment"
+        android:name="mx.backoders.bankodemia.ui.singup.view.PersonalDetailsFragment"
         android:label="fragment_personal_details"
         tools:layout="@layout/fragment_personal_details" >
         <action
@@ -125,7 +125,7 @@
     </fragment>
     <fragment
         android:id="@+id/tokenValidFragment"
-        android:name="mx.backoders.bankodemia.TokenValidFragment"
+        android:name="mx.backoders.bankodemia.ui.login.view.TokenValidFragment"
         android:label="fragment_token_valid"
         tools:layout="@layout/fragment_token_valid" >
         <action

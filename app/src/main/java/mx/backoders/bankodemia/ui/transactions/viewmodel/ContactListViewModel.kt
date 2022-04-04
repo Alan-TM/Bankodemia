@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import mx.backoders.bankodemia.common.dto.SaveContactDto
-import mx.backoders.bankodemia.common.model.Contacts.ListMyContactsResponse
-import mx.backoders.bankodemia.common.model.Contacts.SaveContactResponse
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.io.IOException
 

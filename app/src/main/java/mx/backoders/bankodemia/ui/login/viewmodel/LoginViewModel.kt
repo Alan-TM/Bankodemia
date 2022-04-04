@@ -1,6 +1,5 @@
 package mx.backoders.bankodemia.ui.login.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,9 +8,7 @@ import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.LoginDto
 import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
-import mx.backoders.bankodemia.common.utils.logi
 import java.io.IOException
-import android.widget.Toast
 
 const val EXTRA_MESSAGE = "mx.backoders.bankodemia.ui.main.HomeActivity.MESSAGE"
 
