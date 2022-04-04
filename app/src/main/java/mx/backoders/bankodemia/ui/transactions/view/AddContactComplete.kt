@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.ErrorManager
 import mx.backoders.bankodemia.databinding.FragmentAddAccountEndBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.AddContactViewModel
@@ -19,6 +20,9 @@ class AddContactComplete : Fragment() {
     private val homeViewModel: HomeViewModel by activityViewModels()
 
     private val addContactViewModel: AddContactViewModel by activityViewModels()
+
+    private lateinit var errorManager: ErrorManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,15 +35,24 @@ class AddContactComplete : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        errorManager = ErrorManager(requireView())
         initializeUI()
-        addContactViewModel.sendContactDto()
         initializeObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addContactViewModel.sendContactDto()
     }
 
     private fun initializeObservers() {
         with(addContactViewModel){
             isLoading.observe(viewLifecycleOwner){
                 binding.addcontactCompleteButton.isEnabled = !it
+            }
+
+            errorResponse.observe(viewLifecycleOwner){
+                errorManager(it)
             }
         }
     }
