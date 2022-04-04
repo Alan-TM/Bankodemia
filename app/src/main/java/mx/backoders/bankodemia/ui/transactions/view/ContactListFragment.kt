@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.adapters.ContactListAdapter
 import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.utils.ErrorManager
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentSendListUsersBinding
@@ -29,6 +30,8 @@ class ContactListFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by activityViewModels()
     private val contactsListViewModel: ContactListViewModel by viewModels()
+
+    private lateinit var errorManager: ErrorManager
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -48,6 +51,7 @@ class ContactListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        errorManager = ErrorManager(requireView())
         if (!checkForInternet(requireActivity().applicationContext)) {
             loadingIndicator(true)
             showSnack(
@@ -65,6 +69,10 @@ class ContactListFragment : Fragment() {
             contactListResponse.observe(viewLifecycleOwner, ::setupRecycler)
 
             isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+
+            errorResponse.observe(viewLifecycleOwner){
+                errorManager(it)
+            }
         }
     }
 

@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.ErrorManager
+import mx.backoders.bankodemia.common.utils.checkForInternet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentAddAccountEndBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transactions.viewmodel.AddContactViewModel
@@ -42,16 +45,28 @@ class AddContactComplete : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        addContactViewModel.sendContactDto()
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            binding.addcontactCompleteButton.isEnabled = false
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE,
+                getString(R.string.accept)
+            ){
+                findNavController().navigateUp()
+            }
+        } else {
+            addContactViewModel.sendContactDto()
+        }
     }
 
     private fun initializeObservers() {
-        with(addContactViewModel){
-            isLoading.observe(viewLifecycleOwner){
+        with(addContactViewModel) {
+            isLoading.observe(viewLifecycleOwner) {
                 binding.addcontactCompleteButton.isEnabled = !it
             }
 
-            errorResponse.observe(viewLifecycleOwner){
+            errorResponse.observe(viewLifecycleOwner) {
                 errorManager(it)
             }
         }

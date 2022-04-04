@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -59,15 +58,10 @@ class FragmentProcessingTransaction : Fragment() {
     private fun transactionCompleted() {
         transactionViewModel.clearTransactionBodyStateHandle()
         findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_fragmentTransactionComplete)
-
     }
 
     private fun transactionError(code: Int) {
         errorManager(code)
         homeViewModel.setOnBackPressedEnable(true)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
