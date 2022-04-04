@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -25,6 +26,15 @@ class AddContactComplete : Fragment() {
     private val addContactViewModel: AddContactViewModel by activityViewModels()
 
     private lateinit var errorManager: ErrorManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigateUp()
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,6 +74,7 @@ class AddContactComplete : Fragment() {
         with(addContactViewModel) {
             isLoading.observe(viewLifecycleOwner) {
                 binding.addcontactCompleteButton.isEnabled = !it
+                homeViewModel.setOnBackPressedEnable(true)
             }
 
             errorResponse.observe(viewLifecycleOwner) {
