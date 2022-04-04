@@ -50,12 +50,9 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
         loginObservers()
-        isStillValidToken()
     }
 
-    private fun isStillValidToken() {
-        loginViewModel
-    }
+
 
     private fun initializeUI() {
         shared = SharedPreferencesInstance.getInstance(requireActivity().applicationContext)
@@ -96,7 +93,6 @@ class LoginFragment : Fragment() {
         if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
-//            binding.progressBarLogin.isVisible = true
             loginViewModel.getLogin("1m",LoginDto(email, pass))
         } else {
             when {
@@ -109,11 +105,6 @@ class LoginFragment : Fragment() {
     private fun loginObservers() {
         loginViewModel.login.observe(viewLifecycleOwner) { login ->
             shared.saveSession(login)
-        }
-        loginViewModel.tokenExpired.observe(viewLifecycleOwner) { tokenExpirado ->
-            if (tokenExpirado) {
-                // regresarlo al login
-            }
         }
         loginViewModel.success.observe(viewLifecycleOwner) { success ->
             if (success) {

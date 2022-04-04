@@ -36,7 +36,7 @@
     <string name="email_add_account">Correo</string>
     <string name="CardNumberTitle_fragmentCardNumber">No. de tarjeta</string>
 
-     <!--    AlanString-->
+    <!--    AlanString-->
     <string name="error_no_internet">Verifica tu conexión a internet e intentalo de nuevo</string>
     <string name="error_empty">Campo necesario</string>
     <string name="error_invalid_email">Email no válido</string>

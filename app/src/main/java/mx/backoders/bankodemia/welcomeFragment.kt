@@ -35,8 +35,6 @@ class welcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
-//        initComponents()
-//        loginObservers()
     }
 
     private fun initializeUI() {

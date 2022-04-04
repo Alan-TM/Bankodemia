@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/tokenValidFragment">
 
     <fragment
         android:id="@+id/login3"
@@ -122,5 +122,14 @@
         <action
             android:id="@+id/action_cellphoneFragment_to_intro_Identity"
             app:destination="@id/intro_Identity" />
+    </fragment>
+    <fragment
+        android:id="@+id/tokenValidFragment"
+        android:name="mx.backoders.bankodemia.TokenValidFragment"
+        android:label="fragment_token_valid"
+        tools:layout="@layout/fragment_token_valid" >
+        <action
+            android:id="@+id/action_tokenValidFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

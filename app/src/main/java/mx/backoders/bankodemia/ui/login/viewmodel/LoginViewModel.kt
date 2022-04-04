@@ -20,23 +20,26 @@ class LoginViewModel : ViewModel() {
     private val service = ServiceNetwork()
     val login = MutableLiveData<UserLoginResponse>()
     private var error = MutableLiveData<String>()
-    var isLoading = MutableLiveData<Boolean>()
-    val tokenExpired = MutableLiveData<Boolean>()
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _isTokenExpired = MutableLiveData<Boolean>()
+    val isTokenExpired: LiveData<Boolean> = _isTokenExpired
+
 
     private val _success = MutableLiveData<Boolean>()
     val success: LiveData<Boolean> get() = _success
 
     fun getLogin(expires_in: String, dto: LoginDto) {
         viewModelScope.launch {
-            isLoading.postValue(true)
+            _isLoading.postValue(true)
             try {
                 val responseLogin = service.getLogin(expires_in, dto)
                 if (responseLogin.isSuccessful) {
                     login.postValue(responseLogin.body())
-                    tokenExpired.postValue(false)
                     _success.value = true
                 } else if (responseLogin.code() == 401) {
-                    tokenExpired.postValue(true)
                     _success.value = false
                 } else {
                     error.postValue(responseLogin.errorBody().toString())
@@ -44,19 +47,19 @@ class LoginViewModel : ViewModel() {
             } catch (err: IOException) {
                 error.postValue(err.localizedMessage)
             }
-            isLoading.postValue(false)
+            _isLoading.postValue(false)
         }
     }
 
     fun isStillValidToken() {
         viewModelScope.launch {
             try {
-            } catch (err: IOException) {
-                error.postValue(err.localizedMessage)
+                val response = service.getAllUsers()
+                _isTokenExpired.value = !response.isSuccessful
+            } catch (e: IOException) {
+                //TODO add io exception
             }
-
         }
-
     }
 
 
