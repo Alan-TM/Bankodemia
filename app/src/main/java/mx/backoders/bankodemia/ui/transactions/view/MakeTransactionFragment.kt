@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.ErrorManager
 import mx.backoders.bankodemia.common.utils.PaymentType
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
@@ -25,6 +26,7 @@ class MakeTransactionFragment : Fragment() {
     private val makeTransactionViewModel: TransactionsViewModel by activityViewModels()
     private val homeViewModel: HomeViewModel by activityViewModels()
 
+    private lateinit var errorManager: ErrorManager
     private lateinit var payment: PaymentType
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +75,12 @@ class MakeTransactionFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        errorManager = ErrorManager(requireView())
+        setupVisibilityComponents()
     }
 
     private fun initializeUI() {

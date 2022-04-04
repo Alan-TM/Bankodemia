@@ -1,0 +1,55 @@
+package mx.backoders.bankodemia.common.utils
+
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.view.View
+import android.widget.Toast
+import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar.*
+import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.ui.main.WelcomeActivity
+
+class ErrorManager(val view: View) {
+    operator fun invoke(errorCode: Int) {
+        when (errorCode) {
+            0 -> {}
+            400 -> showSnack(
+                view,
+                view.context.getString(R.string.error_bad_request),
+                LENGTH_INDEFINITE
+            )
+            401 -> sendUserToLogin(view)
+            402, 412 -> sendUserToMakeTransaction(view)
+            else -> sendMessage(
+                view.context,
+                view.context.getString(R.string.error_something_happened)
+            )
+        }
+    }
+
+    private fun sendUserToMakeTransaction(view: View) {
+        sendMessage(view.context, view.context.getString(R.string.error_no_money))
+        view.findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_makeTransactionFragment, null)
+    }
+
+    private fun sendUserToLogin(view: View) {
+        //TODO("Not yet implemented")
+        //should be replaced with a dialog instead!
+        showSnack(
+            view, view.context.getString(R.string.error_no_authorized), LENGTH_INDEFINITE,
+            view.context.getString(R.string.accept)
+        ) {
+            view.context.startActivity(
+                Intent(view.context, WelcomeActivity::class.java).addFlags(
+                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                )
+            )
+        }
+
+    }
+
+    private fun sendMessage(context: Context, text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
+    }
+}

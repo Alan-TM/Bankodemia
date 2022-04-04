@@ -11,6 +11,7 @@ import java.io.IOException
 
 class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _transactionResponse = MutableLiveData<MakeTransactionResponse>()
+    val transactionResponse: LiveData<MakeTransactionResponse> = _transactionResponse
 
     private val _errorResponse = MutableLiveData(0)
     val errorResponse: LiveData<Int> get() = _errorResponse
@@ -45,7 +46,7 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
                     } else _errorResponse.value = response.code()
                 }
             } catch (e: IOException) {
-                //TODO add a code for the error response
+                _errorResponse.value = 900
             }
         }
     }
@@ -80,5 +81,4 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun validateTextField(text: String): Boolean = text.isNotEmpty()
-
 }

@@ -88,7 +88,7 @@ class LoginFragment : Fragment() {
         if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
-            loginViewModel.getLogin("1h",LoginDto(email, pass))
+            loginViewModel.getLogin("1m",LoginDto(email, pass))
         } else {
             when {
                 tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()
@@ -121,6 +121,7 @@ class LoginFragment : Fragment() {
 
     fun openHomeActivity() {
         val intent = Intent(activity, HomeActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }
 }
