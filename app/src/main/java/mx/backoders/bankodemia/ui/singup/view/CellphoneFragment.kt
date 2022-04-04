@@ -25,15 +25,6 @@ class CellphoneFragment : Fragment() {
 
     private val signUpViewModel: SignUpViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                onBackPressedCallbackHandler()
-            }
-        })
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +38,12 @@ class CellphoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initUI()
         initializeObservers()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (tietPhone.text.toString().isNotBlank())
+            signUpViewModel.setUserPhone(tietPhone.text.toString())
     }
 
     private fun initializeObservers() {
@@ -68,17 +65,10 @@ class CellphoneFragment : Fragment() {
                 )
             ) {
                 it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)
-                signUpViewModel.setUserPhone(tietPhone.text.toString())
             }
         }
         binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
-    }
-
-    private fun onBackPressedCallbackHandler() {
-        findNavController().navigateUp()
-        if (tietPhone.text.toString().isNotEmpty() && tietPhone.text.toString().isNotBlank())
-            signUpViewModel.setUserPhone(tietPhone.text.toString())
     }
 }

@@ -5,17 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.databinding.FragmentPersonalDetailsBinding
+import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
 class PersonalDetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentPersonalDetailsBinding? = null
     private val binding get() = _binding!!
+
+    private val signUpViewModel: SignUpViewModel by activityViewModels()
 
     // Name
     private lateinit var tietName: TextInputEditText
@@ -33,6 +39,9 @@ class PersonalDetailsFragment : Fragment() {
     private lateinit var tietBirthday: TextInputEditText
     private lateinit var tilBirthday: TextInputLayout
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +54,27 @@ class PersonalDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
+        initializeObservers()
+    }
+
+    private fun initializeObservers() {
+        with(signUpViewModel) {
+            name.observe(viewLifecycleOwner) {
+                tietName.setText(it)
+            }
+
+            lastName.observe(viewLifecycleOwner) {
+                tietLastName.setText(it)
+            }
+
+            occupation.observe(viewLifecycleOwner) {
+                tietOccupation.setText(it)
+            }
+
+            birthday.observe(viewLifecycleOwner) {
+                tietBirthday.setText(it)
+            }
+        }
     }
 
     private fun initUI() {
@@ -80,5 +110,18 @@ class PersonalDetailsFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        setUserInformationData()
+    }
+
+    private fun setUserInformationData(){
+        signUpViewModel.setUserPersonalInfo(
+            tietName.text.toString(),
+            tietLastName.text.toString(),
+            tietOccupation.text.toString(),
+            tietBirthday.text.toString()
+        )
+    }
 
 }

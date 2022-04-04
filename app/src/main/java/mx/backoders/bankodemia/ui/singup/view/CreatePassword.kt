@@ -31,15 +31,6 @@ class CreatePassword : Fragment() {
     private var flagPasswordConfirmError: PasswordError = NONE
     private lateinit var passwordTextField: String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                onBackPressedCallbackHandler()
-            }
-        })
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -79,7 +70,6 @@ class CreatePassword : Fragment() {
                     )
                 ) {
                     findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
-                    signUpViewModel.setUserPassword(passwordTextField)
                 }
 
             }
@@ -97,7 +87,7 @@ class CreatePassword : Fragment() {
             }
 
             returnLogin.setOnClickListener {
-                onBackPressedCallbackHandler()
+                findNavController().navigateUp()
             }
         }
     }
@@ -163,15 +153,10 @@ class CreatePassword : Fragment() {
         }
     }
 
-    private fun onBackPressedCallbackHandler() {
-        findNavController().navigateUp()
-        if (passwordTextField.isNotEmpty() && passwordTextField.isNotBlank())
-            signUpViewModel.setUserPassword(passwordTextField)
-    }
-
     override fun onStop() {
         super.onStop()
+        if(passwordTextField.isNotBlank())
+            signUpViewModel.setUserPassword(passwordTextField)
         registerPasswordViewModel.clearMediators()
-        signUpViewModel.setUserPassword(passwordTextField)
     }
 }

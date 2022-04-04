@@ -21,6 +21,18 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _phone = stateHandle.getLiveData("phone", "")
     val phone: LiveData<String> = _phone
 
+    private val _name = stateHandle.getLiveData("name", "")
+    val name: LiveData<String> = _name
+
+    private val _lastName = stateHandle.getLiveData("lastName", "")
+    val lastName: LiveData<String> = _lastName
+
+    private val _occupation = stateHandle.getLiveData("occupation", "")
+    val occupation: LiveData<String> = _occupation
+
+    private val _birthday = stateHandle.getLiveData("birthday", "")
+    val birthday: LiveData<String> = _birthday
+
     private val _identityImageType = stateHandle.getLiveData("identityImageType", INE)
     private val _identityImageIne = stateHandle.getLiveData("INE", "")
     val identityImageIne: LiveData<String> = _identityImageIne
@@ -59,5 +71,17 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
             PASSPORT -> _identityImagePassport.value = image
             else -> _identityImageMigrationForm.value = image
         }
+    }
+
+    //TODO parse birthday for API
+    fun setUserPersonalInfo(name: String, lastName: String, occupation: String, birthday: String){
+        if(name.isNotBlank())
+            _name.value = name
+        if(lastName.isNotBlank())
+            _lastName.value = lastName
+        if(occupation.isNotBlank())
+            _occupation.value = occupation
+        if(birthday.isNotBlank())
+            _birthday.value = birthday
     }
 }
