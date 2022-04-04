@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar.*
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.ui.main.WelcomeActivity
 
 class ErrorManager(val view: View) {
@@ -34,8 +35,6 @@ class ErrorManager(val view: View) {
     }
 
     private fun sendUserToLogin(view: View) {
-        //TODO("Not yet implemented")
-        //should be replaced with a dialog instead!
         showSnack(
             view, view.context.getString(R.string.error_no_authorized), LENGTH_INDEFINITE,
             view.context.getString(R.string.accept)
@@ -45,8 +44,8 @@ class ErrorManager(val view: View) {
                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 )
             )
+            SharedPreferencesInstance.clearAllPreferences()
         }
-
     }
 
     private fun sendMessage(context: Context, text: String) {

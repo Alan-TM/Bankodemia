@@ -1,18 +1,18 @@
 package mx.backoders.bankodemia.ui.transaction_details.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.model.transactions.TransactionDetailsResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
 import java.io.IOException
 
-class TransactionDetailsViewModel : ViewModel() {
+class TransactionDetailsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
 
     private val serviceNetwork = ServiceNetwork()
+
+    private val _transactionID = stateHandle.getLiveData("transactionID", "")
+    val transactionID: LiveData<String> = _transactionID
 
     private val _transactionDetailsResponse = MutableLiveData<TransactionDetailsResponse>()
     val transactionDetailsResponse: LiveData<TransactionDetailsResponse> get() = _transactionDetailsResponse
@@ -20,8 +20,8 @@ class TransactionDetailsViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _transactionDetailsError = MutableLiveData<String>()
-    val transactionDetailsError: LiveData<String> get() = _transactionDetailsError
+    private val _transactionDetailsError = MutableLiveData<Int>()
+    val transactionDetailsError: LiveData<Int> get() = _transactionDetailsError
 
     fun fetchTransactionData(id: String){
         viewModelScope.launch {
@@ -33,17 +33,16 @@ class TransactionDetailsViewModel : ViewModel() {
                     _transactionDetailsResponse.value = response.body()
                     Log.e("TransactionDetails", response.body().toString())
                     _isLoading.value = false
-                } else if(response.code() == 401){
-                    Log.e("fetchTransactionDetails", "auth required!")
-                } else if(response.code() == 404){
-                    Log.e("fetchTransactionDetails", "id not found")
-                }
-                else{
-                    _transactionDetailsError.value = response.errorBody().toString()
+                } else {
+                    _transactionDetailsError.value = response.code()
                 }
             }catch(e: IOException){
-                _transactionDetailsError.value = e.localizedMessage
+                _transactionDetailsError.value = 900
             }
         }
+    }
+
+    fun setTransactionID(id: String){
+        _transactionID.value = id
     }
 }

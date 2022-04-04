@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
+        SharedPreferencesInstance.getInstance(applicationContext)
         setContentView(binding.root)
 
 
@@ -46,11 +47,6 @@ class HomeActivity : AppCompatActivity() {
         initUI()
         navigationSetup()
         initializeObservers()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        SharedPreferencesInstance.getInstance(applicationContext)
     }
 
     private fun initUI() {
