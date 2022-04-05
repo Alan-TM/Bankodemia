@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/sendYourDates"
-        android:name="mx.backoders.bankodemia.ui.singup.view.sendYourDates"
+        android:name="mx.backoders.bankodemia.ui.singup.view.SendYourDates"
         android:label="fragment_send_your_dates"
         tools:layout="@layout/fragment_send_your_dates" >
         <action
