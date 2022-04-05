@@ -37,9 +37,9 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun isStillValidToken() {
-        if(SharedPreferencesInstance.exists("token"))
+        if (SharedPreferencesInstance.exists("token"))
             loginViewModel.isStillValidToken()
-        else{
+        else {
             findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
         }
     }
@@ -61,7 +61,14 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun showErrorMessage() {
-        showSnack(binding.root, getString(R.string.error_no_authorized), Snackbar.LENGTH_INDEFINITE)
+        showSnack(
+            binding.root,
+            getString(R.string.error_no_authorized),
+            Snackbar.LENGTH_INDEFINITE,
+            getString(R.string.accept)
+        ) {
+            SharedPreferencesInstance.clearAllPreferences()
+        }
     }
 
 }
