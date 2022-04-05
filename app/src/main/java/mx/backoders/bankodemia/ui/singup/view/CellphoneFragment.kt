@@ -61,7 +61,7 @@ class CellphoneFragment : Fragment() {
             if (!isEmpty(requireActivity().getApplicationContext(), tietPhone, tilPhone) &&
                 !addLengthChecker(
                     requireActivity().getApplicationContext(), tietPhone, tilPhone,
-                    PhoneLenght.UniversalLength.length
+                    PhoneLenght.Local.length
                 )
             ) {
                 it.findNavController().navigate(R.id.action_cellphoneFragment_to_intro_Identity)

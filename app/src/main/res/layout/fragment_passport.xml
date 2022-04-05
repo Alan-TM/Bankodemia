@@ -103,6 +103,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
@@ -126,6 +127,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/image_ready_passport"
+        android:layout_width="102dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/accept"
+        android:src="@drawable/green_check_mark_png_image"
+        app:layout_constraintEnd_toEndOf="@+id/ine_ine_card"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/ine_ine_card"
+        app:layout_constraintTop_toBottomOf="@+id/ine_ine_card"
+        tools:ignore="ImageContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
