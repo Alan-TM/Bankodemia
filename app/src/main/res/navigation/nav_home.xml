@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/tokenValidFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/login3"
@@ -113,6 +113,9 @@
         <action
             android:id="@+id/action_personalDetailsFragment_to_cellphoneFragment"
             app:destination="@id/cellphoneFragment" />
+        <action
+            android:id="@+id/action_personalDetailsFragment_to_datePickerFragment2"
+            app:destination="@id/datePickerFragment2" />
     </fragment>
     <fragment
         android:id="@+id/cellphoneFragment"
@@ -135,4 +138,8 @@
             app:popUpTo="@id/tokenValidFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment2"
+        android:name="mx.backoders.bankodemia.ui.singup.view.DatePickerFragment"
+        android:label="DatePickerFragment" />
 </navigation>

@@ -52,12 +52,6 @@
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/CheckpointDemonio/Bankodemia_robe/app/src/main/res/layout/fragment_send_list_users.xml" value="0.26927083333333335" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/CheckpointDemonio/Bankodemia_robe/app/src/main/res/layout/fragment_transaction_completed.xml" value="0.2" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/CheckpointDemonio/Bankodemia_robe/app/src/main/res/layout/fragment_transaction_details.xml" value="0.30885416666666665" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_confirmation.xml" value="0.2703125" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_immigration_document.xml" value="0.18802083333333333" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_intro__identity.xml" value="0.18802083333333333" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_loading.xml" value="0.22" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_send_your_dates.xml" value="0.2" />
-        <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Merge 6/Bankodemia/app/src/main/res/layout/fragment_token_valid.xml" value="0.2703125" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Review/Bankodemia/app/src/main/res/layout/activity_add_account.xml" value="0.2625" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Review/Bankodemia/app/src/main/res/layout/activity_bienvenido.xml" value="0.19635416666666666" />
         <entry key="..\:/16.-Android/AndroidGit/05.-ProyectoFinal/Review/Bankodemia/app/src/main/res/layout/activity_home.xml" value="0.225" />
@@ -104,11 +98,13 @@
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/layout_home_recycler_transaction.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/layout/services.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/alant/Documents/GitAhead/Bankodemia/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2828125" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/alertdialog_transactions.xml" value="0.20052083333333334" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_add_account.xml" value="0.5" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_add_account_end.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_add_contact.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_cellphone.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_create__password.xml" value="0.17552083333333332" />
+        <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/fragment_personal_details.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/layout_home_recycler_date.xml" value="0.17552083333333332" />
         <entry key="..\:/car10/Documents/GitHub/Bankodemia/app/src/main/res/layout/layout_home_recycler_transaction.xml" value="0.17552083333333332" />
       </map>
