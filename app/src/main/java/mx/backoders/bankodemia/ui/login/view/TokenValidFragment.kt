@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentTokenValidBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
@@ -24,7 +25,7 @@ class TokenValidFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTokenValidBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,7 +37,11 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun isStillValidToken() {
-        loginViewModel.isStillValidToken()
+        if(SharedPreferencesInstance.exists("token"))
+            loginViewModel.isStillValidToken()
+        else{
+            findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
+        }
     }
 
     private fun loginObservers() {

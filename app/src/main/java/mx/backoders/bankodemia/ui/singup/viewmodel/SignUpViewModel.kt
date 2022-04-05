@@ -14,7 +14,6 @@ import java.util.*
 
 @RequiresApi(Build.VERSION_CODES.O)
 class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
-
     private val _email = stateHandle.getLiveData("email", "")
     val email: LiveData<String> = _email
 

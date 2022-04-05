@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -17,7 +18,6 @@ import mx.backoders.bankodemia.databinding.FragmentPersonalDetailsBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
 class PersonalDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var _binding: FragmentPersonalDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -38,10 +38,6 @@ class PersonalDetailsFragment : Fragment() {
     // Birthday
     private lateinit var tietBirthday: TextInputEditText
     private lateinit var tilBirthday: TextInputLayout
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,6 +82,8 @@ class PersonalDetailsFragment : Fragment() {
         tilOccupation = binding.personaldetailOccupationTil
         tietBirthday = binding.personaldetailBirthdayTiet
         tilBirthday = binding.personaldetailBirthdayTil
+
+        //TODO Make birthday edit text not editable but clickable
 
         binding.personaldetailsContinueButton.setOnClickListener {
             if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&

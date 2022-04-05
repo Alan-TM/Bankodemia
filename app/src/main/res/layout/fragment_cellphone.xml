@@ -94,6 +94,7 @@
             android:id="@+id/phone_phone_edittext_tiet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:maxLength="10"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
             android:inputType="phone" />

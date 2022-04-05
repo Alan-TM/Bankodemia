@@ -123,12 +123,13 @@ fun addIsEmailCorrectListener(
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
         override fun afterTextChanged(editText: Editable?) {
-
-            if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
-                til.isErrorEnabled = false
-            } else {
-                til.isErrorEnabled = true
-                til.error = context.getString(R.string.error_invalid_email)
+            if (editText.toString().isNotEmpty()) {
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
+                    til.isErrorEnabled = false
+                } else {
+                    til.isErrorEnabled = true
+                    til.error = context.getString(R.string.error_invalid_email)
+                }
             }
         }
     })

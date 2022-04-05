@@ -27,7 +27,7 @@ class SignupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -48,13 +48,15 @@ class SignupFragment : Fragment() {
         //Adding Listeners
         tietEmail = binding.signupWriteemailEdittextTiet
         tilEmail = binding.signupWriteemailEdittextTil
+
         addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
-        addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+        //addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
 
         binding.signupContinueButton.setOnClickListener {
             if (!isEmpty(requireActivity().getApplicationContext(), tietEmail, tilEmail)) {
-                it.findNavController()
-                    .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
+                if(!isEmailCorrect(requireContext(), tietEmail, tilEmail))
+                    it.findNavController()
+                        .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
             }
         }
         binding.returnLogin.setOnClickListener {
@@ -66,12 +68,12 @@ class SignupFragment : Fragment() {
         with(signUpViewModel) {
             email.observe(viewLifecycleOwner) {
                 binding.signupWriteemailEdittextTil.editText?.setText(it)
-                addIsEmailCorrectListener(
+                /*addIsEmailCorrectListener(
                     requireActivity().getApplicationContext(),
                     tietEmail,
                     tilEmail
-                )
-                addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+                )*/
+                //addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
             }
         }
     }

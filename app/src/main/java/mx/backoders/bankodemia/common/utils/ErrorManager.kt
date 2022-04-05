@@ -1,12 +1,11 @@
 package mx.backoders.bankodemia.common.utils
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar.*
+import com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.ui.main.WelcomeActivity
