@@ -155,7 +155,7 @@
         android:padding="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/style_edittext"
+        android:theme="@style/TextInputLayoutStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameaccount">
@@ -167,6 +167,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
             android:textSize="14sp"
+            android:theme="@style/TextInputLayoutStyle"
             android:layout_weight="600"
             android:inputType="none" />
 

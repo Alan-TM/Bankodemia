@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/addAccountFragment">
 
     <fragment
         android:id="@+id/login3"
@@ -142,4 +142,9 @@
         android:id="@+id/datePickerFragment2"
         android:name="mx.backoders.bankodemia.ui.singup.view.DatePickerFragment"
         android:label="DatePickerFragment" />
+    <fragment
+        android:id="@+id/addAccountFragment"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.AddAccountFragment"
+        android:label="fragment_add_account"
+        tools:layout="@layout/fragment_add_account" />
 </navigation>
