@@ -176,3 +176,13 @@ fun showSnack(view: View, message: String, duration:Int, actionMessage:String? =
     }
     snack.show()
 }
+
+fun isBirthdayValid(context: Context, tiet: TextInputEditText): Boolean{
+    return if(tiet.text.toString().isEmpty()){
+        tiet.error = context.getString(R.string.error_empty)
+        false
+    } else{
+        tiet.error = null
+        true
+    }
+}

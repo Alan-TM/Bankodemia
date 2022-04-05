@@ -8,6 +8,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import mx.backoders.bankodemia.common.utils.IdentityImageType
 import mx.backoders.bankodemia.common.utils.IdentityImageType.*
+import mx.backoders.bankodemia.common.utils.birthdayParserForAPI
+import mx.backoders.bankodemia.common.utils.birthdayParserForView
 import mx.backoders.bankodemia.common.utils.timeStampForImage
 import java.io.File
 import java.util.*
@@ -29,8 +31,10 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _occupation = stateHandle.getLiveData("occupation", "")
     val occupation: LiveData<String> = _occupation
 
-    private val _birthday = stateHandle.getLiveData("birthday", "")
-    val birthday: LiveData<String> = _birthday
+    private val _birthdayForView = stateHandle.getLiveData("birthdayForView", "")
+    val birthdayForView: LiveData<String> = _birthdayForView
+
+    private val _birthdayForAPI = stateHandle.getLiveData("birthdayForAPI", "")
 
     private val _identityImageType = stateHandle.getLiveData("identityImageType", INE)
     private val _identityImageIne = stateHandle.getLiveData("INE", "")
@@ -43,44 +47,58 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _password = stateHandle.getLiveData("password", "")
     val password: LiveData<String> = _password
 
-    fun decodeImageForAPI(image: File): String = Base64.getEncoder().encodeToString(image.absolutePath.toByteArray())
+    fun decodeImageForAPI(image: File): String =
+        Base64.getEncoder().encodeToString(image.absolutePath.toByteArray())
 
     fun createTimeStampForImage(): String = timeStampForImage()
 
-    fun setIdentityImageType(identityType: IdentityImageType){
+    fun setIdentityImageType(identityType: IdentityImageType) {
         _identityImageType.value = identityType
     }
 
-    fun setUserEmail(email: String){
+    fun setUserEmail(email: String) {
         _email.value = email
         Log.e("EMAIL", _email.value!!)
     }
 
-    fun setUserPhone(phone: String){
+    fun setUserPhone(phone: String) {
         _phone.value = phone
     }
 
-    fun setUserPassword(password: String){
+    fun setUserPassword(password: String) {
         _password.value = password
     }
 
-    fun setIdentityImage(image: String){
-        when(_identityImageType.value){
+    fun setIdentityImage(image: String) {
+        when (_identityImageType.value) {
             INE -> _identityImageIne.value = image
             PASSPORT -> _identityImagePassport.value = image
             else -> _identityImageMigrationForm.value = image
         }
     }
 
-    //TODO parse birthday for API
-    fun setUserPersonalInfo(name: String, lastName: String, occupation: String, birthday: String){
-        if(name.isNotBlank())
+    fun setUserPersonalInfo(name: String, lastName: String, occupation: String) {
+        if (name.isNotBlank())
             _name.value = name
-        if(lastName.isNotBlank())
+        if (lastName.isNotBlank())
             _lastName.value = lastName
-        if(occupation.isNotBlank())
+        if (occupation.isNotBlank())
             _occupation.value = occupation
-        if(birthday.isNotBlank())
-            _birthday.value = birthday
     }
+
+    fun setParseBirthday(day: Int, month: Int, year: Int) {
+        _birthdayForView.value = birthdayParserForView(day, month, year)
+        _birthdayForAPI.value = birthdayParserForAPI(day, month, year)
+    }
+
+    //TODO delete this after
+    fun justForTest() {
+        Log.e(
+            "INFO",
+            "${_name.value} ${_lastName.value} - ${_password.value} ${_email.value} - ${_occupation.value}" +
+                    "- ${_phone.value} - ${_birthdayForAPI.value} - ${_identityImageType.value!!.type} - ${_identityImageIne.value}" +
+                    "${_identityImageMigrationForm.value} - ${_identityImagePassport.value}"
+        )
+    }
+
 }
