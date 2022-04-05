@@ -63,6 +63,9 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _onBackPressedEnable = MutableLiveData<Boolean>()
+    val onBackPressedEnable: LiveData<Boolean> = _onBackPressedEnable
+
     private val serviceNetwork = ServiceNetwork()
 
     fun decodeImageForAPI(image: File): String =
@@ -184,5 +187,9 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
 
     fun clearSignUpDtoStateHandle() {
         _userSignupDto.value = UserSignUpDto("", "", "", "", "", "", "", "", "")
+    }
+
+    fun setOnBackPressedEnable(isEnable: Boolean) {
+        _onBackPressedEnable.value = isEnable
     }
 }

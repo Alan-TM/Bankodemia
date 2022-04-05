@@ -34,6 +34,7 @@ class SendYourDates : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         errorManager = ErrorManager(view)
+        signUpViewModel.setOnBackPressedEnable(false)
         signUpViewModel.makeSignUpCall()
         initializeObservers()
     }
@@ -43,6 +44,7 @@ class SendYourDates : Fragment() {
             isLoading.observe(viewLifecycleOwner) {
                 if (!it) {
                     findNavController().navigate(R.id.action_sendYourDates_to_confirmation)
+                    signUpViewModel.setOnBackPressedEnable(true)
                 }
             }
 
@@ -58,6 +60,6 @@ class SendYourDates : Fragment() {
 
     private fun transactionError(code: Int) {
         errorManager(code)
-        //homeViewModel.setOnBackPressedEnable(true)
+        signUpViewModel.setOnBackPressedEnable(true)
     }
 }
