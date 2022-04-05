@@ -29,7 +29,7 @@ class WelcomeActivity : AppCompatActivity() {
 
 //        isStillValidToken()
 //        loginObservers()
-
+        signUpObservers()
     }
 
     private fun isStillValidToken() {
@@ -42,7 +42,9 @@ class WelcomeActivity : AppCompatActivity() {
                 openHomeActivity()
             }
         }
+    }
 
+    private fun signUpObservers(){
         signUpViewModel.onBackPressedEnable.observe(this) {
             backPressedFlag = it
         }
@@ -56,8 +58,8 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (backPressedFlag) {
-            super.onBackPressed()
             signUpViewModel.clearSignUpDtoStateHandle()
+            super.onBackPressed()
         }
     }
 }

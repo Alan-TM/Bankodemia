@@ -142,7 +142,7 @@
         <action
             android:id="@+id/action_tokenValidFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
-            app:launchSingleTop="true"
+            app:launchSingleTop="false"
             app:popUpTo="@id/tokenValidFragment"
             app:popUpToInclusive="true" />
     </fragment>

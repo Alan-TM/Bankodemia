@@ -76,5 +76,4 @@ class TokenValidFragment : Fragment() {
             SharedPreferencesInstance.clearAllPreferences()
         }
     }
-
 }
