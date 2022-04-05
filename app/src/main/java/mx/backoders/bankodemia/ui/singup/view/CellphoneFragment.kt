@@ -49,8 +49,8 @@ class CellphoneFragment : Fragment() {
     }
 
     private fun initializeObservers() {
-        with(signUpViewModel){
-            phone.observe(viewLifecycleOwner){
+        with(signUpViewModel) {
+            phone.observe(viewLifecycleOwner) {
                 tietPhone.setText(it)
             }
         }
@@ -81,17 +81,15 @@ class CellphoneFragment : Fragment() {
                 android.R.layout.simple_list_item_1,    // Layout para desplegar la lista
                 array_de_strings.sortedArray()            // Arreglo de strings
             )
-    binding.ladaPhone.setAdapter(arrayAdapterRama)  // Se asigna el adapter
-    binding.ladaPhone.setOnItemClickListener { parent, view, position, id ->
-        val value = arrayAdapterRama.getItem(position) ?: ""    // Se obtiene el valor del item de la lista
+        binding.ladaPhone.setAdapter(arrayAdapterRama)  // Se asigna el adapter
+        binding.ladaPhone.setOnItemClickListener { parent, view, position, id ->
+            val value = arrayAdapterRama.getItem(position)
+                ?: ""    // Se obtiene el valor del item de la lista
 //        Toast.makeText(
 //            requireContext(),
 //            "$position selected with value $value",
 //            Toast.LENGTH_LONG
 //        ).show()
+        }
     }
-    }
-
-
-
 }
