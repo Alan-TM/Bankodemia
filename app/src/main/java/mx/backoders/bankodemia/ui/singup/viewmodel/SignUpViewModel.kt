@@ -8,6 +8,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import mx.backoders.bankodemia.common.utils.IdentityImageType
 import mx.backoders.bankodemia.common.utils.IdentityImageType.*
+import mx.backoders.bankodemia.common.utils.parseBirthdayForAPI
+import mx.backoders.bankodemia.common.utils.parseBirthdayForView
 import mx.backoders.bankodemia.common.utils.timeStampForImage
 import java.io.File
 import java.util.*
@@ -20,6 +22,9 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _phone = stateHandle.getLiveData("phone", "")
     val phone: LiveData<String> = _phone
 
+    private val _phoneLada = stateHandle.getLiveData("phoneLada", "+52")
+    val phoneLada: LiveData<String> = _phoneLada
+
     private val _name = stateHandle.getLiveData("name", "")
     val name: LiveData<String> = _name
 
@@ -29,8 +34,11 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     private val _occupation = stateHandle.getLiveData("occupation", "")
     val occupation: LiveData<String> = _occupation
 
-    private val _birthday = stateHandle.getLiveData("birthday", "")
-    val birthday: LiveData<String> = _birthday
+    private val _birthdayForView = stateHandle.getLiveData("birthdayForView", "")
+    val birthdayForView: LiveData<String> = _birthdayForView
+
+    private val _birthdayForAPI = stateHandle.getLiveData("birthdayForAPI", "")
+    val birthdayForAPI: LiveData<String> = _birthdayForAPI
 
     private val _identityImageType = stateHandle.getLiveData("identityImageType", INE)
     private val _identityImageIne = stateHandle.getLiveData("INE", "")
@@ -60,6 +68,10 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         _phone.value = phone
     }
 
+    fun setUserPhoneLada(lada: String){
+        _phoneLada.value = lada
+    }
+
     fun setUserPassword(password: String){
         _password.value = password
     }
@@ -72,15 +84,17 @@ class SignUpViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    //TODO parse birthday for API
-    fun setUserPersonalInfo(name: String, lastName: String, occupation: String, birthday: String){
+    fun setUserPersonalInfo(name: String, lastName: String, occupation: String){
         if(name.isNotBlank())
             _name.value = name
         if(lastName.isNotBlank())
             _lastName.value = lastName
         if(occupation.isNotBlank())
             _occupation.value = occupation
-        if(birthday.isNotBlank())
-            _birthday.value = birthday
+    }
+
+    fun setBirthdayParsers(day: Int, month: Int, year: Int){
+        _birthdayForView.value = parseBirthdayForView(day, month, year)
+        _birthdayForAPI.value = parseBirthdayForAPI(day, month, year)
     }
 }

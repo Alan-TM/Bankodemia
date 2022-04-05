@@ -1,6 +1,7 @@
 package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +54,11 @@ class CellphoneFragment : Fragment() {
             phone.observe(viewLifecycleOwner) {
                 tietPhone.setText(it)
             }
+
+            phoneLada.observe(viewLifecycleOwner){
+                binding.ladaPhone.setText(it)
+                setupDropDownLadas()
+            }
         }
     }
 
@@ -72,24 +78,19 @@ class CellphoneFragment : Fragment() {
         binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
+    }
 
-        // DropDown Rama Artesanal
+    private fun setupDropDownLadas(){
         val array_de_strings = resources.getStringArray(R.array.lada_phones)
-        val arrayAdapterRama =                          // Se declara el adapter
+        val arrayAdapterRama =
             ArrayAdapter(
-                requireActivity().applicationContext,   // Contexto del adapter
-                android.R.layout.simple_list_item_1,    // Layout para desplegar la lista
-                array_de_strings.sortedArray()            // Arreglo de strings
+                requireActivity().applicationContext,
+                android.R.layout.simple_list_item_1,
+                array_de_strings.sortedArray()
             )
-        binding.ladaPhone.setAdapter(arrayAdapterRama)  // Se asigna el adapter
+        binding.ladaPhone.setAdapter(arrayAdapterRama)
         binding.ladaPhone.setOnItemClickListener { parent, view, position, id ->
-            val value = arrayAdapterRama.getItem(position)
-                ?: ""    // Se obtiene el valor del item de la lista
-//        Toast.makeText(
-//            requireContext(),
-//            "$position selected with value $value",
-//            Toast.LENGTH_LONG
-//        ).show()
+            signUpViewModel.setUserPhoneLada(arrayAdapterRama.getItem(position).toString())
         }
     }
 }

@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.isBirthdayValid
 import mx.backoders.bankodemia.common.utils.isEmpty
 import mx.backoders.bankodemia.databinding.FragmentPersonalDetailsBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
@@ -67,7 +65,7 @@ class PersonalDetailsFragment : Fragment() {
                 tietOccupation.setText(it)
             }
 
-            birthday.observe(viewLifecycleOwner) {
+            birthdayForView.observe(viewLifecycleOwner) {
                 tietBirthday.setText(it)
             }
         }
@@ -96,8 +94,8 @@ class PersonalDetailsFragment : Fragment() {
                     requireActivity().getApplicationContext(),
                     tietOccupation,
                     tilOccupation
-                ) //&&
-                //!isEmpty(requireActivity().getApplicationContext(), tietBirthday)
+                ) &&
+                isBirthdayValid(requireContext(), tietBirthday)
             ) {
                 it.findNavController()
                     .navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
@@ -120,7 +118,7 @@ class PersonalDetailsFragment : Fragment() {
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int) {
-
+        signUpViewModel.setBirthdayParsers(day, month, year)
     }
 
 
@@ -134,7 +132,6 @@ class PersonalDetailsFragment : Fragment() {
             tietName.text.toString(),
             tietLastName.text.toString(),
             tietOccupation.text.toString(),
-            tietBirthday.text.toString()
         )
     }
 

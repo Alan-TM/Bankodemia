@@ -85,8 +85,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_phone_edittext_til"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="254dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lada"
         app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
@@ -127,14 +128,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lada"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/style_edittext"
         android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/phone_phone_edittext_til"
         app:layout_constraintEnd_toStartOf="@+id/phone_phone_edittext_til"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phone_phone_edittext_til">
 
 
         <AutoCompleteTextView
