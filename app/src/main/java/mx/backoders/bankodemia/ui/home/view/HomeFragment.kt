@@ -59,7 +59,11 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (!checkForInternet(requireActivity().applicationContext)) {
-            showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE
+            )
         } else {
             homeViewModel.getUserProfile()
         }
