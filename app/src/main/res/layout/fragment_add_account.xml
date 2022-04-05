@@ -161,7 +161,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nameaccount">
 
 
-        <AutoCompleteTextView
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/dropdown_user_names"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

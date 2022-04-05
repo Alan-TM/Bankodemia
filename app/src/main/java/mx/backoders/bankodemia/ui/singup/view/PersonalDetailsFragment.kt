@@ -37,7 +37,7 @@ class PersonalDetailsFragment : Fragment() {
 
     // Birthday
     private lateinit var tietBirthday: TextInputEditText
-    private lateinit var tilBirthday: TextInputLayout
+    //private lateinit var tilBirthday: TextInputLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,7 +81,7 @@ class PersonalDetailsFragment : Fragment() {
         tietOccupation = binding.personaldetailOccupationTiet
         tilOccupation = binding.personaldetailOccupationTil
         tietBirthday = binding.personaldetailBirthdayTiet
-        tilBirthday = binding.personaldetailBirthdayTil
+        //tilBirthday = binding.personaldetailBirthdayTil
 
         //TODO Make birthday edit text not editable but clickable
 
@@ -96,8 +96,8 @@ class PersonalDetailsFragment : Fragment() {
                     requireActivity().getApplicationContext(),
                     tietOccupation,
                     tilOccupation
-                ) &&
-                !isEmpty(requireActivity().getApplicationContext(), tietBirthday, tilBirthday)
+                ) //&&
+                //!isEmpty(requireActivity().getApplicationContext(), tietBirthday)
             ) {
                 it.findNavController()
                     .navigate(R.id.action_personalDetailsFragment_to_cellphoneFragment)
@@ -106,7 +106,23 @@ class PersonalDetailsFragment : Fragment() {
         binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
+
+        tietBirthday.setOnClickListener {
+            showPickerDialog()
+        }
+
     }
+
+    private fun showPickerDialog() {
+        val datePicker =
+            DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(requireActivity().supportFragmentManager, "date")
+    }
+
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
+
+    }
+
 
     override fun onStop() {
         super.onStop()
