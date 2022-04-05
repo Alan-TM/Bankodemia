@@ -35,7 +35,6 @@ class PersonalDetailsFragment : Fragment() {
 
     // Birthday
     private lateinit var tietBirthday: TextInputEditText
-    //private lateinit var tilBirthday: TextInputLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,9 +78,6 @@ class PersonalDetailsFragment : Fragment() {
         tietOccupation = binding.personaldetailOccupationTiet
         tilOccupation = binding.personaldetailOccupationTil
         tietBirthday = binding.personaldetailBirthdayTiet
-        //tilBirthday = binding.personaldetailBirthdayTil
-
-        //TODO Make birthday edit text not editable but clickable
 
         binding.personaldetailsContinueButton.setOnClickListener {
             if (!isEmpty(requireActivity().getApplicationContext(), tietName, tilName) &&
