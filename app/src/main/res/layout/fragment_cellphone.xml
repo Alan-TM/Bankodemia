@@ -94,10 +94,11 @@
             android:id="@+id/phone_phone_edittext_tiet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="13"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:maxLength="10"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -121,7 +122,37 @@
         tools:ignore="TextContrastCheck" />
 
 
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"-->
     <!--Imagenes-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lada"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/style_edittext"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phone_phone_edittext_til"
+        app:layout_constraintEnd_toStartOf="@+id/phone_phone_edittext_til"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/lada_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="none"
+            android:outlineAmbientShadowColor="#00FFFFFF"
+            android:outlineSpotShadowColor="#00FFFFFF"
+            android:shadowColor="#00FFFFFF"
+            android:textSize="14sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ImageView
         android:id="@+id/return_login"
         android:layout_width="wrap_content"

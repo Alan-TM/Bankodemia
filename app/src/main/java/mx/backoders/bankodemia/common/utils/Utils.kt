@@ -32,6 +32,7 @@ enum class Day(val dayOfWeek: Int) {
 //}
 
 enum class PhoneLenght(val length: Int) {
+    Local(10),
     UniversalLength(13)
 }
 

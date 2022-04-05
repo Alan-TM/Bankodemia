@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -81,6 +82,7 @@ class Passport : Fragment() {
         with(signUpViewModel){
             identityImagePassport.observe(viewLifecycleOwner){
                 binding.passportUploadinformationButton.isEnabled = !it.isNullOrBlank()
+                binding.imageReadyPassport.isVisible = !it.isNullOrBlank()
             }
         }
     }
