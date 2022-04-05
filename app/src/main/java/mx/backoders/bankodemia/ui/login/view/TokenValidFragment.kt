@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
+import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentTokenValidBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
@@ -37,10 +38,15 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun isStillValidToken() {
-        if (SharedPreferencesInstance.exists("token"))
-            loginViewModel.isStillValidToken()
-        else {
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            SharedPreferencesInstance.clearAllPreferences()
             findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
+        } else {
+            if (SharedPreferencesInstance.exists("token"))
+                loginViewModel.isStillValidToken()
+            else {
+                findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
+            }
         }
     }
 
