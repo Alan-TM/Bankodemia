@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -70,5 +72,26 @@ class CellphoneFragment : Fragment() {
         binding.returnLogin.setOnClickListener {
             it.findNavController().navigateUp()
         }
+
+        // DropDown Rama Artesanal
+        val array_de_strings = resources.getStringArray(R.array.lada_phones)
+        val arrayAdapterRama =                          // Se declara el adapter
+            ArrayAdapter(
+                requireActivity().applicationContext,   // Contexto del adapter
+                android.R.layout.simple_list_item_1,    // Layout para desplegar la lista
+                array_de_strings.sortedArray()            // Arreglo de strings
+            )
+    binding.ladaPhone.setAdapter(arrayAdapterRama)  // Se asigna el adapter
+    binding.ladaPhone.setOnItemClickListener { parent, view, position, id ->
+        val value = arrayAdapterRama.getItem(position) ?: ""    // Se obtiene el valor del item de la lista
+//        Toast.makeText(
+//            requireContext(),
+//            "$position selected with value $value",
+//            Toast.LENGTH_LONG
+//        ).show()
     }
+    }
+
+
+
 }

@@ -180,5 +180,6 @@
     <string name="volver_a_inicio">Volver a Inicio</string>
     <string name="error_select_user">Por favor, seleccione un usuario</string>
     <string name="verify_sesion">Por favor espera un momento, estamos verificando tu sesión.</string>
+    <string name="cellphone">Número de celular</string>
 
 </resources>
