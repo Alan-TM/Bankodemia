@@ -1,6 +1,7 @@
 package mx.backoders.bankodemia.ui.singup.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,13 +70,15 @@ class CreatePassword : Fragment() {
                         createpasswordEdittextConfirmpasswordTil
                     )
                 ) {
-                    findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
+                    signUpViewModel.setUserPassword(passwordTextField)
+                    signUpViewModel.createUserSignUpDto()
+                    findNavController().navigate(R.id.action_create_Password_to_SendYourDates)
                 }
-
             }
 
             createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
                 passwordTextField = password.toString()
+                Log.e("PASSWORD", passwordTextField)
                 registerPasswordViewModel.isValidConsecutivePassword(password.toString())
             }
 

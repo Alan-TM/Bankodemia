@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/tokenValidFragment">
 
     <fragment
         android:id="@+id/login3"
@@ -43,14 +43,14 @@
         android:label="fragment_create__password"
         tools:layout="@layout/fragment_create__password" >
         <action
-            android:id="@+id/action_create_Password_to_sendYourDates"
-            app:destination="@id/sendYourDates" />
+            android:id="@+id/action_create_Password_to_SendYourDates"
+            app:destination="@id/SendYourDates" />
     </fragment>
     <fragment
-        android:id="@+id/sendYourDates"
+        android:id="@+id/SendYourDates"
         android:name="mx.backoders.bankodemia.ui.singup.view.SendYourDates"
         android:label="fragment_send_your_dates"
-        tools:layout="@layout/fragment_send_your_dates" >
+        tools:layout="@layout/fragment_send_your_dates">
         <action
             android:id="@+id/action_sendYourDates_to_confirmation"
             app:destination="@id/confirmation" />
