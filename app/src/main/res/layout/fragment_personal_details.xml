@@ -174,7 +174,7 @@
         app:layout_constraintStart_toStartOf="@+id/ocupacion"
         app:layout_constraintTop_toBottomOf="@+id/personaldetail_occupation_til" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <!--<com.google.android.material.textfield.TextInputLayout
         android:id="@+id/personaldetail_birthday_til"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -184,18 +184,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birthday">
+-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_birthday_tiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="none"
+        android:textSize="14sp"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/personaldetail_birthday_tiet"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/style_edittext"
-            android:fontFamily="@font/poppinsregular"
-            android:inputType="none"
-            android:textSize="12sp"
-            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+    <!--
     </com.google.android.material.textfield.TextInputLayout>
-
+    -->
 
 
     <!--Buttons-->
