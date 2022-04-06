@@ -1,28 +1,64 @@
 package mx.backoders.bankodemia.common.api
 
 import mx.backoders.bankodemia.common.dto.LoginDto
-import mx.backoders.bankodemia.common.model.User.User
-import mx.backoders.bankodemia.common.model.User.UserData
-import mx.backoders.bankodemia.common.model.User.UserFullProfileResponse
-import mx.backoders.bankodemia.common.model.UserLoginResponse
+import mx.backoders.bankodemia.common.dto.MakeTransactionDto
+import mx.backoders.bankodemia.common.dto.SaveContactDto
+import mx.backoders.bankodemia.common.dto.UserSignUpDto
+import mx.backoders.bankodemia.common.model.contacts.ListMyContactsResponse
+import mx.backoders.bankodemia.common.model.contacts.SaveContactResponse
+import mx.backoders.bankodemia.common.model.transactions.MakeTransactionResponse
+import mx.backoders.bankodemia.common.model.transactions.TransactionDetailsResponse
+import mx.backoders.bankodemia.common.model.user.*
+import mx.backoders.bankodemia.common.model.login.UserLoginResponse
 import retrofit2.Response
 import retrofit2.http.*
 
+//this should be deleted after implementing the auth interceptor
+private const val TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDczNzMwNTcsImV4cCI6MTY0NzQ1OTQ1N30.-o66ywoudbdYQF0i1VA37ibxmeA5Kiqf0TPjrOLs_w4"
+
 interface ApiClient {
+    @POST("auth/login")
+    suspend fun login(
+        @Body loginDto: LoginDto
+    ):Response<UserLoginResponse>
 
     //send a body with email and password
     //and return a UserLoginResponse
     @POST("auth/login")
     suspend fun getLogin(
-        @Query("expires_in") expires_in: Int, //ENUM ?? THIS PARAMETER IS NOT NEEDED
+        @Query("expires_in") expires_in: String, //TODO Roberto to Alan, Is needed? THIS PARAMETER IS NOT NEEDED
         @Body loginDto: LoginDto //send the body.
     ): Response<UserLoginResponse>
 
-    @POST("endpoint")
-    suspend fun userLogIn(@Body body: LoginDto)
+    @POST("users")
+    @Headers(
+        "Content-Type: application/json",
+        "Accept: application/json"
+    )
+    suspend fun userSignUp(@Body body: UserSignUpDto): Response<UserSignUpResponse>
 
     //this should not be hardcoded
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjFmYTNmYjhjZTZjNDc4ZDBlMWI5OTEiLCJpYXQiOjE2NDY0MjE5MTksImV4cCI6MTY0NjQyNTUxOX0.zVQ9RrQsq849kEPhhaCwSndyeKixQut-Sgiw59rP0oE")
+    //@Headers("Authorization: Bearer $TOKEN")
     @GET("users/me/profile")
     suspend fun getUserFullProfile(): Response<UserFullProfileResponse>
+
+    @GET("users")
+    suspend fun getAllUsers(): Response<AllUsers>
+
+    //@Headers("Authorization: Bearer $TOKEN")
+    @GET("transactions/{id}")
+    suspend fun getTransactionDetails(@Path("id") id: String): Response<TransactionDetailsResponse>
+
+    @GET("contacts")
+    suspend fun getContactList(): Response<ListMyContactsResponse>
+
+    @Headers(
+        "Content-Type: application/json",
+        "Accept: application/json"
+    )
+    @POST("contacts")
+    suspend fun saveContact(@Body body: SaveContactDto): Response<SaveContactResponse>
+
+    @POST("transactions")
+    suspend fun makeTransactionPayment(@Body body: MakeTransactionDto): Response<MakeTransactionResponse>
 }

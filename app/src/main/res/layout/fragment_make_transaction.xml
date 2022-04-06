@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.transactions.view.MakeTransactionFragment">
+
+    <ImageView
+        android:id="@+id/makeTransactionBackButton"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/imagebackfragment_fragmentmaketransaction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <TextView
+        android:id="@+id/tv_transactionTitle_fragmentMakeTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/tittleTranfer_String_fragmentMAkeTransactions"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/makeTransactionBackButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/tv_SendTittle_fragmentMakeTransaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/sendTitle_String_fragmentMakeTransaction"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_transactionTitle_fragmentMakeTransaction" />
+
+    <TextView
+        android:id="@+id/tv_Quantity_fragmentMakeTransactions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/cantidadString_fragmentMakeTransaction"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_InterbankCode_fragmentMakeTransaction" />
+
+    <TextView
+        android:id="@+id/tv_ConceptPay_fragmentMakeTransactions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/conceptPay_String_fragmentMakeTransactions"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_SpeiTitle_fragmentMakeTransactions" />
+
+    <TextView
+        android:id="@+id/makeTransactionFullNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/nameAccount_String_fragmentMakeTransactions"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_SendTittle_fragmentMakeTransaction" />
+
+    <TextView
+        android:id="@+id/tv_InterbankCode_fragmentMakeTransaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/interbankCode_String_fragmentMakeTransactions"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeTransactionFullNameTextView" />
+
+    <TextView
+        android:id="@+id/tv_IntitutionBank_fragmentMakeTransaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/institutionBank_String_fragmentMakeTransactions"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_InterbankCode_fragmentMakeTransaction"
+        app:layout_constraintTop_toBottomOf="@+id/makeTransactionFullNameTextView" />
+
+  <!--  <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_Qunatity_Send"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions">-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputLayout_Qunatity_Send"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsregular"
+            android:background="@drawable/style_edittext"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Quantity_fragmentMakeTransactions"
+            android:inputType="number|numberDecimal"
+            android:textSize="16sp" />
+  <!--  </com.google.android.material.textfield.TextInputLayout>-->
+
+    <TextView
+        android:id="@+id/textView_SpeiTitle_fragmentMakeTransactions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/speiTittle_String_fragmentMakeTransactions"
+        android:textColor="#00838F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Qunatity_Send" />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_Concept_Send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions">-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInput_Concept_Send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_weight="600"
+            android:fontFamily="@font/poppinsregular"
+            android:background="@drawable/style_edittext"
+            tools:ignore="TextContrastCheck"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ConceptPay_fragmentMakeTransactions"/>
+  <!--  </com.google.android.material.textfield.TextInputLayout>-->
+
+    <Button
+        android:id="@+id/button_Make_Transfer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/primaryBlue"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/sendTransactionButton_String_fragmentMakeTransaction"
+        android:textSize="18sp"
+        app:cornerRadius="@dimen/corner_radius_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_logo_fragmentMakeTransactions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo"
+            android:contentDescription="@string/imagelogodescription_fragementmaketransaction" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

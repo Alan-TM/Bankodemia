@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="mx.backoders.bankodemia.ui.home.view.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_contactListFragment"
+            app:destination="@id/contactListFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_card"
+        android:name="mx.backoders.bankodemia.ui.creditcard.CreditCardFragment"
+        android:label="@string/title_card"
+        tools:layout="@layout/fragment_credit_card" >
+        <action
+            android:id="@+id/action_nav_card_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_services"
+        android:name="mx.backoders.bankodemia.ui.services.view.ServicesFragment"
+        android:label="@string/title_services"
+        tools:layout="@layout/fragment_services" >
+        <action
+            android:id="@+id/action_nav_services_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        android:name="mx.backoders.bankodemia.ui.transaction_details.view.TransactionDetailsFragment"
+        android:label="transaction_details_fragment"
+        tools:layout="@layout/fragment_transaction_details" />
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.ContactListFragment"
+        android:label="fragment_send_list_users"
+        tools:layout="@layout/fragment_send_list_users" >
+        <action
+            android:id="@+id/action_contactListFragment_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment" />
+        <action
+            android:id="@+id/action_contactListFragment_to_addAccountFragment2"
+            app:destination="@id/addAccountFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeTransactionFragment"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.MakeTransactionFragment"
+        android:label="fragment_make_transaction"
+        tools:layout="@layout/fragment_make_transaction" >
+        <action
+            android:id="@+id/action_makeTransactionFragment_to_dialogTransactionConfirmation"
+            app:destination="@id/dialogTransactionConfirmation" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogTransactionConfirmation"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.DialogTransactionConfirmation"
+        android:label="DialogTransactionConfirmation" >
+        <action
+            android:id="@+id/action_dialogTransactionConfirmation_to_fragmentProcessingTransaction"
+            app:destination="@id/fragmentProcessingTransaction"
+            app:popUpToInclusive="false" />
+    </dialog>
+    <fragment
+        android:id="@+id/fragmentProcessingTransaction"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.FragmentProcessingTransaction"
+        android:label="FragmentProcessingTransaction" >
+        <action
+            android:id="@+id/action_fragmentProcessingTransaction_to_fragmentTransactionComplete"
+            app:destination="@id/fragmentTransactionComplete"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_fragmentProcessingTransaction_to_makeTransactionFragment"
+            app:destination="@id/makeTransactionFragment"
+            app:popUpTo="@id/makeTransactionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentTransactionComplete"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.FragmentTransactionComplete"
+        android:label="FragmentTransactionComplete">
+        <action
+            android:id="@+id/action_fragmentTransactionComplete_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAccountFragment2"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.AddAccountFragment"
+        android:label="fragment_add_account"
+        tools:layout="@layout/fragment_add_account" >
+        <action
+            android:id="@+id/action_addAccountFragment2_to_addContactComplete"
+            app:destination="@id/addContactComplete" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactComplete"
+        android:name="mx.backoders.bankodemia.ui.transactions.view.AddContactComplete"
+        android:label="AddContactComplete" >
+        <action
+            android:id="@+id/action_addContactComplete_to_contactListFragment"
+            app:destination="@id/contactListFragment"
+            app:popUpTo="@id/contactListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="styleedittext">
+
+<!--        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">-->
+<!--            <stroke android:width="1sp" android:color="#00CCCC" />-->
+<!--            <padding android:bottom="10sp" android:left="10sp" android:right="10sp" android:top="10sp" />-->
+<!--            <corners android:radius="10dp" />-->
+<!--        </shape>-->
+
+    </style>
+
+    <style name="Widget.Theme.Bankodemia.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/turquesa</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+</resources>

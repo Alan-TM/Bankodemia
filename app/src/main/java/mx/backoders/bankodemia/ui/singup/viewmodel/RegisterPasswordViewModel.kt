@@ -1,29 +1,87 @@
 package mx.backoders.bankodemia.ui.singup.viewmodel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import mx.backoders.bankodemia.common.utils.PasswordError
+import mx.backoders.bankodemia.common.utils.PasswordError.*
 
 class RegisterPasswordViewModel : ViewModel() {
-    //should do ENUM class to send error data more accurately
-    var isValid = MutableLiveData<Boolean>()
+    private val _isValidConsecutiveCharacters = MutableLiveData<Boolean>()
+    private val _isValidMinLength = MutableLiveData<Boolean>()
+    private val _isValidRepeatedCharacters = MutableLiveData<Boolean>()
+    private val _isSamePassword = MutableLiveData<Boolean>()
+    private val _isEmptyPassword = MutableLiveData<Boolean>()
+    private val _isEmptyPasswordConfirmation = MutableLiveData<Boolean>()
 
-    //this function should be call in the register button
-    fun isValidPassword(password: String) {
-        val consecutiveNumbers = consecutiveNumbersPassword(password)
-        val consecutiveCharacters = consecutiveCharacterPassword(password)
-        //val repeatedCharacters = repeatedCharactersPassword(password)
+    val mediatorPasswordErrorLiveData = MediatorLiveData<PasswordError>()
+    val mediatorPasswordConfirmErrorLiveData = MediatorLiveData<PasswordError>()
 
-        isValid.postValue(consecutiveNumbers && consecutiveCharacters)
+    fun setupMediator(){
+        mediatorPasswordErrorLiveData.addSource(_isValidConsecutiveCharacters) {
+            mediatorPasswordErrorLiveData.value = if (it) NONE else CONSECUTIVE_CHARACTERS
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isValidMinLength){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else MIN_LENGTH
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isEmptyPassword){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else EMPTY
+        }
+
+        mediatorPasswordErrorLiveData.addSource(_isValidRepeatedCharacters){
+            mediatorPasswordErrorLiveData.value = if(it) NONE else REPEATED_CHARACTERS
+        }
+
+        mediatorPasswordConfirmErrorLiveData.addSource(_isEmptyPasswordConfirmation){
+            mediatorPasswordConfirmErrorLiveData.value = if(it) NONE else EMPTY
+        }
+
+        mediatorPasswordConfirmErrorLiveData.addSource(_isSamePassword){
+            mediatorPasswordConfirmErrorLiveData.value = if(it) NONE else NOT_MATCHING
+        }
     }
 
-    fun minLengthPassword(password: String) = isValid.postValue(password.length >= 6)
+    fun clearMediators(){
+        mediatorPasswordErrorLiveData.removeSource(_isValidConsecutiveCharacters)
+        mediatorPasswordErrorLiveData.removeSource(_isValidMinLength)
+        mediatorPasswordErrorLiveData.removeSource(_isEmptyPassword)
+        mediatorPasswordErrorLiveData.removeSource(_isValidRepeatedCharacters)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isEmptyPasswordConfirmation)
+        mediatorPasswordConfirmErrorLiveData.removeSource(_isSamePassword)
+    }
+
+    fun isValidConsecutivePassword(password: String) {
+        _isValidConsecutiveCharacters.value =
+            consecutiveCharacterPassword(password) && consecutiveNumbersPassword(password)
+    }
+
+    fun isValidRepeatedCharacters(password: String){
+        _isValidRepeatedCharacters.value = repeatedCharactersPassword(password)
+    }
+
+    fun minLengthPassword(password: String) {
+        _isValidMinLength.value = password.length >= 6
+    }
+
+    fun isEmptyPassword(password: String){
+        _isEmptyPassword.value = password.isNotEmpty()
+    }
+
+    fun isEmptyPasswordConfirmation(password_confirm: String){
+        _isEmptyPasswordConfirmation.value = password_confirm.isNotEmpty()
+    }
+
+    fun isSamePassword(password: String, password_confirmation: String) {
+        if (password.isNotEmpty() && password.isNotBlank())
+            _isSamePassword.value = password_confirmation == password
+    }
 
     private fun consecutiveNumbersPassword(password: String): Boolean {
         var index = 0
         val length = password.length - 1
-        if(length == -1){
-            isValid.postValue(true)
-        }else {
+        if (length == -1) {
+            return true
+        } else {
             if (length >= 1) {
                 while (index < length) {
                     if (password[index] in '0'..'9' && password[index + 1] in '0'..'9') {
@@ -41,14 +99,14 @@ class RegisterPasswordViewModel : ViewModel() {
 
     private fun consecutiveCharacterPassword(password: String): Boolean {
         val length = password.length - 1
-        if(length >= 1){
-            for((index, value) in password.withIndex()){
-                if(index < length){
-                    if(value in 'a'..'z' && password[index+1] in 'a'..'z'){
+        if (length >= 1) {
+            for ((index, value) in password.withIndex()) {
+                if (index < length) {
+                    if (value in 'a'..'z' && password[index + 1] in 'a'..'z') {
                         val valueToDigit = value.code
-                        val nextValueToDigit = password[index+1].code
+                        val nextValueToDigit = password[index + 1].code
 
-                        if(valueToDigit+1 == nextValueToDigit){
+                        if (valueToDigit + 1 == nextValueToDigit || valueToDigit - 1 == nextValueToDigit) {
                             return false
                         }
                     }
@@ -58,13 +116,12 @@ class RegisterPasswordViewModel : ViewModel() {
         return true
     }
 
-    // PROBABLY DISCARD FUNC-----
-    private fun repeatedCharactersPassword(password: String): Boolean{
-        if(password.length-1 >= 0) {
+    private fun repeatedCharactersPassword(password: String): Boolean {
+        if (password.length - 1 >= 0) {
             var count = 0
             outer@ for (i in password.indices) {
                 count = 1
-                if(password[i] in 'a'..'z') {
+                if (password[i] in 'a'..'z') {
                     for (j in i + 1 until password.length) {
                         if (password[i] == password[j] && password[i] != ' ') {
                             count++

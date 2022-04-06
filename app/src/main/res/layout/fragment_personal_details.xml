@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/fragment_horizontal_margin"
+    android:paddingTop="@dimen/fragment_vertical_margin"
+    android:paddingRight="@dimen/fragment_horizontal_margin"
+    android:paddingBottom="@dimen/fragment_vertical_margin"
+    tools:context=".ui.singup.view.PersonalDetailsFragment">
+
+
+    <!--Toolbar-->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <!--Textview-->
+
+    <TextView
+        android:id="@+id/dates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/ingresa_tus_datos"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/return_login"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textt_view_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/instructions"
+        android:textFontWeight="600"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dates" />
+
+
+    <TextView
+        android:id="@+id/tvprotectdocuments"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:text="@string/description_dates"
+        android:textFontWeight="600"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/personaldetails_continue_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_birthday_til" />
+
+    <TextView
+        android:id="@+id/descriptionemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/names"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textt_view_password"
+        app:layout_constraintTop_toBottomOf="@+id/textt_view_password" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_name_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_name_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="text"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/last_name"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_name_til" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_lastname_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_lastname_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="text"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/ocupacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/ocupacion"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_lastname_til" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_occupation_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ocupacion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personaldetail_occupation_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="text"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/born"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/ocupacion"
+        app:layout_constraintTop_toBottomOf="@+id/personaldetail_occupation_til" />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personaldetail_birthday_til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday">
+-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/personaldetail_birthday_tiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_edittext"
+        android:fontFamily="@font/poppinsregular"
+        android:inputType="none"
+        android:textSize="14sp"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,SpeakableTextPresentCheck" />
+
+    <!--
+    </com.google.android.material.textfield.TextInputLayout>
+    -->
+
+
+    <!--Buttons-->
+
+    <!--Imagenes-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/personaldetails_continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/turquesa"
+        android:fontFamily="@font/poppinsregular"
+        android:text="@string/Continue"
+        android:textAllCaps="false"
+        android:textFontWeight="600"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/return_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_resource_return"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/dates" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

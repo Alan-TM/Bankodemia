@@ -16,4 +16,4 @@ data class MakeTransactionDto(
     @Expose
     @SerializedName("type")
     val type: String //ENUM ?
-)
+): java.io.Serializable
