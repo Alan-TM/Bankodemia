@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
+import mx.backoders.bankodemia.common.utils.ErrorManager
 import mx.backoders.bankodemia.common.utils.checkForInternet
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentAddAccountBinding
@@ -23,6 +25,8 @@ class AddAccountFragment : Fragment() {
 
     private val addContactViewModel: AddContactViewModel by activityViewModels()
 
+    private lateinit var errorManager: ErrorManager
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +37,14 @@ class AddAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        addContactViewModel.getAllUsers()
         initializeUI()
         initializeObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        errorManager = ErrorManager(requireView())
+        addContactViewModel.getAllUsers()
     }
 
     private fun initializeUI() {
@@ -48,16 +57,21 @@ class AddAccountFragment : Fragment() {
                 }
             }
 
-            dropdownUserNames.setOnItemClickListener { parent, view, position, id ->
+            dropdownUserNames.setOnItemClickListener { _, _, position, _ ->
                 addContactViewModel.getUserFromList(position)
+            }
+
+            returnLogin.setOnClickListener {
+                findNavController().navigateUp()
             }
         }
     }
 
     private fun validateDropDownOption() {
         val dropdownText = binding.dropdownUserNames.text.toString()
+        val aliasText = binding.addcontactAliasTiet.text.toString()
         if (dropdownText.isNotEmpty() || dropdownText.isNotBlank()) {
-            addContactViewModel.setShortNameForContact(binding.addcontactAliasTiet.text.toString())
+            addContactViewModel.setShortNameForContact(aliasText)
             addContactViewModel.makeContactBody()
             findNavController().navigate(R.id.action_addAccountFragment2_to_addContactComplete)
         } else {
@@ -69,7 +83,20 @@ class AddAccountFragment : Fragment() {
         with(addContactViewModel){
             listForView.observe(viewLifecycleOwner, ::setupDropdown)
 
+            errorResponse.observe(viewLifecycleOwner){
+                errorManager(it)
+            }
 
+            isLoading.observe(viewLifecycleOwner){
+                loadingIndicator(it)
+            }
+        }
+    }
+
+    private fun loadingIndicator(visibility: Boolean) {
+        with(binding){
+            addaccountProgressBar.isVisible = visibility
+            contactInfoContainer.isVisible = !visibility
         }
     }
 

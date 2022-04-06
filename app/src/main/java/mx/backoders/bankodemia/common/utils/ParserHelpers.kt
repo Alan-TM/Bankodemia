@@ -33,3 +33,16 @@ fun timeParserForDetailsView(date: String): String{
 
 @SuppressLint("SimpleDateFormat")
 fun timeStampForImage(): String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+
+fun parseBirthdayForAPI(day: Int, month: Int, year: Int): String {
+    val newDay = if(day < 10) "0$day" else day
+    val newMonth = if (month + 1 < 10) "0${month + 1}" else "${month + 1}"
+
+    return "${year}-${newMonth}-${newDay}T00:00:00Z"
+}
+
+fun parseBirthdayForView(day: Int, month: Int, year: Int): String{
+    val newMonth = if (month + 1 < 10) "0${month + 1}" else "${month + 1}"
+
+    return "$day/$newMonth/$year"
+}

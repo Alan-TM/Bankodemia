@@ -46,6 +46,8 @@ object SharedPreferencesInstance {
             null
     }
 
+    fun exists(key: String): Boolean = sharedPreferences.contains(key)
+
     fun saveSession(session: UserLoginResponse){
         editor.putString("token",session.token)
         editor.putString("expiresIn",session.expiresIn)

@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
+        SharedPreferencesInstance.getInstance(applicationContext)
         setContentView(binding.root)
 
 

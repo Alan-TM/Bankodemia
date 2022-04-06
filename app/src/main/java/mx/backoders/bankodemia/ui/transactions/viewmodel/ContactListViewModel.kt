@@ -14,6 +14,9 @@ class ContactListViewModel : ViewModel() {
     private val _contactListResponse = MutableLiveData<ListMyContactsResponse>()
     val contactListResponse: LiveData<ListMyContactsResponse> get() = _contactListResponse
 
+    private val _errorResponse = MutableLiveData<Int>()
+    val errorResponse: LiveData<Int> = _errorResponse
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -30,32 +33,11 @@ class ContactListViewModel : ViewModel() {
                     _contactListResponse.value = response.body()
                     _isLoading.value = false
                 } else{
-                    Log.e("CONTACT_LIST", response.errorBody().toString())
+                    _errorResponse.value = response.code()
                 }
             } catch(e: IOException){
-                Log.e("CONTACT_LIST", e.localizedMessage!!)
+                _errorResponse.value = 900
             }
         }
     }
-
-    //add this to save contact fragment
-    /*
-    fun saveContact(){
-        //Delete this after
-        viewModelScope.launch {
-            try{
-                val response = serviceNetwork.saveContact(contact)
-
-                if(response.isSuccessful){
-                    _contactListResponse.value = response.body()
-                    Log.e("CONTACTS", response.body().toString())
-                } else{
-                    Log.e("CONTACTS_ERROR", response.errorBody().toString())
-                }
-            }catch(e: IOException){
-                Log.e("CONTACTS_ERROR", e.localizedMessage)
-            }
-        }
-    }
-     */
 }

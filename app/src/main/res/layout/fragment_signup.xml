@@ -145,8 +145,7 @@
             android:layout_weight="600"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
-
-            android:inputType="textEmailSubject"
+            android:inputType="textEmailAddress"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 

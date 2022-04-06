@@ -32,6 +32,7 @@ enum class Day(val dayOfWeek: Int) {
 //}
 
 enum class PhoneLenght(val length: Int) {
+    Local(10),
     UniversalLength(13)
 }
 
@@ -123,12 +124,13 @@ fun addIsEmailCorrectListener(
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
         override fun afterTextChanged(editText: Editable?) {
-
-            if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
-                til.isErrorEnabled = false
-            } else {
-                til.isErrorEnabled = true
-                til.error = context.getString(R.string.error_invalid_email)
+            if (editText.toString().isNotEmpty()) {
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(tiet.text.toString()).matches()) {
+                    til.isErrorEnabled = false
+                } else {
+                    til.isErrorEnabled = true
+                    til.error = context.getString(R.string.error_invalid_email)
+                }
             }
         }
     })
@@ -174,4 +176,14 @@ fun showSnack(view: View, message: String, duration:Int, actionMessage:String? =
         }
     }
     snack.show()
+}
+
+fun isBirthdayValid(context: Context, tiet: TextInputEditText): Boolean{
+    return if(tiet.text.toString().isEmpty()){
+        tiet.error = context.getString(R.string.error_empty)
+        false
+    } else{
+        tiet.error = null
+        true
+    }
 }

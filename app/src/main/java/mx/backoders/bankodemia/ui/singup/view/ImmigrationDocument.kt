@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -82,6 +83,10 @@ class ImmigrationDocument : Fragment() {
         with(signUpViewModel) {
             identityImageMigrationForm.observe(viewLifecycleOwner) {
                 binding.documentimmigrationUploadinformationButton.isEnabled = !it.isNullOrBlank()
+<<<<<<< HEAD
+                binding.imageReadyImmigration.isVisible = !it.isNullOrBlank()
+=======
+>>>>>>> develop
             }
         }
     }

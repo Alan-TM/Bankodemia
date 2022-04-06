@@ -14,10 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.model.transactions.Transaction
-import mx.backoders.bankodemia.common.utils.checkForInternet
-import mx.backoders.bankodemia.common.utils.currencyParser
-import mx.backoders.bankodemia.common.utils.showSnack
-import mx.backoders.bankodemia.common.utils.timeParserForDetailsView
+import mx.backoders.bankodemia.common.utils.*
 import mx.backoders.bankodemia.databinding.FragmentTransactionDetailsBinding
 import mx.backoders.bankodemia.ui.home.viewmodel.HomeViewModel
 import mx.backoders.bankodemia.ui.transaction_details.viewmodel.TransactionDetailsViewModel
@@ -33,10 +30,13 @@ class TransactionDetailsFragment : Fragment() {
     private var _binding : FragmentTransactionDetailsBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var errorManager: ErrorManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let{
             transactionID = it.getString("transactionID").toString()
+            transactionDetailsViewModel.setTransactionID(transactionID)
         }
     }
 
@@ -51,15 +51,14 @@ class TransactionDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (!checkForInternet(requireActivity().applicationContext)) {
-            loadingIndicator(true)
-            showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
-        } else {
-            transactionDetailsViewModel.fetchTransactionData(transactionID)
-        }
         initializeObservers()
         initializeUI()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        errorManager = ErrorManager(requireView())
+        setupVisibilityComponents()
     }
 
     override fun onDestroy() {
@@ -68,10 +67,25 @@ class TransactionDetailsFragment : Fragment() {
     }
 
     private fun initializeObservers(){
-        transactionDetailsViewModel.transactionDetailsResponse.observe(viewLifecycleOwner){
-            setView(it.data.transaction)
+        with(transactionDetailsViewModel) {
+            transactionDetailsResponse.observe(viewLifecycleOwner) {
+                setView(it.data.transaction)
+            }
+            isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
+
+            transactionID.observe(viewLifecycleOwner){ id ->
+                if (!checkForInternet(requireActivity().applicationContext)) {
+                    loadingIndicator(true)
+                    showSnack(binding.root, getString(R.string.error_no_internet), Snackbar.LENGTH_INDEFINITE)
+                } else {
+                    fetchTransactionData(id)
+                }
+            }
+
+            transactionDetailsError.observe(viewLifecycleOwner){
+                errorManager(it)
+            }
         }
-        transactionDetailsViewModel.isLoading.observe(viewLifecycleOwner, ::loadingIndicator)
     }
 
     private fun loadingIndicator(visibility: Boolean) {

@@ -17,11 +17,11 @@ import java.util.*
 class HomeViewModel() : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading //these are the values that we need to observe
+    val isLoading: LiveData<Boolean> get() = _isLoading
     private val _userProfileResponse = MutableLiveData<UserFullProfileResponse>()
     val userProfileResponse: LiveData<UserFullProfileResponse> get() = _userProfileResponse
     private val _userProfileResponseError =
-        MutableLiveData<String>() //should add an enum or sealed class, for better error management
+        MutableLiveData<String>()
     val userProfileResponseError: LiveData<String> get() = _userProfileResponseError
 
     private val _bottomNavIsVisible = MutableLiveData<Boolean>()

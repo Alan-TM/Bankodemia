@@ -13,10 +13,12 @@ import org.json.JSONObject
 
 
 class WelcomeActivity : AppCompatActivity() {
-
     private lateinit var bindingWelcomeActivity: ActivityWelcomeBinding
     private val loginViewModel: LoginViewModel by viewModels()
     lateinit var shared: SharedPreferencesInstance
+
+    private val signUpViewModel: SignUpViewModel by viewModels()
+    private var backPressedFlag = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class WelcomeActivity : AppCompatActivity() {
 
 //        isStillValidToken()
 //        loginObservers()
-
+        signUpObservers()
     }
 
     private fun isStillValidToken() {
@@ -35,16 +37,30 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun loginObservers() {
-        loginViewModel.isTokenExpired.observe(this){isTokenExpired ->
-            if(!isTokenExpired){
+        loginViewModel.isTokenExpired.observe(this) { isTokenExpired ->
+            if (!isTokenExpired) {
                 openHomeActivity()
             }
         }
     }
 
+    private fun signUpObservers(){
+        signUpViewModel.onBackPressedEnable.observe(this) {
+            backPressedFlag = it
+        }
+    }
+
     fun openHomeActivity() {
         val intent = Intent(this, HomeActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        if (backPressedFlag) {
+            signUpViewModel.clearSignUpDtoStateHandle()
+            super.onBackPressed()
+        }
     }
 
 }

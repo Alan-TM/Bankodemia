@@ -86,8 +86,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lada"
         app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
-        app:layout_constraintStart_toStartOf="@+id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +96,9 @@
             android:layout_height="match_parent"
             android:background="@drawable/style_edittext"
             android:fontFamily="@font/poppinsregular"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:maxLength="10"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -120,7 +122,35 @@
         tools:ignore="TextContrastCheck" />
 
 
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"-->
     <!--Imagenes-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lada"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:theme="@style/TextInputLayoutStyle"
+        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
+        app:layout_constraintTop_toTopOf="@+id/phone_phone_edittext_til">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/lada_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="600"
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="none"
+            android:outlineAmbientShadowColor="#00FFFFFF"
+            android:outlineSpotShadowColor="#00FFFFFF"
+            android:shadowColor="#00FFFFFF"
+            android:textSize="14sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ImageView
         android:id="@+id/return_login"
         android:layout_width="wrap_content"

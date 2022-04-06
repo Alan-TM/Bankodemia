@@ -17,6 +17,9 @@ class AddContactViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _errorResponse = MutableLiveData<Int>()
+    val errorResponse: LiveData<Int> = _errorResponse
+
     private val _allUsers = MutableLiveData<AllUsers>()
 
     private val _listForView = MutableLiveData<ArrayList<String>>()
@@ -41,9 +44,11 @@ class AddContactViewModel : ViewModel() {
                     _allUsers.value = response.body()
                     buildItemsForView(response.body()!!.data.users)
                     _isLoading.value = false
+                } else{
+                    _errorResponse.value = response.code()
                 }
             } catch (e: IOException) {
-                //TODO add io exception
+                _errorResponse.value = 900
             }
         }
     }
@@ -84,9 +89,11 @@ class AddContactViewModel : ViewModel() {
                 if(response.isSuccessful){
                     _saveContactResponse.value = response.body()
                     _isLoading.value = false
+                } else{
+                    _errorResponse.value = response.code()
                 }
             } catch(e: IOException){
-                //TODO add exception
+                _errorResponse.value = 900
             }
         }
     }
