@@ -32,6 +32,18 @@ class CreatePassword : Fragment() {
     private var flagPasswordConfirmError: PasswordError = NONE
     private lateinit var passwordTextField: String
 
+<<<<<<< HEAD
+=======
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onBackPressedCallbackHandler()
+            }
+        })
+    }
+
+>>>>>>> develop
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,10 +82,17 @@ class CreatePassword : Fragment() {
                         createpasswordEdittextConfirmpasswordTil
                     )
                 ) {
+<<<<<<< HEAD
                     signUpViewModel.setUserPassword(passwordTextField)
                     signUpViewModel.createUserSignUpDto()
                     findNavController().navigate(R.id.action_create_Password_to_SendYourDates)
                 }
+=======
+                    findNavController().navigate(R.id.action_create_Password_to_sendYourDates)
+                    signUpViewModel.setUserPassword(passwordTextField)
+                }
+
+>>>>>>> develop
             }
 
             createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
@@ -89,7 +108,11 @@ class CreatePassword : Fragment() {
             }
 
             returnLogin.setOnClickListener {
+<<<<<<< HEAD
                 findNavController().navigateUp()
+=======
+                onBackPressedCallbackHandler()
+>>>>>>> develop
             }
         }
     }
@@ -155,11 +178,24 @@ class CreatePassword : Fragment() {
         }
     }
 
+<<<<<<< HEAD
     override fun onStop() {
         super.onStop()
         if(passwordTextField.isNotBlank())
             signUpViewModel.setUserPassword(passwordTextField)
         registerPasswordViewModel.clearMediators()
         signUpViewModel.setErrorCode(0)
+=======
+    private fun onBackPressedCallbackHandler() {
+        findNavController().navigateUp()
+        if (passwordTextField.isNotEmpty() && passwordTextField.isNotBlank())
+            signUpViewModel.setUserPassword(passwordTextField)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        registerPasswordViewModel.clearMediators()
+        signUpViewModel.setUserPassword(passwordTextField)
+>>>>>>> develop
     }
 }

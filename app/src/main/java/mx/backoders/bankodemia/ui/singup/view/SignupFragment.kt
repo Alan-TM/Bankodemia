@@ -36,18 +36,22 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeUI()
         initializeObservers()
+<<<<<<< HEAD
     }
 
     override fun onStop() {
         super.onStop()
         if (tietEmail.text.toString().isNotBlank())
             signUpViewModel.setUserEmail(tietEmail.text.toString())
+=======
+>>>>>>> develop
     }
 
     private fun initializeUI() {
         //Adding Listeners
         tietEmail = binding.signupWriteemailEdittextTiet
         tilEmail = binding.signupWriteemailEdittextTil
+<<<<<<< HEAD
 
         addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
         //addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
@@ -74,6 +78,30 @@ class SignupFragment : Fragment() {
                     tilEmail
                 )*/
                 //addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+=======
+        addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+        addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+
+        binding.signupContinueButton.setOnClickListener {
+            if (!isEmpty(requireActivity().getApplicationContext(), tietEmail, tilEmail)) {
+                signUpViewModel.setUserEmail(tietEmail.text.toString())
+                it.findNavController()
+                    .navigate(R.id.action_signupFragment_to_personalDetailsFragment)
+            }
+        }
+        binding.returnLogin.setOnClickListener {
+            it.findNavController().navigateUp()
+            signUpViewModel.setUserEmail(tietEmail.text.toString())
+        }
+    }
+
+    private fun initializeObservers(){
+        with(signUpViewModel){
+            email.observe(viewLifecycleOwner){
+                binding.signupWriteemailEdittextTil.editText?.setText(it)
+                addIsEmailCorrectListener(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+                addIsEmptyChecker(requireActivity().getApplicationContext(), tietEmail, tilEmail)
+>>>>>>> develop
             }
         }
     }

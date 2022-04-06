@@ -80,6 +80,7 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
         _transactionBody.value = MakeTransactionDto(0.0, "", "", "")
     }
 
+    fun validateTextField(text: String): Boolean = text.isNotEmpty()
 
 
     fun validateTextField(text: String): Boolean = text.isNotEmpty()

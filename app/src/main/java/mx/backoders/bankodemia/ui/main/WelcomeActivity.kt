@@ -62,4 +62,5 @@ class WelcomeActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
 }
