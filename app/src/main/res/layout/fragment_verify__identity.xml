@@ -80,6 +80,7 @@
         android:id="@+id/ine_ine_card"
         android:elevation="0dp"
         android:layout_width="0dp"
+        app:cardElevation="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,6 +123,7 @@
         android:id="@+id/verify_identity_documentmigratory_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/ine_ine_card">
@@ -161,6 +163,7 @@
         android:id="@+id/verify_identity_passport_car"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/verify_identity_documentmigratory_card">
