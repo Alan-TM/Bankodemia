@@ -81,7 +81,4 @@ class TransactionsViewModel(stateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun validateTextField(text: String): Boolean = text.isNotEmpty()
-
-
-    fun validateTextField(text: String): Boolean = text.isNotEmpty()
 }

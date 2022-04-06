@@ -83,10 +83,7 @@ class ImmigrationDocument : Fragment() {
         with(signUpViewModel) {
             identityImageMigrationForm.observe(viewLifecycleOwner) {
                 binding.documentimmigrationUploadinformationButton.isEnabled = !it.isNullOrBlank()
-<<<<<<< HEAD
                 binding.imageReadyImmigration.isVisible = !it.isNullOrBlank()
-=======
->>>>>>> develop
             }
         }
     }

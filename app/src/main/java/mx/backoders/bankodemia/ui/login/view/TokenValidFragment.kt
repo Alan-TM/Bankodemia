@@ -10,11 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
-<<<<<<< HEAD
 import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.common.utils.checkForInternet
-=======
->>>>>>> develop
 import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentTokenValidBinding
 import mx.backoders.bankodemia.ui.login.viewmodel.LoginViewModel
@@ -29,11 +26,7 @@ class TokenValidFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-<<<<<<< HEAD
     ): View {
-=======
-    ): View? {
->>>>>>> develop
         _binding = FragmentTokenValidBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,7 +38,6 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun isStillValidToken() {
-<<<<<<< HEAD
         if (!checkForInternet(requireActivity().applicationContext)) {
             SharedPreferencesInstance.clearAllPreferences()
             findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
@@ -56,9 +48,6 @@ class TokenValidFragment : Fragment() {
                 findNavController().navigate(R.id.action_tokenValidFragment_to_welcomeFragment)
             }
         }
-=======
-        loginViewModel.isStillValidToken()
->>>>>>> develop
     }
 
     private fun loginObservers() {
@@ -78,7 +67,6 @@ class TokenValidFragment : Fragment() {
     }
 
     private fun showErrorMessage() {
-<<<<<<< HEAD
         showSnack(
             binding.root,
             getString(R.string.error_no_authorized),
@@ -88,9 +76,4 @@ class TokenValidFragment : Fragment() {
             SharedPreferencesInstance.clearAllPreferences()
         }
     }
-=======
-        showSnack(binding.root, getString(R.string.error_no_authorized), Snackbar.LENGTH_INDEFINITE)
-    }
-
->>>>>>> develop
 }

@@ -50,10 +50,7 @@
     <string name="error_matching_password">Las contraseñas no coinciden</string>
     <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
     <string name="error_repeated_characters">No utilice caracteres repetidos</string>
-<<<<<<< HEAD
     <string name="error_user_already_exists">El email o télefono ya se encuentran registrados</string>
-=======
->>>>>>> develop
 
     <!-- Strings Aletsis-->
     <string name="login">INICIAR SESION</string>
@@ -184,9 +181,6 @@
     <string name="volver_a_inicio">Volver a Inicio</string>
     <string name="error_select_user">Por favor, seleccione un usuario</string>
     <string name="verify_sesion">Por favor espera un momento, estamos verificando tu sesión.</string>
-<<<<<<< HEAD
     <string name="cellphone">Número de celular</string>
-=======
->>>>>>> develop
 
 </resources>
