@@ -34,6 +34,7 @@ class SendYourDates : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         errorManager = ErrorManager(view)
+        errorManager.isSignUpErrorManagerEnabled(true)
         signUpViewModel.setOnBackPressedEnable(false)
         signUpViewModel.makeSignUpCall()
         initializeObservers()
@@ -54,6 +55,7 @@ class SendYourDates : Fragment() {
 
             errorResponse.observe(viewLifecycleOwner) {
                 transactionError(it)
+                setErrorCode(0)
             }
         }
     }

@@ -1,19 +1,29 @@
 package mx.backoders.bankodemia.ui.singup.view
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import mx.backoders.bankodemia.R
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import mx.backoders.bankodemia.databinding.FragmentConfirmationBinding
+import mx.backoders.bankodemia.ui.main.WelcomeActivity
 
 
 class Confirmation : Fragment() {
 
     private var _binding: FragmentConfirmationBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                openWelcomeActivity()
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +40,17 @@ class Confirmation : Fragment() {
 
     private fun initializeUI() {
         binding.confirmationLoginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_confirmation_to_login3)
+            openWelcomeActivity()
         }
+    }
+
+    private fun openWelcomeActivity(){
+        startActivity(
+            Intent(
+                requireContext(), WelcomeActivity::class.java
+            ).addFlags(
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            )
+        )
     }
 }

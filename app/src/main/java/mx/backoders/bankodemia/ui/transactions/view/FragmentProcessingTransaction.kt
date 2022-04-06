@@ -56,7 +56,6 @@ class FragmentProcessingTransaction : Fragment() {
     }
 
     private fun transactionCompleted() {
-        transactionViewModel.clearTransactionBodyStateHandle()
         findNavController().navigate(R.id.action_fragmentProcessingTransaction_to_fragmentTransactionComplete)
     }
 

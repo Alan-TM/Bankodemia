@@ -50,6 +50,7 @@
     <string name="error_matching_password">Las contraseñas no coinciden</string>
     <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
     <string name="error_repeated_characters">No utilice caracteres repetidos</string>
+    <string name="error_user_already_exists">El email o télefono ya se encuentran registrados</string>
 
     <!-- Strings Aletsis-->
     <string name="login">INICIAR SESION</string>

@@ -49,6 +49,11 @@ class HomeActivity : AppCompatActivity() {
         initializeObservers()
     }
 
+    override fun onStart() {
+        super.onStart()
+        SharedPreferencesInstance.getInstance(applicationContext)
+    }
+
     private fun initUI() {
         binding.infoHomeButton.setOnClickListener {
             showHelpDialog()

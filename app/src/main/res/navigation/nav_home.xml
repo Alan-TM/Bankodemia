@@ -9,7 +9,13 @@
         android:id="@+id/login3"
         android:name="mx.backoders.bankodemia.ui.login.view.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login3_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/ine"
         android:name="mx.backoders.bankodemia.ui.singup.view.Ine"
@@ -64,7 +70,8 @@
         tools:layout="@layout/fragment_confirmation" >
         <action
             android:id="@+id/action_confirmation_to_login3"
-            app:destination="@id/login3"
+            app:destination="@id/welcomeFragment"
+            app:launchSingleTop="true"
             app:popUpTo="@id/login3"
             app:popUpToInclusive="true" />
     </fragment>
@@ -108,7 +115,8 @@
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_login3"
-            app:destination="@id/login3" />
+            app:destination="@id/login3"
+            app:popUpTo="@id/welcomeFragment" />
         <action
             android:id="@+id/action_welcomeFragment_to_signupFragment"
             app:destination="@id/signupFragment" />

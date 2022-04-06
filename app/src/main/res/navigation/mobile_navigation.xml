@@ -72,7 +72,8 @@
         android:label="DialogTransactionConfirmation" >
         <action
             android:id="@+id/action_dialogTransactionConfirmation_to_fragmentProcessingTransaction"
-            app:destination="@id/fragmentProcessingTransaction" />
+            app:destination="@id/fragmentProcessingTransaction"
+            app:popUpToInclusive="false" />
     </dialog>
     <fragment
         android:id="@+id/fragmentProcessingTransaction"
@@ -81,13 +82,11 @@
         <action
             android:id="@+id/action_fragmentProcessingTransaction_to_fragmentTransactionComplete"
             app:destination="@id/fragmentTransactionComplete"
-            app:popUpTo="@id/nav_home"
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragmentProcessingTransaction_to_makeTransactionFragment"
             app:destination="@id/makeTransactionFragment"
-            app:popUpTo="@id/makeTransactionFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/fragmentTransactionComplete"

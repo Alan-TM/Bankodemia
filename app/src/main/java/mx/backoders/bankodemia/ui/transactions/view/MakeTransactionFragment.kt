@@ -106,6 +106,7 @@ class MakeTransactionFragment : Fragment() {
                         if (makeTransactionViewModel.validateTextField(concept)) {
                             textInputConceptSend.error = null
                             sendDataToMakeTransaction(amount, concept)
+                            findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
                         } else {
                             textInputConceptSend.error = getString(R.string.error_empty)
                         }
@@ -132,7 +133,5 @@ class MakeTransactionFragment : Fragment() {
             concept,
             amount.toDouble(),
         )
-
-        findNavController().navigate(R.id.action_makeTransactionFragment_to_dialogTransactionConfirmation)
     }
 }

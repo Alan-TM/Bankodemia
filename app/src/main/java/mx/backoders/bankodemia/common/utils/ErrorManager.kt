@@ -11,6 +11,8 @@ import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.ui.main.WelcomeActivity
 
 class ErrorManager(val view: View) {
+    private var isSignUp = false
+
     operator fun invoke(errorCode: Int) {
         when (errorCode) {
             0 -> {}
@@ -20,12 +22,22 @@ class ErrorManager(val view: View) {
                 LENGTH_INDEFINITE
             )
             401 -> sendUserToLogin(view)
-            402, 412 -> sendUserToMakeTransaction(view)
+            402, 412 -> {
+                if (isSignUp) {
+                    sendUserToCreatePassword(view)
+                } else {
+                    sendUserToMakeTransaction(view)
+                }
+            }
             else -> sendMessage(
                 view.context,
                 view.context.getString(R.string.error_something_happened)
             )
         }
+    }
+
+    fun isSignUpErrorManagerEnabled(isEnabled: Boolean){
+        isSignUp = isEnabled
     }
 
     private fun sendUserToMakeTransaction(view: View) {
@@ -44,6 +56,17 @@ class ErrorManager(val view: View) {
                 )
             )
             SharedPreferencesInstance.clearAllPreferences()
+        }
+    }
+
+    private fun sendUserToCreatePassword(view: View){
+        showSnack(
+            view,
+            view.context.getString(R.string.error_user_already_exists),
+            LENGTH_INDEFINITE,
+            view.context.getString(R.string.accept)
+        ){
+            view.findNavController().navigateUp()
         }
     }
 
