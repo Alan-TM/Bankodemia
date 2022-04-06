@@ -11,6 +11,7 @@ import mx.backoders.bankodemia.common.preferences.SharedPreferencesInstance
 import mx.backoders.bankodemia.ui.main.WelcomeActivity
 
 class ErrorManager(val view: View) {
+
     private var isSignUp = false
 
     operator fun invoke(errorCode: Int) {

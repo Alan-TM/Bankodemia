@@ -88,7 +88,7 @@ class LoginFragment : Fragment() {
         if (!tilEmail.isErrorEnabled && !tilPassword.isErrorEnabled) {
             val email = tietEmail.text.toString()
             val pass = tietPassword.text.toString()
-            loginViewModel.getLogin("1m",LoginDto(email, pass))
+            loginViewModel.getLogin("1h",LoginDto(email, pass))
         } else {
             when {
                 tietEmail.text!!.isEmpty() -> tilEmail.requestFocus()

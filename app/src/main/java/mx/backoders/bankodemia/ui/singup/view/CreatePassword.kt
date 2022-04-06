@@ -78,7 +78,6 @@ class CreatePassword : Fragment() {
 
             createpasswordEdittextPasswordTil.editText?.addTextChangedListener { password ->
                 passwordTextField = password.toString()
-                Log.e("PASSWORD", passwordTextField)
                 registerPasswordViewModel.isValidConsecutivePassword(password.toString())
             }
 

@@ -8,11 +8,9 @@ import kotlinx.coroutines.launch
 import mx.backoders.bankodemia.common.dto.UserSignUpDto
 import mx.backoders.bankodemia.common.model.user.UserSignUpResponse
 import mx.backoders.bankodemia.common.service.ServiceNetwork
-import mx.backoders.bankodemia.common.utils.IdentityImageType
+import mx.backoders.bankodemia.common.utils.*
 import mx.backoders.bankodemia.common.utils.IdentityImageType.*
-import mx.backoders.bankodemia.common.utils.parseBirthdayForAPI
-import mx.backoders.bankodemia.common.utils.parseBirthdayForView
-import mx.backoders.bankodemia.common.utils.timeStampForImage
+import mx.backoders.bankodemia.common.utils.PasswordError.NONE
 import java.io.File
 import java.io.IOException
 import java.util.*
