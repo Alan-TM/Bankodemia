@@ -161,5 +161,6 @@ class CreatePassword : Fragment() {
         if(passwordTextField.isNotBlank())
             signUpViewModel.setUserPassword(passwordTextField)
         registerPasswordViewModel.clearMediators()
+        signUpViewModel.setErrorCode(0)
     }
 }

@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import mx.backoders.bankodemia.R
 import mx.backoders.bankodemia.common.utils.ErrorManager
+import mx.backoders.bankodemia.common.utils.checkForInternet
+import mx.backoders.bankodemia.common.utils.showSnack
 import mx.backoders.bankodemia.databinding.FragmentSendYourDatesBinding
 import mx.backoders.bankodemia.ui.singup.viewmodel.SignUpViewModel
 
@@ -33,11 +36,22 @@ class SendYourDates : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        errorManager = ErrorManager(view)
-        errorManager.isSignUpErrorManagerEnabled(true)
-        signUpViewModel.setOnBackPressedEnable(false)
-        signUpViewModel.makeSignUpCall()
-        initializeObservers()
+        if (!checkForInternet(requireActivity().applicationContext)) {
+            showSnack(
+                binding.root,
+                getString(R.string.error_no_internet),
+                Snackbar.LENGTH_INDEFINITE,
+                getString(R.string.accept)
+            ) {
+                findNavController().navigateUp()
+            }
+        }else{
+            errorManager = ErrorManager(view)
+            errorManager.isSignUpErrorManagerEnabled(true)
+            signUpViewModel.setOnBackPressedEnable(false)
+            signUpViewModel.makeSignUpCall()
+            initializeObservers()
+        }
     }
 
     private fun initializeObservers() {
@@ -49,15 +63,15 @@ class SendYourDates : Fragment() {
                 }
             }
 
-            userSignUpResponse.observe(viewLifecycleOwner){
-                Toast.makeText(requireContext(), it.data.user.name, Toast.LENGTH_LONG).show()
-            }
-
             errorResponse.observe(viewLifecycleOwner) {
                 transactionError(it)
-                setErrorCode(0)
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        signUpViewModel.errorResponse.removeObservers(this)
     }
 
     private fun transactionError(code: Int) {
