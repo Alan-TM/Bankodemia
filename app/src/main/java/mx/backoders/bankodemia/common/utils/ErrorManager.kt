@@ -17,11 +17,7 @@ class ErrorManager(val view: View) {
     operator fun invoke(errorCode: Int) {
         when (errorCode) {
             0 -> {}
-            400 -> showSnack(
-                view,
-                view.context.getString(R.string.error_bad_request),
-                LENGTH_INDEFINITE
-            )
+            400 -> sendUserToBackView(view)
             401 -> sendUserToLogin(view)
             402, 412 -> {
                 if (isSignUp) {
@@ -34,6 +30,17 @@ class ErrorManager(val view: View) {
                 view.context,
                 view.context.getString(R.string.error_something_happened)
             )
+        }
+    }
+
+    private fun sendUserToBackView(view: View) {
+        showSnack(
+            view,
+            view.context.getString(R.string.error_bad_request),
+            LENGTH_INDEFINITE,
+            view.context.getString(R.string.accept)
+        ){
+            view.findNavController().navigateUp()
         }
     }
 

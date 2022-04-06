@@ -41,14 +41,14 @@
     <string name="error_empty">Campo necesario</string>
     <string name="error_invalid_email">Email no válido</string>
     <string name="error_length">Error en la longitud</string>
-    <string name="error_bad_request">No es posible realizar la petición al servicio. Por favor, verifique los datos e intentelo de nuevo</string>
+    <string name="error_bad_request">Verifique el télefono e inténtelo de nuevo</string>
     <string name="error_no_authorized">Su sesión a expirado, por favor inicie sesión nuevamente</string>
-    <string name="error_no_money">No cuentas con el balance suficiente para realizar esta transacción</string>
+    <string name="error_no_money">No cuentas con el balance suficiente</string>
     <string name="error_something_happened">Algo ocurrió, intentalo de nuevo mas tarde</string>
     <string name="error_consecutive_numbers">No utilices números consecutivos</string>
     <string name="error_consecutive_characters">No utilices caracteres consecutivos</string>
     <string name="error_matching_password">Las contraseñas no coinciden</string>
-    <string name="error_min_length_password">La contraseña debe ser de almenos 6 caracteres</string>
+    <string name="error_min_length_password">La contraseña debe ser de al menos 6 caracteres</string>
     <string name="error_repeated_characters">No utilice caracteres repetidos</string>
     <string name="error_user_already_exists">El email o télefono ya se encuentran registrados</string>
 
