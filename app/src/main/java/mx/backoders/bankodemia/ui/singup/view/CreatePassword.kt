@@ -47,6 +47,11 @@ class CreatePassword : Fragment() {
         initializeObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        signUpViewModel.setOnBackPressedEnable(true)
+    }
+
     private fun initializeUI() {
         with(binding) {
             createpasswordCreatepasswordButton.setOnClickListener {

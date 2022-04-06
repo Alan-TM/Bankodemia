@@ -75,6 +75,5 @@ class SendYourDates : Fragment() {
 
     private fun transactionError(code: Int) {
         errorManager(code)
-        signUpViewModel.setOnBackPressedEnable(true)
     }
 }
