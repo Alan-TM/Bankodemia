@@ -64,14 +64,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <!--EditText-->
-
-
-    <!--Buttons-->
-
-
-    <!--Imagenes-->
-
 
     <ImageView
         android:id="@+id/return_login"
@@ -87,20 +79,18 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/ine_ine_card"
         android:elevation="0dp"
-
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/textt_view_password">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingVertical="8dp"
+            >
 
             <TextView
                 android:id="@+id/tvine"
@@ -132,16 +122,14 @@
         android:id="@+id/verify_identity_documentmigratory_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/ine_ine_card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingVertical="8dp">
 
             <TextView
                 android:id="@+id/tvdocumentmigration"
@@ -173,16 +161,15 @@
         android:id="@+id/verify_identity_passport_car"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textt_view_password"
         app:layout_constraintTop_toBottomOf="@+id/verify_identity_documentmigratory_card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingVertical="8dp"
+            >
 
             <TextView
                 android:id="@+id/tvdpassport"
