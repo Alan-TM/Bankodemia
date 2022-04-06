@@ -1,4 +1,3 @@
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,6 +19,15 @@
         tools:layout_editor_absoluteY="375dp" />
 
     <!--Textview-->
+    <ImageView
+        android:id="@+id/return_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_resource_return"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/yourname" />
 
     <TextView
         android:id="@+id/yourname"
@@ -34,143 +42,128 @@
         app:layout_constraintStart_toEndOf="@+id/return_login"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-
-    <TextView
-        android:id="@+id/nameaccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="@string/nombre"
-        android:textFontWeight="600"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/yourname"
-        app:layout_constraintTop_toBottomOf="@+id/yourname" />
-
-
-    <!--EditText-->
-
-    <!--
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_phone_edittext_til"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionemail">
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-        -->
-
-
-    <!--
-
-    <EditText
-        android:id="@+id/editTextPhone"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contact_info_container"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/style_edittext"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/textt_view_password"
-        app:layout_constraintStart_toStartOf="@+id/descriptionemail"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionemail" />
-
-    -->
-
-
-    <!--Buttons-->
-
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/addcontact_alias_tiet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="600"
-        android:background="@drawable/style_edittext"
-        android:fontFamily="@font/poppinsregular"
-        android:inputType="text"
-        android:textSize="14sp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@+id/yourname"
+        app:layout_constraintTop_toBottomOf="@+id/yourname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/addaccount_addcontact_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/turquesa"
-        android:fontFamily="@font/poppinsregular"
-        android:text="@string/agregar_contacto"
-        android:textAllCaps="false"
-        android:textFontWeight="600"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck" />
+        android:visibility="invisible"
+        tools:visibility="visible"
+        >
+
+        <TextView
+            android:id="@+id/nameaccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppinsregular"
+            android:text="@string/nombre"
+            android:textFontWeight="600"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
 
 
-    <!--Imagenes-->
-
-
-    <ImageView
-        android:id="@+id/return_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_resource_return"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        android:contentDescription="@string/back"
-        app:layout_constraintTop_toTopOf="@+id/yourname" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="@string/alias"
-        android:textFontWeight="600"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/nameaccount"
-        app:layout_constraintTop_toBottomOf="@+id/menu" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/menu"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:theme="@style/TextInputLayoutStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameaccount">
-
-
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/dropdown_user_names"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addcontact_alias_tiet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:textSize="14sp"
-            android:theme="@style/TextInputLayoutStyle"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="600"
-            android:inputType="none" />
+            android:background="@drawable/style_edittext"
+            android:fontFamily="@font/poppinsregular"
+            android:inputType="text"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppinsregular"
+            android:text="@string/alias"
+            android:textFontWeight="600"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/nameaccount"
+            app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="0dp"
+            android:theme="@style/TextInputLayoutStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameaccount">
+
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/dropdown_user_names"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="600"
+                android:fontFamily="@font/poppinsregular"
+                android:inputType="none"
+                android:textSize="14sp"
+                android:theme="@style/TextInputLayoutStyle" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addaccount_addcontact_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/turquesa"
+            android:fontFamily="@font/poppinsregular"
+            android:text="@string/agregar_contacto"
+            android:textAllCaps="false"
+            android:textFontWeight="600"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourname"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:id="@+id/addaccount_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

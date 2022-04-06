@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -59,6 +60,10 @@ class AddAccountFragment : Fragment() {
             dropdownUserNames.setOnItemClickListener { _, _, position, _ ->
                 addContactViewModel.getUserFromList(position)
             }
+
+            returnLogin.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
     }
 
@@ -81,6 +86,17 @@ class AddAccountFragment : Fragment() {
             errorResponse.observe(viewLifecycleOwner){
                 errorManager(it)
             }
+
+            isLoading.observe(viewLifecycleOwner){
+                loadingIndicator(it)
+            }
+        }
+    }
+
+    private fun loadingIndicator(visibility: Boolean) {
+        with(binding){
+            addaccountProgressBar.isVisible = visibility
+            contactInfoContainer.isVisible = !visibility
         }
     }
 
